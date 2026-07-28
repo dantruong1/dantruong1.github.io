@@ -3,186 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dan Truong's personal website — projects, music, quotes, writings, and recommendations.">
-  <title>Dan Truong — Personal Website</title>
+  <meta name="description" content="Dan Truong — Technical Product Manager 2 on Xbox @ Microsoft. UC Berkeley alum. Writings, quotes, and recommendations.">
+  <title>Dan Truong — Personal Home</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-  <!-- Background effects -->
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow--violet" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow--cyan" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow--pink" aria-hidden="true"></div>
-
-  <!-- Scroll progress bar -->
+  <div class="analog-grain" aria-hidden="true"></div>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <main>
+  <div class="site-wrap">
 
-    <!-- ======================== HERO ======================== -->
-    <section class="hero" id="hero">
-      <p class="hero__greeting" id="heroGreeting">Welcome</p>
-      <div class="hero__photo-wrapper" id="heroPhotoWrapper" style="display:none;">
-        <img class="hero__photo" id="heroPhoto" src="" alt="Profile photo">
+    <!-- ========== TOP NAV ========== -->
+    <nav class="topnav reveal">
+      <span class="topnav__brand">Dan Truong</span>
+      <div class="topnav__links">
+        <a href="writings.html" class="topnav__link">Writings</a>
+        <a href="quotes.html" class="topnav__link">Quotes</a>
+        <a href="recommendations.html" class="topnav__link">Reads</a>
+        <a href="https://www.linkedin.com/in/dantruong1/" target="_blank" rel="noopener" class="topnav__link topnav__link--cta">LinkedIn ↗</a>
       </div>
-      <h1 class="hero__name">
-        <span class="hero__name-gradient" id="heroName">Dan Truong</span>
-      </h1>
-      <p class="hero__tagline" id="heroTagline">
-        Builder, thinker, music lover. Exploring ideas across code, sound, and the written word.
-      </p>
-      <hr class="hero__divider">
+    </nav>
 
-      <nav class="toc" aria-label="Table of Contents">
-        <p class="toc__title">Explore</p>
-        <ul class="toc__list">
-          <li>
-            <a href="#about" class="toc__link" id="toc-about">
-              <span class="toc__link-number">01</span>
-              <span class="toc__link-label">About Me</span>
-              <span class="toc__link-arrow">→</span>
-            </a>
-          </li>
-          <li>
-            <a href="#projects" class="toc__link" id="toc-projects">
-              <span class="toc__link-number">02</span>
-              <span class="toc__link-label">Projects</span>
-              <span class="toc__link-arrow">→</span>
-            </a>
-          </li>
-          <li>
-            <a href="#music" class="toc__link" id="toc-music">
-              <span class="toc__link-number">03</span>
-              <span class="toc__link-label">Music</span>
-              <span class="toc__link-arrow">→</span>
-            </a>
-          </li>
-          <li>
-            <a href="#quotes" class="toc__link" id="toc-quotes">
-              <span class="toc__link-number">04</span>
-              <span class="toc__link-label">Quotes</span>
-              <span class="toc__link-arrow">→</span>
-            </a>
-          </li>
-          <li>
-            <a href="#writings" class="toc__link" id="toc-writings">
-              <span class="toc__link-number">05</span>
-              <span class="toc__link-label">Writings</span>
-              <span class="toc__link-arrow">→</span>
-            </a>
-          </li>
-          <li>
-            <a href="#recommendations" class="toc__link" id="toc-recommendations">
-              <span class="toc__link-number">06</span>
-              <span class="toc__link-label">Recommendations</span>
-              <span class="toc__link-arrow">→</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <!-- ========== HERO BENTO GRID ========== -->
+    <section class="hero-bento">
+
+      <!-- Left: Golden Gate Photo -->
+      <div class="hero-photo reveal">
+        <img src="images/sf-header.jpg" alt="Golden Gate Bridge at sunset" class="hero-photo__img">
+        <div class="hero-photo__overlay"></div>
+        <span class="hero-photo__badge">📍 San Francisco, CA</span>
+      </div>
+
+      <!-- Right Top: Intro Card -->
+      <div class="hero-intro reveal reveal-d1">
+        <span class="hero-intro__greeting">Hey there, I'm</span>
+        <h1 class="hero-intro__name">Dan Truong</h1>
+        <p class="hero-intro__role">Technical Product Manager 2, Xbox @ Microsoft<br>UC Berkeley '24 · Econ + Data Science & Public Policy</p>
+        <p class="hero-intro__bio">
+          I'm a product builder fascinated by how <strong>economics</strong> and <strong>technology</strong> intersect to shape human behavior. On the Xbox team at Microsoft, I turn complex system incentives and data insights into <strong>delightful consumer experiences</strong> that millions of players genuinely love.
+        </p>
+      </div>
+
+      <!-- Right Bottom: Sage Accent Card -->
+      <div class="hero-accent reveal reveal-d2">
+        <p class="hero-accent__quote">"The cold water does not get warmer if you jump late."</p>
+        <span class="hero-accent__attr">— one of many favorites</span>
+      </div>
+
     </section>
 
-    <!-- ======================== ABOUT ======================== -->
-    <section class="section" id="about">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__number">01</span>
-          <h2 class="section__title">About Me</h2>
-          <p class="section__subtitle">A little context on who I am and what drives me.</p>
-          <hr class="section__divider">
-        </header>
-        <div class="about__content reveal reveal-delay-1" id="aboutContent">
-          <!-- Rendered by JS -->
+    <!-- ========== THE COZY CORNER ========== -->
+    <section class="reveal">
+      <div class="section-header">
+        <span class="section-header__label">explore</span>
+        <h2 class="section-header__title">The Cozy Corner</h2>
+        <span class="section-header__rule"></span>
+      </div>
+
+      <div class="nav-grid">
+
+        <a href="projects.html" class="nav-card">
+          <div class="nav-card__icon nav-card__icon--sage">
+            <i class="ph ph-game-controller"></i>
+          </div>
+          <h3 class="nav-card__title">Projects & Code</h3>
+          <p class="nav-card__desc">Things I've built across web, data, and technology.</p>
+        </a>
+
+        <a href="writings.html" class="nav-card">
+          <div class="nav-card__icon nav-card__icon--warm">
+            <i class="ph ph-book-open-text"></i>
+          </div>
+          <h3 class="nav-card__title">Writings & Op-Eds</h3>
+          <p class="nav-card__desc">College op-eds, reflections, and personal essays.</p>
+        </a>
+
+        <a href="recommendations.html" class="nav-card">
+          <div class="nav-card__icon nav-card__icon--sage">
+            <i class="ph ph-lightbulb"></i>
+          </div>
+          <h3 class="nav-card__title">Recommendations</h3>
+          <p class="nav-card__desc">Paul Graham, investment philosophy, and curated reads.</p>
+        </a>
+
+        <a href="quotes.html" class="nav-card">
+          <div class="nav-card__icon nav-card__icon--cream">
+            <i class="ph ph-quotes"></i>
+          </div>
+          <h3 class="nav-card__title">Quote Collection</h3>
+          <p class="nav-card__desc">Words and thoughts that have stuck with me.</p>
+        </a>
+
+        <a href="music.html" class="nav-card">
+          <div class="nav-card__icon nav-card__icon--warm">
+            <i class="ph ph-music-notes"></i>
+          </div>
+          <h3 class="nav-card__title">Music & Sounds</h3>
+          <p class="nav-card__desc">Favorite albums, focus soundtracks, and deep cuts.</p>
+        </a>
+
+        <a href="about.html" class="nav-card">
+          <div class="nav-card__icon nav-card__icon--sage">
+            <i class="ph ph-coffee"></i>
+          </div>
+          <h3 class="nav-card__title">More About Me</h3>
+          <p class="nav-card__desc">Background, philosophy, and personal journey.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ========== VISUAL NOOK ========== -->
+    <section class="nook reveal">
+      <div class="section-header">
+        <span class="section-header__label">vibes</span>
+        <h2 class="section-header__title">Relax ~ Take it easy</h2>
+        <span class="section-header__rule"></span>
+      </div>
+
+      <div class="nook__grid">
+        <div class="nook__card">
+          <img src="images/cozy/sunset-meadow.png" alt="Golden sunset meadow" class="nook__img">
+          <p class="nook__caption">Golden hour in the meadow ☀️</p>
+        </div>
+        <div class="nook__card">
+          <img src="images/cozy/gameboy-vines.png" alt="Lo-fi vine-covered GameBoy" class="nook__img">
+          <p class="nook__caption">Adopt this cat? Yes · Yes 🐾</p>
         </div>
       </div>
     </section>
 
-    <!-- ======================== PROJECTS ======================== -->
-    <section class="section" id="projects">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__number">02</span>
-          <h2 class="section__title">Projects</h2>
-          <p class="section__subtitle">Things I've built or am currently working on.</p>
-          <hr class="section__divider">
-        </header>
-        <div class="projects__grid" id="projectsGrid">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
+  </div>
 
-    <!-- ======================== MUSIC ======================== -->
-    <section class="section" id="music">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__number">03</span>
-          <h2 class="section__title">Music</h2>
-          <p class="section__subtitle">What I'm listening to and the sounds that inspire me.</p>
-          <hr class="section__divider">
-        </header>
-        <div class="music__grid" id="musicGrid">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================== QUOTES ======================== -->
-    <section class="section" id="quotes">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__number">04</span>
-          <h2 class="section__title">Quotes</h2>
-          <p class="section__subtitle">Words that have stuck with me.</p>
-          <hr class="section__divider">
-        </header>
-        <div class="quotes__list" id="quotesList">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================== WRITINGS ======================== -->
-    <section class="section" id="writings">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__number">05</span>
-          <h2 class="section__title">Writings</h2>
-          <p class="section__subtitle">Essays, notes, and ideas I've put into words.</p>
-          <hr class="section__divider">
-        </header>
-        <div class="writings__list" id="writingsList">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================== RECOMMENDATIONS ======================== -->
-    <section class="section" id="recommendations">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__number">06</span>
-          <h2 class="section__title">Recommendations</h2>
-          <p class="section__subtitle">Books, tools, and content I genuinely recommend.</p>
-          <hr class="section__divider">
-        </header>
-        <div class="recs__grid" id="recsGrid">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-  </main>
+  <!-- Cozy Song Widget -->
+  <div class="lofi-widget" id="lofiWidget">
+    <button class="lofi-widget__toggle" id="lofiToggle" aria-label="Toggle Cozy Lo-Fi Song">
+      <i class="ph ph-music-notes" id="lofiIcon"></i>
+      <span class="lofi-widget__label" id="lofiLabel">Cozy Song: Off</span>
+    </button>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <p class="footer__text">
-      Built with <span class="footer__heart">♥</span> by Dan Truong
-    </p>
+    <div class="site-wrap">
+      <p class="footer__signature">crafted with care by Dan Truong ~ 2026</p>
+      <div class="footer__socials">
+        <a href="https://github.com" target="_blank" rel="noopener" class="footer__link">GitHub</a>
+        <a href="https://www.linkedin.com/in/dantruong1/" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+        <a href="https://substack.com/@dantruong12" target="_blank" rel="noopener" class="footer__link">Substack</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Back to Top -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <script src="data/content.js"></script>

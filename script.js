@@ -8,6 +8,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   loadContent();
   initScrollFeatures();
+  initLofiAudioWidget();
 });
 
 // =============================================
@@ -52,6 +53,7 @@ function renderHero(hero) {
 function renderAbout(about) {
   if (!about) return;
   const container = document.getElementById('aboutContent');
+  if (!container) return;
 
   let html = '';
 
@@ -76,6 +78,7 @@ function renderAbout(about) {
 function renderProjects(projects) {
   if (!projects || !projects.length) return;
   const grid = document.getElementById('projectsGrid');
+  if (!grid) return;
 
   grid.innerHTML = projects.map((project, i) => {
     const delay = `reveal-delay-${Math.min(i + 1, 4)}`;
@@ -100,45 +103,115 @@ function renderProjects(projects) {
 function renderMusic(music) {
   if (!music || !music.length) return;
   const grid = document.getElementById('musicGrid');
+  if (!grid) return;
 
   grid.innerHTML = music.map((item, i) => {
-    const delay = `reveal-delay-${Math.min(i + 1, 4)}`;
-    const visual = item.image
-      ? `<img class="music-card__cover" src="${esc(item.image)}" alt="${esc(item.title)}">`
-      : `<span class="music-card__emoji">${item.emoji || '🎵'}</span>`;
+    const delay = `reveal-d${Math.min((i % 4) + 1, 4)}`;
+    const rankTag = item.rank ? `<span class="music-card__rank">${esc(item.rank)}</span>` : '';
+    const badgeTag = item.badge ? `<span class="music-card__badge">${esc(item.badge)}</span>` : '';
+    const noteText = item.note ? `<p class="music-card__note">${esc(item.note)}</p>` : '';
+    const albumText = item.album ? ` · <em>${esc(item.album)}</em>` : '';
+    const isFeatured = item.rank ? 'music-card--featured' : '';
 
     return `
-      <article class="card music-card reveal ${delay}" id="music-${i + 1}">
-        ${visual}
-        <h3 class="music-card__title">${esc(item.title)}</h3>
-        <p class="music-card__artist">${esc(item.artist)}</p>
-        <span class="music-card__genre">${esc(item.genre)}</span>
+      <article class="music-card ${isFeatured} reveal ${delay}" id="music-${i + 1}">
+        <div class="music-card__header">
+          <div class="music-card__disc" title="Vinyl Disc">
+            <i class="ph ph-disc"></i>
+          </div>
+          <div class="music-card__meta">
+            <div class="music-card__badges">
+              ${rankTag}
+              ${badgeTag}
+            </div>
+            <h3 class="music-card__title">${esc(item.title)}</h3>
+            <p class="music-card__artist">${esc(item.artist)}${albumText}</p>
+          </div>
+        </div>
+        ${noteText}
+        <div class="music-card__footer">
+          <span class="music-card__genre"><i class="ph ph-music-notes"></i> ${esc(item.genre)}</span>
+          <span class="music-card__listen"><i class="ph ph-waveform"></i> Audio Vibe</span>
+        </div>
       </article>`;
   }).join('');
 }
 
+let visibleQuoteCount = 8;
+let allQuotesData = [];
+
 function renderQuotes(quotes) {
-  if (!quotes || !quotes.length) return;
+  if (quotes) allQuotesData = quotes;
+  if (!allQuotesData || !allQuotesData.length) return;
+
   const list = document.getElementById('quotesList');
+  if (!list) return;
+  const searchInput = document.getElementById('quoteSearch');
+  const loadMoreBtn = document.getElementById('loadMoreQuotes');
+  const footer = document.getElementById('quotesFooter');
 
-  list.innerHTML = quotes.map((quote, i) => {
-    const delay = `reveal-delay-${Math.min(i + 1, 4)}`;
-    const source = quote.source ? `, ${esc(quote.source)}` : '';
+  const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
 
-    return `
-      <blockquote class="card quote-card reveal ${delay}" id="quote-${i + 1}">
-        <div class="quote-card__icon">\u201C</div>
-        <p class="quote-card__text">${esc(quote.text)}</p>
-        <footer class="quote-card__attribution">
-          — <strong>${esc(quote.author)}</strong>${source}
-        </footer>
-      </blockquote>`;
-  }).join('');
+  const filtered = allQuotesData.filter(q => {
+    if (!query) return true;
+    return q.text.toLowerCase().includes(query) ||
+           (q.author && q.author.toLowerCase().includes(query)) ||
+           (q.source && q.source.toLowerCase().includes(query));
+  });
+
+  const quotesToShow = query ? filtered : filtered.slice(0, visibleQuoteCount);
+
+  if (quotesToShow.length === 0) {
+    list.innerHTML = `<p class="quotes__empty">No quotes matching "${esc(query)}"</p>`;
+  } else {
+    list.innerHTML = quotesToShow.map((quote, i) => {
+      const delay = `reveal-delay-${Math.min((i % 4) + 1, 4)}`;
+      const source = quote.source ? `, ${esc(quote.source)}` : '';
+      const authorText = quote.author && quote.author !== 'Anonymous' ? `— <strong>${esc(quote.author)}</strong>${source}` : '';
+
+      return `
+        <blockquote class="card quote-card reveal ${delay}" id="quote-${i + 1}">
+          <div class="quote-card__icon">\u201C</div>
+          <p class="quote-card__text">${esc(quote.text)}</p>
+          ${authorText ? `<footer class="quote-card__attribution">${authorText}</footer>` : ''}
+        </blockquote>`;
+    }).join('');
+  }
+
+  // Handle Load More visibility & text
+  if (footer && loadMoreBtn) {
+    if (query || visibleQuoteCount >= filtered.length) {
+      footer.style.display = 'none';
+    } else {
+      footer.style.display = 'block';
+      const remaining = filtered.length - visibleQuoteCount;
+      loadMoreBtn.textContent = `Show More Quotes (${remaining} remaining)`;
+    }
+  }
+
+  // Bind events once if needed
+  if (searchInput && !searchInput.dataset.bound) {
+    searchInput.dataset.bound = 'true';
+    searchInput.addEventListener('input', () => {
+      renderQuotes();
+      observeRevealElements();
+    });
+  }
+
+  if (loadMoreBtn && !loadMoreBtn.dataset.bound) {
+    loadMoreBtn.dataset.bound = 'true';
+    loadMoreBtn.addEventListener('click', () => {
+      visibleQuoteCount += 10;
+      renderQuotes();
+      observeRevealElements();
+    });
+  }
 }
 
 function renderWritings(writings) {
   if (!writings || !writings.length) return;
   const list = document.getElementById('writingsList');
+  if (!list) return;
 
   list.innerHTML = writings.map((writing, i) => {
     const delay = `reveal-delay-${Math.min(i + 1, 4)}`;
@@ -161,6 +234,7 @@ function renderWritings(writings) {
 function renderRecommendations(recs) {
   if (!recs || !recs.length) return;
   const grid = document.getElementById('recsGrid');
+  if (!grid) return;
 
   grid.innerHTML = recs.map((rec, i) => {
     const delay = `reveal-delay-${Math.min(i + 1, 4)}`;
@@ -287,4 +361,123 @@ function observeRevealElements() {
     el.classList.add('observed');
     revealObserver.observe(el);
   });
+}
+
+// =============================================
+// COZY LO-FI SONG SYNTHESIZER
+// =============================================
+
+let audioCtx = null;
+let songInterval = null;
+let crackleSource = null;
+let isSongPlaying = false;
+
+function initLofiAudioWidget() {
+  const toggleBtn = document.getElementById('lofiToggle');
+  const label = document.getElementById('lofiLabel');
+  const icon = document.getElementById('lofiIcon');
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    if (!isSongPlaying) {
+      startCozyLofiSong();
+      isSongPlaying = true;
+      toggleBtn.classList.add('active');
+      if (label) label.textContent = 'Cozy Song: Playing 🎵';
+      if (icon) icon.className = 'ph ph-music-notes-simple';
+    } else {
+      stopCozyLofiSong();
+      isSongPlaying = false;
+      toggleBtn.classList.remove('active');
+      if (label) label.textContent = 'Cozy Song: Off';
+      if (icon) icon.className = 'ph ph-music-notes';
+    }
+  });
+}
+
+function startCozyLofiSong() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!audioCtx) audioCtx = new AudioContext();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+    // 1. Vinyl Crackle
+    const bufferSize = audioCtx.sampleRate * 2;
+    const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = (Math.random() * 2 - 1) * 0.012;
+    }
+
+    crackleSource = audioCtx.createBufferSource();
+    crackleSource.buffer = noiseBuffer;
+    crackleSource.loop = true;
+
+    const crackleFilter = audioCtx.createBiquadFilter();
+    crackleFilter.type = 'lowpass';
+    crackleFilter.frequency.value = 800;
+
+    crackleSource.connect(crackleFilter);
+    crackleFilter.connect(audioCtx.destination);
+    crackleSource.start();
+
+    // 2. Lo-Fi Rhodes Piano Chords Loop (Cmaj7 - Am7 - Dm7 - G7)
+    const chords = [
+      [261.63, 329.63, 392.00, 493.88], // Cmaj7
+      [220.00, 261.63, 329.63, 392.00], // Am7
+      [293.66, 349.23, 440.00, 523.25], // Dm7
+      [196.00, 246.94, 293.66, 349.23]  // G7
+    ];
+
+    let chordStep = 0;
+
+    function playChord() {
+      if (!isSongPlaying) return;
+      const currentChord = chords[chordStep % chords.length];
+      chordStep++;
+
+      currentChord.forEach(freq => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine'; // Soft warm Rhodes tone
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(550, audioCtx.currentTime);
+
+        // Soft attack & release envelope
+        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 0.15);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.8);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 2.9);
+      });
+    }
+
+    playChord();
+    songInterval = setInterval(playChord, 3000); // 3-second chord loop
+  } catch (err) {
+    console.error('Lofi song synth error:', err);
+  }
+}
+
+function stopCozyLofiSong() {
+  if (songInterval) {
+    clearInterval(songInterval);
+    songInterval = null;
+  }
+  if (crackleSource) {
+    try {
+      crackleSource.stop();
+      crackleSource.disconnect();
+    } catch (e) {}
+    crackleSource = null;
+  }
 }

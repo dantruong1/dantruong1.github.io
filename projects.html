@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Dan Truong — Things built across web, code, and tech.">
+  <title>Projects — Dan Truong</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <div class="analog-grain" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--cyan" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--pink" aria-hidden="true"></div>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <main>
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="subpage-header">
+          <div class="subpage-nav">
+            <a href="index.html" class="subpage-nav__back">← Back to Personal Home 🏡</a>
+            <span class="subpage-nav__brand">Dan Truong</span>
+          </div>
+          <div class="section__header reveal">
+            <h1 class="dayjob-card__title" style="font-size: var(--fs-3xl);">Projects & Code</h1>
+            <p class="cozy-hub__subtitle">Things I've built or am currently crafting.</p>
+          </div>
+        </header>
+
+        <div class="recs__grid" id="projectsGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lofi-widget" id="lofiWidget">
+    <button class="lofi-widget__toggle" id="lofiToggle" aria-label="Toggle Cozy Lo-Fi Song">
+      <i class="ph ph-music-notes" id="lofiIcon"></i>
+      <span class="lofi-widget__label" id="lofiLabel">Cozy Song: Off</span>
+    </button>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__signature">crafted with care by Dan Truong ~ 2026</p>
+      <div class="footer__socials">
+        <a href="https://github.com" target="_blank" rel="noopener" class="footer__link">GitHub</a> •
+        <a href="https://www.linkedin.com/in/dantruong1/" target="_blank" rel="noopener" class="footer__link">LinkedIn</a> •
+        <a href="https://substack.com/@dantruong12" target="_blank" rel="noopener" class="footer__link">Substack</a> •
+        <a href="mailto:dan@example.com" class="footer__link">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="data/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
