@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment text-espresso font-sans antialiased min-h-screen;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: #d2dcc8;
+    color: #2e2722;
+  }
+}
+
+/* ============================================================
+   ANALOG GRAIN OVERLAY — subtle paper / canvas texture
+   ============================================================ */
+.analog-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.028;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8a9a7b, #d49b5c, #b86f52);
+  z-index: 1000;
+  transform-origin: left;
+  transform: scaleX(0);
+  width: 100%;
+  transition: transform 0.1s linear;
+}
+
+/* ============================================================
+   WASHI TAPE — artsy masking-tape accents
+   ============================================================ */
+.washi-tape {
+  position: absolute;
+  height: 22px;
+  width: 80px;
+  background: linear-gradient(135deg, rgba(212, 155, 92, 0.25), rgba(242, 234, 224, 0.7));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(1px);
+  z-index: 20;
+  border-radius: 1px;
+}
+
+.washi-tape::before,
+.washi-tape::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 3px,
+    rgba(184, 111, 82, 0.25) 3px,
+    rgba(184, 111, 82, 0.25) 5px
+  );
+}
+.washi-tape::before { left: 2px; }
+.washi-tape::after { right: 2px; }
+
+.washi-tape-top-left {
+  top: -10px;
+  left: 18px;
+  transform: rotate(-5deg);
+}
+
+.washi-tape-top-right {
+  top: -10px;
+  right: 18px;
+  transform: rotate(4deg);
+}
+
+.washi-tape-bottom {
+  bottom: -10px;
+  right: 30px;
+  transform: rotate(-2deg);
+}
+
+/* ============================================================
+   POLAROID FRAME — photo card with bottom caption area
+   ============================================================ */
+.polaroid-frame {
+  background-color: #fffdf9;
+  padding: 10px 10px 32px 10px;
+  box-shadow:
+    0 8px 24px rgba(46, 39, 34, 0.10),
+    0 2px 6px rgba(46, 39, 34, 0.06);
+  border: 1px solid rgba(138, 154, 123, 0.12);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.polaroid-frame:hover {
+  transform: translateY(-6px) rotate(0.8deg);
+  box-shadow:
+    0 18px 44px rgba(46, 39, 34, 0.14),
+    0 4px 8px rgba(46, 39, 34, 0.06);
+}
+
+/* ============================================================
+   ORGANIC SECTION DIVIDER — a wavy hand-drawn line
+   ============================================================ */
+.organic-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(138, 154, 123, 0.3) 15%,
+    rgba(184, 111, 82, 0.2) 50%,
+    rgba(138, 154, 123, 0.3) 85%,
+    transparent 100%
+  );
+  border-radius: 99px;
+}
+
+/* ============================================================
+   DOODLE BORDER — hand-drawn style card border
+   ============================================================ */
+.doodle-border {
+  border: 2px solid transparent;
+  border-image: repeating-linear-gradient(
+    90deg,
+    rgba(138, 154, 123, 0.3) 0px,
+    rgba(138, 154, 123, 0.3) 6px,
+    transparent 6px,
+    transparent 10px
+  ) 2;
+}
+
+/* ============================================================
+   COFFEE STEAM — animated steam rising wisps
+   ============================================================ */
+.coffee-steam {
+  position: relative;
+}
+.coffee-steam::before,
+.coffee-steam::after {
+  content: '~';
+  position: absolute;
+  font-size: 14px;
+  color: rgba(138, 154, 123, 0.4);
+  animation: steam 3s ease-in-out infinite;
+}
+.coffee-steam::before {
+  top: -14px;
+  left: 30%;
+  animation-delay: 0s;
+}
+.coffee-steam::after {
+  top: -12px;
+  left: 60%;
+  animation-delay: 1s;
+}
+
+@keyframes steam {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  50% { opacity: 0.35; transform: translateY(-10px) scale(1.15); }
+  100% { opacity: 0; transform: translateY(-22px) scale(1.3); }
+}
+
+/* ============================================================
+   EQUALIZER BARS — for lofi player "playing" state
+   ============================================================ */
+.eq-bar {
+  display: inline-block;
+  width: 3px;
+  border-radius: 2px;
+  background-color: currentColor;
+  transform-origin: bottom;
+}
+
+/* ============================================================
+   STATIONERY DOT — decorative bullet between nav items
+   ============================================================ */
+.nav-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: rgba(140, 128, 119, 0.35);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HOVER UNDERLINE — animated underline from left
+   ============================================================ */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8a9a7b, #b86f52);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   NO SCROLLBAR UTILITY
+   ============================================================ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #d2dcc8;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: #8a9a7b; }
+
+/* ============================================================
+   NUMBER CIRCLE — decorative numbered badge
+   ============================================================ */
+.number-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   ALBUM ART PLACEHOLDER — gradient background per genre
+   ============================================================ */
+.album-art-placeholder {
+  background: linear-gradient(135deg, #2e2722, #544a42, #6b5e52);
+  position: relative;
+  overflow: hidden;
+}
+.album-art-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(212, 155, 92, 0.3), transparent 60%);
+}
