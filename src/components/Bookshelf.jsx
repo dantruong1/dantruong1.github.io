@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Sparkles, X } from 'lucide-react';
+import { BookOpen, Sparkles, ExternalLink, X } from 'lucide-react';
 import { Badge } from './ui/badge';
 
 // Stylized physical book color palettes (spine & cover colors)
@@ -10,7 +10,6 @@ const BOOK_PALETTES = [
   { bg: 'bg-[#2e2722]', border: 'border-[#1e1916]', text: 'text-[#e8d5c0]', accent: 'border-matcha/40' },    // Espresso
   { bg: 'bg-[#d49b5c]', border: 'border-[#b58045]', text: 'text-[#2e2722]', accent: 'border-espresso/30' },  // Warm Amber
   { bg: 'bg-[#5c6b73]', border: 'border-[#424e54]', text: 'text-[#f7f3ec]', accent: 'border-terracotta/40' }, // Slate Blue
-  { bg: 'bg-[#6b5e52]', border: 'border-[#52473d]', text: 'text-[#f5ece2]', accent: 'border-amber-warm/40' }, // Mocha
 ];
 
 export function Bookshelf({ content }) {
@@ -39,16 +38,16 @@ export function Bookshelf({ content }) {
       </div>
 
       <p className="text-[14px] text-espresso-muted font-sans leading-relaxed max-w-2xl">
-        A real-life digital bookshelf of books and essays that have shaped how I think. Click or tap any book spine to pull it from the shelf and read my notes!
+        A curated digital bookshelf of books and essays that have fundamentally shaped how I think. Click or tap any volume to pull it off the shelf and open its reading link!
       </p>
 
       {/* Single Unified Wooden Bookshelf */}
       <div className="relative pt-8 pb-3 px-6 bg-card-warm/80 rounded-cozy-lg border border-espresso/10 shadow-cozy">
         {/* Single Row of Book Spines */}
-        <div className="flex items-end justify-start gap-3 sm:gap-4 overflow-x-auto no-scrollbar min-h-[220px] pb-1 px-2">
+        <div className="flex items-end justify-start gap-4 sm:gap-6 overflow-x-auto no-scrollbar min-h-[220px] pb-1 px-2">
           {allBooks.map((item, itemIdx) => {
             const palette = BOOK_PALETTES[itemIdx % BOOK_PALETTES.length];
-            const heightClass = itemIdx % 3 === 0 ? 'h-[190px]' : itemIdx % 3 === 1 ? 'h-[205px]' : 'h-[175px]';
+            const heightClass = itemIdx % 2 === 0 ? 'h-[200px]' : 'h-[185px]';
             const isSelected = selectedBook?.title === item.title;
 
             return (
@@ -57,7 +56,7 @@ export function Bookshelf({ content }) {
                 whileHover={{ y: -16, rotateZ: -2, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setSelectedBook({ ...item, palette })}
-                className={`relative ${heightClass} w-[44px] sm:w-[50px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-3 px-1.5 select-none`}
+                className={`relative ${heightClass} w-[52px] sm:w-[58px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-3 px-2 select-none`}
                 style={{
                   boxShadow: isSelected
                     ? '0 12px 28px rgba(46,39,34,0.3)'
@@ -73,7 +72,7 @@ export function Bookshelf({ content }) {
                 {/* Vertical Spine Title */}
                 <div className="flex-1 flex items-center justify-center my-1 overflow-hidden">
                   <span
-                    className={`font-serif text-[11px] sm:text-[12px] font-bold ${palette.text} tracking-wider truncate uppercase`}
+                    className={`font-serif text-[12px] sm:text-[13px] font-bold ${palette.text} tracking-wider truncate uppercase`}
                     style={{
                       writingMode: 'vertical-rl',
                       transform: 'rotate(180deg)',
@@ -86,7 +85,7 @@ export function Bookshelf({ content }) {
 
                 {/* Spine Author / Bottom Gold Line */}
                 <div className={`w-full border-b ${palette.accent} mb-1 opacity-60`} />
-                <span className={`text-[8px] font-mono ${palette.text} text-center opacity-70 truncate px-0.5`}>
+                <span className={`text-[9px] font-mono ${palette.text} text-center opacity-75 truncate px-0.5`}>
                   {item.author ? item.author.split(' ').pop() : 'Essay'}
                 </span>
               </motion.div>
@@ -123,15 +122,18 @@ export function Bookshelf({ content }) {
 
               {/* Book Front Cover Preview */}
               <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
-                <div
-                  className={`w-28 h-40 ${selectedBook.palette.bg} ${selectedBook.palette.border} border-2 rounded-r-md rounded-l-sm shadow-xl shrink-0 p-3 flex flex-col justify-between relative overflow-hidden`}
+                <a
+                  href={selectedBook.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-32 h-44 ${selectedBook.palette.bg} ${selectedBook.palette.border} border-2 rounded-r-md rounded-l-sm shadow-xl shrink-0 p-4 flex flex-col justify-between relative overflow-hidden group/cover cursor-pointer hover:scale-105 transition-transform duration-300`}
                 >
                   <div className="absolute left-1 top-0 bottom-0 w-1.5 bg-black/20" />
                   <span className="text-[9px] font-mono text-white/60 uppercase tracking-widest">
                     Volume
                   </span>
                   <div>
-                    <h5 className={`font-serif text-sm font-bold ${selectedBook.palette.text} leading-tight mb-1`}>
+                    <h5 className={`font-serif text-sm font-bold ${selectedBook.palette.text} leading-tight mb-1 group-hover/cover:underline`}>
                       {selectedBook.title}
                     </h5>
                     {selectedBook.author && (
@@ -140,12 +142,12 @@ export function Bookshelf({ content }) {
                       </span>
                     )}
                   </div>
-                  <Sparkles className="w-4 h-4 text-amber-warm self-end opacity-80" />
-                </div>
+                  <ExternalLink className="w-4 h-4 text-white/80 self-end" />
+                </a>
 
                 <div className="flex-1 min-w-0">
                   <Badge variant="terracotta" className="mb-2">
-                    {selectedBook.category}
+                    Canonical Reading
                   </Badge>
                   <h4 className="font-serif text-2xl font-bold text-espresso leading-snug mb-1">
                     {selectedBook.title}
@@ -155,22 +157,29 @@ export function Bookshelf({ content }) {
                       by {selectedBook.author}
                     </span>
                   )}
-                  <p className="text-xs sm:text-sm text-espresso-light leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-espresso-light leading-relaxed font-sans mb-4">
                     {selectedBook.note}
                   </p>
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-4 border-t border-espresso/10 flex items-center justify-between">
-                <span className="text-xs font-hand text-terracotta text-base">
-                  Recommended by Dan Truong
-                </span>
+              {/* Action Buttons */}
+              <div className="pt-4 border-t border-espresso/10 flex items-center justify-between gap-3">
+                <a
+                  href={selectedBook.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-matcha hover:bg-matcha-dark px-4 py-2 rounded-full transition-colors font-medium shadow-sm"
+                >
+                  <span>Read / Open Volume</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
                 <button
                   onClick={() => setSelectedBook(null)}
-                  className="text-xs font-mono text-matcha-dark bg-matcha-soft hover:bg-matcha-light px-4 py-2 rounded-full transition-colors font-medium"
+                  className="text-xs font-mono text-espresso-muted hover:text-espresso px-3 py-1.5 rounded-full transition-colors"
                 >
-                  Close Book
+                  Close
                 </button>
               </div>
             </motion.div>

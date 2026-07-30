@@ -29,8 +29,8 @@ export const SITE_CONTENT = {
     {
       id: "personal-website",
       tag: "Web & Design",
-      title: "Cozy Lofi Personal Website",
-      description: "A hand-crafted personal website built with React, Vite, Framer Motion, and Tailwind CSS. Features tactile artsy aesthetics, lofi audio controls, 3D tilt cards, and curated essays.",
+      title: "Cozy Lofi Personal Sanctuary",
+      description: "A hand-crafted digital sanctuary built with React, Vite, Framer Motion, and Tailwind CSS. Features tactile artsy aesthetics, lofi audio controls, 3D tilt cards, and curated essays.",
       tech: ["React", "Vite", "Framer Motion", "Tailwind CSS", "shadcn/ui"],
       url: "https://github.com/dantruong1",
       featured: true
@@ -117,25 +117,38 @@ export const SITE_CONTENT = {
   ],
   recommendations: [
     {
-      category: "Paul Graham Essays",
+      category: "Canonical Readings",
       items: [
-        { title: "How to Do Great Work", note: "Essential guide on curiosity, persistence, and finding your natural inclination." },
-        { title: "Maker's Schedule, Manager's Schedule", note: "A classic breakdown on time management and focus blocks." },
-        { title: "Do Things That Don't Scale", note: "The foundational mindset for shipping products and understanding users." }
-      ]
-    },
-    {
-      category: "Investment & Strategy",
-      items: [
-        { title: "The Most Important Thing", author: "Howard Marks", note: "Second-order thinking, risk management, and market psychology." },
-        { title: "Thinking, Fast and Slow", author: "Daniel Kahneman", note: "Cognitive biases, decision heuristics, and human behavior." }
-      ]
-    },
-    {
-      category: "Product & Technology",
-      items: [
-        { title: "The Design of Everyday Things", author: "Don Norman", note: "Affordances, signifiers, and intuitive interaction design." },
-        { title: "Zero to One", author: "Peter Thiel", note: "Monopoly economics, technological progress, and zero-to-one thinking." }
+        {
+          title: "Animal Farm",
+          author: "George Orwell",
+          note: "A timeless allegorical novella on power, corruption, propaganda, and human nature.",
+          url: "https://www.goodreads.com/book/show/170448.Animal_Farm"
+        },
+        {
+          title: "Life is Short",
+          author: "Paul Graham",
+          note: "A profound reflection on time, priorities, and eliminating bullshit to focus on what truly matters.",
+          url: "https://paulgraham.com/vb.html"
+        },
+        {
+          title: "How to Do Great Work",
+          author: "Paul Graham",
+          note: "The definitive guide on curiosity, persistence, finding natural inclination, and doing work that lasts.",
+          url: "https://paulgraham.com/greatwork.html"
+        },
+        {
+          title: "Having Kids",
+          author: "Paul Graham",
+          note: "Reflections on trade-offs, perspective shifts, and the depth of love and meaning that comes with parenthood.",
+          url: "https://paulgraham.com/kids.html"
+        },
+        {
+          title: "The Inner Game of Tennis",
+          author: "W. Timothy Gallwey",
+          note: "The classic guide to overcoming self-doubt, non-judgmental awareness, and achieving peak performance state (Self 1 vs Self 2).",
+          url: "https://www.goodreads.com/book/show/905.The_Inner_Game_of_Tennis"
+        }
       ]
     }
   ],
