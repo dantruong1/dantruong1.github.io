@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   BASE LAYER
+   BASE LAYER & DARK MODE AUTOMATIC COLOR OVERRIDES
    ============================================================ */
 @layer base {
   html {
@@ -13,14 +13,15 @@
   }
 
   body {
-    @apply bg-parchment text-espresso font-sans antialiased min-h-screen transition-colors duration-500;
+    @apply bg-parchment text-espresso font-sans antialiased min-h-screen transition-colors duration-300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   .dark body {
-    @apply bg-night-bg text-night-text;
+    background-color: #1c1714 !important;
+    color: #f7f3ec !important;
   }
 
   ::selection {
@@ -32,6 +33,69 @@
     background: #556347;
     color: #f7f3ec;
   }
+}
+
+/* ============================================================
+   GLOBAL DARK MODE TEXT & SURFACE UTILITY OVERRIDES
+   ============================================================ */
+.dark .text-espresso {
+  color: #f7f3ec !important;
+}
+
+.dark .text-espresso-light {
+  color: #e2d7cb !important;
+}
+
+.dark .text-espresso-muted {
+  color: #c5b8ac !important;
+}
+
+.dark .bg-card {
+  background-color: #26201b !important;
+  border-color: rgba(247, 243, 236, 0.12) !important;
+}
+
+.dark .bg-card-warm {
+  background-color: #2b241e !important;
+  border-color: rgba(247, 243, 236, 0.12) !important;
+}
+
+.dark .bg-card-alt {
+  background-color: #332b24 !important;
+  border-color: rgba(247, 243, 236, 0.12) !important;
+}
+
+.dark .bg-parchment-dark {
+  background-color: #383029 !important;
+  color: #e2d7cb !important;
+}
+
+.dark .bg-matcha-soft {
+  background-color: rgba(85, 99, 71, 0.35) !important;
+}
+
+.dark .text-matcha-dark {
+  color: #a3b593 !important;
+}
+
+.dark .bg-terracotta-soft {
+  background-color: rgba(184, 111, 82, 0.3) !important;
+}
+
+.dark .text-terracotta {
+  color: #d4886a !important;
+}
+
+.dark .bg-mocha-soft {
+  background-color: rgba(107, 94, 82, 0.35) !important;
+}
+
+.dark .bg-amber-light {
+  background-color: rgba(212, 155, 92, 0.25) !important;
+}
+
+.dark .text-amber-warm {
+  color: #e6b377 !important;
 }
 
 /* ============================================================
@@ -86,8 +150,8 @@
 }
 
 .dark .washi-tape {
-  background: linear-gradient(135deg, rgba(184, 111, 82, 0.35), rgba(51, 43, 36, 0.85));
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(184, 111, 82, 0.4), rgba(51, 43, 36, 0.9));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .washi-tape::before,
@@ -139,11 +203,11 @@
   position: relative;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.4s ease,
-              background-color 0.5s ease;
+              background-color 0.3s ease;
 }
 
 .dark .polaroid-frame {
-  background-color: #26201b;
+  background-color: #26201b !important;
   border-color: rgba(163, 181, 147, 0.2);
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.4),
@@ -311,6 +375,12 @@
   font-size: 11px;
   font-weight: 700;
   flex-shrink: 0;
+}
+
+.dark .number-circle {
+  background-color: #332b24 !important;
+  color: #c5b8ac !important;
+  border-color: rgba(247, 243, 236, 0.15) !important;
 }
 
 /* ============================================================
