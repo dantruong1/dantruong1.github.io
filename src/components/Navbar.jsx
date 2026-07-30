@@ -19,30 +19,30 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-4 z-50 mb-10 w-full"
+      className="sticky top-3 sm:top-4 z-50 mb-8 sm:mb-10 w-full"
     >
-      <div className="bg-card/90 dark:bg-night-card/90 backdrop-blur-md border border-espresso/8 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy px-4 sm:px-5 py-2.5 flex items-center justify-between gap-3 md:gap-4">
+      <div className="bg-card/90 dark:bg-night-card/90 backdrop-blur-md border border-espresso/8 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3 md:gap-4 w-full">
         {/* Brand */}
         <button
           onClick={() => setActiveTab('home')}
-          className="flex items-center gap-2.5 group text-left shrink-0"
+          className="flex items-center gap-2 group text-left shrink-0"
         >
           {/* Coffee cup doodle */}
-          <span className="w-8 h-8 rounded-full bg-mocha-soft dark:bg-night-card-alt flex items-center justify-center group-hover:bg-matcha-soft dark:group-hover:bg-matcha-dark transition-colors duration-300">
-            <Coffee className="w-4 h-4 text-terracotta dark:text-terracotta-glow group-hover:text-matcha dark:group-hover:text-matcha-glow transition-colors duration-300" />
+          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-mocha-soft dark:bg-night-card-alt flex items-center justify-center group-hover:bg-matcha-soft dark:group-hover:bg-matcha-dark transition-colors duration-300">
+            <Coffee className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-terracotta dark:text-terracotta-glow group-hover:text-matcha dark:group-hover:text-matcha-glow transition-colors duration-300" />
           </span>
           <div className="hidden sm:block">
-            <span className="font-serif text-xl sm:text-2xl font-bold text-espresso dark:text-night-text group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors leading-none block tracking-tight">
+            <span className="font-serif text-lg sm:text-xl font-bold text-espresso dark:text-night-text group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors leading-none block tracking-tight">
               Dan Truong
             </span>
-            <span className="text-[10px] font-mono text-espresso-muted dark:text-night-muted leading-none">
+            <span className="text-[9px] font-mono text-espresso-muted dark:text-night-muted leading-none hidden lg:block">
               xbox @ microsoft
             </span>
           </div>
         </button>
 
-        {/* Navigation pills — horizontal layout */}
-        <nav className="flex items-center gap-0.5 md:gap-1 overflow-x-auto no-scrollbar py-0.5 max-w-full">
+        {/* Navigation pills — horizontal layout sitting cleanly without scroll */}
+        <nav className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar py-0.5 justify-center flex-1 max-w-full">
           {navItems.map((item, idx) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -51,7 +51,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
                 {idx > 0 && <span className="nav-dot mx-0.5 hidden xl:block" />}
                 <button
                   onClick={() => setActiveTab(item.id)}
-                  className={`relative px-2.5 sm:px-3 py-1.5 rounded-full text-[12px] sm:text-[13px] font-medium transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap ${
+                  className={`relative px-2 sm:px-2.5 md:px-3 py-1.5 rounded-full text-[11px] sm:text-[12px] md:text-[12.5px] font-medium transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                     isActive
                       ? 'text-white'
                       : 'text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text hover:bg-parchment-dark/60 dark:hover:bg-night-card-alt/80'
@@ -65,8 +65,8 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
                       transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                     />
                   )}
-                  <Icon className="w-3.5 h-3.5" />
-                  <span className="hidden md:inline">{item.label}</span>
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
+                  <span className="inline">{item.label}</span>
                 </button>
               </React.Fragment>
             );
@@ -74,17 +74,17 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
         </nav>
 
         {/* Controls: Dark Mode Toggle & Lofi Toggle */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Dark Espresso Mode Toggle */}
           <button
             onClick={toggleDarkMode}
-            className="w-8 h-8 rounded-full bg-parchment-dark dark:bg-night-card-alt text-espresso dark:text-amber-warm flex items-center justify-center hover:scale-105 transition-all shadow-xs border border-espresso/5 dark:border-night-border"
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-parchment-dark dark:bg-night-card-alt text-espresso dark:text-amber-warm flex items-center justify-center hover:scale-105 transition-all shadow-xs border border-espresso/5 dark:border-night-border"
             title={isDarkMode ? 'Switch to Light Parchment' : 'Switch to Dark Espresso'}
           >
             {isDarkMode ? (
-              <Sun className="w-4 h-4 text-amber-warm" />
+              <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-warm" />
             ) : (
-              <Moon className="w-4 h-4 text-espresso" />
+              <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-espresso" />
             )}
           </button>
 
@@ -93,7 +93,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
             variant={isPlaying ? 'terracotta' : 'outline'}
             size="sm"
             onClick={toggleLofi}
-            className="hidden md:inline-flex items-center gap-1.5 text-[11px] font-mono shrink-0"
+            className="hidden lg:inline-flex items-center gap-1.5 text-[11px] font-mono shrink-0 h-8 px-3"
           >
             {isPlaying ? (
               <span className="flex items-center gap-1.5">

@@ -74,24 +74,16 @@ export const SITE_CONTENT = {
       date: "Dec 2022",
       tag: "Op-Ed · Daily Cal",
       title: "A Look Into Economic Disparity Among Asian Americans",
-      excerpt: "An op-ed written during college for The Daily Californian examining economic disparity, wealth inequality, and systemic factors across Asian American communities.",
+      excerpt: "An op-ed published during college for The Daily Californian examining economic disparity, wealth inequality, intra-group variance, and systemic factors across Asian American communities.",
       url: "https://dailycal.org/2022/12/07/a-look-into-economic-disparity-among-asian-americans"
     },
     {
-      id: "tech-economics",
-      date: "Jul 2026",
-      tag: "Essay · Tech & Society",
-      title: "Incentive Alignment in Modern Digital Ecosystems",
-      excerpt: "Reflections on how platforms shape human decision-making, choice architecture, and market design in consumer software.",
-      url: "#"
-    },
-    {
-      id: "berkeley-reflections",
-      date: "May 2024",
-      tag: "Personal Reflection",
-      title: "Lessons From Four Years at UC Berkeley",
-      excerpt: "Thoughts on navigating economics, data science, public policy, and building enduring friendships in Berkeley.",
-      url: "#"
+      id: "substack-essays",
+      date: "Substack · @dantruong12",
+      tag: "Substack Publication",
+      title: "Dan's Substack — Essays & Reflections",
+      excerpt: "Long-form essays, product reflections, and thoughts on economics, technology, personal growth, and culture published regularly on Substack.",
+      url: "https://substack.com/@dantruong12/p-204045676"
     }
   ],
   quotes: [
