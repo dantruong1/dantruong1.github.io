@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Bookmark, Sparkles, ExternalLink, X } from 'lucide-react';
-import { Card } from './ui/card';
+import { BookOpen, Sparkles, X } from 'lucide-react';
 import { Badge } from './ui/badge';
 
 // Stylized physical book color palettes (spine & cover colors)
@@ -17,11 +16,16 @@ const BOOK_PALETTES = [
 export function Bookshelf({ content }) {
   const [selectedBook, setSelectedBook] = useState(null);
 
-  // Flatten or organize books by shelf category
-  const categories = content.recommendations;
+  // Flatten all books across all categories into a single single-row list
+  const allBooks = content.recommendations.flatMap((cat) =>
+    cat.items.map((item) => ({
+      ...item,
+      category: cat.category,
+    }))
+  );
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center gap-4">
         <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10 flex items-center gap-1.5">
@@ -29,89 +33,71 @@ export function Bookshelf({ content }) {
           The Bookshelf
         </span>
         <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso tracking-tight">
-          Dan's Interactive Bookshelf
+          Dan's Bookshelf
         </h3>
         <div className="organic-divider flex-1" />
       </div>
 
-      <p className="text-[14px] text-espresso-muted font-sans leading-relaxed max-w-2xl -mt-6">
+      <p className="text-[14px] text-espresso-muted font-sans leading-relaxed max-w-2xl">
         A real-life digital bookshelf of books and essays that have shaped how I think. Click or tap any book spine to pull it from the shelf and read my notes!
       </p>
 
-      {/* Shelves Container */}
-      <div className="space-y-12">
-        {categories.map((cat, catIdx) => (
-          <div key={catIdx} className="space-y-4">
-            {/* Shelf Category Header */}
-            <div className="flex items-center gap-2 px-2">
-              <Bookmark className="w-4 h-4 text-terracotta" />
-              <h4 className="font-serif text-lg font-bold text-espresso tracking-tight">
-                {cat.category}
-              </h4>
-              <span className="text-xs font-mono text-espresso-muted">
-                ({cat.items.length} volumes)
-              </span>
-            </div>
+      {/* Single Unified Wooden Bookshelf */}
+      <div className="relative pt-8 pb-3 px-6 bg-card-warm/80 rounded-cozy-lg border border-espresso/10 shadow-cozy">
+        {/* Single Row of Book Spines */}
+        <div className="flex items-end justify-start gap-3 sm:gap-4 overflow-x-auto no-scrollbar min-h-[220px] pb-1 px-2">
+          {allBooks.map((item, itemIdx) => {
+            const palette = BOOK_PALETTES[itemIdx % BOOK_PALETTES.length];
+            const heightClass = itemIdx % 3 === 0 ? 'h-[190px]' : itemIdx % 3 === 1 ? 'h-[205px]' : 'h-[175px]';
+            const isSelected = selectedBook?.title === item.title;
 
-            {/* Wooden Shelf Structure */}
-            <div className="relative pt-8 pb-3 px-6 bg-card-warm/80 rounded-cozy-lg border border-espresso/10 shadow-cozy">
-              {/* Books Spines Row */}
-              <div className="flex items-end justify-start gap-3 sm:gap-4 overflow-x-auto no-scrollbar min-h-[220px] pb-1 px-2">
-                {cat.items.map((item, itemIdx) => {
-                  const palette = BOOK_PALETTES[(catIdx * 3 + itemIdx) % BOOK_PALETTES.length];
-                  const heightClass = itemIdx % 3 === 0 ? 'h-[190px]' : itemIdx % 3 === 1 ? 'h-[205px]' : 'h-[175px]';
-                  const isSelected = selectedBook?.title === item.title;
+            return (
+              <motion.div
+                key={itemIdx}
+                whileHover={{ y: -16, rotateZ: -2, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setSelectedBook({ ...item, palette })}
+                className={`relative ${heightClass} w-[44px] sm:w-[50px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-3 px-1.5 select-none`}
+                style={{
+                  boxShadow: isSelected
+                    ? '0 12px 28px rgba(46,39,34,0.3)'
+                    : '0 6px 14px rgba(46,39,34,0.12)',
+                }}
+              >
+                {/* Top Page Edges */}
+                <div className="absolute top-0 left-0 right-0 h-2 bg-amber-light/80 rounded-t-sm border-b border-espresso/20" />
 
-                  return (
-                    <motion.div
-                      key={itemIdx}
-                      whileHover={{ y: -16, rotateZ: -2, scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      onClick={() => setSelectedBook({ ...item, category: cat.category, palette })}
-                      className={`relative ${heightClass} w-[42px] sm:w-[48px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-3 px-1.5 select-none`}
-                      style={{
-                        boxShadow: isSelected
-                          ? '0 12px 28px rgba(46,39,34,0.3)'
-                          : '0 6px 14px rgba(46,39,34,0.12)',
-                      }}
-                    >
-                      {/* Top Page Edges */}
-                      <div className="absolute top-0 left-0 right-0 h-2 bg-amber-light/80 rounded-t-sm border-b border-espresso/20" />
+                {/* Spine Decorative Gold Line */}
+                <div className={`w-full h-1 border-t ${palette.accent} mt-3 opacity-60`} />
 
-                      {/* Spine Decorative Gold Line */}
-                      <div className={`w-full h-1 border-t ${palette.accent} mt-3 opacity-60`} />
+                {/* Vertical Spine Title */}
+                <div className="flex-1 flex items-center justify-center my-1 overflow-hidden">
+                  <span
+                    className={`font-serif text-[11px] sm:text-[12px] font-bold ${palette.text} tracking-wider truncate uppercase`}
+                    style={{
+                      writingMode: 'vertical-rl',
+                      transform: 'rotate(180deg)',
+                      maxHeight: '130px',
+                    }}
+                  >
+                    {item.title}
+                  </span>
+                </div>
 
-                      {/* Vertical Spine Title */}
-                      <div className="flex-1 flex items-center justify-center my-1 overflow-hidden">
-                        <span
-                          className={`font-serif text-[11px] sm:text-[12px] font-bold ${palette.text} tracking-wider truncate uppercase`}
-                          style={{
-                            writingMode: 'vertical-rl',
-                            transform: 'rotate(180deg)',
-                            maxHeight: '130px',
-                          }}
-                        >
-                          {item.title}
-                        </span>
-                      </div>
+                {/* Spine Author / Bottom Gold Line */}
+                <div className={`w-full border-b ${palette.accent} mb-1 opacity-60`} />
+                <span className={`text-[8px] font-mono ${palette.text} text-center opacity-70 truncate px-0.5`}>
+                  {item.author ? item.author.split(' ').pop() : 'Essay'}
+                </span>
+              </motion.div>
+            );
+          })}
+        </div>
 
-                      {/* Spine Author / Bottom Gold Line */}
-                      <div className={`w-full border-b ${palette.accent} mb-1 opacity-60`} />
-                      <span className={`text-[8px] font-mono ${palette.text} text-center opacity-70 truncate px-0.5`}>
-                        {item.author ? item.author.split(' ').pop() : 'Essay'}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Physical Wooden Shelf Ledge Base */}
-              <div className="h-4 bg-gradient-to-r from-[#6b5e52] via-[#8c8077] to-[#6b5e52] rounded-b-md shadow-md border-t-2 border-[#52473d] relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10" />
-              </div>
-            </div>
-          </div>
-        ))}
+        {/* Physical Wooden Shelf Ledge Base */}
+        <div className="h-4 bg-gradient-to-r from-[#6b5e52] via-[#8c8077] to-[#6b5e52] rounded-b-md shadow-md border-t-2 border-[#52473d] relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
       </div>
 
       {/* Book Detail Modal / Drawer */}
