@@ -10,13 +10,35 @@ import { WritingsSection } from './components/WritingsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
 import { MusicSection } from './components/MusicSection';
-import { SFMapSection } from './components/SFMapSection';
 import { Footer } from './components/Footer';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isPlaying, setIsPlaying] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Initialize Dark Mode from localStorage or system preference
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  // Apply .dark class to document element
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = useCallback(() => {
+    setIsDarkMode((prev) => !prev);
+  }, []);
 
   const toggleLofi = useCallback(() => {
     setIsPlaying((prev) => !prev);
@@ -41,8 +63,6 @@ export default function App() {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'sf-map':
-        return <SFMapSection />;
       case 'about':
         return <AboutSection content={SITE_CONTENT} />;
       case 'projects':
@@ -72,7 +92,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-parchment text-espresso font-sans">
+    <div className="relative min-h-screen bg-parchment dark:bg-night-bg text-espresso dark:text-night-text font-sans transition-colors duration-500">
       {/* Analog Grain */}
       <div className="analog-grain" aria-hidden="true" />
 
@@ -90,6 +110,8 @@ export default function App() {
           setActiveTab={setActiveTab}
           isPlaying={isPlaying}
           toggleLofi={toggleLofi}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
         />
 
         <main className="mt-4">

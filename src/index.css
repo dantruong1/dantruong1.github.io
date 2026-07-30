@@ -13,15 +13,24 @@
   }
 
   body {
-    @apply bg-parchment text-espresso font-sans antialiased min-h-screen;
+    @apply bg-parchment text-espresso font-sans antialiased min-h-screen transition-colors duration-500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
+  .dark body {
+    @apply bg-night-bg text-night-text;
+  }
+
   ::selection {
     background: #d2dcc8;
     color: #2e2722;
+  }
+
+  .dark ::selection {
+    background: #556347;
+    color: #f7f3ec;
   }
 }
 
@@ -39,6 +48,11 @@
   opacity: 0.028;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .analog-grain {
+  opacity: 0.04;
+  mix-blend-mode: overlay;
 }
 
 /* ============================================================
@@ -69,6 +83,11 @@
   backdrop-filter: blur(1px);
   z-index: 20;
   border-radius: 1px;
+}
+
+.dark .washi-tape {
+  background: linear-gradient(135deg, rgba(184, 111, 82, 0.35), rgba(51, 43, 36, 0.85));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .washi-tape::before,
@@ -119,7 +138,16 @@
   border: 1px solid rgba(138, 154, 123, 0.12);
   position: relative;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
+              box-shadow 0.4s ease,
+              background-color 0.5s ease;
+}
+
+.dark .polaroid-frame {
+  background-color: #26201b;
+  border-color: rgba(163, 181, 147, 0.2);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .polaroid-frame:hover {
@@ -144,6 +172,17 @@
     transparent 100%
   );
   border-radius: 99px;
+}
+
+.dark .organic-divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(163, 181, 147, 0.35) 15%,
+    rgba(212, 136, 106, 0.3) 50%,
+    rgba(163, 181, 147, 0.35) 85%,
+    transparent 100%
+  );
 }
 
 /* ============================================================
@@ -213,6 +252,10 @@
   flex-shrink: 0;
 }
 
+.dark .nav-dot {
+  background-color: rgba(197, 184, 172, 0.35);
+}
+
 /* ============================================================
    HOVER UNDERLINE — animated underline from left
    ============================================================ */
@@ -248,6 +291,9 @@
 ::-webkit-scrollbar-thumb {
   background: #d2dcc8;
   border-radius: 99px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #383029;
 }
 ::-webkit-scrollbar-thumb:hover { background: #8a9a7b; }
 

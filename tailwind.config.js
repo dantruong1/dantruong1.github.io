@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -22,6 +23,14 @@ export default {
           light: '#544a42',
           muted: '#8c8077',
         },
+        night: {
+          bg: '#1c1714',
+          card: '#26201b',
+          'card-alt': '#332b24',
+          border: 'rgba(247, 243, 236, 0.12)',
+          text: '#f7f3ec',
+          muted: '#c5b8ac',
+        },
         mocha: {
           DEFAULT: '#6b5e52',
           light: '#e8d5c0',
@@ -32,12 +41,14 @@ export default {
           dark: '#556347',
           light: '#d2dcc8',
           soft: '#eef2ea',
+          glow: '#a3b593',
         },
         terracotta: {
           DEFAULT: '#b86f52',
           dark: '#9a5a40',
           soft: '#f4ded4',
           muted: '#d4a894',
+          glow: '#d4886a',
         },
         amber: {
           warm: '#d49b5c',
@@ -46,9 +57,9 @@ export default {
       },
       fontFamily: {
         serif: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         hand: ['Caveat', 'cursive'],
-        mono: ['"JetBrains Mono"', '"Space Mono"', 'monospace'],
+        mono: ['Space Mono', 'monospace'],
       },
       borderRadius: {
         'cozy': '1.25rem',
@@ -61,6 +72,7 @@ export default {
         'cozy-lg': '0 16px 48px rgba(46, 39, 34, 0.10)',
         'polaroid': '0 8px 25px rgba(46, 39, 34, 0.12), 0 2px 4px rgba(46, 39, 34, 0.05)',
         'inner-warm': 'inset 0 2px 12px rgba(184, 111, 82, 0.06)',
+        'dark-cozy': '0 4px 24px rgba(0, 0, 0, 0.4)',
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',
