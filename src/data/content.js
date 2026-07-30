@@ -29,8 +29,8 @@ export const SITE_CONTENT = {
     {
       id: "personal-website",
       tag: "Web & Design",
-      title: "Cozy Lofi Personal Sanctuary",
-      description: "A hand-crafted digital sanctuary built with React, Vite, Framer Motion, and Tailwind CSS. Features tactile artsy aesthetics, lofi audio controls, 3D tilt cards, and curated essays.",
+      title: "Cozy Lofi Personal Website",
+      description: "A hand-crafted personal website built with React, Vite, Framer Motion, and Tailwind CSS. Features tactile artsy aesthetics, lofi audio controls, 3D tilt cards, and curated essays.",
       tech: ["React", "Vite", "Framer Motion", "Tailwind CSS", "shadcn/ui"],
       url: "https://github.com/dantruong1",
       featured: true
