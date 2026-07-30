@@ -107,16 +107,20 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
             </p>
 
             <p className="text-[15px] text-espresso-light dark:text-night-muted leading-[1.75] mb-6 font-sans max-w-xl">
-              I'm a product builder fascinated by how{' '}
+              I'm a curious product builder who thrives at the intersection of{' '}
               <strong className="text-espresso dark:text-night-text font-semibold underline decoration-matcha/40 decoration-2 underline-offset-2">
                 economics
-              </strong>{' '}
-              and{' '}
+              </strong>
+              ,{' '}
+              <strong className="text-espresso dark:text-night-text font-semibold underline decoration-amber-warm/40 decoration-2 underline-offset-2">
+                value creation
+              </strong>
+              , and{' '}
               <strong className="text-espresso dark:text-night-text font-semibold underline decoration-terracotta/40 decoration-2 underline-offset-2">
                 technology
               </strong>{' '}
-              intersect to shape human behavior. On the Xbox team at Microsoft, I turn complex system incentives and data insights into{' '}
-              <em className="not-italic text-matcha-dark dark:text-matcha-glow font-medium">delightful consumer experiences</em>.
+              to craft{' '}
+              <em className="not-italic text-matcha-dark dark:text-matcha-glow font-medium">delightful consumer experiences</em>. Born & raised in San Jose and educated at UC Berkeley, I turn complex system incentives into products people love on Xbox at Microsoft.
             </p>
           </div>
 

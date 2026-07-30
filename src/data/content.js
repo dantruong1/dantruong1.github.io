@@ -3,26 +3,26 @@ export const SITE_CONTENT = {
     greeting: "Hey there, I'm",
     name: "Dan Truong",
     role: "Technical Product Manager 2, Xbox @ Microsoft",
-    subrole: "UC Berkeley '24 · Econ + Data Science & Public Policy",
+    subrole: "UC Berkeley '24 · Econ Major, Data Science & Public Policy Minors · Bay Area Native",
     location: "San Francisco, CA",
     photo: "images/sf-header.jpg",
-    bio: "I'm a product builder fascinated by how economics and technology intersect to shape human behavior. On the Xbox team at Microsoft, I turn complex system incentives and data insights into delightful consumer experiences that millions of players genuinely love.",
+    bio: "I'm a curious product builder who thrives at the intersection of economics, value creation, technology, and delightful experiences for users and customers. Born and raised in San Jose (Bay Area) and a 2024 UC Berkeley graduate (Econ major, Data Science & Public Policy minors), I turn complex system incentives into consumer products people love on the Xbox team at Microsoft.",
     quote: "The cold water does not get warmer if you jump late.",
     quoteAttr: "— one of many favorites"
   },
   about: {
     title: "About Me",
-    subtitle: "Product builder, economist, music lover, and lifelong learner.",
+    subtitle: "Curious product builder thriving at the intersection of economics, value creation, technology, & human delight.",
     paragraphs: [
-      "Hi, I'm Dan! I'm a Technical Product Manager 2 on the Xbox team at Microsoft and a 2024 UC Berkeley graduate with degrees in Economics and Data Science & Public Policy.",
-      "My work lives where system incentives, data insights, and human-centered design collide—turning knotty economic and technical challenges into intuitive products that millions of players enjoy globally.",
-      "Beyond product building, I love writing op-eds on economic policy and technology, building personal web tools, digging through indie/lofi/R&B music, and reading Paul Graham essays."
+      "Hi, I'm Dan! Born and raised in San Jose, California (Bay Area native), I'm a Technical Product Manager 2 on the Xbox team at Microsoft. I graduated from UC Berkeley in 2024 with a degree in Economics alongside minors in Data Science and Public Policy.",
+      "At my core, I'm a curious product builder who thrives at the intersection of economics, value creation, technology, and user delight. I love diving into complex system incentives, market dynamics, and customer insights to turn knotty challenges into intuitive, high-value consumer experiences.",
+      "Beyond building product at Microsoft, you can find me exploring local coffee spots and bakeries around San Francisco, writing op-eds on technology and economic policy, building side projects, and reading Paul Graham essays over warm lofi beats."
     ],
     highlights: [
       { label: "Role", value: "Technical PM 2, Xbox @ Microsoft" },
-      { label: "Education", value: "UC Berkeley '24 (Econ + Data Science)" },
-      { label: "Location", value: "San Francisco / Bay Area, CA" },
-      { label: "Focus", value: "Consumer Products, Gaming Systems & Data Economics" }
+      { label: "Education", value: "UC Berkeley '24 (Econ Major, Data Science & Public Policy Minors)" },
+      { label: "Roots & Location", value: "San Jose (Roots) · San Francisco, CA" },
+      { label: "Focus", value: "Value Creation, Data Economics & Consumer Experiences" }
     ]
   },
   projects: [
