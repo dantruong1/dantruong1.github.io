@@ -25,6 +25,36 @@ const FAVORITE_VIDEOS = [
     vibe: 'Stay Hungry, Stay Foolish',
     note: 'Three simple stories: connecting the dots, love and loss, and death as life’s change agent. One of the most inspiring commencement speeches ever delivered.',
   },
+  {
+    id: 'emily-esfahani-smith-ted',
+    title: 'There’s More to Life Than Being Happy',
+    speaker: 'Emily Esfahani Smith',
+    date: 'TED Talk · April 2017',
+    embedUrl: 'https://www.youtube.com/embed/y9Trdafp83U',
+    youtubeUrl: 'https://www.youtube.com/watch?v=y9Trdafp83U',
+    vibe: 'The 4 Pillars of a Meaningful Life',
+    note: 'A powerful perspective shift on why chasing happiness can leave us feeling empty, and how cultivating belonging, purpose, transcendence, and storytelling creates true meaning.',
+  },
+  {
+    id: 'jonathan-haidt-ted',
+    title: 'The Moral Roots of Liberals and Conservatives',
+    speaker: 'Jonathan Haidt',
+    date: 'TED Talk · Sept 2008',
+    embedUrl: 'https://www.youtube.com/embed/vs41JrnGaxc',
+    youtubeUrl: 'https://www.youtube.com/watch?v=vs41JrnGaxc',
+    vibe: 'Moral Foundations & Empathy Across Ideologies',
+    note: 'Social psychologist Jonathan Haidt explores the five moral foundations that underpin political divisions, offering a brilliant blueprint for understanding and bridging ideological divides.',
+  },
+  {
+    id: 'fred-again-tiny-desk',
+    title: 'Fred again..: NPR Music Tiny Desk Concert',
+    speaker: 'Fred again..',
+    date: 'NPR Music · April 2023',
+    embedUrl: 'https://www.youtube.com/embed/c0-hvjV2A5Y',
+    youtubeUrl: 'https://www.youtube.com/watch?v=c0-hvjV2A5Y',
+    vibe: 'Vulnerable Electronic Mastery & Soulful Sampling',
+    note: 'An extraordinary, intimate performance where Fred again.. plays marimba, acoustic piano, and live sampling — turning electronic music into pure emotional vulnerability.',
+  },
 ];
 
 const stagger = {
@@ -52,13 +82,13 @@ export function FavoriteVideosSection() {
           Favorite Videos
         </span>
         <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso tracking-tight">
-          All-Time Favorite Speeches & Videos
+          All-Time Favorite Speeches & Performances
         </h3>
         <div className="organic-divider flex-1" />
       </motion.div>
 
       <motion.p variants={fadeUp} className="text-[14px] text-espresso-muted font-sans leading-relaxed max-w-2xl">
-        Two iconic speeches that I come back to again and again for inspiration on leadership, storytelling, and purpose.
+        Iconic speeches, TED talks, and musical performances that I come back to again and again for inspiration on leadership, psychology, music, and purpose.
       </motion.p>
 
       {/* Embedded Videos Grid */}
