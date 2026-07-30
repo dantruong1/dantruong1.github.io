@@ -29,7 +29,9 @@ export function AboutSection({ content }) {
     >
       {/* Header */}
       <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="font-hand text-xl text-terracotta">background</span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+          background
+        </span>
         <h2 className="font-serif text-3xl font-bold text-espresso tracking-tight">{content.about.title}</h2>
         <div className="organic-divider flex-1" />
       </motion.div>
@@ -68,7 +70,7 @@ export function AboutSection({ content }) {
         {/* Quick Facts sidebar */}
         <motion.div variants={fadeUp} className="md:col-span-4 flex flex-col gap-4">
           <Card className="p-5 bg-matcha-soft/50 border-matcha/15 shadow-inner-warm">
-            <h4 className="font-hand text-xl font-bold text-matcha-dark mb-4 flex items-center gap-2">
+            <h4 className="font-serif text-lg font-bold text-matcha-dark mb-4 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-terracotta" />
               Quick Facts
             </h4>

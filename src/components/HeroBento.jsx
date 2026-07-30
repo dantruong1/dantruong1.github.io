@@ -87,7 +87,7 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
 
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="font-hand text-2xl text-terracotta font-semibold">
+              <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
                 {content.hero.greeting}
               </span>
               <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}>
@@ -153,7 +153,7 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
           <Card className="p-5 bg-matcha-soft/50 border-matcha/15 flex flex-col justify-between relative overflow-hidden shadow-inner-warm">
             <Quote className="w-7 h-7 text-matcha/25 absolute top-3 right-3" />
             <div>
-              <span className="font-hand text-sm text-matcha-dark/70 mb-2 block">favorite saying</span>
+              <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/70 mb-2 block">favorite saying</span>
               <p className="font-serif italic text-[15px] text-matcha-dark leading-relaxed font-medium">
                 "{content.hero.quote}"
               </p>

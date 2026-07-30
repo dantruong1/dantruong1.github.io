@@ -222,7 +222,7 @@ export function LofiPlayer({ isPlaying, toggleLofi }) {
         {/* Info & Controls */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-1 mb-0.5">
-            <span className="font-hand text-lg font-bold text-espresso leading-tight flex items-center gap-1.5 truncate">
+            <span className="font-sans text-sm font-bold text-espresso leading-tight flex items-center gap-1.5 truncate">
               <Sparkles className="w-3.5 h-3.5 text-terracotta shrink-0" />
               {preset.title}
             </span>

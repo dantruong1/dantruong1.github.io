@@ -39,7 +39,9 @@ export function QuotesSection({ content }) {
       className="max-w-4xl mx-auto mb-14"
     >
       <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="font-hand text-xl text-terracotta">wisdom</span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+          wisdom
+        </span>
         <h2 className="font-serif text-3xl font-bold text-espresso tracking-tight">Quote Collection</h2>
         <div className="organic-divider flex-1" />
       </motion.div>
@@ -86,7 +88,9 @@ export function QuotesSection({ content }) {
                   — {q.author}
                 </span>
                 {q.favorite && (
-                  <span className="font-hand text-xs text-terracotta/60">★ favorite</span>
+                  <span className="font-sans text-[11px] font-semibold text-terracotta/80 bg-terracotta-soft/50 px-2 py-0.5 rounded-full">
+                    ★ favorite
+                  </span>
                 )}
               </div>
             </Card>

@@ -29,7 +29,9 @@ export function RecommendationsSection({ content }) {
       className="max-w-4xl mx-auto mb-14"
     >
       <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="font-hand text-xl text-terracotta">curated reads</span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+          curated reads
+        </span>
         <h2 className="font-serif text-3xl font-bold text-espresso tracking-tight">Recommendations</h2>
         <div className="organic-divider flex-1" />
       </motion.div>
@@ -47,7 +49,7 @@ export function RecommendationsSection({ content }) {
                 {/* Category header */}
                 <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-espresso/8">
                   <Bookmark className={`w-4 h-4 ${accent.icon}`} />
-                  <h3 className={`font-hand text-xl font-bold ${accent.heading}`}>
+                  <h3 className={`font-serif text-lg font-bold tracking-tight ${accent.heading}`}>
                     {cat.category}
                   </h3>
                 </div>

@@ -65,7 +65,9 @@ export function CozyCorner({ onNavigate }) {
     <section className="mb-14">
       {/* Section header */}
       <div className="flex items-center gap-4 mb-8">
-        <span className="font-hand text-xl text-terracotta">explore</span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+          explore
+        </span>
         <h2 className="font-serif text-2xl font-bold text-espresso tracking-tight">
           The Cozy Corner
         </h2>
@@ -89,7 +91,7 @@ export function CozyCorner({ onNavigate }) {
             >
               <Card className={`p-6 h-full flex flex-col justify-between group ${card.border} relative transition-all duration-300`}>
                 {/* Hand note */}
-                <span className="font-hand text-[13px] text-espresso-muted/60 absolute top-4 right-5 group-hover:text-terracotta transition-colors duration-300">
+                <span className="font-sans text-[11px] font-semibold text-espresso-muted/60 absolute top-4 right-5 group-hover:text-terracotta transition-colors duration-300">
                   {card.handNote}
                 </span>
 

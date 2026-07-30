@@ -46,9 +46,9 @@ export default {
       },
       fontFamily: {
         serif: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         hand: ['Caveat', 'cursive'],
-        mono: ['Space Mono', 'monospace'],
+        mono: ['"JetBrains Mono"', '"Space Mono"', 'monospace'],
       },
       borderRadius: {
         'cozy': '1.25rem',

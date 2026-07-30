@@ -50,7 +50,7 @@ export function Footer({ onScrollTop }) {
         </div>
 
         {/* Closing quote */}
-        <p className="font-hand text-lg text-terracotta/70 text-center max-w-sm leading-snug">
+        <p className="font-serif italic text-sm text-terracotta/80 text-center max-w-sm leading-snug">
           "The cold water does not get warmer if you jump late."
         </p>
 

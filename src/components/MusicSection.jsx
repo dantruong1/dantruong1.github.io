@@ -31,7 +31,9 @@ export function MusicSection({ content }) {
       className="max-w-4xl mx-auto mb-14"
     >
       <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="font-hand text-xl text-terracotta">heavy rotation</span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+          heavy rotation
+        </span>
         <h2 className="font-serif text-3xl font-bold text-espresso tracking-tight">Music & Chill Vibes</h2>
         <div className="organic-divider flex-1" />
       </motion.div>

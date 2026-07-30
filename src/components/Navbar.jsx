@@ -32,7 +32,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi }) {
             <Coffee className="w-4 h-4 text-terracotta group-hover:text-matcha transition-colors duration-300" />
           </span>
           <div className="hidden sm:block">
-            <span className="font-hand text-2xl font-bold text-espresso group-hover:text-matcha-dark transition-colors leading-none block">
+            <span className="font-sans text-lg font-bold text-espresso group-hover:text-matcha-dark transition-colors tracking-tight leading-none block">
               Dan Truong
             </span>
             <span className="text-[10px] font-mono text-espresso-muted leading-none">
