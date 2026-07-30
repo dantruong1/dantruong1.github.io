@@ -92,21 +92,22 @@ export function FavoriteVideosSection({ onVideoPlay }) {
       viewport={{ once: true, margin: '-40px' }}
       className="space-y-6 pt-4"
     >
-      {/* Header */}
-      <motion.div variants={fadeUp} className="flex items-center gap-4">
-        <span className="section-kicker">
-          <Video className="w-3.5 h-3.5" />
-          Favorite Videos
-        </span>
-        <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso dark:text-night-text tracking-tight">
+      {/* Standardized Header */}
+      <motion.div variants={fadeUp} className="mb-6">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">
+            <Video className="w-3.5 h-3.5" />
+            Favorite Videos
+          </span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <h3 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           All-Time Favorite Speeches & Performances
         </h3>
-        <div className="organic-divider flex-1" />
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+          Iconic speeches, TED talks, and musical performances that I come back to again and again for inspiration on leadership, psychology, music, and purpose.
+        </p>
       </motion.div>
-
-      <motion.p variants={fadeUp} className="text-[14px] text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
-        Iconic speeches, TED talks, and musical performances that I come back to again and again for inspiration on leadership, psychology, music, and purpose.
-      </motion.p>
 
       {/* Embedded Videos Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7">

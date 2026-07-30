@@ -21,30 +21,32 @@ export function WritingsSection({ content }) {
       animate="show"
       className="max-w-4xl mx-auto mb-14"
     >
-      {/* Header */}
-      <motion.div variants={fadeUp} className="flex items-center gap-4 mb-6">
-        <span className="section-kicker">
-          essays & op-eds
-        </span>
-        <h2 className="font-serif text-3xl font-bold text-espresso dark:text-night-text tracking-tight">Writings & Substack</h2>
-        <div className="organic-divider flex-1" />
-      </motion.div>
+      {/* Standardized Header */}
+      <motion.div variants={fadeUp} className="mb-7">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">essays & op-eds</span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
+              Writings & Substack
+            </h2>
+            <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+              Published op-eds for The Daily Californian and long-form essays on economics, technology, and product building on Substack.
+            </p>
+          </div>
 
-      {/* Subtitle + Substack Link */}
-      <motion.div variants={fadeUp} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-        <p className="text-[14px] text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-xl">
-          Published op-eds for The Daily Californian and long-form essays on economics, technology, and product building on Substack.
-        </p>
-
-        <a
-          href="https://substack.com/@dantruong12"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-[#ff6719] hover:bg-[#e5590f] px-4 py-2 rounded-full transition-colors font-medium shadow-sm shrink-0 self-start sm:self-auto"
-        >
-          <span>Subscribe on Substack</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
+          <a
+            href="https://substack.com/@dantruong12"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-[#ff6719] hover:bg-[#e5590f] px-4 py-2 rounded-full transition-colors font-medium shadow-sm shrink-0 self-start sm:self-auto"
+          >
+            <span>Subscribe on Substack</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
       </motion.div>
 
       <div className="space-y-6">

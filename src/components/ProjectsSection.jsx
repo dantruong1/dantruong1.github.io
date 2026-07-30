@@ -24,12 +24,18 @@ export function ProjectsSection({ content }) {
       animate="show"
       className="max-w-4xl mx-auto mb-14"
     >
-      <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="section-kicker">
-          portfolio
-        </span>
-        <h2 className="font-serif text-3xl font-bold text-espresso dark:text-night-text tracking-tight">Projects & Achievements</h2>
-        <div className="organic-divider flex-1" />
+      {/* Standardized Header */}
+      <motion.div variants={fadeUp} className="mb-7">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">portfolio</span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
+          Projects & Achievements
+        </h2>
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+          Consumer products, global hackathon wins, case competitions, and product strategy initiatives across tech and social impact.
+        </p>
       </motion.div>
 
       {/* Featured projects — full-width cards */}

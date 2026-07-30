@@ -25,21 +25,22 @@ export function Bookshelf({ content }) {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center gap-4">
-        <span className="section-kicker">
-          <BookOpen className="w-3.5 h-3.5" />
-          The Bookshelf
-        </span>
-        <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso dark:text-night-text tracking-tight">
+      {/* Standardized Header */}
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">
+            <BookOpen className="w-3.5 h-3.5" />
+            The Bookshelf
+          </span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <h3 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           Dan's Bookshelf
         </h3>
-        <div className="organic-divider flex-1" />
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+          A curated digital bookshelf of books and essays that have fundamentally shaped how I think. Click or tap any volume to pull it off the shelf and open its reading link!
+        </p>
       </div>
-
-      <p className="text-[14px] text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
-        A curated digital bookshelf of books and essays that have fundamentally shaped how I think. Click or tap any volume to pull it off the shelf and open its reading link!
-      </p>
 
       {/* Single Unified Wooden Bookshelf */}
       <div className="relative pt-8 pb-3 px-6 bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy">

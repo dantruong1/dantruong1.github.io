@@ -27,13 +27,18 @@ export function AboutSection({ content }) {
       animate="show"
       className="max-w-4xl mx-auto mb-14"
     >
-      {/* Header */}
-      <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="section-kicker">
-          background
-        </span>
-        <h2 className="font-serif text-3xl font-bold text-espresso dark:text-night-text tracking-tight">{content.about.title}</h2>
-        <div className="organic-divider flex-1" />
+      {/* Standardized Header */}
+      <motion.div variants={fadeUp} className="mb-7">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">background</span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
+          {content.about.title}
+        </h2>
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+          {content.about.subtitle}
+        </p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-7">

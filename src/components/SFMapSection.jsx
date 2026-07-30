@@ -87,21 +87,20 @@ export function SFMapSection() {
       transition={{ duration: 0.4 }}
       className="max-w-6xl mx-auto mb-14"
     >
-      {/* Header */}
-      <div className="flex items-center gap-4 mb-6">
-        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta dark:text-[#f7ded4] bg-terracotta-soft/60 dark:bg-terracotta/35 px-3 py-1 rounded-full border border-terracotta/10 dark:border-terracotta/40">
-          curated sf guide
-        </span>
-        <h2 className="font-serif text-3xl font-bold text-espresso dark:text-night-text tracking-tight flex items-center gap-2">
+      {/* Standardized Header */}
+      <div className="mb-7">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">curated sf guide</span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight flex items-center gap-2 mb-2">
           <Compass className="w-7 h-7 text-matcha dark:text-matcha-glow" />
           SF Recommendations Map
         </h2>
-        <div className="organic-divider flex-1" />
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+          An interactive guide to my absolute favorite spots in San Francisco — from early morning croissant runs to golden hour viewpoints and cozy late-night dining.
+        </p>
       </div>
-
-      <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed mb-6 max-w-2xl">
-        An interactive guide to my absolute favorite spots in San Francisco — from early morning croissant runs to golden hour viewpoints and cozy late-night dining.
-      </p>
 
       {/* Filter Tabs & Search Bar */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-6">

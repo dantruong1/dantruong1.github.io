@@ -15,11 +15,11 @@ const fadeUp = {
 
 // Alternating card tint patterns
 const tints = [
-  'bg-card',
-  'bg-mocha-soft/30',
-  'bg-matcha-soft/30',
-  'bg-terracotta-soft/20',
-  'bg-card-warm',
+  'bg-card dark:bg-night-card',
+  'bg-mocha-soft/30 dark:bg-night-card-alt',
+  'bg-matcha-soft/30 dark:bg-matcha-dark/25',
+  'bg-terracotta-soft/20 dark:bg-terracotta/20',
+  'bg-card-warm dark:bg-night-card',
 ];
 
 export function QuotesSection({ content }) {
@@ -38,24 +38,26 @@ export function QuotesSection({ content }) {
       animate="show"
       className="max-w-4xl mx-auto mb-14"
     >
-      <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
-          wisdom
-        </span>
-        <h2 className="font-serif text-3xl font-bold text-espresso tracking-tight">Quote Collection</h2>
-        <div className="organic-divider flex-1" />
+      {/* Standardized Section Header */}
+      <motion.div variants={fadeUp} className="mb-7">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="section-kicker">wisdom</span>
+          <div className="organic-divider flex-1" />
+        </div>
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
+          Quote Collection
+        </h2>
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+          Words, aphorisms, and ideas that have stuck with me over the years. Click any card to copy.
+        </p>
       </motion.div>
-
-      <motion.p variants={fadeUp} className="text-[14px] text-espresso-muted font-sans leading-relaxed mb-7 max-w-lg">
-        Words, aphorisms, and ideas that have stuck with me over the years. Click any card to copy.
-      </motion.p>
 
       {/* Masonry-like staggered grid */}
       <div className="columns-1 md:columns-2 gap-5 space-y-5">
         {content.quotes.map((q, idx) => (
           <motion.div key={q.id} variants={fadeUp} className="break-inside-avoid">
             <Card
-              className={`p-6 ${tints[idx % tints.length]} border-espresso/8 flex flex-col relative group cursor-pointer hover:shadow-cozy-hover transition-all duration-300`}
+              className={`p-6 ${tints[idx % tints.length]} border-espresso/8 dark:border-night-border flex flex-col relative group cursor-pointer hover:shadow-cozy-hover transition-all duration-300`}
               onClick={() => handleCopy(q, q.id)}
             >
               {q.favorite && <div className="washi-tape washi-tape-top-right" />}
@@ -65,9 +67,9 @@ export function QuotesSection({ content }) {
                 <Badge variant={q.favorite ? 'terracotta' : 'default'}>
                   {q.category}
                 </Badge>
-                <span className="text-[11px] text-espresso-muted/50 font-mono flex items-center gap-1 group-hover:text-matcha transition-colors">
+                <span className="text-[11px] text-espresso-muted/60 dark:text-night-muted font-mono flex items-center gap-1 group-hover:text-matcha dark:group-hover:text-matcha-glow transition-colors">
                   {copiedId === q.id ? (
-                    <><Check className="w-3 h-3 text-matcha" /> Copied!</>
+                    <><Check className="w-3 h-3 text-matcha dark:text-matcha-glow" /> Copied!</>
                   ) : (
                     <><Copy className="w-3 h-3" /> Copy</>
                   )}
@@ -76,19 +78,19 @@ export function QuotesSection({ content }) {
 
               {/* Decorative quote mark */}
               <div className="mb-2">
-                <span className="font-serif text-5xl text-matcha/15 leading-none select-none">"</span>
+                <span className="font-serif text-5xl text-matcha/20 dark:text-matcha-glow/20 leading-none select-none">"</span>
               </div>
 
-              <p className="font-serif italic text-lg md:text-xl text-espresso leading-relaxed mb-5 -mt-4">
+              <p className="font-serif italic text-lg md:text-xl text-espresso dark:text-night-text leading-relaxed mb-5 -mt-4">
                 {q.quote}
               </p>
 
-              <div className="pt-3 border-t border-espresso/8 flex items-center justify-between">
-                <span className="font-mono text-[11px] text-espresso-muted font-medium">
+              <div className="pt-3 border-t border-espresso/8 dark:border-night-border flex items-center justify-between">
+                <span className="font-mono text-[11px] text-espresso-muted dark:text-night-muted font-medium">
                   — {q.author}
                 </span>
                 {q.favorite && (
-                  <span className="font-sans text-[11px] font-semibold text-terracotta/80 bg-terracotta-soft/50 px-2 py-0.5 rounded-full">
+                  <span className="font-sans text-[11px] font-semibold text-terracotta dark:text-terracotta-glow bg-terracotta-soft/50 dark:bg-terracotta/30 px-2 py-0.5 rounded-full">
                     ★ favorite
                   </span>
                 )}
