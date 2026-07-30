@@ -67,7 +67,6 @@ const fadeUp = {
 };
 
 export function FavoriteVideosSection({ onVideoPlay }) {
-  // Listen for window blur or clicks inside video cards to turn off background lofi music
   const handleVideoInteraction = () => {
     if (onVideoPlay) {
       onVideoPlay();
@@ -95,7 +94,7 @@ export function FavoriteVideosSection({ onVideoPlay }) {
     >
       {/* Header */}
       <motion.div variants={fadeUp} className="flex items-center gap-4">
-        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10 flex items-center gap-1.5">
+        <span className="section-kicker">
           <Video className="w-3.5 h-3.5" />
           Favorite Videos
         </span>

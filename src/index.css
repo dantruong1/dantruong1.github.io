@@ -36,7 +36,34 @@
 }
 
 /* ============================================================
-   GLOBAL DARK MODE TEXT, PILL & SURFACE CONTRAST OVERRIDES
+   SECTION KICKER PILL — ULTRA HIGH CONTRAST IN LIGHT & DARK MODE
+   ============================================================ */
+.section-kicker {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: rgba(184, 111, 82, 0.12);
+  color: #b86f52;
+  border: 1px solid rgba(184, 111, 82, 0.2);
+  transition: all 0.2s ease;
+}
+
+.dark .section-kicker {
+  background-color: rgba(212, 136, 106, 0.25) !important;
+  color: #ffdacc !important;
+  border-color: rgba(255, 218, 204, 0.35) !important;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   GLOBAL DARK MODE TEXT & SURFACE OVERRIDES
    ============================================================ */
 .dark .text-espresso {
   color: #f7f3ec !important;
@@ -80,12 +107,12 @@
 }
 
 .dark .bg-terracotta-soft {
-  background-color: rgba(184, 111, 82, 0.35) !important;
-  border-color: rgba(247, 222, 212, 0.25) !important;
+  background-color: rgba(212, 136, 106, 0.25) !important;
+  border-color: rgba(255, 218, 204, 0.3) !important;
 }
 
 .dark .text-terracotta {
-  color: #f7ded4 !important;
+  color: #ffdacc !important;
 }
 
 .dark .bg-mocha-soft {

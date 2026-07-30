@@ -27,22 +27,22 @@ export function Bookshelf({ content }) {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10 flex items-center gap-1.5">
+        <span className="section-kicker">
           <BookOpen className="w-3.5 h-3.5" />
           The Bookshelf
         </span>
-        <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso tracking-tight">
+        <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso dark:text-night-text tracking-tight">
           Dan's Bookshelf
         </h3>
         <div className="organic-divider flex-1" />
       </div>
 
-      <p className="text-[14px] text-espresso-muted font-sans leading-relaxed max-w-2xl">
+      <p className="text-[14px] text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
         A curated digital bookshelf of books and essays that have fundamentally shaped how I think. Click or tap any volume to pull it off the shelf and open its reading link!
       </p>
 
       {/* Single Unified Wooden Bookshelf */}
-      <div className="relative pt-8 pb-3 px-6 bg-card-warm/80 rounded-cozy-lg border border-espresso/10 shadow-cozy">
+      <div className="relative pt-8 pb-3 px-6 bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy">
         {/* Single Row of Book Spines */}
         <div className="flex items-end justify-start gap-4 sm:gap-6 overflow-x-auto no-scrollbar min-h-[220px] pb-1 px-2">
           {allBooks.map((item, itemIdx) => {
@@ -108,14 +108,14 @@ export function Bookshelf({ content }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-lg bg-card rounded-cozy-lg border border-espresso/10 p-6 sm:p-8 shadow-cozy-lg overflow-hidden"
+              className="relative w-full max-w-lg bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border p-6 sm:p-8 shadow-cozy-lg overflow-hidden"
             >
               <div className="washi-tape washi-tape-top-right" />
 
               {/* Close Button */}
               <button
                 onClick={() => setSelectedBook(null)}
-                className="absolute top-4 right-4 text-espresso-muted hover:text-espresso p-1 rounded-full hover:bg-parchment-dark transition-colors"
+                className="absolute top-4 right-4 text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text p-1 rounded-full hover:bg-parchment-dark dark:hover:bg-night-card-alt transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -149,27 +149,27 @@ export function Bookshelf({ content }) {
                   <Badge variant="terracotta" className="mb-2">
                     Canonical Reading
                   </Badge>
-                  <h4 className="font-serif text-2xl font-bold text-espresso leading-snug mb-1">
+                  <h4 className="font-serif text-2xl font-bold text-espresso dark:text-night-text leading-snug mb-1">
                     {selectedBook.title}
                   </h4>
                   {selectedBook.author && (
-                    <span className="font-mono text-xs text-espresso-muted block mb-3">
+                    <span className="font-mono text-xs text-espresso-muted dark:text-night-muted block mb-3">
                       by {selectedBook.author}
                     </span>
                   )}
-                  <p className="text-xs sm:text-sm text-espresso-light leading-relaxed font-sans mb-4">
+                  <p className="text-xs sm:text-sm text-espresso-light dark:text-night-muted leading-relaxed font-sans mb-4">
                     {selectedBook.note}
                   </p>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-espresso/10 flex items-center justify-between gap-3">
+              <div className="pt-4 border-t border-espresso/10 dark:border-night-border flex items-center justify-between gap-3">
                 <a
                   href={selectedBook.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-matcha hover:bg-matcha-dark px-4 py-2 rounded-full transition-colors font-medium shadow-sm"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-matcha dark:bg-matcha-dark hover:bg-matcha-dark px-4 py-2 rounded-full transition-colors font-medium shadow-sm"
                 >
                   <span>Read / Open Volume</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -177,7 +177,7 @@ export function Bookshelf({ content }) {
 
                 <button
                   onClick={() => setSelectedBook(null)}
-                  className="text-xs font-mono text-espresso-muted hover:text-espresso px-3 py-1.5 rounded-full transition-colors"
+                  className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text px-3 py-1.5 rounded-full transition-colors"
                 >
                   Close
                 </button>
