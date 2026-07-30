@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Music, BookOpen, Quote, Lightbulb, Gamepad2, User, Coffee } from 'lucide-react';
+import { Sparkles, Music, BookOpen, Quote, Lightbulb, Gamepad2, User, Coffee, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
 
 export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi }) {
   const navItems = [
     { id: 'home', label: 'Home', icon: Sparkles },
+    { id: 'sf-map', label: 'SF Map', icon: MapPin },
     { id: 'about', label: 'About', icon: User },
     { id: 'projects', label: 'Projects', icon: Gamepad2 },
     { id: 'writings', label: 'Writings', icon: BookOpen },
@@ -32,7 +33,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi }) {
             <Coffee className="w-4 h-4 text-terracotta group-hover:text-matcha transition-colors duration-300" />
           </span>
           <div className="hidden sm:block">
-            <span className="font-sans text-lg font-bold text-espresso group-hover:text-matcha-dark transition-colors tracking-tight leading-none block">
+            <span className="font-hand text-2xl font-bold text-espresso group-hover:text-matcha-dark transition-colors leading-none block">
               Dan Truong
             </span>
             <span className="text-[10px] font-mono text-espresso-muted leading-none">

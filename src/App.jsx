@@ -10,6 +10,7 @@ import { WritingsSection } from './components/WritingsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
 import { MusicSection } from './components/MusicSection';
+import { SFMapSection } from './components/SFMapSection';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -40,6 +41,8 @@ export default function App() {
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'sf-map':
+        return <SFMapSection />;
       case 'about':
         return <AboutSection content={SITE_CONTENT} />;
       case 'projects':
