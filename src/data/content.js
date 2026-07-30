@@ -27,28 +27,44 @@ export const SITE_CONTENT = {
   },
   projects: [
     {
-      id: "personal-website",
-      tag: "Web & Design",
-      title: "Cozy Lofi Personal Sanctuary",
-      description: "A hand-crafted digital sanctuary built with React, Vite, Framer Motion, and Tailwind CSS. Features tactile artsy aesthetics, lofi audio controls, 3D tilt cards, and curated essays.",
-      tech: ["React", "Vite", "Framer Motion", "Tailwind CSS", "shadcn/ui"],
-      url: "https://github.com/dantruong1",
+      id: "metabolic-app",
+      tag: "Consumer Health App",
+      title: "Metabolic App — Grocery Health & Nutrition",
+      description: "A consumer health app designed to help users grocery shop healthier and achieve their personalized nutrition goals, backed by authoritative USDA food composition data.",
+      tech: ["Consumer Product", "USDA Food Data API", "Health & AI", "Nutrition Data"],
+      url: "https://metabolicapp.com",
       featured: true
     },
     {
-      id: "xbox-player-insights",
-      tag: "Product & Data",
-      title: "Xbox System Incentives & Economy",
-      description: "Data-driven product initiatives on the Xbox team analyzing player behavior, incentive alignment, and engagement economics for gaming platforms.",
-      tech: ["Data Science", "Economics", "A/B Experimentation", "Product Strategy"],
+      id: "msft-hackathon-2024",
+      tag: "1st Place · Microsoft 2024",
+      title: "Microsoft Global Hackathon 1st Place Winner",
+      description: "Won 1st Place out of 70,000+ employees and 20,000+ competing teams worldwide at the Microsoft 2024 Global Hackathon. Designed and built an interactive game-based learning product to upskill tech professionals.",
+      tech: ["Gamified Learning", "EdTech", "Product Strategy", "System Design"],
       featured: true
     },
     {
-      id: "econ-policy-analysis",
-      tag: "Research & Writing",
-      title: "Asian American Economic Disparity Study",
-      description: "Published op-ed and empirical inquiry examining wealth inequality, intra-group disparity, and public policy implications across Asian American communities.",
-      tech: ["Data Analytics", "Econometrics", "Policy Analysis"],
+      id: "gates-foundation",
+      tag: "1st Place · Gates Foundation",
+      title: "Gates Foundation Social Impact Competition",
+      description: "Won 1st place in college by pitching a localized digital volunteer platform designed to increase charitable revenues and volunteer engagement for non-profit organizations.",
+      tech: ["Nonprofit Tech", "Social Impact", "Public Policy", "GTM Strategy"],
+      featured: false
+    },
+    {
+      id: "haas-case-competition",
+      tag: "1st Place · UC Berkeley Haas",
+      title: "Haas School of Business GTM Competition",
+      description: "Won 1st place at UC Berkeley Haas Business School by developing and pitching a comprehensive marketing and Go-To-Market (GTM) growth campaign for a local coffee business.",
+      tech: ["GTM Strategy", "Marketing", "Brand Strategy", "Economics"],
+      featured: false
+    },
+    {
+      id: "strava-pricing-strategy",
+      tag: "Product Consulting · Spring 2021",
+      title: "Strava Global Pricing Strategy Project",
+      description: "Engaged directly with Strava's Product Management team as a student consultant in Spring 2021. Designed international market-based pricing strategies to optimize subscription tiers across localized global markets.",
+      tech: ["Product Management", "Pricing Strategy", "Econometrics", "Global Markets"],
       featured: false
     }
   ],
