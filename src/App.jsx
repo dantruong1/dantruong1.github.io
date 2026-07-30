@@ -111,8 +111,8 @@ export default function App() {
         aria-hidden="true"
       />
 
-      {/* Main Container — generous desktop padding */}
-      <div className="max-w-[1120px] mx-auto px-6 md:px-10 lg:px-14 py-6 md:py-10">
+      {/* Main Container — generous max width for all tabs */}
+      <div className="max-w-[1240px] mx-auto px-5 md:px-8 lg:px-12 py-5 md:py-8">
         <Navbar
           activeTab={activeTab}
           setActiveTab={setActiveTab}

@@ -6,8 +6,8 @@ import { Button } from './ui/button';
 export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkMode, toggleDarkMode }) {
   const navItems = [
     { id: 'home', label: 'Home', icon: Sparkles },
-    { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
     { id: 'about', label: 'About', icon: User },
+    { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
     { id: 'projects', label: 'Projects', icon: Gamepad2 },
     { id: 'writings', label: 'Writings', icon: BookOpen },
     { id: 'quotes', label: 'Quotes', icon: Quote },
@@ -19,20 +19,20 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-5 z-50 mb-10"
+      className="sticky top-4 z-50 mb-10 w-full"
     >
-      <div className="bg-card/85 dark:bg-night-card/85 backdrop-blur-lg border border-espresso/8 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy px-5 py-3 flex items-center justify-between gap-4">
+      <div className="bg-card/90 dark:bg-night-card/90 backdrop-blur-md border border-espresso/8 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy px-4 sm:px-5 py-2.5 flex items-center justify-between gap-3 md:gap-4">
         {/* Brand */}
         <button
           onClick={() => setActiveTab('home')}
-          className="flex items-center gap-3 group text-left shrink-0"
+          className="flex items-center gap-2.5 group text-left shrink-0"
         >
           {/* Coffee cup doodle */}
           <span className="w-8 h-8 rounded-full bg-mocha-soft dark:bg-night-card-alt flex items-center justify-center group-hover:bg-matcha-soft dark:group-hover:bg-matcha-dark transition-colors duration-300">
             <Coffee className="w-4 h-4 text-terracotta dark:text-terracotta-glow group-hover:text-matcha dark:group-hover:text-matcha-glow transition-colors duration-300" />
           </span>
           <div className="hidden sm:block">
-            <span className="font-serif text-2xl font-bold text-espresso dark:text-night-text group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors leading-none block tracking-tight">
+            <span className="font-serif text-xl sm:text-2xl font-bold text-espresso dark:text-night-text group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors leading-none block tracking-tight">
               Dan Truong
             </span>
             <span className="text-[10px] font-mono text-espresso-muted dark:text-night-muted leading-none">
@@ -41,17 +41,17 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
           </div>
         </button>
 
-        {/* Navigation pills */}
-        <nav className="flex items-center gap-0.5 overflow-x-auto no-scrollbar py-0.5">
+        {/* Navigation pills — horizontal layout */}
+        <nav className="flex items-center gap-0.5 md:gap-1 overflow-x-auto no-scrollbar py-0.5 max-w-full">
           {navItems.map((item, idx) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
             return (
               <React.Fragment key={item.id}>
-                {idx > 0 && <span className="nav-dot mx-1 hidden lg:block" />}
+                {idx > 0 && <span className="nav-dot mx-0.5 hidden xl:block" />}
                 <button
                   onClick={() => setActiveTab(item.id)}
-                  className={`relative px-3 py-1.5 rounded-full text-[13px] font-medium transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap ${
+                  className={`relative px-2.5 sm:px-3 py-1.5 rounded-full text-[12px] sm:text-[13px] font-medium transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap ${
                     isActive
                       ? 'text-white'
                       : 'text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text hover:bg-parchment-dark/60 dark:hover:bg-night-card-alt/80'
