@@ -10,6 +10,7 @@ import { WritingsSection } from './components/WritingsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
 import { MusicSection } from './components/MusicSection';
+import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -44,6 +45,10 @@ export default function App() {
     setIsPlaying((prev) => !prev);
   }, []);
 
+  const stopLofi = useCallback(() => {
+    setIsPlaying(false);
+  }, []);
+
   // Scroll progress bar
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +77,7 @@ export default function App() {
       case 'quotes':
         return <QuotesSection content={SITE_CONTENT} />;
       case 'recommendations':
-        return <RecommendationsSection content={SITE_CONTENT} />;
+        return <RecommendationsSection content={SITE_CONTENT} onVideoPlay={stopLofi} />;
       case 'music':
         return <MusicSection content={SITE_CONTENT} />;
       case 'home':
@@ -93,6 +98,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-parchment dark:bg-night-bg text-espresso dark:text-night-text font-sans transition-colors duration-500">
+      {/* Persistent Global Lofi Web Audio Engine across ALL tabs */}
+      <GlobalLofiEngine isPlaying={isPlaying} />
+
       {/* Analog Grain */}
       <div className="analog-grain" aria-hidden="true" />
 
