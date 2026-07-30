@@ -6,12 +6,11 @@ import { Button } from './ui/button';
 export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi }) {
   const navItems = [
     { id: 'home', label: 'Home', icon: Sparkles },
-    { id: 'sf-map', label: 'SF Map', icon: MapPin },
+    { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
     { id: 'about', label: 'About', icon: User },
     { id: 'projects', label: 'Projects', icon: Gamepad2 },
     { id: 'writings', label: 'Writings', icon: BookOpen },
     { id: 'quotes', label: 'Quotes', icon: Quote },
-    { id: 'recommendations', label: 'Reads', icon: Lightbulb },
     { id: 'music', label: 'Music', icon: Music },
   ];
 
@@ -33,7 +32,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi }) {
             <Coffee className="w-4 h-4 text-terracotta group-hover:text-matcha transition-colors duration-300" />
           </span>
           <div className="hidden sm:block">
-            <span className="font-hand text-2xl font-bold text-espresso group-hover:text-matcha-dark transition-colors leading-none block">
+            <span className="font-serif text-2xl font-bold text-espresso group-hover:text-matcha-dark transition-colors leading-none block tracking-tight">
               Dan Truong
             </span>
             <span className="text-[10px] font-mono text-espresso-muted leading-none">

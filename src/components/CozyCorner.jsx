@@ -6,13 +6,13 @@ import { Card, CardTitle, CardDescription } from './ui/card';
 export function CozyCorner({ onNavigate }) {
   const cards = [
     {
-      id: 'sf-map',
-      title: 'SF Recommendations Map',
-      desc: 'Interactive map of my favorite bakeries, viewpoints, food & drinks in SF.',
-      icon: MapPin,
-      accent: 'bg-terracotta-soft text-terracotta',
-      border: 'hover:border-terracotta',
-      handNote: 'sf spots 📍',
+      id: 'recommendations',
+      title: 'Recommendations & SF Map',
+      desc: 'Interactive map of my favorite SF spots + curated reading list of books & essays.',
+      icon: Lightbulb,
+      accent: 'bg-amber-light text-amber-warm',
+      border: 'hover:border-amber-warm/40',
+      handNote: 'sf spots & reads 📍',
     },
     {
       id: 'projects',
@@ -31,15 +31,6 @@ export function CozyCorner({ onNavigate }) {
       accent: 'bg-terracotta-soft text-terracotta',
       border: 'hover:border-terracotta-muted',
       handNote: 'thoughts & essays ✎',
-    },
-    {
-      id: 'recommendations',
-      title: 'Recommendations',
-      desc: 'Paul Graham, investment philosophy, and curated reads.',
-      icon: Lightbulb,
-      accent: 'bg-amber-light text-amber-warm',
-      border: 'hover:border-amber-warm/40',
-      handNote: 'curated gems ✧',
     },
     {
       id: 'quotes',
@@ -74,7 +65,9 @@ export function CozyCorner({ onNavigate }) {
     <section className="mb-14">
       {/* Section header */}
       <div className="flex items-center gap-4 mb-8">
-        <span className="font-hand text-xl text-terracotta">explore</span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+          explore
+        </span>
         <h2 className="font-serif text-2xl font-bold text-espresso tracking-tight">
           The Cozy Corner
         </h2>
@@ -96,7 +89,7 @@ export function CozyCorner({ onNavigate }) {
               onClick={() => onNavigate(card.id)}
               className="cursor-pointer"
             >
-              <Card className={`p-6 h-full flex flex-col justify-between group ${card.border} relative transition-all duration-300`}>
+              <Card className={`p-6 h-full flex flex-col justify-between group ${card.border} relative transition-all duration-300 shadow-cozy`}>
                 {/* Hand note */}
                 <span className="font-hand text-[13px] text-espresso-muted/60 absolute top-4 right-5 group-hover:text-terracotta transition-colors duration-300">
                   {card.handNote}
@@ -108,7 +101,7 @@ export function CozyCorner({ onNavigate }) {
                     <Icon className="w-5.5 h-5.5" />
                   </div>
 
-                  <CardTitle className="mb-2 text-lg group-hover:text-espresso transition-colors">
+                  <CardTitle className="mb-2 text-lg group-hover:text-espresso transition-colors font-serif">
                     {card.title}
                   </CardTitle>
                   <CardDescription className="text-[13px] text-espresso-muted leading-relaxed">
