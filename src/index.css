@@ -36,7 +36,7 @@
 }
 
 /* ============================================================
-   GLOBAL DARK MODE TEXT & SURFACE UTILITY OVERRIDES
+   GLOBAL DARK MODE TEXT, PILL & SURFACE CONTRAST OVERRIDES
    ============================================================ */
 .dark .text-espresso {
   color: #f7f3ec !important;
@@ -63,6 +63,7 @@
 .dark .bg-card-alt {
   background-color: #332b24 !important;
   border-color: rgba(247, 243, 236, 0.12) !important;
+  color: #f7f3ec !important;
 }
 
 .dark .bg-parchment-dark {
@@ -71,31 +72,32 @@
 }
 
 .dark .bg-matcha-soft {
-  background-color: rgba(85, 99, 71, 0.35) !important;
+  background-color: rgba(85, 99, 71, 0.4) !important;
 }
 
 .dark .text-matcha-dark {
-  color: #a3b593 !important;
+  color: #d2e3c4 !important;
 }
 
 .dark .bg-terracotta-soft {
-  background-color: rgba(184, 111, 82, 0.3) !important;
+  background-color: rgba(184, 111, 82, 0.35) !important;
+  border-color: rgba(247, 222, 212, 0.25) !important;
 }
 
 .dark .text-terracotta {
-  color: #d4886a !important;
+  color: #f7ded4 !important;
 }
 
 .dark .bg-mocha-soft {
-  background-color: rgba(107, 94, 82, 0.35) !important;
+  background-color: rgba(107, 94, 82, 0.4) !important;
 }
 
 .dark .bg-amber-light {
-  background-color: rgba(212, 155, 92, 0.25) !important;
+  background-color: rgba(212, 155, 92, 0.3) !important;
 }
 
 .dark .text-amber-warm {
-  color: #e6b377 !important;
+  color: #f4d0a3 !important;
 }
 
 /* ============================================================
