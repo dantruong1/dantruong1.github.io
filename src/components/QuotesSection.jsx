@@ -1,16 +1,30 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, Copy, Check, Search, Sparkles, Filter } from 'lucide-react';
+import { Quote, Copy, Check, Search, Sparkles } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
-const stagger = {
+const sectionStagger = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
 };
-const fadeUp = {
+const headerFadeUp = {
   hidden: { y: 16, opacity: 0 },
   show: { y: 0, opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const gridVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.03, delayChildren: 0.02 },
+  },
+  exit: { opacity: 0, transition: { duration: 0.15 } },
+};
+
+const cardVariants = {
+  hidden: { y: 14, opacity: 0 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
 };
 
 // Alternating card tint patterns for cozy aesthetic
@@ -48,7 +62,7 @@ export function QuotesSection({ content }) {
       // Category match
       let matchesCategory = true;
       if (activeCategory === 'Favorites ★') {
-        matchesCategory = q.favorite;
+        matchesCategory = Boolean(q.favorite);
       } else if (activeCategory !== 'All') {
         matchesCategory = q.category === activeCategory;
       }
@@ -69,13 +83,13 @@ export function QuotesSection({ content }) {
 
   return (
     <motion.section
-      variants={stagger}
+      variants={sectionStagger}
       initial="hidden"
       animate="show"
       className="max-w-4xl mx-auto mb-14"
     >
       {/* Standardized Section Header */}
-      <motion.div variants={fadeUp} className="mb-7">
+      <motion.div variants={headerFadeUp} className="mb-7">
         <div className="flex items-center gap-3 mb-2">
           <span className="section-kicker">wisdom & reflections</span>
           <div className="organic-divider flex-1" />
@@ -90,7 +104,7 @@ export function QuotesSection({ content }) {
       </motion.div>
 
       {/* Filter Bar & Search Input */}
-      <motion.div variants={fadeUp} className="mb-6 space-y-4">
+      <motion.div variants={headerFadeUp} className="mb-6 space-y-4">
         {/* Search Input */}
         <div className="relative">
           <Search className="w-4 h-4 text-espresso-muted/60 dark:text-night-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -148,14 +162,14 @@ export function QuotesSection({ content }) {
       <AnimatePresence mode="wait">
         <motion.div
           key={`${activeCategory}-${searchQuery}`}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
+          variants={gridVariants}
+          initial="hidden"
+          animate="show"
+          exit="exit"
           className="columns-1 md:columns-2 gap-5 space-y-5"
         >
           {filteredQuotes.map((q, idx) => (
-            <motion.div key={q.id} variants={fadeUp} className="break-inside-avoid">
+            <motion.div key={q.id} variants={cardVariants} className="break-inside-avoid">
               <Card
                 className={`p-6 ${tints[idx % tints.length]} border-espresso/8 dark:border-night-border flex flex-col relative group cursor-pointer hover:shadow-cozy-hover transition-all duration-300`}
                 onClick={() => handleCopy(q, q.id)}
