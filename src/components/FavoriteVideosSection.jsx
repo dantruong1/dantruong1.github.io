@@ -104,7 +104,7 @@ export function FavoriteVideosSection({ onVideoPlay }) {
         <h3 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           All-Time Favorite Speeches & Performances
         </h3>
-        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
           Iconic speeches, TED talks, and musical performances that I come back to again and again for inspiration on leadership, psychology, music, and purpose.
         </p>
       </motion.div>

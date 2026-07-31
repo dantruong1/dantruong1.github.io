@@ -33,7 +33,7 @@ export function ProjectsSection({ content }) {
         <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           Projects & Achievements
         </h2>
-        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
           Consumer products, global hackathon wins, case competitions, and product strategy initiatives across tech and social impact.
         </p>
       </motion.div>
@@ -59,7 +59,7 @@ export function ProjectsSection({ content }) {
                     <CardTitle className="text-2xl mb-3 group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors">
                       {proj.title}
                     </CardTitle>
-                    <CardDescription className="text-[14px] text-espresso-light dark:text-night-muted leading-relaxed mb-5 max-w-xl">
+                    <CardDescription className="text-[14px] text-espresso-light dark:text-night-muted leading-relaxed mb-5 w-full">
                       {proj.description}
                     </CardDescription>
 

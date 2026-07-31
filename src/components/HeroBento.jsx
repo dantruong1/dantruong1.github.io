@@ -121,7 +121,7 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
               {content.hero.subrole}
             </p>
 
-            <p className="text-[15px] text-espresso-light dark:text-night-muted leading-[1.75] mb-6 font-sans max-w-xl">
+            <p className="text-[15px] text-espresso-light dark:text-night-muted leading-[1.75] mb-6 font-sans w-full">
               I'm a curious product builder who thrives at the intersection of{' '}
               <strong className="text-espresso dark:text-night-text font-semibold underline decoration-matcha/40 decoration-2 underline-offset-2">
                 economics

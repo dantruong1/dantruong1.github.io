@@ -32,7 +32,7 @@ export function WritingsSection({ content }) {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
               Writings & Substack
             </h2>
-            <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+            <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
               Published op-eds for The Daily Californian and long-form essays on economics, technology, and product building on Substack.
             </p>
           </div>

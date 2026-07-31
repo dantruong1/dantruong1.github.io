@@ -97,7 +97,7 @@ export function SFMapSection() {
           <Compass className="w-7 h-7 text-matcha dark:text-matcha-glow" />
           SF Recommendations Map
         </h2>
-        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
           An interactive guide to my absolute favorite spots in San Francisco — from early morning croissant runs to golden hour viewpoints and cozy late-night dining.
         </p>
       </div>

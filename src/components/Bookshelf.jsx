@@ -37,7 +37,7 @@ export function Bookshelf({ content }) {
         <h3 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           Dan's Bookshelf
         </h3>
-        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
           A curated digital bookshelf of books and essays that have fundamentally shaped how I think. Click or tap any volume to pull it off the shelf and open its reading link!
         </p>
       </div>

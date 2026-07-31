@@ -39,7 +39,7 @@ export function MusicSection({ content }) {
         <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           Music & Chill Vibes
         </h2>
-        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl flex items-center gap-2">
+        <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full flex items-center gap-2">
           <Headphones className="w-4 h-4 text-matcha dark:text-matcha-glow shrink-0" />
           Tracks and albums on heavy rotation — from golden-hour R&B to late-night lofi focus sessions.
         </p>
