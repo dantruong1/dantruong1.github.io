@@ -10,6 +10,52 @@ export const SITE_CONTENT = {
     quote: "The cold water does not get warmer if you jump late.",
     quoteAttr: "— one of many favorites"
   },
+  scrapbook: [
+    {
+      id: "goldengate",
+      src: "images/sf-header.jpg",
+      title: "Golden Gate Sunset",
+      caption: "Golden Hour in San Francisco",
+      location: "San Francisco, CA",
+      badge: "SF 🌉",
+      year: "2024",
+      rotate: "-rotate-2",
+      washiPos: "washi-tape-top-left"
+    },
+    {
+      id: "berkeley",
+      src: "images/profile/berkeley-grad.jpg",
+      title: "UC Berkeley '24",
+      caption: "Econ Major · Data Science & Public Policy Minors",
+      location: "Doe Library · Berkeley, CA",
+      badge: "Cal Alum 🎓",
+      year: "2024",
+      rotate: "rotate-2",
+      washiPos: "washi-tape-top-right"
+    },
+    {
+      id: "bayarea",
+      src: "images/profile/chase-center.jpg",
+      title: "Bay Area Native",
+      caption: "San Jose Roots · Chase Center",
+      location: "Chase Center · San Francisco, CA",
+      badge: "Bay Area 🏀",
+      year: "2025",
+      rotate: "rotate-1",
+      washiPos: "washi-tape-bottom-left"
+    },
+    {
+      id: "yosemite",
+      src: "images/profile/yosemite-halfdome.jpg",
+      title: "California Trails",
+      caption: "Half Dome Sunset Hike",
+      location: "Yosemite Valley, CA",
+      badge: "Outdoors 🏔️",
+      year: "2024",
+      rotate: "-rotate-3",
+      washiPos: "washi-tape-bottom-right"
+    }
+  ],
   about: {
     title: "About Me",
     subtitle: "Curious product builder thriving at the intersection of economics, value creation, technology, & human delight.",

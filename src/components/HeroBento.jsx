@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Quote, Sparkles, ArrowRight, Pen } from 'lucide-react';
+import { MapPin, Quote, Sparkles, ArrowRight, Pen, Camera } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { LofiPlayer } from './LofiPlayer';
@@ -26,51 +26,66 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
       animate="show"
       className="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-14"
     >
-      {/* ── Left Column: Polaroid Photo ── */}
-      <motion.div variants={item} className="lg:col-span-5 flex flex-col justify-center">
-        <div className="polaroid-frame rounded-cozy group cursor-pointer relative">
-          <div className="washi-tape washi-tape-top-left" />
-          <div className="washi-tape washi-tape-bottom" />
-
-          <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-parchment-dark dark:bg-night-card-alt">
-            <img
-              src={content.hero.photo}
-              alt="Golden Gate Bridge at sunset, San Francisco"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-espresso/50 via-espresso/10 to-transparent" />
-
-            <span className="absolute bottom-3 left-3 bg-card/90 dark:bg-night-card/90 backdrop-blur-sm text-espresso dark:text-night-text text-[11px] font-mono px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm border border-espresso/5 dark:border-night-border">
-              <MapPin className="w-3 h-3 text-terracotta dark:text-terracotta-glow" />
-              {content.hero.location}
+      {/* ── Left Column: 4-Photo Scrapbook Collage ── */}
+      <motion.div variants={item} className="lg:col-span-5 flex flex-col justify-between">
+        <div className="bg-card/40 dark:bg-night-card/40 border border-espresso/8 dark:border-night-border rounded-cozy p-4 relative shadow-cozy">
+          <div className="flex items-center justify-between mb-3 px-1">
+            <span className="font-hand text-xl text-espresso dark:text-night-text font-bold flex items-center gap-1.5">
+              <Camera className="w-4 h-4 text-terracotta dark:text-terracotta-glow" />
+              Dan's Scrapbook ✦
             </span>
+            <Badge variant="default" className="text-[10px] font-mono">
+              4 Memories
+            </Badge>
           </div>
 
-          {/* Handwritten caption below the photo */}
-          <div className="mt-3 px-1 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="font-hand text-lg text-espresso-muted dark:text-night-muted">
-                Golden Gate Sunset · 2024
-              </span>
-              <Pen className="w-3 h-3 text-terracotta/50" />
-            </div>
-            <Badge variant="default" className="text-[10px]">
-              Bay Area ☀
-            </Badge>
+          {/* 2x2 Grid showing all 4 photos simultaneously */}
+          <div className="grid grid-cols-2 gap-3.5">
+            {content.scrapbook?.map((photo) => (
+              <motion.div
+                key={photo.id}
+                whileHover={{ scale: 1.05, zIndex: 20, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className={`polaroid-frame p-2.5 rounded-lg group cursor-pointer relative transition-shadow hover:shadow-lg ${photo.rotate}`}
+              >
+                <div className={`washi-tape ${photo.washiPos}`} />
+
+                <div className="relative overflow-hidden rounded aspect-[4/3] bg-parchment-dark dark:bg-night-card-alt">
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="eager"
+                  />
+                  <span className="absolute bottom-1 left-1 bg-card/90 dark:bg-night-card/90 backdrop-blur-sm text-espresso dark:text-night-text text-[9px] font-mono px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-espresso/5 shadow-xs">
+                    <MapPin className="w-2.5 h-2.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+                    <span className="truncate max-w-[90px]">{photo.badge}</span>
+                  </span>
+                </div>
+
+                <div className="mt-2 px-0.5">
+                  <p className="font-hand text-sm leading-tight text-espresso font-semibold dark:text-night-text truncate">
+                    {photo.title}
+                  </p>
+                  <p className="text-[10px] text-espresso-muted dark:text-night-muted truncate font-sans">
+                    {photo.caption}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
-        {/* Small cozy illustration below polaroid on desktop */}
+        {/* Small cozy illustration below collage */}
         <motion.div
           variants={item}
-          className="hidden lg:flex items-center justify-center mt-5"
+          className="hidden lg:flex items-center justify-center mt-4"
         >
-          <div className="bg-mocha-soft/60 dark:bg-night-card-alt rounded-cozy px-5 py-3 flex items-center gap-3 border border-mocha-light/50 dark:border-night-border">
+          <div className="bg-mocha-soft/60 dark:bg-night-card-alt rounded-cozy px-5 py-2.5 flex items-center gap-3 border border-mocha-light/50 dark:border-night-border w-full justify-center">
             <img
               src="images/cozy/gameboy-vines.png"
               alt="Cozy gameboy doodle"
-              className="w-10 h-10 object-contain opacity-80"
+              className="w-8 h-8 object-contain opacity-80"
             />
             <span className="font-hand text-base text-espresso-muted dark:text-night-muted">
               lofi beats & warm coffee ☕
