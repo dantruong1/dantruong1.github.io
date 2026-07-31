@@ -133,10 +133,11 @@ export const SITE_CONTENT = {
     }
   ],
   quotes: [
+    // ── Action & Courage ──
     {
       id: 1,
       quote: "The cold water does not get warmer if you jump late.",
-      author: "Unknown / Wise Saying",
+      author: "Popular Aphorism",
       category: "Action & Courage",
       favorite: true
     },
@@ -144,29 +145,520 @@ export const SITE_CONTENT = {
       id: 2,
       quote: "If you want to build a ship, don't drum up the men to gather wood, divide the work, and give orders. Instead, teach them to yearn for the vast and endless sea.",
       author: "Antoine de Saint-Exupéry",
-      category: "Leadership & Inspiration",
+      category: "Action & Courage",
       favorite: true
     },
     {
       id: 3,
       quote: "You get points for predicting rain, but you get prizes for building arks.",
       author: "Lou Gerstner",
-      category: "Execution",
+      category: "Action & Courage",
       favorite: true
     },
     {
       id: 4,
-      quote: "The best way to predict the future is to invent it.",
-      author: "Alan Kay",
-      category: "Technology",
-      favorite: false
+      quote: "Before you try to increase your willpower, try to decrease the friction in your environment.",
+      author: "James Clear (Atomic Habits)",
+      category: "Action & Courage",
+      favorite: true
     },
     {
       id: 5,
-      quote: "Simplicity is about subtracting the obvious and adding the meaningful.",
-      author: "John Maeda",
-      category: "Design",
+      quote: "Everything negative — pressures, challenges — is all an opportunity for me to rise.",
+      author: "Kobe Bryant",
+      category: "Action & Courage",
       favorite: true
+    },
+    {
+      id: 6,
+      quote: "Fail early, fail often, fail forward.",
+      author: "John C. Maxwell",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 7,
+      quote: "Sucking at something is the first step to becoming sorta good at something.",
+      author: "Jake the Dog (Adventure Time)",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 8,
+      quote: "Be brave. Take risks. Nothing can substitute experience.",
+      author: "Paulo Coelho",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 9,
+      quote: "Success consists of going from failure to failure without loss of enthusiasm.",
+      author: "Winston Churchill",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 10,
+      quote: "Only those who dare to fail greatly can ever achieve greatly.",
+      author: "Robert F. Kennedy",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 11,
+      quote: "The only real mistake is the one from which we learn nothing.",
+      author: "Henry Ford",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 12,
+      quote: "What is the point of being alive if you don't at least try to do something remarkable?",
+      author: "John Green",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 13,
+      quote: "A person who never made a mistake never tried anything new.",
+      author: "Albert Einstein",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 14,
+      quote: "It's failure that gives you the proper perspective on success.",
+      author: "Ellen DeGeneres",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 15,
+      quote: "I have not failed. I've just found 10,000 ways that won't work.",
+      author: "Thomas Edison",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 16,
+      quote: "Your path is harder because your calling is higher.",
+      author: "Popular Wisdom",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 17,
+      quote: "Choose your hard. Being broke is hard; building wealth is hard. Being unfit is hard; staying fit is hard. Choose your hard.",
+      author: "Popular Aphorism",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 18,
+      quote: "Waste no more time arguing about what a good man should be. Be one.",
+      author: "Marcus Aurelius",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 19,
+      quote: "If your dreams don't scare you, you're not dreaming big enough.",
+      author: "Ellen Johnson Sirleaf",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 20,
+      quote: "If you are completely certain of the path you're on, it's usually because you're following someone else's.",
+      author: "Joseph Campbell / Carl Jung",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 21,
+      quote: "The day you plant the seed is not the day you eat the fruit.",
+      author: "Fabienne Fredrickson",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 22,
+      quote: "Feeling lost or stuck forces you to pause and reevaluate. It gives you the opening to consciously choose the path that feels truest to you.",
+      author: "Personal Reflection",
+      category: "Action & Courage",
+      favorite: false
+    },
+    {
+      id: 23,
+      quote: "The thing about your 20s is, no matter how you spend them, you'll wonder about the other path. So forget decision paralysis — take a leap of faith and follow your heart.",
+      author: "Dan Truong",
+      category: "Action & Courage",
+      favorite: true
+    },
+    {
+      id: 24,
+      quote: "People don't practice to be great; people practice to practice. Don't count minutes or take shortcuts — practice for excellence.",
+      author: "Personal Reflection",
+      category: "Action & Courage",
+      favorite: false
+    },
+
+    // ── Mindset & Gratitude ──
+    {
+      id: 25,
+      quote: "Most unhappiness is caused by the stories we tell ourselves in our heads.",
+      author: "Epictetus",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 26,
+      quote: "Optimism is the highest form of intellectual maturity. You see the world for what it is, yet still choose to hope and focus on solutions.",
+      author: "Popular Wisdom",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 27,
+      quote: "There are only two days in the year that nothing can be done: one is called Yesterday and the other is called Tomorrow.",
+      author: "Dalai Lama",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 28,
+      quote: "We suffer more often in imagination than in reality.",
+      author: "Seneca",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 29,
+      quote: "Traveling won't cure your depression. A change of character, not a change of air, is what you need.",
+      author: "Seneca",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+    {
+      id: 30,
+      quote: "Think about how happy you would be if you lost everything you had right now, and then got it all back.",
+      author: "Stoic Reflection",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 31,
+      quote: "Worrying means you suffer twice.",
+      author: "J.K. Rowling (Newt Scamander)",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+    {
+      id: 32,
+      quote: "The foolish man seeks happiness in the distance; the wise grows it under his feet.",
+      author: "James Oppenheim",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+    {
+      id: 33,
+      quote: "Don't be overheard complaining, not even to yourself.",
+      author: "Marcus Aurelius",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 34,
+      quote: "Sometimes you never know the value of a moment until it becomes a memory.",
+      author: "Dr. Seuss",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+    {
+      id: 35,
+      quote: "When taking a shower, be in the warm water — not in your breakfast or commute. Be present.",
+      author: "Mindfulness Principle",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 36,
+      quote: "You can have 1,000 problems in life until you have a health problem. Then you only have one problem.",
+      author: "Naval Ravikant",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 37,
+      quote: "If you choose not to find joy in the snow, you will have less joy in your life and the exact same amount of snow.",
+      author: "Popular Wisdom",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 38,
+      quote: "Never treat your current stage of life like a transitory period. Don't waste your now hoping for something else.",
+      author: "Personal Reflection",
+      category: "Mindset & Gratitude",
+      favorite: true
+    },
+    {
+      id: 39,
+      quote: "Life is 10% what happens to you and 90% how you react to it.",
+      author: "Charles R. Swindoll",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+    {
+      id: 40,
+      quote: "Emotion regulation isn't about controlling what you feel; it's about choosing how you respond.",
+      author: "Psychology Reflection",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+    {
+      id: 41,
+      quote: "Obsessing over pain makes problems grow. Move your body, run errands, get outside — don't let rumination become a habit.",
+      author: "Personal Reflection",
+      category: "Mindset & Gratitude",
+      favorite: false
+    },
+
+    // ── Self-Mastery & Authenticity ──
+    {
+      id: 42,
+      quote: "If you are lonely when you're alone, you are in bad company.",
+      author: "Jean-Paul Sartre",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 43,
+      quote: "Better to admit you walked through the wrong door than spend the rest of your life in the wrong room.",
+      author: "Popular Wisdom",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 44,
+      quote: "In order to love who you are, you cannot hate the experiences that shaped you.",
+      author: "Andrea Dykstra",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 45,
+      quote: "Do you remember who you were before the world told you who you should be?",
+      author: "Danielle LaPorte",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 46,
+      quote: "Confidence is built on a high reputation with yourself. Keep the promises you make to yourself.",
+      author: "Ed Mylett / Alex Hormozi",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 47,
+      quote: "Discipline is the highest form of self-love.",
+      author: "Will Smith",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 48,
+      quote: "The best part about being authentic is that there's no image to maintain.",
+      author: "Popular Wisdom",
+      category: "Self-Mastery",
+      favorite: false
+    },
+    {
+      id: 49,
+      quote: "Instead of passively accepting existence, take ownership of your choices. Create your own meaning and purpose.",
+      author: "Jean-Paul Sartre",
+      category: "Self-Mastery",
+      favorite: false
+    },
+    {
+      id: 50,
+      quote: "It's okay to live a life others don't understand.",
+      author: "Popular Aphorism",
+      category: "Self-Mastery",
+      favorite: false
+    },
+    {
+      id: 51,
+      quote: "There is no map for when you should accomplish things in life. Don't waste your life living by other people's deadlines.",
+      author: "Dan Truong",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 52,
+      quote: "My biggest achievement: I know who I am, I love who I am, and I like the pace at which I'm taking my life.",
+      author: "Personal Reflection",
+      category: "Self-Mastery",
+      favorite: true
+    },
+    {
+      id: 53,
+      quote: "Don't be so humble that you disappear or sell yourself short.",
+      author: "Maya Angelou",
+      category: "Self-Mastery",
+      favorite: false
+    },
+    {
+      id: 54,
+      quote: "You can disappoint people and still be good enough. Mistakes make you human, not inept.",
+      author: "Personal Reflection",
+      category: "Self-Mastery",
+      favorite: false
+    },
+
+    // ── Perspective & Kindness ──
+    {
+      id: 55,
+      quote: "'Remember when' is the lowest form of conversation.",
+      author: "Tony Soprano (The Sopranos)",
+      category: "Perspective & Kindness",
+      favorite: false
+    },
+    {
+      id: 56,
+      quote: "Truth without kindness is brutality. Kindness without truth is manipulation.",
+      author: "Warren Wiersbe",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+    {
+      id: 57,
+      quote: "A society full of sinners judging other sinners for sinning differently.",
+      author: "Popular Wisdom",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+    {
+      id: 58,
+      quote: "I don't have to agree with you to like you.",
+      author: "Popular Aphorism",
+      category: "Perspective & Kindness",
+      favorite: false
+    },
+    {
+      id: 59,
+      quote: "Who am I to judge another, when I walk as an imperfect man?",
+      author: "Traditional Aphorism",
+      category: "Perspective & Kindness",
+      favorite: false
+    },
+    {
+      id: 60,
+      quote: "Refuse to be offended. When people are mean, they are revealing what's within themselves, not within you.",
+      author: "Marcus Aurelius",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+    {
+      id: 61,
+      quote: "Everything said at funerals should be said at birthdays.",
+      author: "Popular Wisdom",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+    {
+      id: 62,
+      quote: "Don't judge someone's choices when you don't know what their options were.",
+      author: "Popular Wisdom",
+      category: "Perspective & Kindness",
+      favorite: false
+    },
+    {
+      id: 63,
+      quote: "You don't meet the people you love; you recognize them.",
+      author: "Popular Aphorism",
+      category: "Perspective & Kindness",
+      favorite: false
+    },
+    {
+      id: 64,
+      quote: "Hard work doesn't entitle you to achievement. Millions of immigrants work tirelessly just to get by. Hard work is a privilege.",
+      author: "Dan Truong",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+    {
+      id: 65,
+      quote: "I've always liked quiet people. You never know if they're dancing in a daydream or carrying the weight of the world.",
+      author: "John Green",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+    {
+      id: 66,
+      quote: "Speak to people in a way that if they died tomorrow, you'd be at peace with the last words you said to them.",
+      author: "Popular Wisdom",
+      category: "Perspective & Kindness",
+      favorite: true
+    },
+
+    // ── Wisdom & Wonder ──
+    {
+      id: 67,
+      quote: "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.",
+      author: "Marcel Proust",
+      category: "Wisdom & Wonder",
+      favorite: true
+    },
+    {
+      id: 68,
+      quote: "The light we wake up to in the morning has traveled 93 million miles just to touch our skin.",
+      author: "Nature Reflection",
+      category: "Wisdom & Wonder",
+      favorite: true
+    },
+    {
+      id: 69,
+      quote: "No man ever steps in the same river twice, for it's not the same river and he is not the same man.",
+      author: "Heraclitus",
+      category: "Wisdom & Wonder",
+      favorite: true
+    },
+    {
+      id: 70,
+      quote: "It is not the man who has too little, but the man who craves more, who is poor.",
+      author: "Seneca",
+      category: "Wisdom & Wonder",
+      favorite: false
+    },
+    {
+      id: 71,
+      quote: "Pretend you died and asked Buddha to send you back to Earth just to feel rain, see mountains, and love your friends again. Never forget the miracle of being here.",
+      author: "Buddhist Reflection",
+      category: "Wisdom & Wonder",
+      favorite: true
+    },
+    {
+      id: 72,
+      quote: "When you walk into the room, bring your people with you — your parents, grandparents, and ancestors who loved you into being. You'll be unstoppable.",
+      author: "Maya Angelou",
+      category: "Wisdom & Wonder",
+      favorite: true
+    },
+    {
+      id: 73,
+      quote: "I want to live simply: read books I'll never be tested on, paint because I want to, and not be governed by artificial constraints. Boundless & infinite.",
+      author: "Cozy Living Reflection",
+      category: "Wisdom & Wonder",
+      favorite: true
+    },
+    {
+      id: 74,
+      quote: "Fall semester energy: summer tan, crisp weather, autumn leaves, red cups, hoodies, Thanksgiving, and holiday magic.",
+      author: "Dan Truong",
+      category: "Wisdom & Wonder",
+      favorite: false
     }
   ],
   recommendations: [
