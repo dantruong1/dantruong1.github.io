@@ -79,18 +79,23 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
         {/* Small cozy illustration below collage */}
         <motion.div
           variants={item}
-          className="hidden lg:flex items-center justify-center mt-4"
+          className="flex items-center justify-center mt-4"
         >
-          <div className="bg-mocha-soft/60 dark:bg-night-card-alt rounded-cozy px-5 py-2.5 flex items-center gap-3 border border-mocha-light/50 dark:border-night-border w-full justify-center">
+          <a
+            href="https://open.spotify.com/playlist/1YDjqI9NAcpVAYl8vddTmh?si=qypJP3VnQge_a71wqos-6w"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-mocha-soft/60 dark:bg-night-card-alt hover:bg-mocha-soft/90 dark:hover:bg-night-card rounded-cozy px-5 py-2.5 flex items-center gap-3 border border-mocha-light/50 dark:border-night-border w-full justify-center transition-all duration-200 hover:scale-[1.02] hover:shadow-sm cursor-pointer group"
+          >
             <img
               src="images/cozy/gameboy-vines.png"
               alt="Cozy gameboy doodle"
-              className="w-8 h-8 object-contain opacity-80"
+              className="w-8 h-8 object-contain opacity-80 group-hover:scale-110 transition-transform duration-200"
             />
-            <span className="font-hand text-base text-espresso-muted dark:text-night-muted">
+            <span className="font-hand text-base text-espresso-muted dark:text-night-muted group-hover:text-espresso dark:group-hover:text-night-text transition-colors">
               lofi beats & warm coffee ☕
             </span>
-          </div>
+          </a>
         </motion.div>
       </motion.div>
 

@@ -60,12 +60,13 @@ export const SITE_CONTENT = {
     title: "About Me",
     subtitle: "Curious product builder thriving at the intersection of economics, value creation, technology, & human delight.",
     paragraphs: [
-      "Hi, I'm Dan! Born and raised in San Jose, California (Bay Area native), I'm a Technical Product Manager 2 on the Xbox team at Microsoft. I graduated from UC Berkeley in 2024 with a degree in Economics alongside minors in Data Science and Public Policy.",
+      "Hi, I'm Dan! Born and raised in San Jose, California (Bay Area native), I'm a Technical Product Manager 2 on the Xbox team at Microsoft, having previously interned as a product manager at Zillow and Wish. I graduated from UC Berkeley in 2024 with a degree in Economics alongside minors in Data Science and Public Policy.",
       "At my core, I'm a curious product builder who thrives at the intersection of economics, value creation, technology, and user delight. I love diving into complex system incentives, market dynamics, and customer insights to turn knotty challenges into intuitive, high-value consumer experiences.",
       "Beyond building product at Microsoft, you can find me exploring local coffee spots and bakeries around San Francisco, writing op-eds on technology and economic policy, building side projects, and reading Paul Graham essays over warm lofi beats."
     ],
     highlights: [
       { label: "Role", value: "Technical PM 2, Xbox @ Microsoft" },
+      { label: "Past Internships", value: "Zillow & Wish (Product / TPM)" },
       { label: "Education", value: "UC Berkeley '24 (Econ Major, Data Science & Public Policy Minors)" },
       { label: "Roots & Location", value: "San Jose (Roots) · San Francisco, CA" },
       { label: "Focus", value: "Value Creation, Data Economics & Consumer Experiences" }

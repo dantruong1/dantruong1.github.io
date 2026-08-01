@@ -15,6 +15,7 @@ const fadeUp = {
 
 const quickFacts = [
   { label: 'CURRENT ROLE', value: 'Xbox @ Microsoft (TPM 2)', icon: Briefcase, color: 'text-matcha dark:text-matcha-glow' },
+  { label: 'PAST INTERNSHIPS', value: 'Zillow & Wish (Product / TPM)', icon: Briefcase, color: 'text-amber-warm dark:text-amber-warm/90' },
   { label: 'ALMA MATER', value: 'UC Berkeley \'24 (Econ + Minors)', icon: GraduationCap, color: 'text-matcha dark:text-matcha-glow' },
   { label: 'ROOTS & LOCATION', value: 'San Jose · San Francisco, CA', icon: MapPin, color: 'text-terracotta dark:text-terracotta-glow' },
   { label: 'FOCUS AREA', value: 'Economics · Value Creation · Delight', icon: Heart, color: 'text-terracotta dark:text-terracotta-glow' },
