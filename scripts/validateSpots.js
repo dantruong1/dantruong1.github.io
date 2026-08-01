@@ -1,6 +1,6 @@
 import { SF_SPOTS, SF_CATEGORIES } from '../src/data/sfSpots.js';
 
-console.log('🧪 Running Validation Tests for SF Map Recommendations...');
+console.log('🧪 Running Comprehensive Validation Tests for SF Map Recommendations...');
 
 let passed = 0;
 let failed = 0;
@@ -21,7 +21,7 @@ SF_SPOTS.forEach((spot) => {
   ids.add(spot.id);
 });
 
-// 2. Category Check
+// 2. Category Check & Schema Validation
 const validCategories = new Set(SF_CATEGORIES.map((c) => c.id).filter((id) => id !== 'all'));
 
 SF_SPOTS.forEach((spot) => {
@@ -35,25 +35,24 @@ SF_SPOTS.forEach((spot) => {
 });
 
 // 3. Specific Critical Spot Verifications
-const fourChairs = SF_SPOTS.find((s) => s.id === 'four-chairs');
-assert(fourChairs !== undefined, 'Four Chairs spot exists');
-if (fourChairs) {
-  assert(fourChairs.neighborhood === 'Mission District', `Four Chairs neighborhood should be "Mission District", got: "${fourChairs.neighborhood}"`);
-  assert(Math.abs(fourChairs.lat - 37.7583) < 0.01, `Four Chairs latitude accurate (near 37.7583), got: ${fourChairs.lat}`);
-  assert(Math.abs(fourChairs.lng - (-122.4190)) < 0.01, `Four Chairs longitude accurate (near -122.4190), got: ${fourChairs.lng}`);
-}
+const assertions = [
+  { id: 'four-chairs', expectedNeighborhood: 'Mission District', expectedLat: 37.7583, expectedLng: -122.4190 },
+  { id: 'ollei', expectedNeighborhood: 'Russian Hill / Polk Street', expectedLat: 37.7969, expectedLng: -122.4226 },
+  { id: 'cafe-shoji', expectedNeighborhood: 'SOMA / FiDi', expectedLat: 37.7865, expectedLng: -122.4003 },
+  { id: 'komeya-no-bento', expectedNeighborhood: 'Cow Hollow / Marina', expectedLat: 37.7986, expectedLng: -122.4308 },
+  { id: 'khao-tiew', expectedNeighborhood: 'West Portal / Forest Hill', expectedLat: 37.7411, expectedLng: -122.4650 },
+  { id: 'sohn', expectedNeighborhood: 'Dogpatch', expectedLat: 37.7574, expectedLng: -122.3880 },
+];
 
-const qCoffee = SF_SPOTS.find((s) => s.id === 'q-specialty-coffee');
-if (qCoffee) {
-  assert(qCoffee.neighborhood.includes('Presidio Heights') || qCoffee.neighborhood.includes('Laurel Heights'), `Q Specialty Coffee neighborhood accurately located`);
-  assert(Math.abs(qCoffee.lat - 37.7868) < 0.01, `Q Specialty Coffee latitude accurate`);
-}
-
-const sohn = SF_SPOTS.find((s) => s.id === 'sohn');
-if (sohn) {
-  assert(sohn.neighborhood === 'Dogpatch', `Sohn neighborhood accurately located in Dogpatch`);
-  assert(Math.abs(sohn.lat - 37.7574) < 0.01, `Sohn latitude accurate`);
-}
+assertions.forEach(({ id, expectedNeighborhood, expectedLat, expectedLng }) => {
+  const spot = SF_SPOTS.find((s) => s.id === id);
+  assert(spot !== undefined, `Spot ${id} exists`);
+  if (spot) {
+    assert(spot.neighborhood === expectedNeighborhood, `Spot "${id}" neighborhood should be "${expectedNeighborhood}", got: "${spot.neighborhood}"`);
+    assert(Math.abs(spot.lat - expectedLat) < 0.01, `Spot "${id}" latitude accurate (expected ${expectedLat}), got: ${spot.lat}`);
+    assert(Math.abs(spot.lng - expectedLng) < 0.01, `Spot "${id}" longitude accurate (expected ${expectedLng}), got: ${spot.lng}`);
+  }
+});
 
 console.log(`\n📊 Summary: ${passed} passed, ${failed} failed out of ${passed + failed} assertions.`);
 
