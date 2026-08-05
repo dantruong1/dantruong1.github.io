@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 export function RoomGroup({
   room,
@@ -8,7 +7,6 @@ export function RoomGroup({
   width,
   height,
   floorColor,
-  wallColor,
   isSelected,
   onSelectRoom,
   children,
@@ -16,14 +14,14 @@ export function RoomGroup({
   return (
     <g
       transform={`translate(${x}, ${y})`}
-      className="cursor-pointer group"
+      className="cursor-pointer group select-none"
       onClick={() => onSelectRoom && onSelectRoom(room.id)}
     >
       {/* Room Floor Surface */}
       <rect
         width={width}
         height={height}
-        rx={16}
+        rx={18}
         className={`${floorColor} transition-colors duration-500 shadow-inner`}
       />
 
@@ -31,7 +29,7 @@ export function RoomGroup({
       <rect
         width={width}
         height={height}
-        rx={16}
+        rx={18}
         fill="none"
         stroke="currentColor"
         strokeWidth={isSelected ? 3 : 1.5}
@@ -42,24 +40,21 @@ export function RoomGroup({
         } transition-colors duration-300`}
       />
 
-      {/* Room Name Badge Header */}
-      <g transform="translate(14, 18)">
-        <rect
-          width={room.name.length * 9 + 34}
-          height={24}
-          rx={12}
-          className="fill-card/90 dark:fill-night-card/90 stroke-espresso/10 dark:stroke-night-border shadow-xs"
-        />
-        <text
-          x={10}
-          y={16}
-          className="fill-espresso dark:fill-night-text text-[11px] font-mono font-bold select-none pointer-events-none"
-        >
-          {room.icon} {room.name}
-        </text>
-      </g>
+      {/* Room Header Badge Tag */}
+      <foreignObject x={14} y={14} width={width - 28} height={36} className="pointer-events-none overflow-visible">
+        <div className="flex items-center">
+          <div className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-xs border transition-all ${
+            isSelected
+              ? 'bg-matcha text-white border-matcha dark:bg-matcha-dark'
+              : 'bg-card/90 dark:bg-night-card/90 text-espresso dark:text-night-text border-espresso/10 dark:border-night-border group-hover:border-matcha/50'
+          }`}>
+            <span>{room.icon}</span>
+            <span>{room.name}</span>
+          </div>
+        </div>
+      </foreignObject>
 
-      {/* Room Content (Furniture, Objects, Plants) */}
+      {/* Room Furniture & Objects */}
       <g transform="translate(0, 0)">{children}</g>
     </g>
   );

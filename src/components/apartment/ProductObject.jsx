@@ -10,21 +10,29 @@ export function ProductObject({
   y,
   width = 80,
   height = 80,
+  labelOffsetX = 0,
+  labelOffsetY = 0,
+  shortLabel,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [easterEggActive, setEasterEggActive] = useState(false);
 
   const handleClick = (e) => {
     e.stopPropagation();
-    if (product.easterEgg) {
+    if (product?.easterEgg) {
       setEasterEggActive(true);
       setTimeout(() => setEasterEggActive(false), 2500);
       if (onTriggerEasterEgg) {
         onTriggerEasterEgg(product.easterEgg);
       }
     }
-    onSelect(product);
+    if (product && onSelect) {
+      onSelect(product);
+    }
   };
+
+  const badgeEmoji = product?.badges?.[0]?.emoji || '✦';
+  const labelText = shortLabel || product?.name || '';
 
   return (
     <g
@@ -34,17 +42,17 @@ export function ProductObject({
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      {/* Product Highlight / Hover Shadow Disc */}
+      {/* Object Drop Shadow Disc */}
       <motion.ellipse
         cx={width / 2}
         cy={height - 4}
-        rx={isHovered ? width / 2.2 : width / 2.6}
+        rx={isHovered ? width / 2.1 : width / 2.5}
         ry={isHovered ? 10 : 7}
         className="fill-espresso/15 dark:fill-black/40 transition-all duration-300 pointer-events-none"
       />
 
-      {/* Special Easter Egg Visual Effects */}
-      {easterEggActive && product.easterEgg === 'citrus-ripple' && (
+      {/* Easter Egg Ripple Effects */}
+      {easterEggActive && product?.easterEgg === 'citrus-ripple' && (
         <motion.circle
           cx={width / 2}
           cy={height / 2}
@@ -55,7 +63,7 @@ export function ProductObject({
         />
       )}
 
-      {easterEggActive && product.easterEgg === 'pulse' && (
+      {easterEggActive && product?.easterEgg === 'pulse' && (
         <motion.circle
           cx={width / 2}
           cy={height / 2}
@@ -66,12 +74,12 @@ export function ProductObject({
         />
       )}
 
-      {/* Main Object Body with Framer Motion Lift & Hover */}
+      {/* Main Interactive Object SVG Graphic */}
       <motion.g
         animate={{
           y: isHovered ? -6 : 0,
           rotate: isHovered ? -2 : 0,
-          scale: isHovered ? 1.06 : 1,
+          scale: isHovered ? 1.05 : 1,
         }}
         transition={{ type: 'spring', stiffness: 380, damping: 22 }}
         style={{ transformOrigin: `${width / 2}px ${height / 2}px` }}
@@ -79,40 +87,50 @@ export function ProductObject({
         {children}
       </motion.g>
 
-      {/* Screen Glow / Special Hover Overlay */}
-      {isHovered && product.iconName === 'laptop' && (
-        <rect
-          x={width * 0.2}
-          y={height * 0.15}
-          width={width * 0.6}
-          height={height * 0.35}
-          rx={3}
-          className="fill-blue-400/30 animate-pulse pointer-events-none"
-        />
-      )}
+      {/* Permanent Visible Item Badge Label (Makes every item 100% obvious to discover) */}
+      <foreignObject
+        x={width / 2 - 60 + labelOffsetX}
+        y={height + 2 + labelOffsetY}
+        width={120}
+        height={32}
+        className="overflow-visible pointer-events-none"
+      >
+        <div className="flex justify-center">
+          <div className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium flex items-center gap-1 shadow-xs border transition-all ${
+            isHovered
+              ? 'bg-espresso text-white border-white/30 scale-105 shadow-md'
+              : 'bg-card/95 dark:bg-night-card/95 text-espresso dark:text-night-text border-espresso/15 dark:border-night-border group-hover:border-matcha'
+          }`}>
+            <span className="w-1.5 h-1.5 rounded-full bg-terracotta dark:bg-terracotta-glow animate-pulse" />
+            <span>{badgeEmoji}</span>
+            <span className="truncate max-w-[85px]">{labelText}</span>
+          </div>
+        </div>
+      </foreignObject>
 
-      {/* Floating Product Name Badge Tooltip on Hover */}
+      {/* Expanded Hover Tooltip on Mouseover */}
       <AnimatePresence>
         {isHovered && (
           <foreignObject
-            x={-60}
-            y={-40}
-            width={width + 120}
+            x={-70}
+            y={-45}
+            width={width + 140}
             height={45}
-            className="overflow-visible pointer-events-none z-30"
+            className="overflow-visible pointer-events-none z-40"
           >
             <motion.div
               initial={{ opacity: 0, y: 6, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 4, scale: 0.9 }}
-              transition={{ duration: 0.18 }}
+              transition={{ duration: 0.16 }}
               className="flex flex-col items-center justify-center text-center"
             >
-              <div className="bg-espresso/90 dark:bg-night-card/95 text-white dark:text-night-text text-[11px] font-mono px-3 py-1.5 rounded-full shadow-lg border border-white/20 whitespace-nowrap flex items-center gap-1.5">
-                <span>{product.badges?.[0]?.emoji || '✦'}</span>
-                <span className="font-semibold">{product.name}</span>
+              <div className="bg-espresso/95 dark:bg-night-card/95 text-white dark:text-night-text text-[11px] font-mono px-3 py-1.5 rounded-full shadow-xl border border-white/20 whitespace-nowrap flex items-center gap-1.5">
+                <span>{badgeEmoji}</span>
+                <span className="font-bold">{product?.name}</span>
+                <span className="text-[9px] opacity-75 text-matcha-light">Click to inspect →</span>
               </div>
-              <div className="w-2 h-2 bg-espresso/90 dark:bg-night-card/95 rotate-45 -mt-1" />
+              <div className="w-2 h-2 bg-espresso/95 dark:bg-night-card/95 rotate-45 -mt-1" />
             </motion.div>
           </foreignObject>
         )}
