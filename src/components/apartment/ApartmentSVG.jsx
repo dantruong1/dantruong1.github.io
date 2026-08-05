@@ -83,23 +83,77 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Desk Surface */}
-            <rect x="35" y="65" width="215" height="110" rx="10" className="fill-mocha-light/80 dark:fill-mocha/40 stroke-espresso/20 stroke-2" />
-            <rect x="40" y="70" width="205" height="100" rx="6" className="fill-mocha/20 dark:fill-mocha/20" />
+            <rect x="30" y="65" width="225" height="110" rx="10" className="fill-mocha-light/80 dark:fill-mocha/40 stroke-espresso/20 stroke-2" />
+            <rect x="35" y="70" width="215" height="100" rx="6" className="fill-mocha/20 dark:fill-mocha/20" />
 
             {/* Desk Lamp Decor */}
-            <circle cx="55" cy="85" r="10" className="fill-amber-warm/80" />
+            <circle cx="48" cy="85" r="10" className="fill-amber-warm/80" />
 
-            {/* PRODUCT 1: Herman Miller Aeron Chair */}
+            {/* PRODUCT 1: Surface Laptop 7 */}
+            <ProductObject
+              product={getProduct('surface-laptop-7')}
+              onSelect={onSelectProduct}
+              onTriggerEasterEgg={onTriggerEasterEgg}
+              x={50}
+              y={75}
+              width={65}
+              height={50}
+              shortLabel="Surface 7"
+              labelOffsetX={0}
+              labelOffsetY={-65}
+            >
+              <rect x="8" y="24" width="48" height="16" rx="3" className="fill-slate-300 dark:fill-slate-600 stroke-slate-500 stroke-1" />
+              <rect x="12" y="5" width="40" height="22" rx="2" className="fill-slate-800 stroke-slate-400 stroke-2" />
+              <rect x="14" y="7" width="36" height="18" rx="1" className="fill-sky-500/80 dark:fill-sky-600/90" />
+            </ProductObject>
+
+            {/* PRODUCT 2: iPhone 17 Pro */}
+            <ProductObject
+              product={getProduct('iphone-17-pro')}
+              onSelect={onSelectProduct}
+              onTriggerEasterEgg={onTriggerEasterEgg}
+              x={125}
+              y={85}
+              width={35}
+              height={45}
+              shortLabel="iPhone 17"
+              labelOffsetX={0}
+              labelOffsetY={-65}
+            >
+              <rect x="6" y="6" width="20" height="34" rx="4" className="fill-slate-900 stroke-amber-warm/80 stroke-2" />
+              <rect x="8" y="8" width="16" height="30" rx="3" className="fill-slate-950" />
+              <circle cx="12" cy="12" r="2.5" className="fill-slate-700" />
+            </ProductObject>
+
+            {/* PRODUCT 3: Apple Watch */}
+            <ProductObject
+              product={getProduct('apple-watch')}
+              onSelect={onSelectProduct}
+              onTriggerEasterEgg={onTriggerEasterEgg}
+              x={195}
+              y={80}
+              width={35}
+              height={35}
+              shortLabel="Apple Watch"
+              labelOffsetX={0}
+              labelOffsetY={-65}
+            >
+              <rect x="13" y="2" width="8" height="30" rx="2" className="fill-espresso-muted dark:fill-night-muted" />
+              <rect x="9" y="8" width="16" height="18" rx="5" className="fill-slate-900 stroke-matcha stroke-2" />
+            </ProductObject>
+
+            {/* PRODUCT 4: Herman Miller Aeron Chair */}
             <ProductObject
               product={getProduct('herman-miller-aeron')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
               x={105}
-              y={145}
+              y={155}
               width={75}
               height={75}
               shortLabel="Aeron Chair"
-              labelOffsetY={-5}
+              labelOffsetX={0}
+              labelOffsetY={45}
             >
               <circle cx="37" cy="35" r="25" className="fill-espresso/90 dark:fill-night-card-alt stroke-terracotta/40 stroke-2" />
               <rect x="18" y="16" width="38" height="30" rx="8" className="fill-espresso dark:fill-night-bg stroke-espresso-light stroke-2" />
@@ -107,56 +161,6 @@ export function ApartmentSVG({
               <line x1="23" y1="28" x2="51" y2="28" stroke="#8a9a7b" strokeWidth="1.5" />
               <rect x="12" y="28" width="8" height="18" rx="3" className="fill-espresso-light" />
               <rect x="54" y="28" width="8" height="18" rx="3" className="fill-espresso-light" />
-            </ProductObject>
-
-            {/* PRODUCT 2: Surface Laptop 7 */}
-            <ProductObject
-              product={getProduct('surface-laptop-7')}
-              onSelect={onSelectProduct}
-              onTriggerEasterEgg={onTriggerEasterEgg}
-              x={70}
-              y={75}
-              width={65}
-              height={50}
-              shortLabel="Surface 7"
-              labelOffsetY={-8}
-            >
-              <rect x="8" y="24" width="48" height="16" rx="3" className="fill-slate-300 dark:fill-slate-600 stroke-slate-500 stroke-1" />
-              <rect x="12" y="5" width="40" height="22" rx="2" className="fill-slate-800 stroke-slate-400 stroke-2" />
-              <rect x="14" y="7" width="36" height="18" rx="1" className="fill-sky-500/80 dark:fill-sky-600/90" />
-            </ProductObject>
-
-            {/* PRODUCT 3: iPhone 17 Pro */}
-            <ProductObject
-              product={getProduct('iphone-17-pro')}
-              onSelect={onSelectProduct}
-              onTriggerEasterEgg={onTriggerEasterEgg}
-              x={145}
-              y={85}
-              width={35}
-              height={45}
-              shortLabel="iPhone 17"
-              labelOffsetY={-6}
-            >
-              <rect x="6" y="6" width="20" height="34" rx="4" className="fill-slate-900 stroke-amber-warm/80 stroke-2" />
-              <rect x="8" y="8" width="16" height="30" rx="3" className="fill-slate-950" />
-              <circle cx="12" cy="12" r="2.5" className="fill-slate-700" />
-            </ProductObject>
-
-            {/* PRODUCT 4: Apple Watch */}
-            <ProductObject
-              product={getProduct('apple-watch')}
-              onSelect={onSelectProduct}
-              onTriggerEasterEgg={onTriggerEasterEgg}
-              x={190}
-              y={90}
-              width={35}
-              height={35}
-              shortLabel="Apple Watch"
-              labelOffsetY={-6}
-            >
-              <rect x="13" y="2" width="8" height="30" rx="2" className="fill-espresso-muted dark:fill-night-muted" />
-              <rect x="9" y="8" width="16" height="18" rx="5" className="fill-slate-900 stroke-matcha stroke-2" />
             </ProductObject>
           </RoomGroup>
         </g>
@@ -188,7 +192,8 @@ export function ApartmentSVG({
               width={170}
               height={140}
               shortLabel="Zinus Mattress"
-              labelOffsetY={-10}
+              labelOffsetX={50}
+              labelOffsetY={55}
             >
               <rect x="8" y="8" width="154" height="24" rx="5" className="fill-mocha-light dark:fill-mocha stroke-espresso/30 stroke-2" />
               <rect x="12" y="25" width="146" height="100" rx="10" className="fill-card dark:fill-night-card stroke-espresso/15 stroke-2" />
@@ -200,12 +205,13 @@ export function ApartmentSVG({
               product={getProduct('purple-pillow')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={60}
+              x={55}
               y={80}
               width={65}
               height={40}
               shortLabel="Purple Pillow"
-              labelOffsetY={-6}
+              labelOffsetX={-20}
+              labelOffsetY={-65}
             >
               <rect x="4" y="4" width="56" height="30" rx="8" className="fill-purple-100 dark:fill-purple-950 stroke-purple-400 stroke-2" />
               <path d="M 12 12 H 52 M 12 18 H 52 M 12 24 H 52" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="3,3" />
@@ -245,12 +251,13 @@ export function ApartmentSVG({
               product={getProduct('oralb-pro-1000')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={135}
+              x={45}
               y={95}
               width={35}
               height={55}
               shortLabel="Oral-B Brush"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={-65}
             >
               <rect x="12" y="16" width="9" height="32" rx="3" className="fill-sky-500 stroke-sky-700 stroke-1" />
               <rect x="14" y="4" width="5" height="14" rx="2" className="fill-white stroke-slate-300 stroke-1" />
@@ -261,12 +268,13 @@ export function ApartmentSVG({
               product={getProduct('goodal-sunscreen')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={175}
+              x={125}
               y={95}
               width={35}
               height={55}
               shortLabel="GOODAL SPF"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={45}
             >
               <path d="M 10 12 L 26 12 L 29 45 L 7 45 Z" className="fill-emerald-100 dark:fill-emerald-900 stroke-emerald-500 stroke-2" />
               <rect x="11" y="45" width="14" height="6" rx="2" className="fill-emerald-600" />
@@ -277,12 +285,13 @@ export function ApartmentSVG({
               product={getProduct('abib-sunstick')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={215}
-              y={98}
+              x={200}
+              y={95}
               width={35}
               height={50}
               shortLabel="ABIB Sunstick"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={-65}
             >
               <rect x="8" y="10" width="20" height="30" rx="8" className="fill-slate-100 dark:fill-slate-800 stroke-slate-400 stroke-2" />
               <rect x="9" y="28" width="18" height="10" rx="3" className="fill-emerald-500" />
@@ -337,7 +346,8 @@ export function ApartmentSVG({
               width={65}
               height={95}
               shortLabel="Nutribullet"
-              labelOffsetY={-8}
+              labelOffsetX={0}
+              labelOffsetY={45}
             >
               <rect x="15" y="48" width="34" height="38" rx="5" className="fill-slate-800 dark:fill-slate-900 stroke-slate-500 stroke-2" />
               <path d="M 17 48 L 17 16 Q 17 8 32 8 Q 47 8 47 16 L 47 48 Z" className="fill-emerald-400/40 dark:fill-emerald-500/40 stroke-emerald-300 stroke-2" />
@@ -373,7 +383,8 @@ export function ApartmentSVG({
               width={60}
               height={60}
               shortLabel="Buck Mason"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={-65}
             >
               <path d="M 30 8 Q 30 0 24 5 M 8 18 L 30 9 L 52 18" stroke="#6b5e52" strokeWidth="2.5" fill="none" />
               <path d="M 10 18 L 20 16 L 40 16 L 50 18 L 56 40 L 46 43 L 42 25 L 42 55 L 18 55 L 18 25 L 14 43 L 4 40 Z" className="fill-stone-100 dark:fill-stone-300 stroke-stone-400 stroke-2" />
@@ -384,12 +395,13 @@ export function ApartmentSVG({
               product={getProduct('asics-nimbus-27')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={115}
+              x={125}
               y={95}
               width={55}
               height={45}
               shortLabel="Asics Shoes"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={45}
             >
               <path d="M 6 30 Q 25 38 50 30 L 50 38 Q 25 45 6 38 Z" className="fill-sky-400 dark:fill-sky-600" />
               <path d="M 8 30 Q 12 12 28 12 Q 42 15 48 30 Z" className="fill-slate-100 dark:fill-slate-800 stroke-slate-400 stroke-2" />
@@ -400,12 +412,13 @@ export function ApartmentSVG({
               product={getProduct('le-labo-bergamote-22')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={185}
-              y={90}
+              x={195}
+              y={85}
               width={40}
               height={55}
               shortLabel="Le Labo 22"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={-65}
             >
               <rect x="8" y="18" width="22" height="30" rx="4" className="fill-amber-100/80 dark:fill-amber-950/80 stroke-amber-600 stroke-2" />
               <rect x="10" y="23" width="18" height="18" rx="2" className="fill-amber-50 stroke-amber-300 stroke-1" />
@@ -448,7 +461,8 @@ export function ApartmentSVG({
               width={65}
               height={80}
               shortLabel="REI Backpack"
-              labelOffsetY={-6}
+              labelOffsetX={0}
+              labelOffsetY={45}
             >
               <path d="M 18 12 Q 30 6 42 12 L 48 68 Q 30 74 12 68 Z" className="fill-emerald-600 dark:fill-emerald-800 stroke-emerald-950 stroke-2" />
               <path d="M 16 35 Q 30 38 44 35" stroke="#f4ded4" strokeWidth="2.5" fill="none" />

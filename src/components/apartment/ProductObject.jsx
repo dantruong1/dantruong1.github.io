@@ -87,20 +87,23 @@ export function ProductObject({
         {children}
       </motion.g>
 
-      {/* Permanent Visible Item Badge Label (Makes every item 100% obvious to discover) */}
+      {/* Permanent Visible & Clickable Item Badge Label */}
       <foreignObject
         x={width / 2 - 60 + labelOffsetX}
         y={height + 2 + labelOffsetY}
         width={120}
         height={32}
-        className="overflow-visible pointer-events-none"
+        className="overflow-visible"
       >
         <div className="flex justify-center">
-          <div className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium flex items-center gap-1 shadow-xs border transition-all ${
-            isHovered
-              ? 'bg-espresso text-white border-white/30 scale-105 shadow-md'
-              : 'bg-card/95 dark:bg-night-card/95 text-espresso dark:text-night-text border-espresso/15 dark:border-night-border group-hover:border-matcha'
-          }`}>
+          <div
+            onClick={handleClick}
+            className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium flex items-center gap-1 shadow-xs border transition-all cursor-pointer ${
+              isHovered
+                ? 'bg-espresso text-white border-white/40 scale-105 shadow-md'
+                : 'bg-card/95 dark:bg-night-card/95 text-espresso dark:text-night-text border-espresso/15 dark:border-night-border group-hover:border-matcha'
+            }`}
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-terracotta dark:bg-terracotta-glow animate-pulse" />
             <span>{badgeEmoji}</span>
             <span className="truncate max-w-[85px]">{labelText}</span>

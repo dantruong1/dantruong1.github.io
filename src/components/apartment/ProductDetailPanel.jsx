@@ -18,7 +18,7 @@ export function ProductDetailPanel({ product, onClose }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex justify-end">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -28,102 +28,87 @@ export function ProductDetailPanel({ product, onClose }) {
           className="fixed inset-0 bg-espresso/40 dark:bg-black/60 backdrop-blur-xs cursor-pointer"
         />
 
-        {/* Panel */}
+        {/* Small Cozy Floating Popover Card */}
         <motion.div
-          initial={{ x: '100%', opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: '100%', opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-          className="relative z-10 w-full max-w-md bg-card dark:bg-night-card border-l border-espresso/10 dark:border-night-border h-full overflow-y-auto p-6 md:p-8 flex flex-col justify-between shadow-2xl"
+          initial={{ opacity: 0, scale: 0.92, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.92, y: 12 }}
+          transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+          className="relative z-10 w-full max-w-md bg-card dark:bg-night-card border border-espresso/15 dark:border-night-border rounded-cozy-lg p-6 shadow-2xl overflow-hidden"
         >
-          {/* Header & Close */}
-          <div>
-            <div className="flex items-center justify-between gap-3 mb-6">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs text-espresso-muted dark:text-night-muted uppercase tracking-wider flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-terracotta dark:text-terracotta-glow" />
-                  {product.roomLabel}
-                </span>
-                <span className="text-espresso-muted/40 dark:text-night-muted/40">•</span>
-                <span className="font-mono text-xs text-matcha-dark dark:text-matcha-glow font-medium flex items-center gap-1">
-                  <Tag className="w-3 h-3" />
-                  {product.category}
-                </span>
-              </div>
+          <div className="washi-tape washi-tape-top-right" />
 
-              <button
-                onClick={onClose}
-                className="w-8 h-8 rounded-full bg-parchment-dark dark:bg-night-card-alt flex items-center justify-center text-espresso dark:text-night-text hover:scale-105 transition-all"
-                aria-label="Close detail panel"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Product Title & Brand */}
-            <div className="mb-5">
-              <span className="font-mono text-xs font-semibold text-terracotta dark:text-terracotta-glow uppercase tracking-wide block mb-1">
-                {product.brand}
+          {/* Header Bar */}
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[11px] text-espresso-muted dark:text-night-muted uppercase tracking-wider flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-terracotta dark:text-terracotta-glow" />
+                {product.roomLabel}
               </span>
-              <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso dark:text-night-text tracking-tight leading-tight">
-                {product.name}
-              </h3>
-            </div>
-
-            {/* Badges */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {product.badges.map((badge, idx) => (
-                <Badge
-                  key={idx}
-                  variant={badge.variant === 'terracotta' ? 'terracotta' : 'matcha'}
-                  className="text-xs py-1 px-3 flex items-center gap-1.5 font-medium shadow-xs"
-                >
-                  <span>{badge.emoji}</span>
-                  <span>{badge.label}</span>
-                </Badge>
-              ))}
-            </div>
-
-            {/* Main Recommendation Card */}
-            <div className="bg-mocha-soft/50 dark:bg-night-card-alt border border-espresso/8 dark:border-night-border rounded-cozy p-5 mb-6 relative overflow-hidden shadow-inner-warm">
-              <div className="washi-tape washi-tape-top-left" />
-
-              <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-matcha-dark dark:text-matcha-glow mb-2 block flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-warm" />
-                Why I Recommend It
+              <span className="text-espresso-muted/40 dark:text-night-muted/40">•</span>
+              <span className="font-mono text-[11px] text-matcha-dark dark:text-matcha-glow font-medium flex items-center gap-1">
+                <Tag className="w-3 h-3" />
+                {product.category}
               </span>
-
-              <p className="text-sm md:text-[15px] font-sans text-espresso dark:text-night-text leading-relaxed italic">
-                "{product.recommendation}"
-              </p>
             </div>
 
-            {/* Who It's For */}
-            {product.whoItsFor && (
-              <div className="mb-6 space-y-1">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-espresso-muted dark:text-night-muted font-semibold block">
-                  Ideal For
-                </span>
-                <p className="text-xs sm:text-sm font-sans text-espresso-light dark:text-night-muted leading-relaxed">
-                  {product.whoItsFor}
-                </p>
-              </div>
-            )}
+            <button
+              onClick={onClose}
+              className="w-7 h-7 rounded-full bg-parchment-dark dark:bg-night-card-alt flex items-center justify-center text-espresso dark:text-night-text hover:scale-105 transition-all"
+              aria-label="Close detail box"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
 
-          {/* Footer Purchase Action */}
-          <div className="pt-6 mt-6 border-t border-espresso/10 dark:border-night-border">
+          {/* Product Title & Brand */}
+          <div className="mb-4">
+            <span className="font-mono text-[11px] font-bold text-terracotta dark:text-terracotta-glow uppercase tracking-wider block mb-1">
+              {product.brand}
+            </span>
+            <h3 className="font-serif text-2xl font-bold text-espresso dark:text-night-text tracking-tight leading-snug">
+              {product.name}
+            </h3>
+          </div>
+
+          {/* Badges */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {product.badges.map((badge, idx) => (
+              <Badge
+                key={idx}
+                variant={badge.variant === 'terracotta' ? 'terracotta' : 'matcha'}
+                className="text-[11px] py-0.5 px-2.5 flex items-center gap-1 font-medium shadow-xs"
+              >
+                <span>{badge.emoji}</span>
+                <span>{badge.label}</span>
+              </Badge>
+            ))}
+          </div>
+
+          {/* Concise Recommendation Box */}
+          <div className="bg-mocha-soft/60 dark:bg-night-card-alt border border-espresso/8 dark:border-night-border rounded-xl p-4 mb-5 relative overflow-hidden shadow-inner-warm">
+            <span className="font-sans text-[10px] font-bold uppercase tracking-wider text-matcha-dark dark:text-matcha-glow mb-1.5 flex items-center gap-1 block">
+              <Sparkles className="w-3 h-3 text-amber-warm" />
+              Why I Recommend It
+            </span>
+            <p className="text-xs sm:text-sm font-sans text-espresso dark:text-night-text leading-relaxed italic">
+              "{product.recommendation}"
+            </p>
+          </div>
+
+          {/* Direct Product Link Action */}
+          <div>
             <a
               href={product.purchaseUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-matcha hover:bg-matcha-dark dark:bg-matcha-dark dark:hover:bg-matcha text-white font-mono text-xs sm:text-sm py-3.5 px-5 rounded-full flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full bg-matcha hover:bg-matcha-dark dark:bg-matcha-dark dark:hover:bg-matcha text-white font-mono text-xs py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 font-medium"
             >
               <span>View Official Product Website</span>
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
-            <span className="text-[10px] font-mono text-espresso-muted/60 dark:text-night-muted/60 text-center block mt-2.5">
-              Direct official link · Hand-selected recommendation
+            <span className="text-[10px] font-mono text-espresso-muted/60 dark:text-night-muted/60 text-center block mt-2">
+              Direct official website link
             </span>
           </div>
         </motion.div>
