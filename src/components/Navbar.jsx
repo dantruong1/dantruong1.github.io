@@ -11,7 +11,6 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
     { id: 'projects', label: 'Projects', icon: Gamepad2 },
     { id: 'writings', label: 'Writings', icon: BookOpen },
     { id: 'quotes', label: 'Quotes', icon: Quote },
-    { id: 'music', label: 'Music', icon: Music },
   ];
 
   return (

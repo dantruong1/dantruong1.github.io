@@ -9,7 +9,7 @@ import { ProjectsSection } from './components/ProjectsSection';
 import { WritingsSection } from './components/WritingsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
-import { MusicSection } from './components/MusicSection';
+
 import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
 
@@ -78,8 +78,7 @@ export default function App() {
         return <QuotesSection content={SITE_CONTENT} />;
       case 'recommendations':
         return <RecommendationsSection content={SITE_CONTENT} onVideoPlay={stopLofi} />;
-      case 'music':
-        return <MusicSection content={SITE_CONTENT} />;
+
       case 'home':
       default:
         return (

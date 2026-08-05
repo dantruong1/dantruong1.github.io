@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Coffee, Scale, Camera, Quote } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Coffee, Music, Camera, Quote, Trophy, Leaf } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -13,15 +13,25 @@ const fadeUp = {
   show: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const quickFacts = [
-  { label: 'CURRENT ROLE', value: 'Xbox @ Microsoft (TPM 2)', icon: Briefcase, color: 'text-matcha dark:text-matcha-glow' },
-  { label: 'PAST INTERNSHIPS', value: 'Zillow & Wish (Product / TPM)', icon: Briefcase, color: 'text-amber-warm dark:text-amber-warm/90' },
-  { label: 'ALMA MATER', value: 'UC Berkeley \'24 (Econ + Minors)', icon: GraduationCap, color: 'text-matcha dark:text-matcha-glow' },
-  { label: 'ROOTS & LOCATION', value: 'San Jose · San Francisco, CA', icon: MapPin, color: 'text-terracotta dark:text-terracotta-glow' },
-  { label: 'CORE CURIOSITY', value: 'Human Behavior & Incentive Design', icon: Heart, color: 'text-terracotta dark:text-terracotta-glow' },
-];
-
 export function AboutSection({ content }) {
+  const quickFacts = content.about.highlights || [];
+
+  const factIcons = {
+    'Role': Briefcase,
+    'Previously': Briefcase,
+    'Education': GraduationCap,
+    'Roots & Location': MapPin,
+    'Interests': Heart,
+  };
+
+  const factColors = {
+    'Role': 'text-matcha dark:text-matcha-glow',
+    'Previously': 'text-amber-warm dark:text-amber-warm/90',
+    'Education': 'text-matcha dark:text-matcha-glow',
+    'Roots & Location': 'text-terracotta dark:text-terracotta-glow',
+    'Interests': 'text-terracotta dark:text-terracotta-glow',
+  };
+
   return (
     <motion.section
       variants={stagger}
@@ -29,12 +39,12 @@ export function AboutSection({ content }) {
       animate="show"
       className="max-w-4xl mx-auto mb-14 space-y-9"
     >
-      {/* Standardized Header */}
+      {/* Header */}
       <motion.div variants={fadeUp}>
         <div className="flex items-center gap-3 mb-2">
           <span className="section-kicker">
             <Heart className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
-            philosophy & background
+            background
           </span>
           <div className="organic-divider flex-1" />
         </div>
@@ -46,71 +56,59 @@ export function AboutSection({ content }) {
         </p>
       </motion.div>
 
-      {/* Featured Quote Callout Banner */}
+      {/* Philosophy Quote Banner */}
       <motion.div variants={fadeUp}>
         <Card className="p-6 md:p-7 bg-matcha-soft/40 dark:bg-matcha-dark/30 border-matcha/20 dark:border-matcha/30 relative overflow-hidden shadow-inner-warm">
           <Quote className="w-10 h-10 text-matcha/20 dark:text-matcha-glow/15 absolute top-3 right-4 pointer-events-none" />
           <div className="relative z-10 max-w-2xl">
             <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/80 dark:text-matcha-glow mb-2 block">
-              Core Philosophy
+              What Drives Me
             </span>
             <p className="font-serif italic text-lg md:text-xl text-espresso dark:text-night-text leading-snug font-medium">
-              "{content.about.philosophyCore || "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology."}"
+              "{content.about.philosophyCore}"
             </p>
           </div>
         </Card>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-7">
-        {/* Main text & Economics Bridge section */}
+        {/* Main text */}
         <motion.div variants={fadeUp} className="md:col-span-8">
           <Card className="p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy h-full flex flex-col justify-between">
             <div className="washi-tape washi-tape-top-left" />
 
             <div>
-              <h3 className="font-serif text-xl font-semibold text-espresso dark:text-night-text mb-5 flex items-center gap-2">
-                <Scale className="w-5 h-5 text-matcha dark:text-matcha-glow shrink-0" />
-                The Bridge Between Math, Science & Psychology
-              </h3>
-
               <div className="space-y-4 text-espresso-light dark:text-night-muted text-[15px] leading-[1.85] font-sans">
                 {content.about.paragraphs?.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
               </div>
-
-              {/* Bridge Metaphor Visual Container */}
-              <div className="mt-7 pt-6 border-t border-espresso/8 dark:border-night-border">
-                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-espresso-muted dark:text-night-muted mb-3 block">
-                  The Economics Bridge:
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center text-xs font-mono">
-                  <div className="bg-mocha-soft/30 dark:bg-night-card-alt p-3 rounded-lg border border-espresso/5 dark:border-night-border">
-                    <span className="text-espresso dark:text-night-text font-semibold block mb-0.5">Math & Logic</span>
-                    <span className="text-[10px] text-espresso-muted dark:text-night-muted">Formal models & data</span>
-                  </div>
-                  <div className="bg-matcha-soft/60 dark:bg-matcha-dark/40 p-3 rounded-lg border border-matcha/30 dark:border-matcha/40">
-                    <span className="text-matcha-dark dark:text-matcha-glow font-bold block mb-0.5">⇄ Economics ⇄</span>
-                    <span className="text-[10px] text-matcha-dark/80 dark:text-matcha-glow/80">Connective Bridge</span>
-                  </div>
-                  <div className="bg-terracotta-soft/40 dark:bg-terracotta/20 p-3 rounded-lg border border-terracotta/20 dark:border-terracotta/30">
-                    <span className="text-terracotta dark:text-terracotta-glow font-semibold block mb-0.5">Human Psychology</span>
-                    <span className="text-[10px] text-espresso-muted dark:text-night-muted">Behavior & choice</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Cozy art footer note */}
-            <div className="mt-8 pt-5 border-t border-espresso/8 dark:border-night-border flex items-center gap-3">
-              <img
-                src="images/cozy/relax-art.png"
-                alt="Relaxing illustration"
-                className="w-10 h-10 object-contain opacity-80 rounded-lg"
-              />
-              <span className="font-hand text-base text-espresso-muted dark:text-night-muted">
-                always curious, always building for human delight ✦
-              </span>
+            {/* Spotify + Cozy footer */}
+            <div className="mt-8 pt-5 border-t border-espresso/8 dark:border-night-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src="images/cozy/relax-art.png"
+                  alt="Relaxing illustration"
+                  className="w-10 h-10 object-contain opacity-80 rounded-lg"
+                />
+                <span className="font-hand text-base text-espresso-muted dark:text-night-muted">
+                  green tea, good essays & lofi beats ✦
+                </span>
+              </div>
+
+              {content.about.spotifyUrl && (
+                <a
+                  href={content.about.spotifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-[#1DB954] hover:bg-[#1aa34a] px-4 py-2 rounded-full transition-all duration-200 font-medium shadow-xs hover:-translate-y-0.5 shrink-0"
+                >
+                  <Music className="w-3.5 h-3.5" />
+                  <span>Spotify Profile</span>
+                </a>
+              )}
             </div>
           </Card>
         </motion.div>
@@ -124,7 +122,8 @@ export function AboutSection({ content }) {
             </h4>
             <div className="space-y-4">
               {quickFacts.map((fact, idx) => {
-                const Icon = fact.icon;
+                const Icon = factIcons[fact.label] || Sparkles;
+                const color = factColors[fact.label] || 'text-matcha dark:text-matcha-glow';
                 return (
                   <motion.div
                     key={idx}
@@ -136,7 +135,7 @@ export function AboutSection({ content }) {
                       {fact.label}
                     </span>
                     <span className="font-medium text-[13px] text-espresso dark:text-night-text flex items-center gap-1.5 leading-snug">
-                      <Icon className={`w-3.5 h-3.5 shrink-0 ${fact.color}`} />
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${color}`} />
                       {fact.value}
                     </span>
                   </motion.div>
@@ -146,9 +145,9 @@ export function AboutSection({ content }) {
           </Card>
 
           <Card className="p-5 bg-mocha-soft/40 dark:bg-night-card-alt border-mocha-light/30 dark:border-night-border flex items-center gap-3">
-            <Coffee className="w-5 h-5 text-terracotta dark:text-terracotta-glow shrink-0" />
+            <Leaf className="w-5 h-5 text-matcha dark:text-matcha-glow shrink-0" />
             <span className="font-hand text-base text-espresso-muted dark:text-night-muted">
-              fueled by oat lattes & lofi beats ☕
+              fueled by green tea & lofi beats 🍵
             </span>
           </Card>
         </motion.div>
@@ -168,7 +167,6 @@ export function AboutSection({ content }) {
           </span>
         </div>
 
-        {/* 4 Photos displayed simultaneously in a 2x2 Polaroid Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {content.scrapbook?.map((photo, idx) => (
             <motion.div

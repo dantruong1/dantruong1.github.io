@@ -97,19 +97,21 @@ export const SITE_CONTENT = {
   ],
   about: {
     title: "About Me",
-    subtitle: "Endlessly fascinated by people, human behavior, incentives, and the bridge between economics & technology.",
+    subtitle: "Born and raised in San Jose, CA. Building helpful products for people at Microsoft.",
     paragraphs: [
-      "Hi, I'm Dan! Born and raised in San Jose and a 2024 UC Berkeley graduate (Econ major, Data Science & Public Policy minors), I'm a Technical Product Manager 2 on the Xbox team at Microsoft, having previously interned as a product manager at Zillow and Wish. At the core of everything I do is a simple, enduring curiosity: I am endlessly fascinated by people.",
-      "To me, economics isn't just about markets or finance. It's the bridge between mathematics, logic, science, and human psychology. I love understanding why people make the decisions they do, how incentives shape human behavior, and how thoughtful products can improve people's everyday lives.",
-      "Whether I'm analyzing complex system incentives for millions of Xbox players, writing op-eds on technology and economic policy, building consumer side projects, or exploring coffee spots across San Francisco, I bring this human-centered lens to every problem."
+      "Hi, I'm Dan! Born and raised in San Jose, California. I studied Economics at UC Berkeley with minors in Data Science and Public Policy, graduating in 2024.",
+      "I'm currently a Technical Product Manager at Microsoft, where I'm helping build AI-powered game development products on the Xbox team. Before that, I was on the Microsoft Learn team building AI-powered personalized learning experiences — and we broke a Guinness World Record for the most users in 24 hours to take an AI course. Before Microsoft, I worked in business strategy and business analysis at Zillow and Wish.",
+      "Outside of work, I love chasing meaningful problems with great people and figuring out how to build helpful and useful things for people. I'm passionate about mentoring refugees — my father was a Vietnam War refugee, so this cause is deeply personal to me. I also love playing tennis, am a huge Golden State Warriors and Stephen Curry fan (and a 49ers fan), enjoy cooking Vietnamese food, exploring national parks, and spending time with family and friends.",
+      "I drink green tea almost every day. You can usually find me somewhere between a warm cup of tea, a good essay, and lofi beats."
     ],
-    philosophyCore: "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology.",
+    philosophyCore: "I love chasing meaningful problems with great people, and figuring out how to build helpful and useful things for people.",
+    spotifyUrl: "https://open.spotify.com/user/dantruong12",
     highlights: [
-      { label: "Role", value: "Technical PM 2, Xbox @ Microsoft" },
-      { label: "Past Internships", value: "Zillow & Wish (Product / TPM)" },
-      { label: "Education", value: "UC Berkeley '24 (Econ Major, Data Science & Public Policy Minors)" },
-      { label: "Roots & Location", value: "San Jose (Roots) · San Francisco, CA" },
-      { label: "Core Curiosity", value: "Human Behavior, Incentives & System Psychology" }
+      { label: "Role", value: "Technical PM, Xbox @ Microsoft" },
+      { label: "Previously", value: "Microsoft Learn · Zillow · Wish" },
+      { label: "Education", value: "UC Berkeley '24 (Econ, Data Science & Public Policy)" },
+      { label: "Roots & Location", value: "San Jose (Born & Raised) · San Francisco, CA" },
+      { label: "Interests", value: "Warriors, Tennis, Vietnamese Cooking, National Parks" }
     ]
   },
   projects: [
