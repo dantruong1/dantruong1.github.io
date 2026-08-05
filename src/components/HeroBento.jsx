@@ -106,15 +106,6 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
           <div className="washi-tape washi-tape-top-right" />
 
           <div>
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="section-kicker">
-                <Heart className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
-                Endlessly Fascinated by People
-              </span>
-              <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}>
-                <Sparkles className="w-4 h-4 text-amber-warm" />
-              </motion.div>
-            </div>
 
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-espresso dark:text-night-text tracking-tight mb-3 leading-[1.1]">
               {content.hero.name}

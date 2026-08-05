@@ -15,7 +15,7 @@ const BOOK_PALETTES = [
 export function Bookshelf({ content }) {
   const [selectedBook, setSelectedBook] = useState(null);
 
-  // Flatten all books across all categories into a single single-row list
+  // Flatten all books across all categories into a single list
   const allBooks = content.recommendations.flatMap((cat) =>
     cat.items.map((item) => ({
       ...item,
@@ -43,41 +43,41 @@ export function Bookshelf({ content }) {
       </div>
 
       {/* Single Unified Wooden Bookshelf */}
-      <div className="relative pt-8 pb-3 px-6 bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy">
+      <div className="relative pt-10 pb-4 px-6 sm:px-8 bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy">
         {/* Single Row of Book Spines */}
-        <div className="flex items-end justify-start gap-4 sm:gap-6 overflow-x-auto no-scrollbar min-h-[220px] pb-1 px-2">
+        <div className="flex items-end justify-start sm:justify-around gap-5 sm:gap-8 overflow-x-auto no-scrollbar min-h-[270px] pb-1 px-2">
           {allBooks.map((item, itemIdx) => {
             const palette = BOOK_PALETTES[itemIdx % BOOK_PALETTES.length];
-            const heightClass = itemIdx % 2 === 0 ? 'h-[200px]' : 'h-[185px]';
+            const heightClass = itemIdx % 2 === 0 ? 'h-[250px]' : 'h-[235px]';
             const isSelected = selectedBook?.title === item.title;
 
             return (
               <motion.div
                 key={itemIdx}
-                whileHover={{ y: -16, rotateZ: -2, scale: 1.03 }}
+                whileHover={{ y: -18, rotateZ: -2, scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setSelectedBook({ ...item, palette })}
-                className={`relative ${heightClass} w-[52px] sm:w-[58px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-3 px-2 select-none`}
+                className={`relative ${heightClass} w-[72px] sm:w-[84px] md:w-[92px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-4 px-2.5 select-none`}
                 style={{
                   boxShadow: isSelected
-                    ? '0 12px 28px rgba(46,39,34,0.3)'
-                    : '0 6px 14px rgba(46,39,34,0.12)',
+                    ? '0 16px 36px rgba(46,39,34,0.35)'
+                    : '0 8px 18px rgba(46,39,34,0.14)',
                 }}
               >
                 {/* Top Page Edges */}
-                <div className="absolute top-0 left-0 right-0 h-2 bg-amber-light/80 rounded-t-sm border-b border-espresso/20" />
+                <div className="absolute top-0 left-0 right-0 h-2.5 bg-amber-light/80 rounded-t-sm border-b border-espresso/20" />
 
                 {/* Spine Decorative Gold Line */}
                 <div className={`w-full h-1 border-t ${palette.accent} mt-3 opacity-60`} />
 
-                {/* Vertical Spine Title */}
-                <div className="flex-1 flex items-center justify-center my-1 overflow-hidden">
+                {/* Vertical Spine Title (Full text, no truncation) */}
+                <div className="flex-1 flex items-center justify-center my-2 overflow-visible">
                   <span
-                    className={`font-serif text-[12px] sm:text-[13px] font-bold ${palette.text} tracking-wider truncate uppercase`}
+                    className={`font-serif text-[11px] sm:text-[12.5px] font-bold ${palette.text} tracking-wider uppercase text-center leading-tight whitespace-nowrap`}
                     style={{
                       writingMode: 'vertical-rl',
                       transform: 'rotate(180deg)',
-                      maxHeight: '130px',
+                      maxHeight: '185px',
                     }}
                   >
                     {item.title}
@@ -85,8 +85,8 @@ export function Bookshelf({ content }) {
                 </div>
 
                 {/* Spine Author / Bottom Gold Line */}
-                <div className={`w-full border-b ${palette.accent} mb-1 opacity-60`} />
-                <span className={`text-[9px] font-mono ${palette.text} text-center opacity-75 truncate px-0.5`}>
+                <div className={`w-full border-b ${palette.accent} mb-1.5 opacity-60`} />
+                <span className={`text-[10px] sm:text-[11px] font-mono ${palette.text} text-center opacity-85 px-0.5 truncate font-medium`}>
                   {item.author ? item.author.split(' ').pop() : 'Essay'}
                 </span>
               </motion.div>
@@ -95,7 +95,7 @@ export function Bookshelf({ content }) {
         </div>
 
         {/* Physical Wooden Shelf Ledge Base */}
-        <div className="h-4 bg-gradient-to-r from-[#6b5e52] via-[#8c8077] to-[#6b5e52] rounded-b-md shadow-md border-t-2 border-[#52473d] relative overflow-hidden">
+        <div className="h-5 bg-gradient-to-r from-[#6b5e52] via-[#8c8077] to-[#6b5e52] rounded-b-md shadow-md border-t-2 border-[#52473d] relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
         </div>
       </div>
@@ -109,7 +109,7 @@ export function Bookshelf({ content }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-lg bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border p-6 sm:p-8 shadow-cozy-lg overflow-hidden"
+              className="relative w-full max-w-lg bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border p-6 sm:p-8 shadow-cozy-lg overflow-hidden rounded-cozy-lg"
             >
               <div className="washi-tape washi-tape-top-right" />
 

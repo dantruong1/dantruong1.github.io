@@ -21,6 +21,7 @@ const CHORD_PROGRESSIONS = [
 export function GlobalLofiEngine({ isPlaying }) {
   const audioCtxRef = useRef(null);
   const timerRef = useRef(null);
+  const vinylSourceRef = useRef(null);
   const masterGainRef = useRef(null);
 
   useEffect(() => {
@@ -37,6 +38,9 @@ export function GlobalLofiEngine({ isPlaying }) {
   }, [isPlaying]);
 
   const startAudioEngine = () => {
+    // Stop any existing loop first to avoid overlapping intervals
+    stopAudioEngine();
+
     try {
       if (!audioCtxRef.current) {
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -50,7 +54,7 @@ export function GlobalLofiEngine({ isPlaying }) {
 
       // Master Gain
       const masterGain = ctx.createGain();
-      masterGain.gain.setValueAtTime(0.09, ctx.currentTime);
+      masterGain.gain.setValueAtTime(0.08, ctx.currentTime);
       masterGain.connect(ctx.destination);
       masterGainRef.current = masterGain;
 
@@ -62,9 +66,11 @@ export function GlobalLofiEngine({ isPlaying }) {
         const pop = Math.random() < 0.002 ? (Math.random() * 2 - 1) * 0.3 : 0;
         output[i] = (Math.random() * 2 - 1) * 0.015 + pop;
       }
+
       const vinylSource = ctx.createBufferSource();
       vinylSource.buffer = noiseBuffer;
       vinylSource.loop = true;
+      vinylSourceRef.current = vinylSource;
 
       const vinylFilter = ctx.createBiquadFilter();
       vinylFilter.type = 'bandpass';
@@ -72,7 +78,7 @@ export function GlobalLofiEngine({ isPlaying }) {
       vinylFilter.Q.setValueAtTime(1.0, ctx.currentTime);
 
       const vinylGain = ctx.createGain();
-      vinylGain.gain.setValueAtTime(0.35, ctx.currentTime);
+      vinylGain.gain.setValueAtTime(0.3, ctx.currentTime);
 
       vinylSource.connect(vinylFilter);
       vinylFilter.connect(vinylGain);
@@ -104,7 +110,7 @@ export function GlobalLofiEngine({ isPlaying }) {
           const arpeggioStagger = i * 0.08;
           const noteTime = now + arpeggioStagger;
           noteGain.gain.setValueAtTime(0.001, noteTime);
-          noteGain.gain.exponentialRampToValueAtTime(0.2, noteTime + 0.15);
+          noteGain.gain.exponentialRampToValueAtTime(0.18, noteTime + 0.15);
           noteGain.gain.exponentialRampToValueAtTime(0.001, noteTime + 2.8);
 
           osc.connect(filter);
@@ -130,10 +136,18 @@ export function GlobalLofiEngine({ isPlaying }) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
+    if (vinylSourceRef.current) {
+      try {
+        vinylSourceRef.current.stop();
+      } catch (e) {
+        // Ignored if already stopped
+      }
+      vinylSourceRef.current = null;
+    }
     if (audioCtxRef.current && audioCtxRef.current.state === 'running') {
       audioCtxRef.current.suspend();
     }
   };
 
-  return null; // Invisible global audio manager
+  return null; // Persistent invisible global audio manager
 }
