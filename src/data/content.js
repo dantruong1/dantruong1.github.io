@@ -6,10 +6,49 @@ export const SITE_CONTENT = {
     subrole: "UC Berkeley '24 · Econ Major, Data Science & Public Policy Minors · Bay Area Native",
     location: "San Francisco, CA",
     photo: "images/sf-header.jpg",
-    bio: "I'm a curious product builder who thrives at the intersection of economics, value creation, technology, and delightful experiences for users and customers. Born and raised in San Jose (Bay Area) and a 2024 UC Berkeley graduate (Econ major, Data Science & Public Policy minors), I turn complex system incentives into consumer products people love on the Xbox team at Microsoft.",
+    bio: "I'm endlessly fascinated by people — why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve people's everyday lives.",
+    bioExtended: "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology. On Xbox at Microsoft, I translate complex incentives into intuitive consumer experiences.",
     quote: "The cold water does not get warmer if you jump late.",
     quoteAttr: "— one of many favorites"
   },
+  pillars: [
+    {
+      id: "behavior",
+      name: "Human Behavior",
+      tagline: "Patterns of everyday life",
+      description: "Observing how people navigate choices, form habits, and interact with tools in their natural environment."
+    },
+    {
+      id: "psychology",
+      name: "Psychology",
+      tagline: "Mental models & emotion",
+      description: "Understanding motivation, perception, and cognitive friction to design products that feel effortless and human."
+    },
+    {
+      id: "economics",
+      name: "Economics",
+      tagline: "The bridge between math & psychology",
+      description: "Economics is the formal framework connecting mathematics, logic, and science with real-world human behavior."
+    },
+    {
+      id: "incentives",
+      name: "Incentives",
+      tagline: "System mechanics & nudges",
+      description: "Uncovering reward structures and trade-offs to align platform mechanics with human desires and well-being."
+    },
+    {
+      id: "decision-making",
+      name: "Decision Making",
+      tagline: "Choices under uncertainty",
+      description: "Exploring how individuals evaluate risk, utility, and timing when making choices in complex systems."
+    },
+    {
+      id: "technology",
+      name: "Technology",
+      tagline: "Thoughtful tools for human lives",
+      description: "Software engineered with purpose — turning complex technical capability into delightful user experiences."
+    }
+  ],
   scrapbook: [
     {
       id: "goldengate",
@@ -58,18 +97,19 @@ export const SITE_CONTENT = {
   ],
   about: {
     title: "About Me",
-    subtitle: "Curious product builder thriving at the intersection of economics, value creation, technology, & human delight.",
+    subtitle: "Endlessly fascinated by people, human behavior, incentives, and the bridge between economics & technology.",
     paragraphs: [
-      "Hi, I'm Dan! Born and raised in San Jose, California (Bay Area native), I'm a Technical Product Manager 2 on the Xbox team at Microsoft, having previously interned as a product manager at Zillow and Wish. I graduated from UC Berkeley in 2024 with a degree in Economics alongside minors in Data Science and Public Policy.",
-      "At my core, I'm a curious product builder who thrives at the intersection of economics, value creation, technology, and user delight. I love diving into complex system incentives, market dynamics, and customer insights to turn knotty challenges into intuitive, high-value consumer experiences.",
-      "Beyond building product at Microsoft, you can find me exploring local coffee spots and bakeries around San Francisco, writing op-eds on technology and economic policy, building side projects, and reading Paul Graham essays over warm lofi beats."
+      "Hi, I'm Dan! Born and raised in San Jose and a 2024 UC Berkeley graduate (Econ major, Data Science & Public Policy minors), I'm a Technical Product Manager 2 on the Xbox team at Microsoft, having previously interned as a product manager at Zillow and Wish. At the core of everything I do is a simple, enduring curiosity: I am endlessly fascinated by people.",
+      "To me, economics isn't just about markets or finance. It's the bridge between mathematics, logic, science, and human psychology. I love understanding why people make the decisions they do, how incentives shape human behavior, and how thoughtful products can improve people's everyday lives.",
+      "Whether I'm analyzing complex system incentives for millions of Xbox players, writing op-eds on technology and economic policy, building consumer side projects, or exploring coffee spots across San Francisco, I bring this human-centered lens to every problem."
     ],
+    philosophyCore: "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology.",
     highlights: [
       { label: "Role", value: "Technical PM 2, Xbox @ Microsoft" },
       { label: "Past Internships", value: "Zillow & Wish (Product / TPM)" },
       { label: "Education", value: "UC Berkeley '24 (Econ Major, Data Science & Public Policy Minors)" },
       { label: "Roots & Location", value: "San Jose (Roots) · San Francisco, CA" },
-      { label: "Focus", value: "Value Creation, Data Economics & Consumer Experiences" }
+      { label: "Core Curiosity", value: "Human Behavior, Incentives & System Psychology" }
     ]
   },
   projects: [

@@ -1,23 +1,36 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Quote, Sparkles, ArrowRight, Pen, Camera } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Quote, Sparkles, ArrowRight, Camera, Heart, UserCheck, Brain, Scale, Compass, GitBranch } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { LofiPlayer } from './LofiPlayer';
 
+const PILLAR_ICONS = {
+  behavior: UserCheck,
+  psychology: Brain,
+  economics: Scale,
+  incentives: Compass,
+  'decision-making': GitBranch,
+  technology: Sparkles,
+};
+
 export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
+  const [activePillarId, setActivePillarId] = useState(content.pillars?.[2]?.id || 'economics');
+
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
     },
   };
 
   const item = {
-    hidden: { y: 24, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
   };
+
+  const activePillar = content.pillars?.find((p) => p.id === activePillarId) || content.pillars?.[2];
 
   return (
     <motion.section
@@ -44,7 +57,7 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
             {content.scrapbook?.map((photo) => (
               <motion.div
                 key={photo.id}
-                whileHover={{ scale: 1.05, zIndex: 20, rotate: 0 }}
+                whileHover={{ scale: 1.04, zIndex: 20, rotate: 0 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 className={`polaroid-frame p-2.5 rounded-lg group cursor-pointer relative transition-shadow hover:shadow-lg ${photo.rotate}`}
               >
@@ -99,23 +112,24 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
         </motion.div>
       </motion.div>
 
-      {/* ── Right Column: Bio + Player + Quote ── */}
+      {/* ── Right Column: Bio + Pillars + Player + Quote ── */}
       <motion.div variants={item} className="lg:col-span-7 flex flex-col gap-7">
         {/* Main Bio Card */}
-        <Card className="p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden flex-1 flex flex-col justify-between shadow-cozy">
+        <Card className="p-7 md:p-8 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden flex-1 flex flex-col justify-between shadow-cozy">
           <div className="washi-tape washi-tape-top-right" />
 
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <span className="section-kicker">
-                {content.hero.greeting}
+                <Heart className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+                Endlessly Fascinated by People
               </span>
               <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}>
                 <Sparkles className="w-4 h-4 text-amber-warm" />
               </motion.div>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-espresso dark:text-night-text tracking-tight mb-3 leading-[1.1]">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-espresso dark:text-night-text tracking-tight mb-2 leading-[1.1]">
               {content.hero.name}
             </h1>
 
@@ -126,44 +140,102 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
               {content.hero.subrole}
             </p>
 
-            <p className="text-[15px] text-espresso-light dark:text-night-muted leading-[1.75] mb-6 font-sans w-full">
-              I'm a curious product builder who thrives at the intersection of{' '}
-              <strong className="text-espresso dark:text-night-text font-semibold underline decoration-matcha/40 decoration-2 underline-offset-2">
-                economics
-              </strong>
-              ,{' '}
-              <strong className="text-espresso dark:text-night-text font-semibold underline decoration-amber-warm/40 decoration-2 underline-offset-2">
-                value creation
-              </strong>
-              , and{' '}
-              <strong className="text-espresso dark:text-night-text font-semibold underline decoration-terracotta/40 decoration-2 underline-offset-2">
-                technology
-              </strong>{' '}
-              to craft{' '}
-              <em className="not-italic text-matcha-dark dark:text-matcha-glow font-medium">delightful consumer experiences</em>. Born & raised in San Jose and educated at UC Berkeley, I turn complex system incentives into products people love on Xbox at Microsoft.
-            </p>
+            {/* Core Narrative Paragraphs with crisp hierarchy & whitespace */}
+            <div className="space-y-3.5 mb-6 text-[15px] text-espresso-light dark:text-night-muted leading-[1.8] font-sans">
+              <p>
+                I am{' '}
+                <strong className="text-espresso dark:text-night-text font-semibold underline decoration-terracotta/40 decoration-2 underline-offset-2">
+                  endlessly fascinated by people
+                </strong>{' '}
+                — understanding why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve everyday lives.
+              </p>
+              <p>
+                To me, economics isn't just markets or finance. It's the{' '}
+                <em className="not-italic text-matcha-dark dark:text-matcha-glow font-semibold underline decoration-matcha/40 decoration-2 underline-offset-2">
+                  bridge between mathematics, logic, science, and human psychology
+                </em>
+                . On the Xbox team at Microsoft, I translate complex system incentives into intuitive consumer experiences.
+              </p>
+            </div>
+
+            {/* ── Interactive Intersections Explorer ── */}
+            <div className="bg-mocha-soft/30 dark:bg-night-card-alt/80 rounded-xl p-3.5 border border-espresso/6 dark:border-night-border mb-6">
+              <div className="flex items-center justify-between mb-2 px-0.5">
+                <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-espresso-muted dark:text-night-muted flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-matcha-dark dark:text-matcha-glow" />
+                  Explore Core Intersections:
+                </span>
+                <span className="text-[10px] font-mono text-espresso-muted/60 dark:text-night-muted/60 hidden sm:inline">
+                  Click or hover to reveal view
+                </span>
+              </div>
+
+              {/* 6 Interactive Pillar Pills */}
+              <div className="flex flex-wrap gap-1.5 mb-2.5">
+                {content.pillars?.map((pillar) => {
+                  const Icon = PILLAR_ICONS[pillar.id] || Sparkles;
+                  const isActive = pillar.id === activePillarId;
+                  return (
+                    <button
+                      key={pillar.id}
+                      onClick={() => setActivePillarId(pillar.id)}
+                      onMouseEnter={() => setActivePillarId(pillar.id)}
+                      className={`text-xs font-mono px-2.5 py-1 rounded-lg flex items-center gap-1.5 transition-all duration-200 border ${
+                        isActive
+                          ? 'bg-matcha-dark text-parchment dark:bg-matcha-glow dark:text-night-bg border-matcha-dark dark:border-matcha-glow shadow-xs scale-[1.02]'
+                          : 'bg-card dark:bg-night-card text-espresso-muted dark:text-night-muted border-espresso/8 dark:border-night-border hover:border-matcha/40 hover:text-espresso dark:hover:text-night-text'
+                      }`}
+                    >
+                      <Icon className={`w-3 h-3 shrink-0 ${isActive ? 'text-parchment dark:text-night-bg' : 'text-matcha-dark dark:text-matcha-glow'}`} />
+                      <span>{pillar.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Dynamic Detail Card */}
+              <AnimatePresence mode="wait">
+                {activePillar && (
+                  <motion.div
+                    key={activePillar.id}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.2 }}
+                    className="bg-card dark:bg-night-card rounded-lg p-2.5 border border-matcha/20 dark:border-matcha/30 text-xs"
+                  >
+                    <span className="font-semibold text-matcha-dark dark:text-matcha-glow block mb-0.5">
+                      {activePillar.name} — <span className="font-normal italic text-espresso-muted dark:text-night-muted">{activePillar.tagline}</span>
+                    </span>
+                    <p className="text-espresso-muted dark:text-night-muted leading-relaxed font-sans">
+                      {activePillar.description}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Action pills */}
           <div className="flex flex-wrap gap-2.5 pt-4 border-t border-espresso/8 dark:border-night-border">
             <button
-              onClick={() => onNavigate('projects')}
-              className="text-xs font-mono text-matcha-dark dark:text-matcha-glow bg-matcha-soft dark:bg-matcha-dark/40 hover:bg-matcha-light px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-200 hover:shadow-sm"
+              onClick={() => onNavigate('about')}
+              className="text-xs font-mono text-matcha-dark dark:text-matcha-glow bg-matcha-soft dark:bg-matcha-dark/40 hover:bg-matcha-light px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-200 hover:shadow-sm hover:-translate-y-0.5"
             >
-              <span>Explore Projects</span>
+              <span>Read Full Philosophy</span>
               <ArrowRight className="w-3 h-3" />
             </button>
             <button
-              onClick={() => onNavigate('writings')}
-              className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text bg-card-alt dark:bg-night-card-alt hover:bg-parchment-dark px-4 py-2 rounded-full transition-all duration-200 border border-espresso/5 dark:border-night-border"
+              onClick={() => onNavigate('projects')}
+              className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text bg-card-alt dark:bg-night-card-alt hover:bg-parchment-dark px-4 py-2 rounded-full transition-all duration-200 border border-espresso/5 dark:border-night-border hover:-translate-y-0.5"
             >
-              Read Essays & Op-Eds
+              Explore Projects
             </button>
             <a
               href="https://www.linkedin.com/in/dantruong1/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono text-terracotta dark:text-terracotta-glow hover:text-terracotta bg-terracotta-soft/50 dark:bg-terracotta/30 hover:bg-terracotta-soft px-4 py-2 rounded-full transition-all duration-200"
+              className="text-xs font-mono text-terracotta dark:text-terracotta-glow hover:text-terracotta bg-terracotta-soft/50 dark:bg-terracotta/30 hover:bg-terracotta-soft px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5"
             >
               LinkedIn ↗
             </a>

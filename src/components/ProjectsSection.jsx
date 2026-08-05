@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Sparkles, ArrowUpRight, Heart, Code2 } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -22,28 +22,31 @@ export function ProjectsSection({ content }) {
       variants={stagger}
       initial="hidden"
       animate="show"
-      className="max-w-4xl mx-auto mb-14"
+      className="max-w-4xl mx-auto mb-14 space-y-8"
     >
       {/* Standardized Header */}
-      <motion.div variants={fadeUp} className="mb-7">
+      <motion.div variants={fadeUp}>
         <div className="flex items-center gap-3 mb-2">
-          <span className="section-kicker">portfolio</span>
+          <span className="section-kicker">
+            <Code2 className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+            portfolio & impact
+          </span>
           <div className="organic-divider flex-1" />
         </div>
         <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
           Projects & Achievements
         </h2>
         <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
-          Consumer products, global hackathon wins, case competitions, and product strategy initiatives across tech and social impact.
+          Consumer applications, global hackathon wins, and strategy initiatives designed around human behavior, incentive structures, and user delight.
         </p>
       </motion.div>
 
       {/* Featured projects — full-width cards */}
       {featured.length > 0 && (
-        <div className="space-y-6 mb-6">
+        <div className="space-y-6">
           {featured.map((proj) => (
             <motion.div key={proj.id} variants={fadeUp}>
-              <Card className="p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy group hover:border-matcha transition-all duration-300">
+              <Card className="p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy group hover:border-matcha dark:hover:border-matcha-glow transition-all duration-300">
                 <div className="washi-tape washi-tape-top-right" />
 
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
@@ -51,15 +54,15 @@ export function ProjectsSection({ content }) {
                   <div className="flex-1">
                     <div className="flex items-center gap-2.5 mb-3">
                       <Badge variant="terracotta">{proj.tag}</Badge>
-                      <span className="text-[10px] font-mono text-terracotta dark:text-[#f7ded4] flex items-center gap-1">
+                      <span className="text-[10px] font-mono text-terracotta dark:text-terracotta-glow flex items-center gap-1">
                         <Sparkles className="w-3 h-3 text-amber-warm" /> Featured
                       </span>
                     </div>
 
-                    <CardTitle className="text-2xl mb-3 group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors">
+                    <CardTitle className="text-2xl mb-3 group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors font-serif">
                       {proj.title}
                     </CardTitle>
-                    <CardDescription className="text-[14px] text-espresso-light dark:text-night-muted leading-relaxed mb-5 w-full">
+                    <CardDescription className="text-[14px] text-espresso-light dark:text-night-muted leading-relaxed mb-5 w-full font-sans">
                       {proj.description}
                     </CardDescription>
 
@@ -76,7 +79,7 @@ export function ProjectsSection({ content }) {
                         href={proj.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-matcha dark:bg-matcha-dark hover:bg-matcha-dark px-4 py-2 rounded-full transition-colors font-medium shadow-sm"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-matcha dark:bg-matcha-dark hover:bg-matcha-dark dark:hover:bg-matcha px-4 py-2 rounded-full transition-all duration-200 font-medium shadow-xs hover:-translate-y-0.5"
                       >
                         <span>Visit MetabolicApp.com</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -86,7 +89,7 @@ export function ProjectsSection({ content }) {
 
                   {/* Right accent — decorative illustration */}
                   <div className="hidden md:flex items-center justify-center w-32 h-32 bg-matcha-soft/40 dark:bg-matcha-dark/30 rounded-cozy-lg shrink-0">
-                    <img src="images/cozy/gameboy-vines.png" alt="" className="w-20 h-20 object-contain opacity-60" />
+                    <img src="images/cozy/gameboy-vines.png" alt="" className="w-20 h-20 object-contain opacity-70" />
                   </div>
                 </div>
               </Card>
@@ -99,7 +102,7 @@ export function ProjectsSection({ content }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {rest.map((proj) => (
           <motion.div key={proj.id} variants={fadeUp}>
-            <Card className="h-full flex flex-col justify-between p-6 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border hover:border-matcha/40 relative group transition-all duration-300 shadow-cozy">
+            <Card className="h-full flex flex-col justify-between p-6 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border hover:border-matcha/40 dark:hover:border-matcha-glow relative group transition-all duration-300 shadow-cozy hover:-translate-y-1">
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Badge variant="default">{proj.tag}</Badge>

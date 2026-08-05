@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, ArrowUpRight, BookOpen } from 'lucide-react';
+import { ExternalLink, Calendar, ArrowUpRight, BookOpen, PenTool } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -19,12 +19,15 @@ export function WritingsSection({ content }) {
       variants={stagger}
       initial="hidden"
       animate="show"
-      className="max-w-4xl mx-auto mb-14"
+      className="max-w-4xl mx-auto mb-14 space-y-8"
     >
       {/* Standardized Header */}
-      <motion.div variants={fadeUp} className="mb-7">
+      <motion.div variants={fadeUp}>
         <div className="flex items-center gap-3 mb-2">
-          <span className="section-kicker">essays & op-eds</span>
+          <span className="section-kicker">
+            <PenTool className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+            essays & op-eds
+          </span>
           <div className="organic-divider flex-1" />
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -33,7 +36,7 @@ export function WritingsSection({ content }) {
               Writings & Substack
             </h2>
             <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
-              Published op-eds for The Daily Californian and long-form essays on economics, technology, and product building on Substack.
+              Published op-eds and long-form essays exploring human behavior, economics, technology, public policy, and product philosophy.
             </p>
           </div>
 
@@ -41,7 +44,7 @@ export function WritingsSection({ content }) {
             href="https://substack.com/@dantruong12"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-[#ff6719] hover:bg-[#e5590f] px-4 py-2 rounded-full transition-colors font-medium shadow-sm shrink-0 self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-white bg-[#ff6719] hover:bg-[#e5590f] px-4 py-2 rounded-full transition-all duration-200 font-medium shadow-xs shrink-0 self-start sm:self-auto hover:-translate-y-0.5"
           >
             <span>Subscribe on Substack</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -52,7 +55,7 @@ export function WritingsSection({ content }) {
       <div className="space-y-6">
         {content.writings.map((write, idx) => (
           <motion.div key={write.id} variants={fadeUp}>
-            <Card className="p-6 md:p-8 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border hover:border-matcha/40 transition-all duration-300 group shadow-cozy">
+            <Card className="p-6 md:p-8 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border hover:border-matcha/40 dark:hover:border-matcha-glow transition-all duration-300 group shadow-cozy hover:-translate-y-0.5">
               <div className="flex items-start gap-4 md:gap-5">
                 {/* Number circle */}
                 <div className="number-circle bg-matcha-soft dark:bg-matcha-dark/40 text-matcha-dark dark:text-[#d2e3c4] mt-0.5 shrink-0">

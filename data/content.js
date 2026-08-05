@@ -7,17 +7,17 @@
 
 const SITE_CONTENT = {
   hero: {
-    greeting: "Welcome",
+    greeting: "Hey there, I'm",
     name: "Dan Truong",
-    tagline: "Builder, thinker, music lover. Exploring ideas across code, sound, and the written word.",
+    tagline: "Endlessly fascinated by people — exploring human behavior, psychology, economics, incentives, decision making & technology.",
     photo: ""
   },
   about: {
     photo: "",
     paragraphs: [
-      "<span class='about__highlight'>Hi, I'm Dan.</span> I'm a Technical Product Manager 2 on the Xbox team at Microsoft and a 2024 UC Berkeley graduate (Econ + Data Science & Public Policy). I love using economics and technology to build delightful consumer experiences.",
-      "My work lives where system incentives, data insights, and human-centered design collide—turning knotty economic and technical challenges into intuitive products that millions of players enjoy.",
-      "When I'm not at a keyboard, you'll find me reading essays, digging through new music, or exploring San Francisco."
+      "<span class='about__highlight'>Hi, I'm Dan!</span> I'm a Technical Product Manager 2 on the Xbox team at Microsoft and a 2024 UC Berkeley graduate (Econ major, Data Science & Public Policy minors). At the core of everything I do is a simple, enduring curiosity: I am endlessly fascinated by people.",
+      "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology. I love understanding why people make the decisions they do, how incentives shape human behavior, and how thoughtful products can improve everyday lives.",
+      "Whether I'm analyzing complex system incentives for millions of Xbox players, writing op-eds on technology and policy, building consumer side projects, or exploring coffee spots across San Francisco, I bring this human-centered lens to every problem."
     ]
   },
   projects: [
