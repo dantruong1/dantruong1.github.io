@@ -1,14 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Gamepad2, BookOpen, Lightbulb, Quote, Music, User, ArrowRight, MapPin } from 'lucide-react';
+import { Gamepad2, BookOpen, Lightbulb, Quote, Music, User, ArrowRight, MapPin, Package, Home } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 
 export function CozyCorner({ onNavigate }) {
   const cards = [
     {
+      id: 'products',
+      title: 'Product Recommendations',
+      desc: 'Take an interactive tour through my apartment and see the products I use every day.',
+      icon: Package,
+      accent: 'bg-terracotta-soft text-terracotta',
+      border: 'hover:border-terracotta-muted',
+      handNote: 'apartment tour 🏠',
+    },
+    {
       id: 'recommendations',
-      title: 'Recommendations & SF Map',
-      desc: 'Interactive map of my favorite SF spots + curated reading list of books & essays.',
+      title: 'SF Map & Reading List',
+      desc: 'Interactive map of my favorite SF spots + curated list of books & essays.',
       icon: Lightbulb,
       accent: 'bg-amber-light text-amber-warm',
       border: 'hover:border-amber-warm/40',
@@ -40,15 +49,6 @@ export function CozyCorner({ onNavigate }) {
       accent: 'bg-matcha-soft text-matcha-dark',
       border: 'hover:border-matcha',
       handNote: 'favorite words 〃',
-    },
-    {
-      id: 'music',
-      title: 'Music & Vibes',
-      desc: 'Frank Ocean, BROCKHAMPTON, keshi, and lofi focus rotations.',
-      icon: Music,
-      accent: 'bg-terracotta-soft text-terracotta',
-      border: 'hover:border-terracotta-muted',
-      handNote: 'daily rotation ♪',
     },
     {
       id: 'about',

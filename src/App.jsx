@@ -9,6 +9,7 @@ import { ProjectsSection } from './components/ProjectsSection';
 import { WritingsSection } from './components/WritingsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
+import { ProductRecsSection } from './components/ProductRecsSection';
 
 import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
@@ -70,6 +71,8 @@ export default function App() {
     switch (activeTab) {
       case 'about':
         return <AboutSection content={SITE_CONTENT} />;
+      case 'products':
+        return <ProductRecsSection />;
       case 'projects':
         return <ProjectsSection content={SITE_CONTENT} />;
       case 'writings':
