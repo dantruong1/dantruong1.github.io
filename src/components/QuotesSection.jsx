@@ -52,7 +52,7 @@ export function QuotesSection({ content }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleCopy = (quote, id) => {
-    navigator.clipboard.writeText(`"${quote.quote}" — ${quote.author}`);
+    navigator.clipboard.writeText(`"${quote.quote}" - ${quote.author}`);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   };
@@ -201,7 +201,7 @@ export function QuotesSection({ content }) {
 
                 <div className="pt-3 border-t border-espresso/8 dark:border-night-border flex items-center justify-between">
                   <span className="font-mono text-[11px] text-espresso-muted dark:text-night-muted font-medium">
-                    — {q.author}
+                    by {q.author}
                   </span>
                   {q.favorite && (
                     <span className="font-sans text-[10px] font-semibold text-terracotta dark:text-terracotta-glow bg-terracotta-soft/50 dark:bg-terracotta/30 px-2 py-0.5 rounded-full">

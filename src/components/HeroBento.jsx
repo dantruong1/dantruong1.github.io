@@ -134,14 +134,10 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
                 <strong className="text-espresso dark:text-night-text font-semibold underline decoration-terracotta/40 decoration-2 underline-offset-2">
                   endlessly fascinated by people
                 </strong>{' '}
-                — understanding why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve everyday lives.
+                : understanding why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve everyday lives.
               </p>
               <p>
-                To me, economics isn't just markets or finance. It's the{' '}
-                <em className="not-italic text-matcha-dark dark:text-matcha-glow font-semibold underline decoration-matcha/40 decoration-2 underline-offset-2">
-                  bridge between mathematics, logic, science, and human psychology
-                </em>
-                . On the Xbox team at Microsoft, I translate complex system incentives into intuitive consumer experiences.
+                As a Technical Product Manager on the Xbox team at Microsoft, I love chasing meaningful problems with great people, building helpful AI-powered tools, and bringing human-centered experiences to life.
               </p>
             </div>
           </div>

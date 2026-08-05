@@ -39,7 +39,7 @@ const FAVORITE_VIDEOS = [
     date: 'TED · 2008',
     embedUrl: 'https://www.youtube.com/embed/vs41JrnGaxc?enablejsapi=1',
     youtubeUrl: 'https://www.youtube.com/watch?v=vs41JrnGaxc',
-    note: 'Jonathan Haidt explores the five moral foundations that underpin political divisions — a blueprint for bridging ideological divides.',
+    note: 'Jonathan Haidt explores the five moral foundations that underpin political divisions, offering a blueprint for bridging ideological divides.',
   },
   {
     id: 'fred-again-boiler-room',

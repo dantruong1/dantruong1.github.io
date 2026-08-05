@@ -2,22 +2,22 @@
  * SITE CONTENT DATA
  * ==================
  * Edit this file to update your website content.
- * No HTML knowledge needed — just change the text values.
  */
 
 const SITE_CONTENT = {
   hero: {
     greeting: "Hey there, I'm",
     name: "Dan Truong",
-    tagline: "Endlessly fascinated by people — exploring human behavior, psychology, economics, incentives, decision making & technology.",
+    tagline: "Endlessly fascinated by people: building helpful AI-powered tools and products for everyday lives.",
     photo: ""
   },
   about: {
     photo: "",
     paragraphs: [
-      "<span class='about__highlight'>Hi, I'm Dan!</span> I'm a Technical Product Manager 2 on the Xbox team at Microsoft and a 2024 UC Berkeley graduate (Econ major, Data Science & Public Policy minors). At the core of everything I do is a simple, enduring curiosity: I am endlessly fascinated by people.",
-      "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology. I love understanding why people make the decisions they do, how incentives shape human behavior, and how thoughtful products can improve everyday lives.",
-      "Whether I'm analyzing complex system incentives for millions of Xbox players, writing op-eds on technology and policy, building consumer side projects, or exploring coffee spots across San Francisco, I bring this human-centered lens to every problem."
+      "<span class='about__highlight'>Hi, I'm Dan!</span> Born and raised in San Jose, California, I studied Economics at UC Berkeley with minors in Data Science and Public Policy, graduating in 2024.",
+      "I am currently a Technical Product Manager at Microsoft on the Xbox team, where I help build AI-powered game development products. Previously, I served on the Microsoft Learn team as a data and analytics expert building AI-powered personalized learning experiences, where our team broke a Guinness World Record for the most users in 24 hours to take an AI course. Prior to Microsoft, I completed business strategy and business analyst internships at Zillow and Wish.",
+      "Outside of work, I love chasing meaningful problems with great people and figuring out how to build helpful, useful tools. Mentoring refugees is a cause deeply personal to me, inspired by my father who came to the United States as a Vietnam War refugee. I am also an avid tennis player, a devoted Golden State Warriors and Stephen Curry fan, a 49ers fan, an enthusiastic cook of Vietnamese food, an avid explorer of national parks, and someone who cherishes quality time with family and friends.",
+      "I drink green tea almost every day. You can usually find me somewhere between a warm cup of tea, a good essay, and lofi beats."
     ]
   },
   projects: [

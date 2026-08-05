@@ -27,7 +27,7 @@ export function Footer({ onScrollTop }) {
             Endlessly fascinated by people
           </p>
           <p className="text-xs font-mono text-espresso-muted dark:text-night-muted">
-            The bridge between mathematics, logic, science & human psychology
+            Building helpful tools & products for people
           </p>
         </div>
 

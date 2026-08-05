@@ -6,10 +6,10 @@ export const SITE_CONTENT = {
     subrole: "UC Berkeley '24 · Econ Major, Data Science & Public Policy Minors · Bay Area Native",
     location: "San Francisco, CA",
     photo: "images/sf-header.jpg",
-    bio: "I'm endlessly fascinated by people — why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve people's everyday lives.",
-    bioExtended: "To me, economics isn't just markets or finance. It's the bridge between mathematics, logic, science, and human psychology. On Xbox at Microsoft, I translate complex incentives into intuitive consumer experiences.",
+    bio: "I'm endlessly fascinated by people: understanding why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve people's everyday lives.",
+    bioExtended: "On Xbox at Microsoft, I translate user needs and product strategy into intuitive consumer experiences.",
     quote: "The cold water does not get warmer if you jump late.",
-    quoteAttr: "— one of many favorites"
+    quoteAttr: "one of many favorites"
   },
   pillars: [
     {
@@ -27,8 +27,8 @@ export const SITE_CONTENT = {
     {
       id: "economics",
       name: "Economics",
-      tagline: "The bridge between math & psychology",
-      description: "Economics is the formal framework connecting mathematics, logic, and science with real-world human behavior."
+      tagline: "Systems & value creation",
+      description: "Analyzing market incentives, decision logic, and human trade-offs to build sustainable consumer products."
     },
     {
       id: "incentives",
@@ -46,7 +46,7 @@ export const SITE_CONTENT = {
       id: "technology",
       name: "Technology",
       tagline: "Thoughtful tools for human lives",
-      description: "Software engineered with purpose — turning complex technical capability into delightful user experiences."
+      description: "Software engineered with purpose, turning complex technical capability into delightful user experiences."
     }
   ],
   scrapbook: [
@@ -99,12 +99,12 @@ export const SITE_CONTENT = {
     title: "About Me",
     subtitle: "Born and raised in San Jose, CA. Building helpful products for people at Microsoft.",
     paragraphs: [
-      "Hi, I'm Dan! Born and raised in San Jose, California. I studied Economics at UC Berkeley with minors in Data Science and Public Policy, graduating in 2024.",
-      "I'm currently a Technical Product Manager at Microsoft, where I'm helping build AI-powered game development products on the Xbox team. Before that, I was on the Microsoft Learn team building AI-powered personalized learning experiences — and we broke a Guinness World Record for the most users in 24 hours to take an AI course. Before Microsoft, I worked in business strategy and business analysis at Zillow and Wish.",
-      "Outside of work, I love chasing meaningful problems with great people and figuring out how to build helpful and useful things for people. I'm passionate about mentoring refugees — my father was a Vietnam War refugee, so this cause is deeply personal to me. I also love playing tennis, am a huge Golden State Warriors and Stephen Curry fan (and a 49ers fan), enjoy cooking Vietnamese food, exploring national parks, and spending time with family and friends.",
+      "Hi, I'm Dan! Born and raised in San Jose, California, I studied Economics at UC Berkeley with minors in Data Science and Public Policy, graduating in 2024.",
+      "I am currently a Technical Product Manager at Microsoft on the Xbox team, where I help build AI-powered game development products. Previously, I served on the Microsoft Learn team as a data and analytics expert building AI-powered personalized learning experiences, where our team broke a Guinness World Record for the most users in 24 hours to take an AI course. Prior to Microsoft, I completed business strategy and business analyst internships at Zillow and Wish.",
+      "Outside of work, I love chasing meaningful problems with great people and figuring out how to build helpful, useful tools. Mentoring refugees is a cause deeply personal to me, inspired by my father who came to the United States as a Vietnam War refugee. I am also an avid tennis player, a devoted Golden State Warriors and Stephen Curry fan, a 49ers fan, an enthusiastic cook of Vietnamese food, an avid explorer of national parks, and someone who cherishes quality time with family and friends.",
       "I drink green tea almost every day. You can usually find me somewhere between a warm cup of tea, a good essay, and lofi beats."
     ],
-    philosophyCore: "I love chasing meaningful problems with great people, and figuring out how to build helpful and useful things for people.",
+    philosophyCore: "I love chasing meaningful problems with great people and figuring out how to build helpful, useful tools.",
     spotifyUrl: "https://open.spotify.com/user/dantruong12",
     highlights: [
       { label: "Role", value: "Technical PM, Xbox @ Microsoft" },
@@ -118,7 +118,7 @@ export const SITE_CONTENT = {
     {
       id: "metabolic-app",
       tag: "Consumer Health App",
-      title: "Metabolic App — Grocery Health & Nutrition",
+      title: "Metabolic App: Grocery Health & Nutrition",
       description: "A consumer health app designed to help users grocery shop healthier and achieve their personalized nutrition goals, backed by authoritative USDA food composition data.",
       tech: ["Consumer Product", "USDA Food Data API", "Health & AI", "Nutrition Data"],
       url: "https://metabolicapp.com",
@@ -170,7 +170,7 @@ export const SITE_CONTENT = {
       id: "substack-essays",
       date: "Substack · @dantruong12",
       tag: "Substack Publication",
-      title: "Dan's Substack — Essays & Reflections",
+      title: "Dan's Substack: Essays & Reflections",
       excerpt: "Long-form essays, product reflections, and thoughts on economics, technology, personal growth, and culture published regularly on Substack.",
       url: "https://substack.com/@dantruong12/p-204045676"
     }
@@ -207,7 +207,7 @@ export const SITE_CONTENT = {
     },
     {
       id: 5,
-      quote: "Everything negative — pressures, challenges — is all an opportunity for me to rise.",
+      quote: "Everything negative, pressures, challenges, is all an opportunity for me to rise.",
       author: "Kobe Bryant",
       category: "Action & Courage",
       favorite: true
@@ -333,14 +333,14 @@ export const SITE_CONTENT = {
     },
     {
       id: 23,
-      quote: "The thing about your 20s is, no matter how you spend them, you'll wonder about the other path. So forget decision paralysis — take a leap of faith and follow your heart.",
+      quote: "The thing about your 20s is, no matter how you spend them, you'll wonder about the other path. So forget decision paralysis: take a leap of faith and follow your heart.",
       author: "Dan Truong",
       category: "Action & Courage",
       favorite: true
     },
     {
       id: 24,
-      quote: "People don't practice to be great; people practice to practice. Don't count minutes or take shortcuts — practice for excellence.",
+      quote: "People don't practice to be great; people practice to practice. Don't count minutes or take shortcuts: practice for excellence.",
       author: "Personal Reflection",
       category: "Action & Courage",
       favorite: false
@@ -419,7 +419,7 @@ export const SITE_CONTENT = {
     },
     {
       id: 35,
-      quote: "When taking a shower, be in the warm water — not in your breakfast or commute. Be present.",
+      quote: "When taking a shower, be in the warm water, not in your breakfast or commute. Be present.",
       author: "Mindfulness Principle",
       category: "Mindset & Gratitude",
       favorite: true
@@ -461,7 +461,7 @@ export const SITE_CONTENT = {
     },
     {
       id: 41,
-      quote: "Obsessing over pain makes problems grow. Move your body, run errands, get outside — don't let rumination become a habit.",
+      quote: "Obsessing over pain makes problems grow. Move your body, run errands, get outside, don't let rumination become a habit.",
       author: "Personal Reflection",
       category: "Mindset & Gratitude",
       favorite: false
@@ -684,7 +684,7 @@ export const SITE_CONTENT = {
     },
     {
       id: 72,
-      quote: "When you walk into the room, bring your people with you — your parents, grandparents, and ancestors who loved you into being. You'll be unstoppable.",
+      quote: "When you walk into the room, bring your people with you: your parents, grandparents, and ancestors who loved you into being. You'll be unstoppable.",
       author: "Maya Angelou",
       category: "Wisdom & Wonder",
       favorite: true

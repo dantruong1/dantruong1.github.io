@@ -98,7 +98,7 @@ export function SFMapSection() {
           SF Recommendations Map
         </h2>
         <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
-          An interactive guide to my absolute favorite spots in San Francisco — from early morning croissant runs to golden hour viewpoints and cozy late-night dining.
+          An interactive guide to my absolute favorite spots in San Francisco: from early morning croissant runs to golden hour viewpoints and cozy late-night dining.
         </p>
       </div>
 
@@ -272,7 +272,7 @@ export function SFMapSection() {
           {/* Spots List Selector */}
           <div className="flex-1 bg-card/60 dark:bg-night-card/60 rounded-cozy-lg border border-espresso/10 dark:border-night-border p-4 max-h-[260px] overflow-y-auto no-scrollbar space-y-2">
             <span className="text-[11px] font-mono text-espresso-muted dark:text-night-muted block mb-2 px-1">
-              ALL SPOTS ({filteredSpots.length}) — CLICK TO FLY MAP
+              ALL SPOTS ({filteredSpots.length}) · CLICK TO FLY MAP
             </span>
 
             {filteredSpots.map((spot) => {

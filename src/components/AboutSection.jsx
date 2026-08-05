@@ -56,20 +56,6 @@ export function AboutSection({ content }) {
         </p>
       </motion.div>
 
-      {/* Philosophy Quote Banner */}
-      <motion.div variants={fadeUp}>
-        <Card className="p-6 md:p-7 bg-matcha-soft/40 dark:bg-matcha-dark/30 border-matcha/20 dark:border-matcha/30 relative overflow-hidden shadow-inner-warm">
-          <Quote className="w-10 h-10 text-matcha/20 dark:text-matcha-glow/15 absolute top-3 right-4 pointer-events-none" />
-          <div className="relative z-10 max-w-2xl">
-            <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/80 dark:text-matcha-glow mb-2 block">
-              What Drives Me
-            </span>
-            <p className="font-serif italic text-lg md:text-xl text-espresso dark:text-night-text leading-snug font-medium">
-              "{content.about.philosophyCore}"
-            </p>
-          </div>
-        </Card>
-      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-7">
         {/* Main text */}
