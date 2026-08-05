@@ -7,7 +7,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
   const navItems = [
     { id: 'home', label: 'Home', icon: Sparkles },
     { id: 'about', label: 'About', icon: User },
-    { id: 'products', label: 'Products', icon: Package },
+    { id: 'products', label: 'Favorite Products', icon: Package },
     { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
     { id: 'projects', label: 'Projects', icon: Gamepad2 },
     { id: 'writings', label: 'Writings', icon: BookOpen },

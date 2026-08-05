@@ -7,7 +7,7 @@ export function CozyCorner({ onNavigate }) {
   const cards = [
     {
       id: 'products',
-      title: 'Product Recommendations',
+      title: 'Favorite Products',
       desc: 'Take an interactive tour through my apartment and see the products I use every day.',
       icon: Package,
       accent: 'bg-terracotta-soft text-terracotta',
@@ -16,8 +16,8 @@ export function CozyCorner({ onNavigate }) {
     },
     {
       id: 'recommendations',
-      title: 'SF Map & Reading List',
-      desc: 'Interactive map of my favorite SF spots + curated list of books & essays.',
+      title: 'Recommendations',
+      desc: 'Interactive map of my favorite SF spots + curated list of books & videos.',
       icon: Lightbulb,
       accent: 'bg-amber-light text-amber-warm',
       border: 'hover:border-amber-warm/40',
@@ -25,7 +25,7 @@ export function CozyCorner({ onNavigate }) {
     },
     {
       id: 'projects',
-      title: 'Projects & Code',
+      title: 'Projects',
       desc: 'Consumer products, data economics, and personal code builds.',
       icon: Gamepad2,
       accent: 'bg-matcha-soft text-matcha-dark',
@@ -34,7 +34,7 @@ export function CozyCorner({ onNavigate }) {
     },
     {
       id: 'writings',
-      title: 'Writings & Op-Eds',
+      title: 'Writings',
       desc: 'Daily Cal op-eds, tech reflections, and college essays.',
       icon: BookOpen,
       accent: 'bg-terracotta-soft text-terracotta',
@@ -43,7 +43,7 @@ export function CozyCorner({ onNavigate }) {
     },
     {
       id: 'quotes',
-      title: 'Quote Collection',
+      title: 'Quotes',
       desc: 'Sayings and wisdom that guide my thinking and work.',
       icon: Quote,
       accent: 'bg-matcha-soft text-matcha-dark',
@@ -52,7 +52,7 @@ export function CozyCorner({ onNavigate }) {
     },
     {
       id: 'about',
-      title: 'About Dan',
+      title: 'About',
       desc: 'UC Berkeley background, economics, and Xbox @ MSFT.',
       icon: User,
       accent: 'bg-mocha-soft text-mocha',

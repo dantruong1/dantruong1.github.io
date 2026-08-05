@@ -58,7 +58,7 @@ export function ProductRecsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2 flex items-center gap-2">
-              Product Recommendations
+              Favorite Products
               <Sparkles className="w-5 h-5 text-amber-warm" />
             </h2>
             <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
