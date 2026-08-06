@@ -136,7 +136,7 @@ export const SITE_CONTENT = {
     {
       id: "gates-foundation",
       tag: "1st Place · Gates Foundation",
-      title: "Gates Foundation Social Impact Competition",
+      title: "Bill & Melinda Gates Foundation Case Competition - UC Berkeley",
       description: "Won 1st place in college by pitching a localized digital volunteer platform designed to increase charitable revenues and volunteer engagement for non-profit organizations.",
       tech: ["Nonprofit Tech", "Social Impact", "Public Policy", "GTM Strategy"],
       featured: false
@@ -144,8 +144,8 @@ export const SITE_CONTENT = {
     {
       id: "haas-case-competition",
       tag: "1st Place · UC Berkeley Haas",
-      title: "Haas School of Business GTM Competition",
-      description: "Won 1st place at UC Berkeley Haas Business School by developing and pitching a comprehensive marketing and Go-To-Market (GTM) growth campaign for a local coffee business.",
+      title: "Haas Business School Case Competition - 1951 Coffee Company",
+      description: "Won 1st place at UC Berkeley Haas Business School by developing and pitching a comprehensive marketing and Go-To-Market (GTM) growth campaign for 1951 Coffee Company.",
       tech: ["GTM Strategy", "Marketing", "Brand Strategy", "Economics"],
       featured: false
     },
