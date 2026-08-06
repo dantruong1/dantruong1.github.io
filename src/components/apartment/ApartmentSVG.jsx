@@ -99,7 +99,7 @@ export function ApartmentSVG({
               width={65}
               height={50}
               shortLabel="Surface 7"
-              labelOffsetX={10}
+              labelOffsetX={-20}
               labelOffsetY={-65}
             >
               <rect x="8" y="24" width="48" height="16" rx="3" className="fill-slate-300 dark:fill-slate-600 stroke-slate-500 stroke-1" />
@@ -112,12 +112,12 @@ export function ApartmentSVG({
               product={getProduct('iphone-17-pro')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={125}
+              x={130}
               y={85}
               width={35}
               height={45}
               shortLabel="iPhone 17"
-              labelOffsetX={0}
+              labelOffsetX={5}
               labelOffsetY={-65}
             >
               <rect x="6" y="6" width="20" height="34" rx="4" className="fill-slate-900 stroke-amber-warm/80 stroke-2" />
@@ -130,12 +130,12 @@ export function ApartmentSVG({
               product={getProduct('apple-watch')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={195}
+              x={200}
               y={80}
               width={35}
               height={35}
               shortLabel="Apple Watch"
-              labelOffsetX={0}
+              labelOffsetX={10}
               labelOffsetY={-65}
             >
               <rect x="13" y="2" width="8" height="30" rx="2" className="fill-espresso-muted dark:fill-night-muted" />
@@ -153,7 +153,7 @@ export function ApartmentSVG({
               height={75}
               shortLabel="Aeron Chair"
               labelOffsetX={0}
-              labelOffsetY={40}
+              labelOffsetY={-35}
             >
               <circle cx="37" cy="35" r="25" className="fill-espresso/90 dark:fill-night-card-alt stroke-terracotta/40 stroke-2" />
               <rect x="18" y="16" width="38" height="30" rx="8" className="fill-espresso dark:fill-night-bg stroke-espresso-light stroke-2" />
