@@ -6,7 +6,7 @@ export const SITE_CONTENT = {
     subrole: "UC Berkeley '24 · Econ Major, Data Science & Public Policy Minors · Bay Area Native",
     location: "San Francisco, CA",
     photo: "images/sf-header.jpg",
-    bio: "I'm endlessly fascinated by people: understanding why we make the decisions we do, how incentives shape human behavior, and how thoughtful products can improve people's everyday lives.",
+    bio: "I'm endlessly fascinated by people: why we make the decisions we do, how incentives shape behavior, and how thoughtful technology can make everyday life a little better. At Microsoft, I work as a Technical Product Manager on the Xbox team, where I get to build AI-powered tools alongside incredibly smart people and solve problems that help others do their best work.",
     bioExtended: "On Xbox at Microsoft, I translate user needs and product strategy into intuitive consumer experiences.",
     quote: "The cold water does not get warmer if you jump late.",
     quoteAttr: "one of many favorites"
@@ -99,10 +99,11 @@ export const SITE_CONTENT = {
     title: "About Me",
     subtitle: "Born and raised in San Jose, CA. Building helpful products for people at Microsoft.",
     paragraphs: [
-      "Hi, I'm Dan! Born and raised in San Jose, California, I studied Economics at UC Berkeley with minors in Data Science and Public Policy, graduating in 2024.",
-      "I am currently a Technical Product Manager at Microsoft on the Xbox team, where I help build AI-powered game development products. Previously, I served on the Microsoft Learn team as a data and analytics expert building AI-powered personalized learning experiences, where our team broke a Guinness World Record for the most users in 24 hours to take an AI course. Prior to Microsoft, I completed business strategy and business analyst internships at Zillow and Wish.",
-      "Outside of work, I love chasing meaningful problems with great people and figuring out how to build helpful, useful tools. Mentoring refugees is a cause deeply personal to me, inspired by my father who came to the United States as a Vietnam War refugee. I am also an avid tennis player, a devoted Golden State Warriors and Stephen Curry fan, a 49ers fan, an enthusiastic cook of Vietnamese food, an avid explorer of national parks, and someone who cherishes quality time with family and friends.",
-      "I drink green tea almost every day. You can usually find me somewhere between a warm cup of tea, a good essay, and lofi beats."
+      "Hi, I'm Dan.",
+      "I grew up in San Jose, California and studied Economics, Data Science, and Public Policy at UC Berkeley. Today, I'm a Technical Product Manager at Microsoft on the Xbox team, where I build products for game developers. Before that, I worked on Microsoft Learn, and earlier in my career interned at Zillow and Wish.",
+      "I'm endlessly curious about people: why we make the decisions we do, how incentives shape behavior, and how good products fit naturally into everyday life.",
+      "Outside of work, I mentor refugees, a cause that's personal to me because my father came to the United States as a refugee after the Vietnam War. I also love tennis, the Warriors, cooking Vietnamese food, exploring national parks, and spending time with family and friends.",
+      "I drink green tea almost every day. You'll usually find me somewhere between a warm cup of tea, a good essay, and lofi beats."
     ],
     philosophyCore: "I love chasing meaningful problems with great people and figuring out how to build helpful, useful tools.",
     spotifyUrl: "https://open.spotify.com/user/dantruong12",
