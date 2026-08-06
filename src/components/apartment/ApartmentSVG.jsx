@@ -94,12 +94,12 @@ export function ApartmentSVG({
               product={getProduct('surface-laptop-7')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={60}
+              x={45}
               y={75}
               width={65}
               height={50}
               shortLabel="Surface 7"
-              labelOffsetX={18}
+              labelOffsetX={10}
               labelOffsetY={-65}
             >
               <rect x="8" y="24" width="48" height="16" rx="3" className="fill-slate-300 dark:fill-slate-600 stroke-slate-500 stroke-1" />
@@ -153,7 +153,7 @@ export function ApartmentSVG({
               height={75}
               shortLabel="Aeron Chair"
               labelOffsetX={0}
-              labelOffsetY={45}
+              labelOffsetY={40}
             >
               <circle cx="37" cy="35" r="25" className="fill-espresso/90 dark:fill-night-card-alt stroke-terracotta/40 stroke-2" />
               <rect x="18" y="16" width="38" height="30" rx="8" className="fill-espresso dark:fill-night-bg stroke-espresso-light stroke-2" />
@@ -192,8 +192,8 @@ export function ApartmentSVG({
               width={170}
               height={140}
               shortLabel="Zinus Mattress"
-              labelOffsetX={20}
-              labelOffsetY={10}
+              labelOffsetX={25}
+              labelOffsetY={-30}
             >
               <rect x="8" y="8" width="154" height="24" rx="5" className="fill-mocha-light dark:fill-mocha stroke-espresso/30 stroke-2" />
               <rect x="12" y="25" width="146" height="100" rx="10" className="fill-card dark:fill-night-card stroke-espresso/15 stroke-2" />
@@ -478,8 +478,8 @@ export function ApartmentSVG({
               y={90}
               width={55}
               height={70}
-              shortLabel="Arc'teryx Hoody"
-              labelOffsetX={0}
+              shortLabel="Atom Hoody"
+              labelOffsetX={-25}
               labelOffsetY={-60}
             >
               <path d="M 27 6 Q 27 0 21 5 M 8 18 L 27 9 L 46 18" stroke="#475569" strokeWidth="2.5" fill="none" />

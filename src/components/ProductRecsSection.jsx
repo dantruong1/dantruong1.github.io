@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Sparkles, Compass, Moon, Sun, ExternalLink, Tag, Grid, LayoutGrid, CheckCircle } from 'lucide-react';
+import { Home, Sparkles, Compass, ExternalLink, Tag, Grid, LayoutGrid, CheckCircle } from 'lucide-react';
 import { ApartmentSVG } from './apartment/ApartmentSVG';
-import { AmbientEffects } from './apartment/AmbientEffects';
 import { ProductDetailPanel } from './apartment/ProductDetailPanel';
 import { ROOMS, PRODUCTS } from '../data/products';
 import { Card, CardTitle } from './ui/card';
@@ -21,7 +20,6 @@ const fadeUp = {
 export function ProductRecsSection() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
-  const [isNightMode, setIsNightMode] = useState(false);
 
   const handleSelectProduct = (product) => {
     setSelectedProduct(product);
@@ -29,12 +27,6 @@ export function ProductRecsSection() {
 
   const handleSelectRoom = (roomId) => {
     setSelectedRoom((prev) => (prev === roomId ? null : roomId));
-  };
-
-  const handleTriggerEasterEgg = (type) => {
-    if (type === 'nighttime') {
-      setIsNightMode((prev) => !prev);
-    }
   };
 
   const filteredProducts = selectedRoom
@@ -50,53 +42,25 @@ export function ProductRecsSection() {
     >
       {/* Header Banner */}
       <motion.div variants={fadeUp} className="mb-7">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-3">
-          <div className="flex-1">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2 flex items-center gap-2">
-              Favorite Products
-              <Sparkles className="w-5 h-5 text-amber-warm" />
-            </h2>
-            
-            {/* Realigned Kicker directly under Favorite Products */}
-            <div className="flex items-center gap-3 mb-3">
-              <span className="section-kicker">
-                <Home className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
-                dan's apartment tour
-              </span>
-              <div className="organic-divider flex-1" />
-            </div>
-
-            {/* Horizontally Extended Blurb */}
-            <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-4xl">
-              Welcome to my apartment! Every object in this tour is something I genuinely own, use regularly, and would happily recommend to a close friend. Click any labeled object or browse the showcase cards below.
-            </p>
+        <div>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2 flex items-center gap-2">
+            Favorite Products
+            <Sparkles className="w-5 h-5 text-amber-warm" />
+          </h2>
+          
+          {/* Realigned Kicker directly under Favorite Products */}
+          <div className="flex items-center gap-3 mb-3">
+            <span className="section-kicker">
+              <Home className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+              dan's apartment tour
+            </span>
+            <div className="organic-divider flex-1" />
           </div>
 
-          {/* Redesigned Day / Cozy Evening Lighting Segment Switch */}
-          <div className="flex items-center gap-1 p-1 rounded-full bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border shadow-xs shrink-0 self-start md:self-auto">
-            <button
-              onClick={() => setIsNightMode(false)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-mono flex items-center gap-1.5 transition-all duration-200 ${
-                !isNightMode
-                  ? 'bg-amber-warm/20 text-amber-900 dark:text-amber-200 font-semibold shadow-2xs'
-                  : 'text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text'
-              }`}
-            >
-              <Sun className="w-3.5 h-3.5 text-amber-warm" />
-              <span>Daylight</span>
-            </button>
-            <button
-              onClick={() => setIsNightMode(true)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-mono flex items-center gap-1.5 transition-all duration-200 ${
-                isNightMode
-                  ? 'bg-indigo-600/90 text-white font-semibold shadow-2xs'
-                  : 'text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text'
-              }`}
-            >
-              <Moon className="w-3.5 h-3.5 text-indigo-300" />
-              <span>Cozy Evening</span>
-            </button>
-          </div>
+          {/* Horizontally Extended Blurb */}
+          <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-4xl">
+            Welcome to my apartment! Every object in this tour is something I genuinely own, use regularly, and would happily recommend to a close friend. Click any labeled object or browse the showcase cards below.
+          </p>
         </div>
       </motion.div>
 
@@ -138,13 +102,11 @@ export function ProductRecsSection() {
 
       {/* DESKTOP INTERACTIVE APARTMENT FLOORPLAN */}
       <motion.div variants={fadeUp} className="hidden md:block relative mb-12">
-        <AmbientEffects isNightMode={isNightMode} />
         <ApartmentSVG
           selectedProduct={selectedProduct}
           selectedRoom={selectedRoom}
           onSelectProduct={handleSelectProduct}
           onSelectRoom={handleSelectRoom}
-          onTriggerEasterEgg={handleTriggerEasterEgg}
         />
 
         <div className="mt-4 flex items-center justify-between text-xs font-mono text-espresso-muted/70 dark:text-night-muted/70 px-2">
