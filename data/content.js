@@ -131,6 +131,20 @@ const SITE_CONTENT = {
       description: "Mark Manson's article about tapping into your intrinsic motivators in life and discovering what actually drives you.",
       image: "",
       url: "https://markmanson.net/screw-finding-your-passion"
+    },
+    {
+      category: "reading",
+      title: "A Long Walk to Water",
+      description: "A moving story based on true events about resilience, hope, and human endurance in Sudan. It puts everyday comforts in perspective and shows how small acts of perseverance change lives.",
+      image: "",
+      url: "https://www.goodreads.com/book/show/7988018-a-long-walk-to-water"
+    },
+    {
+      category: "reading",
+      title: "The Monsters Are Due on Maple Street",
+      description: "A brilliant Twilight Zone teleplay showing how fast fear and suspicion can tear a normal neighborhood apart. It captures how human paranoia is often a bigger threat than any external monster.",
+      image: "",
+      url: "https://www.goodreads.com/book/show/12470719-the-monsters-are-due-on-maple-street"
     }
   ],
   quotes: [

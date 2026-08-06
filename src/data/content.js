@@ -738,6 +738,24 @@ export const SITE_CONTENT = {
           author: "W. Timothy Gallwey",
           note: "The classic guide to overcoming self-doubt, non-judgmental awareness, and achieving peak performance state (Self 1 vs Self 2).",
           url: "https://www.goodreads.com/book/show/905.The_Inner_Game_of_Tennis"
+        },
+        {
+          title: "My Investment Philosophy",
+          author: "The Science of Hitting",
+          note: "A grounded breakdown of long term thinking, business fundamentals, and staying rational when markets get noisy. It articulates the discipline needed to hold great assets through market cycles.",
+          url: "https://thescienceofhitting.com/p/my-investment-philosophy"
+        },
+        {
+          title: "A Long Walk to Water",
+          author: "Linda Sue Park",
+          note: "A moving story based on true events about resilience, hope, and human endurance in Sudan. It puts everyday comforts in perspective and shows how small acts of perseverance change lives.",
+          url: "https://www.goodreads.com/book/show/7988018-a-long-walk-to-water"
+        },
+        {
+          title: "The Monsters Are Due on Maple Street",
+          author: "Rod Serling",
+          note: "A brilliant Twilight Zone teleplay showing how fast fear and suspicion can tear a normal neighborhood apart. It captures how human paranoia is often a bigger threat than any external monster.",
+          url: "https://www.goodreads.com/book/show/12470719-the-monsters-are-due-on-maple-street"
         }
       ]
     }
