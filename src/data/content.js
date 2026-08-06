@@ -753,6 +753,7 @@ export const SITE_CONTENT = {
         },
         {
           title: "The Monsters Are Due on Maple Street",
+          spineTitle: "Monsters on Maple St.",
           author: "Rod Serling",
           note: "A brilliant Twilight Zone teleplay showing how fast fear and suspicion can tear a normal neighborhood apart. It captures how human paranoia is often a bigger threat than any external monster.",
           url: "https://www.goodreads.com/book/show/12470719-the-monsters-are-due-on-maple-street"

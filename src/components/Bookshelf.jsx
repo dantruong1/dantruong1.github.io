@@ -70,18 +70,31 @@ export function Bookshelf({ content }) {
                 {/* Spine Decorative Gold Line */}
                 <div className={`w-full h-1 border-t ${palette.accent} mt-3 opacity-60`} />
 
-                {/* Vertical Spine Title (Full text, no truncation) */}
-                <div className="flex-1 flex items-center justify-center my-2 overflow-visible">
-                  <span
-                    className={`font-serif text-[11px] sm:text-[12.5px] font-bold ${palette.text} tracking-wider uppercase text-center leading-tight whitespace-nowrap`}
-                    style={{
-                      writingMode: 'vertical-rl',
-                      transform: 'rotate(180deg)',
-                      maxHeight: '185px',
-                    }}
-                  >
-                    {item.title}
-                  </span>
+                {/* Vertical Spine Title */}
+                <div className="flex-1 flex items-center justify-center my-1.5 overflow-hidden px-0.5 max-h-[175px]">
+                  {(() => {
+                    const spineText = item.spineTitle || item.title;
+                    const len = spineText.length;
+                    const fontClass =
+                      len > 30
+                        ? 'text-[8.5px] sm:text-[9.5px] tracking-normal'
+                        : len > 22
+                        ? 'text-[9.5px] sm:text-[10.5px] tracking-tight'
+                        : 'text-[11px] sm:text-[12.5px] tracking-wider';
+
+                    return (
+                      <span
+                        className={`font-serif font-bold ${palette.text} ${fontClass} uppercase text-center leading-tight whitespace-nowrap overflow-hidden text-ellipsis`}
+                        style={{
+                          writingMode: 'vertical-rl',
+                          transform: 'rotate(180deg)',
+                          maxHeight: '170px',
+                        }}
+                      >
+                        {spineText}
+                      </span>
+                    );
+                  })()}
                 </div>
 
                 {/* Spine Author / Bottom Gold Line */}
