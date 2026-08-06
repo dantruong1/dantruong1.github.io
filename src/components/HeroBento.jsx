@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Quote, Sparkles, ArrowRight, Camera, Heart } from 'lucide-react';
+import { MapPin, Quote, Sparkles, ArrowRight, Camera, Heart, ChevronDown } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { LofiPlayer } from './LofiPlayer';
@@ -19,12 +19,19 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
     show: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
   };
 
+  const scrollToCozyCorner = () => {
+    const el = document.getElementById('cozy-corner');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.section
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-14"
+      className="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-10"
     >
       {/* ── Left Column: 4-Photo Scrapbook Collage ── */}
       <motion.div variants={item} className="lg:col-span-5 flex flex-col justify-between">
@@ -106,7 +113,6 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
           <div className="washi-tape washi-tape-top-right" />
 
           <div>
-
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-espresso dark:text-night-text tracking-tight mb-3 leading-[1.1]">
               {content.hero.name}
             </h1>
@@ -136,6 +142,14 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
           {/* Action pills aligned clean at bottom */}
           <div className="flex flex-wrap gap-2.5 pt-6 mt-6 border-t border-espresso/8 dark:border-night-border">
             <button
+              onClick={scrollToCozyCorner}
+              className="text-xs font-mono text-terracotta dark:text-terracotta-glow bg-terracotta-soft/70 dark:bg-terracotta/30 hover:bg-terracotta-soft dark:hover:bg-terracotta/40 px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-200 hover:shadow-xs hover:-translate-y-0.5 border border-terracotta/20 font-semibold"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow" />
+              <span>Cozy Corner Hub</span>
+              <ChevronDown className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow animate-bounce" />
+            </button>
+            <button
               onClick={() => onNavigate('projects')}
               className="text-xs font-mono text-matcha-dark dark:text-matcha-glow bg-matcha-soft dark:bg-matcha-dark/40 hover:bg-matcha-light px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-200 hover:shadow-xs hover:-translate-y-0.5"
             >
@@ -146,13 +160,13 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
               onClick={() => onNavigate('writings')}
               className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text bg-card-alt dark:bg-night-card-alt hover:bg-parchment-dark px-4 py-2 rounded-full transition-all duration-200 border border-espresso/5 dark:border-night-border hover:-translate-y-0.5"
             >
-              Read Essays & Op-Eds
+              Read Essays
             </button>
             <a
               href="https://www.linkedin.com/in/dantruong1/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono text-terracotta dark:text-terracotta-glow hover:text-terracotta bg-terracotta-soft/50 dark:bg-terracotta/30 hover:bg-terracotta-soft px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5"
+              className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text bg-card-alt dark:bg-night-card-alt hover:bg-parchment-dark px-4 py-2 rounded-full transition-all duration-200 border border-espresso/5 dark:border-night-border hover:-translate-y-0.5"
             >
               LinkedIn ↗
             </a>
@@ -176,6 +190,26 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
             </span>
           </Card>
         </div>
+      </motion.div>
+
+      {/* ── Scroll Invitation Cue to Cozy Corner ── */}
+      <motion.div
+        variants={item}
+        className="lg:col-span-12 flex justify-center pt-2 pb-1"
+      >
+        <button
+          onClick={scrollToCozyCorner}
+          className="group flex flex-col items-center gap-1 text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-terracotta dark:hover:text-terracotta-glow transition-colors cursor-pointer"
+          aria-label="Scroll down to Cozy Corner"
+        >
+          <span className="flex items-center gap-2 bg-card/80 dark:bg-night-card/80 hover:bg-card dark:hover:bg-night-card px-4 py-1.5 rounded-full border border-espresso/10 dark:border-night-border shadow-cozy backdrop-blur-xs transition-all group-hover:scale-105 group-hover:border-terracotta/30">
+            <Sparkles className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow animate-pulse" />
+            <span className="font-hand text-base text-espresso dark:text-night-text group-hover:text-terracotta transition-colors">
+              explore the cozy corner
+            </span>
+            <ChevronDown className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow group-hover:translate-y-0.5 transition-transform" />
+          </span>
+        </button>
       </motion.div>
     </motion.section>
   );

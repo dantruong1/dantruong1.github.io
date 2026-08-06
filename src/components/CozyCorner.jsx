@@ -62,13 +62,14 @@ export function CozyCorner({ onNavigate }) {
   ];
 
   return (
-    <section className="mb-14">
+    <section id="cozy-corner" className="mb-14 scroll-mt-24">
       {/* Section header */}
       <div className="flex items-center gap-4 mb-8">
-        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10">
+        <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10 flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
           explore
         </span>
-        <h2 className="font-serif text-2xl font-bold text-espresso tracking-tight">
+        <h2 className="font-serif text-2xl font-bold text-espresso dark:text-night-text tracking-tight">
           The Cozy Corner
         </h2>
         <div className="organic-divider flex-1" />
