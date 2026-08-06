@@ -33,10 +33,10 @@ export function WritingsSection({ content }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
-              Writings & Substack
+              Writings
             </h2>
             <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
-              Published op-eds and long-form essays exploring human behavior, economics, technology, public policy, and product philosophy.
+              Published and publicly posted writings
             </p>
           </div>
 
