@@ -27,6 +27,10 @@ export function ProductRecsSection() {
     setSelectedProduct(product);
   };
 
+  const handleSelectRoom = (roomId) => {
+    setSelectedRoom((prev) => (prev === roomId ? null : roomId));
+  };
+
   const handleTriggerEasterEgg = (type) => {
     if (type === 'nighttime') {
       setIsNightMode((prev) => !prev);
@@ -46,42 +50,51 @@ export function ProductRecsSection() {
     >
       {/* Header Banner */}
       <motion.div variants={fadeUp} className="mb-7">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="section-kicker">
-            <Home className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
-            dan's apartment tour
-          </span>
-          <div className="organic-divider flex-1" />
-        </div>
-
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-3">
+          <div className="flex-1">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2 flex items-center gap-2">
               Favorite Products
               <Sparkles className="w-5 h-5 text-amber-warm" />
             </h2>
-            <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-2xl">
+            
+            {/* Realigned Kicker directly under Favorite Products */}
+            <div className="flex items-center gap-3 mb-3">
+              <span className="section-kicker">
+                <Home className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+                dan's apartment tour
+              </span>
+              <div className="organic-divider flex-1" />
+            </div>
+
+            {/* Horizontally Extended Blurb */}
+            <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-4xl">
               Welcome to my apartment! Every object in this tour is something I genuinely own, use regularly, and would happily recommend to a close friend. Click any labeled object or browse the showcase cards below.
             </p>
           </div>
 
-          {/* Controls: Day/Night Toggle */}
-          <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
+          {/* Redesigned Day / Cozy Evening Lighting Segment Switch */}
+          <div className="flex items-center gap-1 p-1 rounded-full bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border shadow-xs shrink-0 self-start md:self-auto">
             <button
-              onClick={() => setIsNightMode((prev) => !prev)}
-              className="inline-flex items-center gap-2 text-xs font-mono px-3.5 py-2 rounded-full bg-card-alt dark:bg-night-card-alt border border-espresso/10 dark:border-night-border text-espresso dark:text-night-text hover:scale-105 transition-all shadow-xs"
+              onClick={() => setIsNightMode(false)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-mono flex items-center gap-1.5 transition-all duration-200 ${
+                !isNightMode
+                  ? 'bg-amber-warm/20 text-amber-900 dark:text-amber-200 font-semibold shadow-2xs'
+                  : 'text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text'
+              }`}
             >
-              {isNightMode ? (
-                <>
-                  <Sun className="w-3.5 h-3.5 text-amber-warm" />
-                  <span>Daylight View</span>
-                </>
-              ) : (
-                <>
-                  <Moon className="w-3.5 h-3.5 text-indigo-400" />
-                  <span>Night Ambient View</span>
-                </>
-              )}
+              <Sun className="w-3.5 h-3.5 text-amber-warm" />
+              <span>Daylight</span>
+            </button>
+            <button
+              onClick={() => setIsNightMode(true)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-mono flex items-center gap-1.5 transition-all duration-200 ${
+                isNightMode
+                  ? 'bg-indigo-600/90 text-white font-semibold shadow-2xs'
+                  : 'text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text'
+              }`}
+            >
+              <Moon className="w-3.5 h-3.5 text-indigo-300" />
+              <span>Cozy Evening</span>
             </button>
           </div>
         </div>
@@ -107,7 +120,7 @@ export function ProductRecsSection() {
             return (
               <button
                 key={room.id}
-                onClick={() => setSelectedRoom(isSelected ? null : room.id)}
+                onClick={() => handleSelectRoom(room.id)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all whitespace-nowrap flex items-center gap-1.5 ${
                   isSelected
                     ? 'bg-matcha text-white dark:bg-matcha-dark font-semibold shadow-xs'
@@ -130,7 +143,7 @@ export function ProductRecsSection() {
           selectedProduct={selectedProduct}
           selectedRoom={selectedRoom}
           onSelectProduct={handleSelectProduct}
-          onSelectRoom={setSelectedRoom}
+          onSelectRoom={handleSelectRoom}
           onTriggerEasterEgg={handleTriggerEasterEgg}
         />
 
@@ -139,7 +152,7 @@ export function ProductRecsSection() {
             <Compass className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow" />
             Click any labeled object in the apartment to open its full recommendation details
           </span>
-          <span>14 Handcrafted Products</span>
+          <span>15 Handcrafted Products</span>
         </div>
       </motion.div>
 

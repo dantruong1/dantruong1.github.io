@@ -94,12 +94,12 @@ export function ApartmentSVG({
               product={getProduct('surface-laptop-7')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={50}
+              x={60}
               y={75}
               width={65}
               height={50}
               shortLabel="Surface 7"
-              labelOffsetX={0}
+              labelOffsetX={18}
               labelOffsetY={-65}
             >
               <rect x="8" y="24" width="48" height="16" rx="3" className="fill-slate-300 dark:fill-slate-600 stroke-slate-500 stroke-1" />
@@ -192,8 +192,8 @@ export function ApartmentSVG({
               width={170}
               height={140}
               shortLabel="Zinus Mattress"
-              labelOffsetX={50}
-              labelOffsetY={55}
+              labelOffsetX={20}
+              labelOffsetY={10}
             >
               <rect x="8" y="8" width="154" height="24" rx="5" className="fill-mocha-light dark:fill-mocha stroke-espresso/30 stroke-2" />
               <rect x="12" y="25" width="146" height="100" rx="10" className="fill-card dark:fill-night-card stroke-espresso/15 stroke-2" />
@@ -446,9 +446,9 @@ export function ApartmentSVG({
             <circle cx="195" cy="145" r="5" className="fill-amber-warm" />
 
             {/* Key Hook Wall Rack */}
-            <rect x="35" y="70" width="110" height="12" rx="4" className="fill-mocha-light dark:fill-mocha" />
-            <circle cx="50" cy="82" r="3" className="fill-espresso" />
-            <circle cx="85" cy="82" r="3" className="fill-espresso" />
+            <rect x="25" y="70" width="135" height="12" rx="4" className="fill-mocha-light dark:fill-mocha" />
+            <circle cx="40" cy="82" r="3" className="fill-espresso" />
+            <circle cx="80" cy="82" r="3" className="fill-espresso" />
             <circle cx="120" cy="82" r="3" className="fill-espresso" />
 
             {/* PRODUCT 14: REI Co-op Flash 22 Backpack */}
@@ -456,17 +456,37 @@ export function ApartmentSVG({
               product={getProduct('rei-flash-22')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={65}
+              x={35}
               y={95}
-              width={65}
-              height={80}
+              width={55}
+              height={75}
               shortLabel="REI Backpack"
               labelOffsetX={0}
-              labelOffsetY={45}
+              labelOffsetY={35}
             >
               <path d="M 18 12 Q 30 6 42 12 L 48 68 Q 30 74 12 68 Z" className="fill-emerald-600 dark:fill-emerald-800 stroke-emerald-950 stroke-2" />
               <path d="M 16 35 Q 30 38 44 35" stroke="#f4ded4" strokeWidth="2.5" fill="none" />
               <rect x="25" y="42" width="10" height="10" rx="2" className="fill-amber-warm" />
+            </ProductObject>
+
+            {/* PRODUCT 15: Arc'teryx Atom Hoody */}
+            <ProductObject
+              product={getProduct('arcteryx-atom-hoody')}
+              onSelect={onSelectProduct}
+              onTriggerEasterEgg={onTriggerEasterEgg}
+              x={105}
+              y={90}
+              width={55}
+              height={70}
+              shortLabel="Arc'teryx Hoody"
+              labelOffsetX={0}
+              labelOffsetY={-60}
+            >
+              <path d="M 27 6 Q 27 0 21 5 M 8 18 L 27 9 L 46 18" stroke="#475569" strokeWidth="2.5" fill="none" />
+              <path d="M 12 18 C 16 12 38 12 42 18 L 52 40 L 44 43 L 40 26 L 40 60 L 14 60 L 14 26 L 10 43 L 2 40 Z" className="fill-slate-700 dark:fill-slate-800 stroke-slate-900 stroke-2" />
+              <path d="M 20 18 Q 27 10 34 18" className="fill-slate-600 stroke-slate-400 stroke-1" />
+              <line x1="27" y1="18" x2="27" y2="60" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3,2" />
+              <circle cx="34" cy="28" r="1.5" className="fill-amber-warm" />
             </ProductObject>
           </RoomGroup>
         </g>

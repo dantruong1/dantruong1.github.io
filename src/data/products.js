@@ -249,4 +249,20 @@ export const PRODUCTS = [
     iconName: 'backpack',
     easterEgg: 'swing',
   },
+  {
+    id: 'arcteryx-atom-hoody',
+    name: "Arc'teryx Atom Hoody",
+    brand: "Arc'teryx",
+    room: 'entryway',
+    roomLabel: 'Entryway',
+    category: 'Outdoor & Weatherwear',
+    recommendation: "The ultimate versatile layer for West Coast weather. Light, packable, and perfectly warm for the sprinkly rain and breezy microclimates of San Francisco and the PNW.",
+    whoItsFor: 'Anyone navigating foggy, drizzly, or shifting coastal weather who needs a lightweight, reliable all-weather hoody.',
+    badges: [
+      { label: 'Rain & Fog Essential', emoji: '🌧️', variant: 'terracotta' },
+      { label: 'Daily Driver', emoji: '🔥', variant: 'matcha' },
+    ],
+    purchaseUrl: 'https://arcteryx.com/us/en/shop/mens/atom-hoody',
+    iconName: 'jacket',
+  },
 ];
