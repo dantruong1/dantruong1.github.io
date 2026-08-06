@@ -150,26 +150,23 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
               <ChevronDown className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow animate-bounce" />
             </button>
             <button
-              onClick={() => onNavigate('projects')}
-              className="text-xs font-mono text-matcha-dark dark:text-matcha-glow bg-matcha-soft dark:bg-matcha-dark/40 hover:bg-matcha-light px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-200 hover:shadow-xs hover:-translate-y-0.5"
+              onClick={() => onNavigate('about')}
+              className="text-xs font-mono text-matcha-dark dark:text-matcha-glow bg-matcha-soft dark:bg-matcha-dark/40 hover:bg-matcha-light px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5"
             >
-              <span>Explore Projects</span>
-              <ArrowRight className="w-3 h-3" />
+              About Me
             </button>
             <button
-              onClick={() => onNavigate('writings')}
+              onClick={() => onNavigate('recommendations')}
               className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text bg-card-alt dark:bg-night-card-alt hover:bg-parchment-dark px-4 py-2 rounded-full transition-all duration-200 border border-espresso/5 dark:border-night-border hover:-translate-y-0.5"
             >
-              Read Essays
+              Recommendations
             </button>
-            <a
-              href="https://www.linkedin.com/in/dantruong1/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => onNavigate('products')}
               className="text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text bg-card-alt dark:bg-night-card-alt hover:bg-parchment-dark px-4 py-2 rounded-full transition-all duration-200 border border-espresso/5 dark:border-night-border hover:-translate-y-0.5"
             >
-              LinkedIn ↗
-            </a>
+              Favorite Products
+            </button>
           </div>
         </Card>
 
