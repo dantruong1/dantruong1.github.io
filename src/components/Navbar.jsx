@@ -36,7 +36,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
               Dan Truong
             </span>
             <span className="text-[9px] font-mono text-espresso-muted dark:text-night-muted leading-none hidden lg:block">
-              xbox @ microsoft
+              product at microsoft
             </span>
           </div>
         </button>
