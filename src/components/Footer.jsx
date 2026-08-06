@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Coffee, Github, Linkedin, Mail, ArrowUp, Heart, Sparkles } from 'lucide-react';
+import { Coffee, Github, Linkedin, Mail, ArrowUp, Sparkles } from 'lucide-react';
 
 export function Footer({ onScrollTop }) {
   return (
@@ -19,17 +19,6 @@ export function Footer({ onScrollTop }) {
         >
           <ArrowUp className="w-4 h-4" />
         </motion.button>
-
-        {/* Core Philosophy Tagline */}
-        <div className="text-center space-y-1">
-          <p className="font-hand text-lg text-espresso dark:text-night-text flex items-center justify-center gap-1.5 font-bold">
-            <Heart className="w-4 h-4 text-terracotta dark:text-terracotta-glow shrink-0" />
-            Endlessly fascinated by people
-          </p>
-          <p className="text-xs font-mono text-espresso-muted dark:text-night-muted">
-            Building helpful tools & products for people
-          </p>
-        </div>
 
         {/* Social links */}
         <div className="flex items-center gap-5">
@@ -60,11 +49,6 @@ export function Footer({ onScrollTop }) {
           <span>& warm lofi beats</span>
           <Sparkles className="w-3.5 h-3.5 text-amber-warm shrink-0" />
         </div>
-
-        {/* Closing quote */}
-        <p className="font-serif italic text-sm text-terracotta/90 dark:text-terracotta-glow/90 text-center max-w-sm leading-snug font-medium">
-          "The cold water does not get warmer if you jump late."
-        </p>
 
         <span className="text-[10px] font-mono text-espresso-muted/50 dark:text-night-muted/50">
           © {new Date().getFullYear()} Dan Truong · UC Berkeley '24
