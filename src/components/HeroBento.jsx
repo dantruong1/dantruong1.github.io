@@ -5,7 +5,16 @@ import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { LofiPlayer } from './LofiPlayer';
 
-export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
+export function HeroBento({
+  content,
+  isPlaying,
+  toggleLofi,
+  presetIdx,
+  handleNextPreset,
+  isMuted,
+  toggleMute,
+  onNavigate,
+}) {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -172,7 +181,14 @@ export function HeroBento({ content, isPlaying, toggleLofi, onNavigate }) {
 
         {/* Lofi Radio + Quote — two equal columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <LofiPlayer isPlaying={isPlaying} toggleLofi={toggleLofi} />
+          <LofiPlayer
+            isPlaying={isPlaying}
+            toggleLofi={toggleLofi}
+            presetIdx={presetIdx}
+            handleNextPreset={handleNextPreset}
+            isMuted={isMuted}
+            toggleMute={toggleMute}
+          />
 
           <Card className="p-5 bg-matcha-soft/50 dark:bg-matcha-dark/30 border-matcha/15 dark:border-matcha/30 flex flex-col justify-between relative overflow-hidden shadow-inner-warm">
             <Quote className="w-7 h-7 text-matcha/25 dark:text-matcha-glow/20 absolute top-3 right-3" />

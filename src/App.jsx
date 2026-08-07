@@ -13,10 +13,13 @@ import { ProductRecsSection } from './components/ProductRecsSection';
 
 import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
+import { LOFI_PRESETS } from './data/lofiPresets';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isPlaying, setIsPlaying] = useState(false);
+  const [presetIdx, setPresetIdx] = useState(0);
+  const [isMuted, setIsMuted] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Initialize Dark Mode from localStorage or system preference
@@ -48,6 +51,14 @@ export default function App() {
 
   const stopLofi = useCallback(() => {
     setIsPlaying(false);
+  }, []);
+
+  const handleNextPreset = useCallback(() => {
+    setPresetIdx((prev) => (prev + 1) % LOFI_PRESETS.length);
+  }, []);
+
+  const toggleMute = useCallback(() => {
+    setIsMuted((prev) => !prev);
   }, []);
 
   // Scroll progress bar
@@ -90,6 +101,10 @@ export default function App() {
               content={SITE_CONTENT}
               isPlaying={isPlaying}
               toggleLofi={toggleLofi}
+              presetIdx={presetIdx}
+              handleNextPreset={handleNextPreset}
+              isMuted={isMuted}
+              toggleMute={toggleMute}
               onNavigate={setActiveTab}
             />
             <CozyCorner onNavigate={setActiveTab} />
@@ -101,7 +116,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-parchment dark:bg-night-bg text-espresso dark:text-night-text font-sans transition-colors duration-500">
       {/* Persistent Global Lofi Web Audio Engine across ALL tabs */}
-      <GlobalLofiEngine isPlaying={isPlaying} />
+      <GlobalLofiEngine isPlaying={isPlaying} presetIdx={presetIdx} isMuted={isMuted} />
 
       {/* Analog Grain */}
       <div className="analog-grain" aria-hidden="true" />
