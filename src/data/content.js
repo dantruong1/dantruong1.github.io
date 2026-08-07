@@ -99,8 +99,7 @@ export const SITE_CONTENT = {
     title: "About Me",
     subtitle: "Born and raised in San Jose, CA. Building helpful products for people at Microsoft.",
     paragraphs: [
-      "Hi, I'm Dan.",
-      "I grew up in San Jose, California and studied Economics, Data Science, and Public Policy at UC Berkeley. Today, I'm a Technical Product Manager at Microsoft on the Xbox team, where I build products for game developers. Before that, I worked on Microsoft Learn, and earlier in my career interned at Zillow and Wish.",
+      "Hi, I’m Dan. I grew up in San Jose, California and studied Economics, Data Science, and Public Policy at UC Berkeley. Today, I’m a Technical Product Manager at Microsoft on the Xbox team, where I work on AI/ML-powered automation that’s changing how games are tested and built. Before that, I worked on Microsoft Learn, and earlier in my career interned at Zillow and Wish.",
       "I'm endlessly curious about people: why we make the decisions we do, how incentives shape behavior, and how good products fit naturally into everyday life.",
       "Outside of work, I mentor refugees, a cause that's personal to me because my father came to the United States as a refugee after the Vietnam War. I also love tennis, the Warriors, cooking Vietnamese food, exploring national parks, and spending time with family and friends.",
       "I drink green tea almost every day. You'll usually find me somewhere between a warm cup of tea, a good essay, and lofi beats."
