@@ -153,7 +153,11 @@ export default function App() {
           </AnimatePresence>
         </main>
 
-        <Footer onScrollTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+        <Footer
+          onScrollTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
       </div>
     </div>
   );

@@ -73,18 +73,27 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
           })}
         </nav>
 
-        {/* Controls: Dark Mode Toggle & Lofi Toggle */}
+        {/* Controls: Dark / Light Mode Toggle & Lofi Toggle */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {/* Dark Espresso Mode Toggle */}
+          {/* Theme Mode Switcher Pill */}
           <button
             onClick={toggleDarkMode}
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-parchment-dark dark:bg-night-card-alt text-espresso dark:text-amber-warm flex items-center justify-center hover:scale-105 transition-all shadow-xs border border-espresso/5 dark:border-night-border"
-            title={isDarkMode ? 'Switch to Light Parchment' : 'Switch to Dark Espresso'}
+            className="h-8 px-2.5 sm:px-3 rounded-full bg-parchment-dark/80 dark:bg-night-card-alt text-espresso dark:text-night-text flex items-center gap-1.5 hover:border-matcha-dark dark:hover:border-matcha-glow transition-all duration-200 shadow-xs border border-espresso/10 dark:border-night-border cursor-pointer group text-[11px] sm:text-[12px] font-mono font-medium"
+            title={isDarkMode ? 'Switch to Light Parchment mode' : 'Switch to Dark Espresso mode'}
+            aria-label="Toggle theme mode"
           >
             {isDarkMode ? (
-              <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-warm" />
+              <>
+                <Sun className="w-3.5 h-3.5 text-amber-warm group-hover:rotate-45 transition-transform duration-300 shrink-0" />
+                <span className="hidden xs:inline">Dark</span>
+                <span className="xs:hidden">Dark</span>
+              </>
             ) : (
-              <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-espresso" />
+              <>
+                <Moon className="w-3.5 h-3.5 text-espresso dark:text-night-text group-hover:-rotate-12 transition-transform duration-300 shrink-0" />
+                <span className="hidden xs:inline">Light</span>
+                <span className="xs:hidden">Light</span>
+              </>
             )}
           </button>
 
