@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Gamepad2, BookOpen, Lightbulb, Quote, User, Package, ArrowRight } from 'lucide-react';
-import { Card } from './ui/card';
+import { Card, CardTitle, CardDescription } from './ui/card';
 
 const COZY_CARDS = [
   {

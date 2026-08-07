@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Navigation, ExternalLink, Search, Sparkles, Compass } from 'lucide-react';
 import { SF_CATEGORIES, SF_SPOTS } from '../data/sfSpots';
-import { Card } from './ui/card';
+import { Card, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 
 // Helper component to programmatically animate/fly map to selected spot
