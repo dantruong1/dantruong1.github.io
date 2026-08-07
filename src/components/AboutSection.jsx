@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Coffee, Music, Camera, Quote, Trophy, Leaf } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Music, Camera, Leaf } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 

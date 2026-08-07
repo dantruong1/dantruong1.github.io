@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Sparkles, ArrowUpRight, Heart, Code2 } from 'lucide-react';
+import { Sparkles, ArrowUpRight, Code2 } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -14,8 +14,8 @@ const fadeUp = {
 };
 
 export function ProjectsSection({ content }) {
-  const featured = content.projects.filter(p => p.featured);
-  const rest = content.projects.filter(p => !p.featured);
+  const featured = useMemo(() => content.projects.filter((p) => p.featured), [content.projects]);
+  const rest = useMemo(() => content.projects.filter((p) => !p.featured), [content.projects]);
 
   return (
     <motion.section

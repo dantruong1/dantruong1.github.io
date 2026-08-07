@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Video, Youtube, ExternalLink } from 'lucide-react';
-import { Card, CardTitle } from './ui/card';
+import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
 const FAVORITE_VIDEOS = [

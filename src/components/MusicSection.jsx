@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Disc, Heart, Headphones } from 'lucide-react';
+import { Disc, Headphones } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Navigation, ExternalLink, Search, Sparkles, Compass } from 'lucide-react';
 import { SF_CATEGORIES, SF_SPOTS } from '../data/sfSpots';
-import { Card, CardTitle } from './ui/card';
+import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
 // Helper component to programmatically animate/fly map to selected spot
@@ -71,14 +71,18 @@ export function SFMapSection() {
   }, []);
 
   // Filter spots by category & search query
-  const filteredSpots = SF_SPOTS.filter((spot) => {
-    const matchesCategory = selectedCategory === 'all' || spot.category === selectedCategory;
-    const matchesSearch =
-      spot.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      spot.neighborhood.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      spot.vibe.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredSpots = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return SF_SPOTS.filter((spot) => {
+      const matchesCategory = selectedCategory === 'all' || spot.category === selectedCategory;
+      const matchesSearch =
+        !query ||
+        spot.name.toLowerCase().includes(query) ||
+        spot.neighborhood.toLowerCase().includes(query) ||
+        spot.vibe.toLowerCase().includes(query);
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
 
   return (
     <motion.section

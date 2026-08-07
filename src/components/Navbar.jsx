@@ -3,17 +3,17 @@ import { motion } from 'framer-motion';
 import { Sparkles, Music, BookOpen, Quote, Lightbulb, Gamepad2, User, Coffee, Moon, Sun, Package } from 'lucide-react';
 import { Button } from './ui/button';
 
-export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkMode, toggleDarkMode }) {
-  const navItems = [
-    { id: 'home', label: 'Home', icon: Sparkles },
-    { id: 'about', label: 'About', icon: User },
-    { id: 'products', label: 'Favorite Products', icon: Package },
-    { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
-    { id: 'projects', label: 'Projects', icon: Gamepad2 },
-    { id: 'writings', label: 'Writings', icon: BookOpen },
-    { id: 'quotes', label: 'Quotes', icon: Quote },
-  ];
+const NAV_ITEMS = [
+  { id: 'home', label: 'Home', icon: Sparkles },
+  { id: 'about', label: 'About', icon: User },
+  { id: 'products', label: 'Favorite Products', icon: Package },
+  { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
+  { id: 'projects', label: 'Projects', icon: Gamepad2 },
+  { id: 'writings', label: 'Writings', icon: BookOpen },
+  { id: 'quotes', label: 'Quotes', icon: Quote },
+];
 
+export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkMode, toggleDarkMode }) {
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
@@ -43,7 +43,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
 
         {/* Navigation pills — horizontal layout sitting cleanly without scroll */}
         <nav className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar py-0.5 justify-center flex-1 max-w-full">
-          {navItems.map((item, idx) => {
+          {NAV_ITEMS.map((item, idx) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
             return (

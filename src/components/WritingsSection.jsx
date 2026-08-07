@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, ArrowUpRight, BookOpen, PenTool } from 'lucide-react';
+import { Calendar, ArrowUpRight, PenTool } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 import { Badge } from './ui/badge';
 

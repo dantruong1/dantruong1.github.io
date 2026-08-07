@@ -1,65 +1,66 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Gamepad2, BookOpen, Lightbulb, Quote, Music, User, ArrowRight, MapPin, Package, Home } from 'lucide-react';
-import { Card, CardTitle, CardDescription } from './ui/card';
+import { Gamepad2, BookOpen, Lightbulb, Quote, User, Package, ArrowRight } from 'lucide-react';
+import { Card } from './ui/card';
+
+const COZY_CARDS = [
+  {
+    id: 'products',
+    title: 'Favorite Products',
+    desc: 'Take an interactive tour through my apartment and see the products I use every day.',
+    icon: Package,
+    accent: 'bg-terracotta-soft text-terracotta',
+    border: 'hover:border-terracotta-muted',
+    handNote: 'apartment tour 🏠',
+  },
+  {
+    id: 'recommendations',
+    title: 'Recommendations',
+    desc: 'Interactive map of my favorite SF spots + curated list of books & videos.',
+    icon: Lightbulb,
+    accent: 'bg-amber-light text-amber-warm',
+    border: 'hover:border-amber-warm/40',
+    handNote: 'sf spots & reads 📍',
+  },
+  {
+    id: 'projects',
+    title: 'Projects',
+    desc: 'Consumer products, data economics, and personal code builds.',
+    icon: Gamepad2,
+    accent: 'bg-matcha-soft text-matcha-dark',
+    border: 'hover:border-matcha',
+    handNote: 'things built ✦',
+  },
+  {
+    id: 'writings',
+    title: 'Writings',
+    desc: 'Daily Cal op-eds, tech reflections, and college essays.',
+    icon: BookOpen,
+    accent: 'bg-terracotta-soft text-terracotta',
+    border: 'hover:border-terracotta-muted',
+    handNote: 'thoughts & essays ✎',
+  },
+  {
+    id: 'quotes',
+    title: 'Quotes',
+    desc: 'Sayings and wisdom that guide my thinking and work.',
+    icon: Quote,
+    accent: 'bg-matcha-soft text-matcha-dark',
+    border: 'hover:border-matcha',
+    handNote: 'favorite words 〃',
+  },
+  {
+    id: 'about',
+    title: 'About',
+    desc: 'UC Berkeley background, economics, and Xbox @ MSFT.',
+    icon: User,
+    accent: 'bg-mocha-soft text-mocha',
+    border: 'hover:border-mocha-light',
+    handNote: 'bio & background ◯',
+  },
+];
 
 export function CozyCorner({ onNavigate }) {
-  const cards = [
-    {
-      id: 'products',
-      title: 'Favorite Products',
-      desc: 'Take an interactive tour through my apartment and see the products I use every day.',
-      icon: Package,
-      accent: 'bg-terracotta-soft text-terracotta',
-      border: 'hover:border-terracotta-muted',
-      handNote: 'apartment tour 🏠',
-    },
-    {
-      id: 'recommendations',
-      title: 'Recommendations',
-      desc: 'Interactive map of my favorite SF spots + curated list of books & videos.',
-      icon: Lightbulb,
-      accent: 'bg-amber-light text-amber-warm',
-      border: 'hover:border-amber-warm/40',
-      handNote: 'sf spots & reads 📍',
-    },
-    {
-      id: 'projects',
-      title: 'Projects',
-      desc: 'Consumer products, data economics, and personal code builds.',
-      icon: Gamepad2,
-      accent: 'bg-matcha-soft text-matcha-dark',
-      border: 'hover:border-matcha',
-      handNote: 'things built ✦',
-    },
-    {
-      id: 'writings',
-      title: 'Writings',
-      desc: 'Daily Cal op-eds, tech reflections, and college essays.',
-      icon: BookOpen,
-      accent: 'bg-terracotta-soft text-terracotta',
-      border: 'hover:border-terracotta-muted',
-      handNote: 'thoughts & essays ✎',
-    },
-    {
-      id: 'quotes',
-      title: 'Quotes',
-      desc: 'Sayings and wisdom that guide my thinking and work.',
-      icon: Quote,
-      accent: 'bg-matcha-soft text-matcha-dark',
-      border: 'hover:border-matcha',
-      handNote: 'favorite words 〃',
-    },
-    {
-      id: 'about',
-      title: 'About',
-      desc: 'UC Berkeley background, economics, and Xbox @ MSFT.',
-      icon: User,
-      accent: 'bg-mocha-soft text-mocha',
-      border: 'hover:border-mocha-light',
-      handNote: 'bio & background ◯',
-    },
-  ];
 
   return (
     <section id="cozy-corner" className="mb-14 scroll-mt-24">
@@ -77,7 +78,7 @@ export function CozyCorner({ onNavigate }) {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {cards.map((card, idx) => {
+        {COZY_CARDS.map((card, idx) => {
           const Icon = card.icon;
           return (
             <motion.div

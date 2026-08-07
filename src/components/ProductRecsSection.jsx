@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Sparkles, Compass, ExternalLink, Tag, Grid, LayoutGrid, CheckCircle } from 'lucide-react';
+import { Home, Sparkles } from 'lucide-react';
 import { ApartmentSVG } from './apartment/ApartmentSVG';
 import { ProductDetailPanel } from './apartment/ProductDetailPanel';
 import { ROOMS, PRODUCTS } from '../data/products';
-import { Card, CardTitle } from './ui/card';
+import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
 const stagger = {
@@ -29,9 +29,17 @@ export function ProductRecsSection() {
     setSelectedRoom((prev) => (prev === roomId ? null : roomId));
   };
 
-  const filteredProducts = selectedRoom
-    ? PRODUCTS.filter((p) => p.room === selectedRoom)
-    : PRODUCTS;
+  const roomCountsMap = useMemo(() => {
+    const counts = {};
+    PRODUCTS.forEach((p) => {
+      counts[p.room] = (counts[p.room] || 0) + 1;
+    });
+    return counts;
+  }, []);
+
+  const filteredProducts = useMemo(() => {
+    return selectedRoom ? PRODUCTS.filter((p) => p.room === selectedRoom) : PRODUCTS;
+  }, [selectedRoom]);
 
   return (
     <motion.section
@@ -80,7 +88,7 @@ export function ProductRecsSection() {
 
           {ROOMS.map((room) => {
             const isSelected = selectedRoom === room.id;
-            const roomProductCount = PRODUCTS.filter((p) => p.room === room.id).length;
+            const roomProductCount = roomCountsMap[room.id] || 0;
             return (
               <button
                 key={room.id}

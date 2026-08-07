@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Sparkles, ExternalLink, X } from 'lucide-react';
+import { BookOpen, ExternalLink, X } from 'lucide-react';
 import { Badge } from './ui/badge';
 
 // Stylized physical book color palettes (spine & cover colors)
@@ -16,11 +16,15 @@ export function Bookshelf({ content }) {
   const [selectedBook, setSelectedBook] = useState(null);
 
   // Flatten all books across all categories into a single list
-  const allBooks = content.recommendations.flatMap((cat) =>
-    cat.items.map((item) => ({
-      ...item,
-      category: cat.category,
-    }))
+  const allBooks = useMemo(
+    () =>
+      content.recommendations.flatMap((cat) =>
+        cat.items.map((item) => ({
+          ...item,
+          category: cat.category,
+        }))
+      ),
+    [content.recommendations]
   );
 
   return (

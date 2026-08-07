@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Quote, Sparkles, ArrowRight, Camera, Heart, ChevronDown } from 'lucide-react';
+import { MapPin, Quote, Sparkles, Camera } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { LofiPlayer } from './LofiPlayer';
