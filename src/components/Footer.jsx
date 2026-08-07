@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Coffee, Github, Linkedin, Mail, ArrowUp, Sparkles } from 'lucide-react';
+import { Coffee, Github, Linkedin, BookOpen, ArrowUp, Sparkles } from 'lucide-react';
 
 export function Footer({ onScrollTop }) {
   return (
@@ -25,7 +25,7 @@ export function Footer({ onScrollTop }) {
           {[
             { href: 'https://www.linkedin.com/in/dantruong1/', icon: Linkedin, label: 'LinkedIn' },
             { href: 'https://github.com/dantruong1', icon: Github, label: 'GitHub' },
-            { href: 'mailto:contact@dantruong.com', icon: Mail, label: 'Contact' },
+            { href: 'https://substack.com/@dantruong12', icon: BookOpen, label: 'Substack' },
           ].map(({ href, icon: Icon, label }) => (
             <a
               key={label}
