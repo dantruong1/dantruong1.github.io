@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Sparkles } from 'lucide-react';
+import { Home, Sparkles, Compass, LayoutGrid, CheckCircle, ExternalLink } from 'lucide-react';
 import { ApartmentSVG } from './apartment/ApartmentSVG';
 import { ProductDetailPanel } from './apartment/ProductDetailPanel';
 import { ROOMS, PRODUCTS } from '../data/products';
