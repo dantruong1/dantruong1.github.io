@@ -231,7 +231,7 @@ export function HeroBento({
               </p>
             </div>
             <span className="font-mono text-[10px] text-matcha-dark/70 dark:text-night-muted text-right mt-3 block font-medium">
-              — {heroQuote.author || heroQuote.quoteAttr || 'Dan Truong'}
+              — {heroQuote.author || heroQuote.quoteAttr || 'Conventional Wisdom'}
             </span>
           </Card>
         </div>

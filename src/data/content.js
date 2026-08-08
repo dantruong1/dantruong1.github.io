@@ -334,7 +334,7 @@ export const SITE_CONTENT = {
     {
       id: 23,
       quote: "The thing about your 20s is, no matter how you spend them, you'll wonder about the other path. So forget decision paralysis: take a leap of faith and follow your heart.",
-      author: "Dan Truong",
+      author: "Conventional Wisdom",
       category: "Action & Courage",
       favorite: true
     },
@@ -534,7 +534,7 @@ export const SITE_CONTENT = {
     {
       id: 51,
       quote: "There is no map for when you should accomplish things in life. Don't waste your life living by other people's deadlines.",
-      author: "Dan Truong",
+      author: "Conventional Wisdom",
       category: "Self-Mastery",
       favorite: true
     },
@@ -627,7 +627,7 @@ export const SITE_CONTENT = {
     {
       id: 64,
       quote: "Hard work doesn't entitle you to achievement. Millions of immigrants work tirelessly just to get by. Hard work is a privilege.",
-      author: "Dan Truong",
+      author: "Conventional Wisdom",
       category: "Perspective & Kindness",
       favorite: true
     },
@@ -699,7 +699,7 @@ export const SITE_CONTENT = {
     {
       id: 74,
       quote: "Fall semester energy: summer tan, crisp weather, autumn leaves, red cups, hoodies, Thanksgiving, and holiday magic.",
-      author: "Dan Truong",
+      author: "Conventional Wisdom",
       category: "Wisdom & Wonder",
       favorite: false
     }
