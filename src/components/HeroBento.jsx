@@ -211,19 +211,18 @@ export function HeroBento({
           />
 
           <Card className="p-5 bg-matcha-soft/50 dark:bg-matcha-dark/30 border-matcha/15 dark:border-matcha/30 flex flex-col justify-between relative overflow-hidden shadow-inner-warm group">
-            <Quote className="w-7 h-7 text-matcha/25 dark:text-matcha-glow/20 absolute top-3 right-3" />
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/70 dark:text-matcha-glow/90 flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3 text-amber-warm" />
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/70 dark:text-matcha-glow/90 flex items-center gap-1.5 shrink-0">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-warm" />
                   favorite saying
                 </span>
                 <button
                   onClick={handleRotateQuote}
-                  className="text-[10px] font-mono text-matcha-dark/70 dark:text-matcha-glow/80 hover:text-matcha-dark dark:hover:text-matcha-glow flex items-center gap-1 bg-card/60 dark:bg-night-card/60 px-2 py-0.5 rounded-full border border-matcha/20 transition-all hover:scale-105 cursor-pointer"
+                  className="text-[10px] font-mono text-matcha-dark/80 dark:text-matcha-glow/80 hover:text-matcha-dark dark:hover:text-matcha-glow flex items-center gap-1 bg-card/80 dark:bg-night-card/80 px-2.5 py-1 rounded-full border border-matcha/20 transition-all hover:scale-105 cursor-pointer shrink-0 shadow-xs"
                   title="Rotate favorite quote"
                 >
-                  <RotateCw className="w-2.5 h-2.5" />
+                  <RotateCw className="w-3 h-3" />
                   <span>Rotate</span>
                 </button>
               </div>
