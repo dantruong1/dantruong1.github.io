@@ -15,8 +15,38 @@ import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
 import { LOFI_PRESETS } from './data/lofiPresets';
 
+const VALID_TABS = ['about', 'products', 'recommendations', 'projects', 'writings', 'quotes', 'home'];
+
+const getTabFromHash = () => {
+  const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+  return VALID_TABS.includes(hash) ? hash : 'home';
+};
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTabState] = useState(getTabFromHash);
+
+  const handleTabChange = useCallback((tabId) => {
+    setActiveTabState(tabId);
+    const targetHash = tabId === 'home' ? '#/' : `#/${tabId}`;
+    if (window.location.hash !== targetHash) {
+      window.history.pushState(null, '', targetHash);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleHashOrPopState = () => {
+      setActiveTabState(getTabFromHash());
+    };
+
+    window.addEventListener('hashchange', handleHashOrPopState);
+    window.addEventListener('popstate', handleHashOrPopState);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashOrPopState);
+      window.removeEventListener('popstate', handleHashOrPopState);
+    };
+  }, []);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [presetIdx, setPresetIdx] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
@@ -105,9 +135,9 @@ export default function App() {
               handleNextPreset={handleNextPreset}
               isMuted={isMuted}
               toggleMute={toggleMute}
-              onNavigate={setActiveTab}
+              onNavigate={handleTabChange}
             />
-            <CozyCorner onNavigate={setActiveTab} />
+            <CozyCorner onNavigate={handleTabChange} />
           </>
         );
     }
@@ -132,7 +162,7 @@ export default function App() {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8">
         <Navbar
           activeTab={activeTab}
-          setActiveTab={setActiveTab}
+          setActiveTab={handleTabChange}
           isPlaying={isPlaying}
           toggleLofi={toggleLofi}
           isDarkMode={isDarkMode}

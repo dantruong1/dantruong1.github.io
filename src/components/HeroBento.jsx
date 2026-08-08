@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Quote, Sparkles, Camera, ChevronDown } from 'lucide-react';
+import { MapPin, Quote, Sparkles, Camera, ChevronDown, RotateCw } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { LofiPlayer } from './LofiPlayer';
+import { VirtualTeaCounter } from './VirtualTeaCounter';
 
 export function HeroBento({
   content,
@@ -15,6 +16,25 @@ export function HeroBento({
   toggleMute,
   onNavigate,
 }) {
+  // Rotates quote on page load from content.quotes catalog
+  const [heroQuote, setHeroQuote] = useState(() => {
+    const quotesList = content?.quotes || [];
+    const favorites = quotesList.filter((q) => q.favorite);
+    const pool = favorites.length > 0 ? favorites : quotesList;
+    if (pool.length === 0) return { quote: content.hero.quote, author: content.hero.quoteAttr };
+    return pool[Math.floor(Math.random() * pool.length)];
+  });
+
+  const handleRotateQuote = (e) => {
+    e.stopPropagation();
+    const quotesList = content?.quotes || [];
+    const favorites = quotesList.filter((q) => q.favorite);
+    const pool = favorites.length > 0 ? favorites : quotesList;
+    if (pool.length > 0) {
+      const next = pool[Math.floor(Math.random() * pool.length)];
+      setHeroQuote(next);
+    }
+  };
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -190,16 +210,29 @@ export function HeroBento({
             toggleMute={toggleMute}
           />
 
-          <Card className="p-5 bg-matcha-soft/50 dark:bg-matcha-dark/30 border-matcha/15 dark:border-matcha/30 flex flex-col justify-between relative overflow-hidden shadow-inner-warm">
+          <Card className="p-5 bg-matcha-soft/50 dark:bg-matcha-dark/30 border-matcha/15 dark:border-matcha/30 flex flex-col justify-between relative overflow-hidden shadow-inner-warm group">
             <Quote className="w-7 h-7 text-matcha/25 dark:text-matcha-glow/20 absolute top-3 right-3" />
             <div>
-              <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/70 dark:text-matcha-glow/90 mb-2 block">favorite saying</span>
-              <p className="font-serif italic text-[15px] text-matcha-dark dark:text-night-text leading-relaxed font-medium">
-                "{content.hero.quote}"
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-sans text-[11px] font-semibold uppercase tracking-wider text-matcha-dark/70 dark:text-matcha-glow/90 flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-amber-warm" />
+                  favorite saying
+                </span>
+                <button
+                  onClick={handleRotateQuote}
+                  className="text-[10px] font-mono text-matcha-dark/70 dark:text-matcha-glow/80 hover:text-matcha-dark dark:hover:text-matcha-glow flex items-center gap-1 bg-card/60 dark:bg-night-card/60 px-2 py-0.5 rounded-full border border-matcha/20 transition-all hover:scale-105 cursor-pointer"
+                  title="Rotate favorite quote"
+                >
+                  <RotateCw className="w-2.5 h-2.5" />
+                  <span>Rotate</span>
+                </button>
+              </div>
+              <p className="font-serif italic text-[14px] md:text-[15px] text-matcha-dark dark:text-night-text leading-relaxed font-medium">
+                "{heroQuote.quote}"
               </p>
             </div>
-            <span className="font-mono text-[10px] text-matcha-dark/60 dark:text-night-muted text-right mt-3">
-              {content.hero.quoteAttr}
+            <span className="font-mono text-[10px] text-matcha-dark/70 dark:text-night-muted text-right mt-3 block font-medium">
+              — {heroQuote.author || heroQuote.quoteAttr || 'Dan Truong'}
             </span>
           </Card>
         </div>

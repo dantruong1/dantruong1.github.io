@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, Copy, Check, Search, Sparkles } from 'lucide-react';
+import { Quote, Copy, Check, Search, Sparkles, Dices, RefreshCw, X } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -50,11 +50,27 @@ export function QuotesSection({ content }) {
   const [copiedId, setCopiedId] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [wisdomQuote, setWisdomQuote] = useState(null);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const handleCopy = (quote, id) => {
     navigator.clipboard.writeText(`"${quote.quote}" - ${quote.author}`);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const handleSpinWisdom = () => {
+    setIsSpinning(true);
+    const quotes = content?.quotes || [];
+    if (quotes.length === 0) return;
+    
+    // Pick a random quote
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    
+    setTimeout(() => {
+      setWisdomQuote(randomQuote);
+      setIsSpinning(false);
+    }, 250);
   };
 
   const filteredQuotes = useMemo(() => {
@@ -94,14 +110,96 @@ export function QuotesSection({ content }) {
           <span className="section-kicker">wisdom & reflections</span>
           <div className="organic-divider flex-1" />
         </div>
-        <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight mb-2 flex items-center gap-2">
-          <Sparkles className="w-6 h-6 text-terracotta dark:text-terracotta-glow" />
-          Quote Collection
-        </h2>
+
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-espresso dark:text-night-text tracking-tight flex items-center gap-2">
+            <Sparkles className="w-6 h-6 text-terracotta dark:text-terracotta-glow" />
+            Quote Collection
+          </h2>
+
+          <button
+            onClick={handleSpinWisdom}
+            className="inline-flex items-center gap-2 text-xs font-mono text-white bg-terracotta dark:bg-terracotta-glow dark:text-espresso hover:bg-terracotta/90 px-4 py-2 rounded-full transition-all duration-200 font-semibold shadow-xs hover:scale-105 shrink-0 cursor-pointer self-start sm:self-auto"
+          >
+            <Dices className={`w-4 h-4 ${isSpinning ? 'animate-spin' : ''}`} />
+            <span>Spin for Daily Wisdom 🎲</span>
+          </button>
+        </div>
+
         <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full">
           Curated thoughts, aphorisms, and stoic wisdom on action, mindset, self-mastery, perspective, and life's irregularities. Click any card to copy.
         </p>
       </motion.div>
+
+      {/* Daily Wisdom Spotlight Modal Card */}
+      <AnimatePresence>
+        {wisdomQuote && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.3 }}
+            className="mb-8"
+          >
+            <Card className="p-6 md:p-8 bg-card-warm dark:bg-night-card border-2 border-terracotta/40 dark:border-terracotta-glow/40 relative overflow-hidden shadow-cozy-lg">
+              <div className="washi-tape washi-tape-top-right" />
+              
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2">
+                  <Badge variant="terracotta" className="text-xs font-mono flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-amber-warm animate-pulse" />
+                    Daily Wisdom Spotlight
+                  </Badge>
+                  <Badge variant="default" className="text-xs font-mono">
+                    {wisdomQuote.category}
+                  </Badge>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleSpinWisdom}
+                    className="text-xs font-mono text-terracotta dark:text-terracotta-glow hover:underline flex items-center gap-1 px-2.5 py-1 rounded-full bg-terracotta-soft/50 dark:bg-terracotta/20 border border-terracotta/20"
+                  >
+                    <RefreshCw className={`w-3 h-3 ${isSpinning ? 'animate-spin' : ''}`} />
+                    <span>Spin Again</span>
+                  </button>
+                  <button
+                    onClick={() => setWisdomQuote(null)}
+                    className="text-espresso-muted dark:text-night-muted hover:text-espresso p-1 rounded-full hover:bg-parchment-dark"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="my-2">
+                <span className="font-serif text-6xl text-terracotta/20 dark:text-terracotta-glow/20 leading-none select-none">"</span>
+              </div>
+
+              <p className="font-serif italic text-xl md:text-2xl text-espresso dark:text-night-text leading-relaxed mb-6 -mt-6 font-medium">
+                {wisdomQuote.quote}
+              </p>
+
+              <div className="pt-4 border-t border-espresso/10 dark:border-night-border flex items-center justify-between">
+                <span className="font-mono text-xs text-espresso-muted dark:text-night-muted font-medium">
+                  by <strong>{wisdomQuote.author}</strong>
+                </span>
+
+                <button
+                  onClick={() => handleCopy(wisdomQuote, 'wisdom')}
+                  className="text-xs font-mono text-matcha-dark dark:text-matcha-glow hover:underline flex items-center gap-1 font-semibold"
+                >
+                  {copiedId === 'wisdom' ? (
+                    <><Check className="w-3.5 h-3.5 text-matcha" /> Copied!</>
+                  ) : (
+                    <><Copy className="w-3.5 h-3.5" /> Copy Quote</>
+                  )}
+                </button>
+              </div>
+            </Card>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Filter Bar & Search Input */}
       <motion.div variants={headerFadeUp} className="mb-6 space-y-4">

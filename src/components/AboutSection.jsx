@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Music, Camera, Leaf } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
+import { VirtualTeaCounter } from './VirtualTeaCounter';
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -130,12 +131,7 @@ export function AboutSection({ content }) {
             </div>
           </Card>
 
-          <Card className="p-5 bg-mocha-soft/40 dark:bg-night-card-alt border-mocha-light/30 dark:border-night-border flex items-center gap-3">
-            <Leaf className="w-5 h-5 text-matcha dark:text-matcha-glow shrink-0" />
-            <span className="font-hand text-base text-espresso-muted dark:text-night-muted">
-              fueled by green tea & lofi beats 🍵
-            </span>
-          </Card>
+          <VirtualTeaCounter />
         </motion.div>
       </div>
 
