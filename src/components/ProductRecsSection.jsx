@@ -66,7 +66,7 @@ export function ProductRecsSection() {
           </div>
 
           {/* Horizontally Extended Blurb */}
-          <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-4xl">
+          <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-none">
             Welcome to my apartment! Every object in this tour is something I genuinely own, use regularly, and would happily recommend to a close friend. Click any labeled object or browse the showcase cards below.
           </p>
         </div>
