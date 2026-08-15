@@ -395,16 +395,45 @@ export function ApartmentSVG({
               product={getProduct('asics-nimbus-27')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
-              x={125}
-              y={95}
-              width={55}
-              height={45}
+              x={120}
+              y={90}
+              width={60}
+              height={50}
               shortLabel="Asics Shoes"
               labelOffsetX={0}
               labelOffsetY={45}
             >
-              <path d="M 6 30 Q 25 38 50 30 L 50 38 Q 25 45 6 38 Z" className="fill-sky-400 dark:fill-sky-600" />
-              <path d="M 8 30 Q 12 12 28 12 Q 42 15 48 30 Z" className="fill-slate-100 dark:fill-slate-800 stroke-slate-400 stroke-2" />
+              {/* Drop Shadow */}
+              <ellipse cx="30" cy="38" rx="24" ry="3.5" className="fill-stone-900/25 dark:fill-black/45" />
+
+              {/* Rubber Outsole (bottom tread) */}
+              <path d="M 8 35 C 18 38, 38 37, 52 31 L 52 33 C 38 39, 18 40, 8 37 Z" className="fill-stone-800 dark:fill-stone-900" />
+
+              {/* Thick Cushion Midsole (white foam with running rocker curve) */}
+              <path d="M 6 25 C 5 32, 6 36, 10 36 C 20 37.5, 42 36, 51 31 C 55 28.5, 55 25, 52 24 C 44 25, 30 25.5, 6 25 Z" className="fill-white dark:fill-stone-200 stroke-stone-300 dark:stroke-stone-400 stroke-[0.75]" />
+
+              {/* GEL Cushioning Accent Pod in Midsole */}
+              <path d="M 12 28 C 18 32, 32 32, 38 29 C 32 27.5, 18 27.5, 12 28 Z" className="fill-sky-400 dark:fill-sky-500" />
+
+              {/* Upper Mesh Body */}
+              <path d="M 6 25 C 6 25, 8 13, 13 11 C 15 10.5, 18 14, 21 15 C 24 10, 27 10.5, 29 13 L 45 20 C 50 22, 54 23, 52 24 C 44 25, 30 25.5, 6 25 Z" className="fill-slate-700 dark:fill-slate-800 stroke-slate-900 dark:stroke-slate-600 stroke-[1.2]" />
+
+              {/* Ankle Collar Padding / Lining */}
+              <path d="M 13 11 C 15 14, 18 16, 21 15 C 19 13.5, 16 11.5, 13 11 Z" className="fill-sky-300 dark:fill-sky-400" />
+
+              {/* Heel Counter Support Overlay */}
+              <path d="M 6 25 C 7 19, 10 16, 14 17 C 12 21, 10 24, 8 25 Z" className="fill-slate-800 dark:fill-slate-900" />
+
+              {/* ASICS Crossing Tiger Stripes */}
+              <path d="M 18 24 C 26 20, 36 19, 43 22" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <path d="M 23 16 C 27 20, 29 23, 31 25" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              <path d="M 28 17 C 32 21, 34 23, 36 25" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+
+              {/* Laces */}
+              <line x1="25" y1="13" x2="29" y2="15" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="28" y1="15" x2="33" y2="17.5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="32" y1="17.5" x2="37" y2="20" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="36" y1="20" x2="41" y2="21.5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
             </ProductObject>
 
             {/* PRODUCT 13: Le Labo Bergamote 22 */}
