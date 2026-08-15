@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Music, Camera, Leaf } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, Sparkles, Heart, Music, Camera, Compass, Users, Brain, TrendingUp, Target, Cpu } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { VirtualTeaCounter } from './VirtualTeaCounter';
@@ -12,6 +12,15 @@ const stagger = {
 const fadeUp = {
   hidden: { y: 16, opacity: 0 },
   show: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const pillarIcons = {
+  behavior: Users,
+  psychology: Brain,
+  economics: TrendingUp,
+  incentives: Target,
+  'decision-making': Compass,
+  technology: Cpu,
 };
 
 export function AboutSection({ content }) {
@@ -134,6 +143,55 @@ export function AboutSection({ content }) {
           <VirtualTeaCounter />
         </motion.div>
       </div>
+
+      {/* ── Guiding Principles & Thinking ── */}
+      {content.pillars && content.pillars.length > 0 && (
+        <motion.div variants={fadeUp} className="pt-2">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="section-kicker">
+              <Compass className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0" />
+              core lenses
+            </span>
+            <div className="organic-divider flex-1" />
+          </div>
+          <h3 className="font-serif text-2xl md:text-3xl font-bold text-espresso dark:text-night-text tracking-tight mb-2">
+            Guiding Principles & Thinking
+          </h3>
+          <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed mb-6 max-w-2xl">
+            {content.about.philosophyCore || "The foundational concepts and lenses that shape how I approach product strategy, human incentives, and systems design."}
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {content.pillars.map((pillar, idx) => {
+              const PillarIcon = pillarIcons[pillar.id] || Sparkles;
+              return (
+                <Card
+                  key={pillar.id || idx}
+                  className="p-5 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border hover:border-matcha/40 dark:hover:border-matcha-glow transition-all duration-300 shadow-cozy hover:-translate-y-1 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-9 h-9 rounded-cozy bg-matcha-soft dark:bg-matcha-dark/40 text-matcha-dark dark:text-[#d2e3c4] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <PillarIcon className="w-4.5 h-4.5" />
+                      </div>
+                      <span className="font-mono text-[10px] text-terracotta dark:text-terracotta-glow bg-terracotta-soft/60 dark:bg-terracotta/20 px-2 py-0.5 rounded-full">
+                        {pillar.tagline}
+                      </span>
+                    </div>
+
+                    <h4 className="font-serif font-bold text-base text-espresso dark:text-night-text mb-1.5 group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors">
+                      {pillar.name}
+                    </h4>
+                    <p className="text-[13px] text-espresso-light dark:text-night-muted leading-relaxed font-sans">
+                      {pillar.description}
+                    </p>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </motion.div>
+      )}
 
       {/* ── Scrapbook Memories Wall ── */}
       <motion.div variants={fadeUp} className="pt-4">

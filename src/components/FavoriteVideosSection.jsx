@@ -3,54 +3,7 @@ import { motion } from 'framer-motion';
 import { Video, Youtube, ExternalLink } from 'lucide-react';
 import { Card, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-
-const FAVORITE_VIDEOS = [
-  {
-    id: 'obama-2004-dnc',
-    title: 'Barack Obama\'s 2004 DNC Keynote Address',
-    speaker: 'Barack Obama',
-    date: 'July 2004',
-    embedUrl: 'https://www.youtube.com/embed/eWynt87PaJ0?enablejsapi=1',
-    youtubeUrl: 'https://www.youtube.com/watch?v=eWynt87PaJ0',
-    note: 'The historic speech that introduced Obama to the national stage. A masterclass in storytelling, unity, and rhetorical cadence.',
-  },
-  {
-    id: 'steve-jobs-stanford-2005',
-    title: 'Steve Jobs\' 2005 Stanford Commencement',
-    speaker: 'Steve Jobs',
-    date: 'June 2005',
-    embedUrl: 'https://www.youtube.com/embed/UF8uR6Z6KLc?enablejsapi=1',
-    youtubeUrl: 'https://www.youtube.com/watch?v=UF8uR6Z6KLc',
-    note: 'Three stories: connecting the dots, love and loss, and death as life\'s change agent. Stay hungry, stay foolish.',
-  },
-  {
-    id: 'emily-esfahani-smith-ted',
-    title: 'There\'s More to Life Than Being Happy',
-    speaker: 'Emily Esfahani Smith',
-    date: 'TED · 2017',
-    embedUrl: 'https://www.youtube.com/embed/y9Trdafp83U?enablejsapi=1',
-    youtubeUrl: 'https://www.youtube.com/watch?v=y9Trdafp83U',
-    note: 'Why chasing happiness can leave us empty, and how belonging, purpose, transcendence, and storytelling create true meaning.',
-  },
-  {
-    id: 'jonathan-haidt-ted',
-    title: 'The Moral Roots of Liberals and Conservatives',
-    speaker: 'Jonathan Haidt',
-    date: 'TED · 2008',
-    embedUrl: 'https://www.youtube.com/embed/vs41JrnGaxc?enablejsapi=1',
-    youtubeUrl: 'https://www.youtube.com/watch?v=vs41JrnGaxc',
-    note: 'Jonathan Haidt explores the five moral foundations that underpin political divisions, offering a blueprint for bridging ideological divides.',
-  },
-  {
-    id: 'fred-again-boiler-room',
-    title: 'Fred again.. | Boiler Room London',
-    speaker: 'Fred again..',
-    date: 'Boiler Room · 2022',
-    embedUrl: 'https://www.youtube.com/embed/c0-hvjV2A5Y?enablejsapi=1',
-    youtubeUrl: 'https://www.youtube.com/watch?v=c0-hvjV2A5Y',
-    note: 'The iconic Boiler Room set that broke the internet. Pure emotional electronic energy, live sampling, and crowd connection.',
-  },
-];
+import { FAVORITE_VIDEOS } from '../data/videos';
 
 const stagger = {
   hidden: { opacity: 0 },
