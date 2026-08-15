@@ -2,7 +2,6 @@ import React from 'react';
 import { SFMapSection } from './SFMapSection';
 import { Bookshelf } from './Bookshelf';
 import { FavoriteVideosSection } from './FavoriteVideosSection';
-import { MusicRecommendationsSection } from './MusicRecommendationsSection';
 
 export function RecommendationsSection({ content, onVideoPlay }) {
   return (
@@ -15,9 +14,6 @@ export function RecommendationsSection({ content, onVideoPlay }) {
 
       {/* 3. Favorite Videos */}
       <FavoriteVideosSection onVideoPlay={onVideoPlay} />
-
-      {/* 4. Curated Music & Chill Vibes */}
-      <MusicRecommendationsSection content={content} />
     </div>
   );
 }
