@@ -131,30 +131,6 @@ export const SITE_CONTENT = {
       description: "Won 1st Place out of 70,000+ employees and 20,000+ competing teams worldwide at the Microsoft 2024 Global Hackathon. Designed and built an interactive game-based learning product to upskill tech professionals.",
       tech: ["Gamified Learning", "EdTech", "Product Strategy", "System Design"],
       featured: true
-    },
-    {
-      id: "gates-foundation",
-      tag: "1st Place · Gates Foundation",
-      title: "Bill & Melinda Gates Foundation Case Competition - UC Berkeley",
-      description: "Won 1st place in college by pitching a localized digital volunteer platform designed to increase charitable revenues and volunteer engagement for non-profit organizations.",
-      tech: ["Nonprofit Tech", "Social Impact", "Public Policy", "GTM Strategy"],
-      featured: false
-    },
-    {
-      id: "haas-case-competition",
-      tag: "1st Place · UC Berkeley Haas",
-      title: "Haas Business School Case Competition - 1951 Coffee Company",
-      description: "Won 1st place at UC Berkeley Haas Business School by developing and pitching a comprehensive marketing and Go-To-Market (GTM) growth campaign for 1951 Coffee Company.",
-      tech: ["GTM Strategy", "Marketing", "Brand Strategy", "Economics"],
-      featured: false
-    },
-    {
-      id: "strava-pricing-strategy",
-      tag: "Product Consulting · Spring 2021",
-      title: "Strava Global Pricing Strategy Project",
-      description: "Engaged directly with Strava's Product Management team as a student consultant in Spring 2021. Designed international market-based pricing strategies to optimize subscription tiers across localized global markets.",
-      tech: ["Product Management", "Pricing Strategy", "Econometrics", "Global Markets"],
-      featured: false
     }
   ],
   writings: [
