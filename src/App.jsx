@@ -5,8 +5,7 @@ import { Navbar } from './components/Navbar';
 import { HeroBento } from './components/HeroBento';
 import { CozyCorner } from './components/CozyCorner';
 import { AboutSection } from './components/AboutSection';
-import { ProjectsSection } from './components/ProjectsSection';
-import { WritingsSection } from './components/WritingsSection';
+import { CreationsSection } from './components/CreationsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
 import { ProductRecsSection } from './components/ProductRecsSection';
@@ -15,7 +14,7 @@ import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
 import { LOFI_PRESETS } from './data/lofiPresets';
 
-const VALID_TABS = ['about', 'products', 'recommendations', 'projects', 'writings', 'quotes', 'home'];
+const VALID_TABS = ['about', 'products', 'recommendations', 'creations', 'projects', 'writings', 'quotes', 'home'];
 
 const getTabFromHash = () => {
   const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
@@ -114,10 +113,10 @@ export default function App() {
         return <AboutSection content={SITE_CONTENT} />;
       case 'products':
         return <ProductRecsSection />;
+      case 'creations':
       case 'projects':
-        return <ProjectsSection content={SITE_CONTENT} />;
       case 'writings':
-        return <WritingsSection content={SITE_CONTENT} />;
+        return <CreationsSection content={SITE_CONTENT} />;
       case 'quotes':
         return <QuotesSection content={SITE_CONTENT} />;
       case 'recommendations':

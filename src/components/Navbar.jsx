@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Music, BookOpen, Quote, Lightbulb, Gamepad2, User, Coffee, Moon, Sun, Package } from 'lucide-react';
+import { Sparkles, Music, BookOpen, Quote, Lightbulb, User, Coffee, Moon, Sun, Package, Layers } from 'lucide-react';
 import { Button } from './ui/button';
 
 const NAV_ITEMS = [
@@ -8,8 +8,7 @@ const NAV_ITEMS = [
   { id: 'about', label: 'About', icon: User },
   { id: 'products', label: 'Favorite Products', icon: Package },
   { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
-  { id: 'projects', label: 'Projects', icon: Gamepad2 },
-  { id: 'writings', label: 'Writings', icon: BookOpen },
+  { id: 'creations', label: "Things I've Created", icon: Layers },
   { id: 'quotes', label: 'Quotes', icon: Quote },
 ];
 

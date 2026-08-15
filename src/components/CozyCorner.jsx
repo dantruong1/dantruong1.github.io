@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Gamepad2, BookOpen, Lightbulb, Quote, User, Package, ArrowRight } from 'lucide-react';
+import { Layers, Lightbulb, Quote, User, Package, ArrowRight } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 
 const COZY_CARDS = [
@@ -32,22 +32,13 @@ const COZY_CARDS = [
     handNote: 'sf spots & reads 📍',
   },
   {
-    id: 'projects',
-    title: 'Projects',
-    desc: 'Consumer products, data economics, and personal code builds.',
-    icon: Gamepad2,
+    id: 'creations',
+    title: "Things I've Created",
+    desc: "Apps I've built, published op-eds & essays, and creative software builds.",
+    icon: Layers,
     accent: 'bg-matcha-soft text-matcha-dark',
     border: 'hover:border-matcha',
-    handNote: 'things built ✦',
-  },
-  {
-    id: 'writings',
-    title: 'Writings',
-    desc: 'Daily Cal op-eds, tech reflections, and college essays.',
-    icon: BookOpen,
-    accent: 'bg-terracotta-soft text-terracotta',
-    border: 'hover:border-terracotta-muted',
-    handNote: 'thoughts & essays ✎',
+    handNote: 'apps & writings ✦',
   },
   {
     id: 'quotes',
