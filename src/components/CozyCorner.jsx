@@ -5,6 +5,15 @@ import { Card, CardTitle, CardDescription } from './ui/card';
 
 const COZY_CARDS = [
   {
+    id: 'about',
+    title: 'About',
+    desc: 'UC Berkeley background, economics, and Xbox @ MSFT.',
+    icon: User,
+    accent: 'bg-mocha-soft text-mocha',
+    border: 'hover:border-mocha-light',
+    handNote: 'bio & background ◯',
+  },
+  {
     id: 'products',
     title: 'Favorite Products',
     desc: 'Take an interactive tour through my apartment and see the products I use every day.',
@@ -48,15 +57,6 @@ const COZY_CARDS = [
     accent: 'bg-matcha-soft text-matcha-dark',
     border: 'hover:border-matcha',
     handNote: 'favorite words 〃',
-  },
-  {
-    id: 'about',
-    title: 'About',
-    desc: 'UC Berkeley background, economics, and Xbox @ MSFT.',
-    icon: User,
-    accent: 'bg-mocha-soft text-mocha',
-    border: 'hover:border-mocha-light',
-    handNote: 'bio & background ◯',
   },
 ];
 
