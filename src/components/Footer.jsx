@@ -76,8 +76,8 @@ export function Footer({ onScrollTop, isDarkMode, toggleDarkMode }) {
           <Sparkles className="w-3.5 h-3.5 text-amber-warm shrink-0" />
         </div>
 
-        <span className="text-[10px] font-mono text-espresso-muted/50 dark:text-night-muted/50">
-          © {new Date().getFullYear()} Dan Truong · UC Berkeley '24
+        <span className="text-[11px] font-mono text-espresso-muted/60 dark:text-night-muted/60">
+          last updated: 08/14/2026 · UC Berkeley '24
         </span>
       </div>
     </footer>
