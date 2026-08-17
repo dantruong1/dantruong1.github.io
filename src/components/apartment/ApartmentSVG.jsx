@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { RoomGroup } from './RoomGroup';
 import { ProductObject } from './ProductObject';
+import { ApartmentHoverContext } from './ApartmentContext';
 import { ROOMS, PRODUCTS } from '../../data/products';
 
 export function ApartmentSVG({
@@ -11,67 +12,22 @@ export function ApartmentSVG({
   onSelectRoom,
   onTriggerEasterEgg,
 }) {
+  const [hoveredProductId, setHoveredProductId] = useState(null);
   const getProduct = (id) => PRODUCTS.find((p) => p.id === id);
 
-  return (
-    <div className="relative w-full max-w-[1100px] mx-auto aspect-[16/10.5] bg-parchment-dark/50 dark:bg-night-card-alt/40 border border-espresso/10 dark:border-night-border rounded-cozy-xl shadow-2xl p-2 sm:p-4 overflow-hidden select-none">
-      <svg
-        viewBox="0 0 1000 660"
-        className="w-full h-full drop-shadow-md"
-        style={{ transformStyle: 'preserve-3d' }}
-      >
-        <defs>
-          {/* Gradients */}
-          <linearGradient id="officeFloor" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#efe8dc" />
-            <stop offset="100%" stopColor="#e2d8c7" />
-          </linearGradient>
+  const hoveredRoomId = hoveredProductId
+    ? PRODUCTS.find((p) => p.id === hoveredProductId)?.room
+    : null;
 
-          <linearGradient id="bedroomFloor" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#fdf6ee" />
-            <stop offset="100%" stopColor="#f4ded4" />
-          </linearGradient>
-
-          <linearGradient id="bathroomFloor" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#eef2ea" />
-            <stop offset="100%" stopColor="#d2dcc8" />
-          </linearGradient>
-
-          <linearGradient id="kitchenFloor" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f2eae0" />
-            <stop offset="100%" stopColor="#e8d5c0" />
-          </linearGradient>
-
-          <linearGradient id="closetFloor" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f5ece2" />
-            <stop offset="100%" stopColor="#e2d4c4" />
-          </linearGradient>
-
-          <linearGradient id="entrywayFloor" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#efe5d8" />
-            <stop offset="100%" stopColor="#d9cbb7" />
-          </linearGradient>
-        </defs>
-
-        {/* Outer Floor Base Container */}
-        <rect
-          x="20"
-          y="20"
-          width="960"
-          height="620"
-          rx="24"
-          className="fill-parchment dark:fill-night-bg stroke-espresso/15 dark:stroke-night-border stroke-2"
-        />
-
-        {/* Decorative Hallway Divider Lines */}
-        <line x1="20" y1="325" x2="980" y2="325" stroke="currentColor" strokeWidth="2" strokeDasharray="8,8" className="text-terracotta/20 dark:text-terracotta-glow/20" />
-        <line x1="337" y1="20" x2="337" y2="640" stroke="currentColor" strokeWidth="2" strokeDasharray="8,8" className="text-terracotta/20 dark:text-terracotta-glow/20" />
-        <line x1="672" y1="20" x2="672" y2="640" stroke="currentColor" strokeWidth="2" strokeDasharray="8,8" className="text-terracotta/20 dark:text-terracotta-glow/20" />
-
-        {/* ============================================================ */}
-        {/* 1. OFFICE ROOM (Top-Left: 35, 35, width: 285, height: 275) */}
-        {/* ============================================================ */}
-        <g opacity={selectedRoom && selectedRoom !== 'office' ? 0.35 : 1} className="transition-opacity duration-300">
+  const roomElements = [
+    {
+      id: 'office',
+      element: (
+        <g
+          key="room-office"
+          opacity={selectedRoom && selectedRoom !== 'office' ? 0.35 : 1}
+          className="transition-opacity duration-300"
+        >
           <RoomGroup
             room={ROOMS[0]}
             x={35}
@@ -83,14 +39,15 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Desk Surface */}
-            <rect x="30" y="65" width="225" height="110" rx="10" className="fill-mocha-light/80 dark:fill-mocha/40 stroke-espresso/20 stroke-2" />
-            <rect x="35" y="70" width="215" height="100" rx="6" className="fill-mocha/20 dark:fill-mocha/20" />
+            <rect key="desk-1" x="30" y="65" width="225" height="110" rx="10" className="fill-mocha-light/80 dark:fill-mocha/40 stroke-espresso/20 stroke-2" />
+            <rect key="desk-2" x="35" y="70" width="215" height="100" rx="6" className="fill-mocha/20 dark:fill-mocha/20" />
 
             {/* Desk Lamp Decor */}
-            <circle cx="48" cy="85" r="10" className="fill-amber-warm/80" />
+            <circle key="lamp" cx="48" cy="85" r="10" className="fill-amber-warm/80" />
 
             {/* PRODUCT 1: Surface Laptop 7 */}
             <ProductObject
+              key="surface-laptop-7"
               product={getProduct('surface-laptop-7')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -109,6 +66,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 2: iPhone 17 Pro */}
             <ProductObject
+              key="iphone-17-pro"
               product={getProduct('iphone-17-pro')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -127,6 +85,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 3: Apple Watch */}
             <ProductObject
+              key="apple-watch"
               product={getProduct('apple-watch')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -144,6 +103,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 4: Herman Miller Aeron Chair */}
             <ProductObject
+              key="herman-miller-aeron"
               product={getProduct('herman-miller-aeron')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -164,11 +124,16 @@ export function ApartmentSVG({
             </ProductObject>
           </RoomGroup>
         </g>
-
-        {/* ============================================================ */}
-        {/* 2. BEDROOM (Top-Center: 350, 35, width: 305, height: 275) */}
-        {/* ============================================================ */}
-        <g opacity={selectedRoom && selectedRoom !== 'bedroom' ? 0.35 : 1} className="transition-opacity duration-300">
+      ),
+    },
+    {
+      id: 'bedroom',
+      element: (
+        <g
+          key="room-bedroom"
+          opacity={selectedRoom && selectedRoom !== 'bedroom' ? 0.35 : 1}
+          className="transition-opacity duration-300"
+        >
           <RoomGroup
             room={ROOMS[1]}
             x={350}
@@ -180,10 +145,11 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Woven Rug */}
-            <ellipse cx="150" cy="170" rx="100" ry="45" className="fill-terracotta-soft/50 dark:fill-terracotta/20 stroke-terracotta/20 stroke-2" />
+            <ellipse key="rug" cx="150" cy="170" rx="100" ry="45" className="fill-terracotta-soft/50 dark:fill-terracotta/20 stroke-terracotta/20 stroke-2" />
 
             {/* PRODUCT 5: Memory Foam Mattress (Bed Frame) */}
             <ProductObject
+              key="memory-foam-mattress"
               product={getProduct('memory-foam-mattress')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -202,6 +168,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 6: Purple Pillow */}
             <ProductObject
+              key="purple-pillow"
               product={getProduct('purple-pillow')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -218,17 +185,22 @@ export function ApartmentSVG({
             </ProductObject>
 
             {/* Nightstand Decor */}
-            <g transform="translate(220, 75)">
+            <g key="nightstand" transform="translate(220, 75)">
               <rect x="0" y="0" width="55" height="55" rx="8" className="fill-mocha-soft dark:fill-night-card border stroke-espresso/10" />
               <circle cx="27.5" cy="35" r="7" className="fill-amber-warm/80" />
             </g>
           </RoomGroup>
         </g>
-
-        {/* ============================================================ */}
-        {/* 3. BATHROOM (Top-Right: 685, 35, width: 280, height: 275) */}
-        {/* ============================================================ */}
-        <g opacity={selectedRoom && selectedRoom !== 'bathroom' ? 0.35 : 1} className="transition-opacity duration-300">
+      ),
+    },
+    {
+      id: 'bathroom',
+      element: (
+        <g
+          key="room-bathroom"
+          opacity={selectedRoom && selectedRoom !== 'bathroom' ? 0.35 : 1}
+          className="transition-opacity duration-300"
+        >
           <RoomGroup
             room={ROOMS[2]}
             x={685}
@@ -240,14 +212,15 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Mirror */}
-            <rect x="75" y="55" width="130" height="30" rx="6" className="fill-sky-100/60 dark:fill-sky-950/60 stroke-sky-300 stroke-2" />
+            <rect key="mirror" x="75" y="55" width="130" height="30" rx="6" className="fill-sky-100/60 dark:fill-sky-950/60 stroke-sky-300 stroke-2" />
 
             {/* Vanity Counter */}
-            <rect x="30" y="90" width="220" height="75" rx="10" className="fill-card dark:fill-night-card-alt stroke-matcha/30 stroke-2" />
-            <ellipse cx="90" cy="125" rx="35" ry="20" className="fill-matcha-soft/60 dark:fill-night-card stroke-matcha/30 stroke-2" />
+            <rect key="vanity" x="30" y="90" width="220" height="75" rx="10" className="fill-card dark:fill-night-card-alt stroke-matcha/30 stroke-2" />
+            <ellipse key="sink" cx="90" cy="125" rx="35" ry="20" className="fill-matcha-soft/60 dark:fill-night-card stroke-matcha/30 stroke-2" />
 
             {/* PRODUCT 7: Oral-B Electric Toothbrush */}
             <ProductObject
+              key="oralb-pro-1000"
               product={getProduct('oralb-pro-1000')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -265,6 +238,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 8: GOODAL Sunscreen */}
             <ProductObject
+              key="goodal-sunscreen"
               product={getProduct('goodal-sunscreen')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -282,6 +256,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 9: ABIB Sunstick */}
             <ProductObject
+              key="abib-sunstick"
               product={getProduct('abib-sunstick')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -298,11 +273,16 @@ export function ApartmentSVG({
             </ProductObject>
           </RoomGroup>
         </g>
-
-        {/* ============================================================ */}
-        {/* 4. KITCHEN (Bottom-Left: 35, 340, width: 310, height: 280) */}
-        {/* ============================================================ */}
-        <g opacity={selectedRoom && selectedRoom !== 'kitchen' ? 0.35 : 1} className="transition-opacity duration-300">
+      ),
+    },
+    {
+      id: 'kitchen',
+      element: (
+        <g
+          key="room-kitchen"
+          opacity={selectedRoom && selectedRoom !== 'kitchen' ? 0.35 : 1}
+          className="transition-opacity duration-300"
+        >
           <RoomGroup
             room={ROOMS[3]}
             x={35}
@@ -314,11 +294,11 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Kitchen Counter Island */}
-            <rect x="30" y="65" width="250" height="160" rx="14" className="fill-card dark:fill-night-card stroke-espresso/15 stroke-2" />
-            <rect x="40" y="75" width="230" height="140" rx="8" className="fill-mocha-soft/30 dark:fill-night-card-alt" />
+            <rect key="counter-1" x="30" y="65" width="250" height="160" rx="14" className="fill-card dark:fill-night-card stroke-espresso/15 stroke-2" />
+            <rect key="counter-2" x="40" y="75" width="230" height="140" rx="8" className="fill-mocha-soft/30 dark:fill-night-card-alt" />
 
             {/* Steaming Coffee Mug Decor */}
-            <g transform="translate(60, 110)">
+            <g key="coffee-mug" transform="translate(60, 110)">
               <rect x="0" y="8" width="24" height="20" rx="5" className="fill-terracotta dark:fill-terracotta-glow" />
               <path d="M 24 12 Q 30 17 24 22" stroke="#b86f52" strokeWidth="2.5" fill="none" />
               <motion.path
@@ -332,12 +312,13 @@ export function ApartmentSVG({
             </g>
 
             {/* Fruit Bowl Decor */}
-            <circle cx="215" cy="120" r="18" className="fill-amber-light dark:fill-mocha/60" />
-            <circle cx="210" cy="116" r="6" className="fill-emerald-500" />
-            <circle cx="220" cy="114" r="7" className="fill-amber-warm" />
+            <circle key="bowl-1" cx="215" cy="120" r="18" className="fill-amber-light dark:fill-mocha/60" />
+            <circle key="bowl-2" cx="210" cy="116" r="6" className="fill-emerald-500" />
+            <circle key="bowl-3" cx="220" cy="114" r="7" className="fill-amber-warm" />
 
             {/* PRODUCT 10: Nutribullet Pro */}
             <ProductObject
+              key="nutribullet-pro"
               product={getProduct('nutribullet-pro')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -355,11 +336,16 @@ export function ApartmentSVG({
             </ProductObject>
           </RoomGroup>
         </g>
-
-        {/* ============================================================ */}
-        {/* 5. CLOSET (Bottom-Center: 370, 340, width: 285, height: 280) */}
-        {/* ============================================================ */}
-        <g opacity={selectedRoom && selectedRoom !== 'closet' ? 0.35 : 1} className="transition-opacity duration-300">
+      ),
+    },
+    {
+      id: 'closet',
+      element: (
+        <g
+          key="room-closet"
+          opacity={selectedRoom && selectedRoom !== 'closet' ? 0.35 : 1}
+          className="transition-opacity duration-300"
+        >
           <RoomGroup
             room={ROOMS[4]}
             x={370}
@@ -371,10 +357,11 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Wardrobe Wooden Wall Rack */}
-            <rect x="25" y="65" width="235" height="160" rx="12" className="fill-mocha-soft/60 dark:fill-night-card-alt border stroke-espresso/10" />
+            <rect key="wardrobe-rack" x="25" y="65" width="235" height="160" rx="12" className="fill-mocha-soft/60 dark:fill-night-card-alt border stroke-espresso/10" />
 
             {/* PRODUCT 11: Buck Mason Vintage Thermal */}
             <ProductObject
+              key="buck-mason-thermal"
               product={getProduct('buck-mason-thermal')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -392,6 +379,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 12: Asics Gel Nimbus 27 */}
             <ProductObject
+              key="asics-nimbus-27"
               product={getProduct('asics-nimbus-27')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -438,6 +426,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 13: Le Labo Bergamote 22 */}
             <ProductObject
+              key="le-labo-bergamote-22"
               product={getProduct('le-labo-bergamote-22')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -455,11 +444,16 @@ export function ApartmentSVG({
             </ProductObject>
           </RoomGroup>
         </g>
-
-        {/* ============================================================ */}
-        {/* 6. ENTRYWAY (Bottom-Right: 680, 340, width: 285, height: 280) */}
-        {/* ============================================================ */}
-        <g opacity={selectedRoom && selectedRoom !== 'entryway' ? 0.35 : 1} className="transition-opacity duration-300">
+      ),
+    },
+    {
+      id: 'entryway',
+      element: (
+        <g
+          key="room-entryway"
+          opacity={selectedRoom && selectedRoom !== 'entryway' ? 0.35 : 1}
+          className="transition-opacity duration-300"
+        >
           <RoomGroup
             room={ROOMS[5]}
             x={680}
@@ -471,17 +465,18 @@ export function ApartmentSVG({
             onSelectRoom={onSelectRoom}
           >
             {/* Front Door */}
-            <rect x="180" y="65" width="80" height="160" rx="8" className="fill-mocha dark:fill-mocha-dark stroke-espresso stroke-2" />
-            <circle cx="195" cy="145" r="5" className="fill-amber-warm" />
+            <rect key="front-door" x="180" y="65" width="80" height="160" rx="8" className="fill-mocha dark:fill-mocha-dark stroke-espresso stroke-2" />
+            <circle key="front-door-knob" cx="195" cy="145" r="5" className="fill-amber-warm" />
 
             {/* Key Hook Wall Rack */}
-            <rect x="25" y="70" width="135" height="12" rx="4" className="fill-mocha-light dark:fill-mocha" />
-            <circle cx="40" cy="82" r="3" className="fill-espresso" />
-            <circle cx="80" cy="82" r="3" className="fill-espresso" />
-            <circle cx="120" cy="82" r="3" className="fill-espresso" />
+            <rect key="key-hook-rack" x="25" y="70" width="135" height="12" rx="4" className="fill-mocha-light dark:fill-mocha" />
+            <circle key="hook-1" cx="40" cy="82" r="3" className="fill-espresso" />
+            <circle key="hook-2" cx="80" cy="82" r="3" className="fill-espresso" />
+            <circle key="hook-3" cx="120" cy="82" r="3" className="fill-espresso" />
 
             {/* PRODUCT 14: REI Co-op Flash 22 Backpack */}
             <ProductObject
+              key="rei-flash-22"
               product={getProduct('rei-flash-22')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -500,6 +495,7 @@ export function ApartmentSVG({
 
             {/* PRODUCT 15: Arc'teryx Atom Hoody */}
             <ProductObject
+              key="arcteryx-atom-hoody"
               product={getProduct('arcteryx-atom-hoody')}
               onSelect={onSelectProduct}
               onTriggerEasterEgg={onTriggerEasterEgg}
@@ -519,7 +515,79 @@ export function ApartmentSVG({
             </ProductObject>
           </RoomGroup>
         </g>
-      </svg>
-    </div>
+      ),
+    },
+  ];
+
+  const sortedRooms = useMemo(() => {
+    if (!hoveredRoomId) return roomElements.map((r) => r.element);
+    const activeRoomIndex = roomElements.findIndex((r) => r.id === hoveredRoomId);
+    if (activeRoomIndex === -1) return roomElements.map((r) => r.element);
+    const otherRooms = roomElements.filter((_, idx) => idx !== activeRoomIndex);
+    return [...otherRooms.map((r) => r.element), roomElements[activeRoomIndex].element];
+  }, [hoveredRoomId, selectedRoom, onSelectProduct, onSelectRoom, onTriggerEasterEgg]);
+
+  return (
+    <ApartmentHoverContext.Provider value={{ hoveredProductId, setHoveredProductId }}>
+      <div className="relative w-full max-w-[1100px] mx-auto aspect-[16/10.5] bg-parchment-dark/50 dark:bg-night-card-alt/40 border border-espresso/10 dark:border-night-border rounded-cozy-xl shadow-2xl p-2 sm:p-4 overflow-hidden select-none">
+        <svg
+          viewBox="0 0 1000 660"
+          className="w-full h-full drop-shadow-md"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          <defs>
+            {/* Gradients */}
+            <linearGradient id="officeFloor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#efe8dc" />
+              <stop offset="100%" stopColor="#e2d8c7" />
+            </linearGradient>
+
+            <linearGradient id="bedroomFloor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#fdf6ee" />
+              <stop offset="100%" stopColor="#f4ded4" />
+            </linearGradient>
+
+            <linearGradient id="bathroomFloor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#eef2ea" />
+              <stop offset="100%" stopColor="#d2dcc8" />
+            </linearGradient>
+
+            <linearGradient id="kitchenFloor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f2eae0" />
+              <stop offset="100%" stopColor="#e8d5c0" />
+            </linearGradient>
+
+            <linearGradient id="closetFloor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f5ece2" />
+              <stop offset="100%" stopColor="#e2d4c4" />
+            </linearGradient>
+
+            <linearGradient id="entrywayFloor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#efe5d8" />
+              <stop offset="100%" stopColor="#d9cbb7" />
+            </linearGradient>
+          </defs>
+
+          {/* Outer Floor Base Container */}
+          <rect
+            x="20"
+            y="20"
+            width="960"
+            height="620"
+            rx="24"
+            className="fill-parchment dark:fill-night-bg stroke-espresso/15 dark:stroke-night-border stroke-2"
+          />
+
+          {/* Decorative Hallway Divider Lines */}
+          <line x1="20" y1="325" x2="980" y2="325" stroke="currentColor" strokeWidth="2" strokeDasharray="8,8" className="text-terracotta/20 dark:text-terracotta-glow/20" />
+          <line x1="337" y1="20" x2="337" y2="640" stroke="currentColor" strokeWidth="2" strokeDasharray="8,8" className="text-terracotta/20 dark:text-terracotta-glow/20" />
+          <line x1="672" y1="20" x2="672" y2="640" stroke="currentColor" strokeWidth="2" strokeDasharray="8,8" className="text-terracotta/20 dark:text-terracotta-glow/20" />
+
+          {/* Render All 6 Rooms (Hovered Room Rendered Last to stay on Top) */}
+          {sortedRooms}
+        </svg>
+      </div>
+    </ApartmentHoverContext.Provider>
   );
 }
+

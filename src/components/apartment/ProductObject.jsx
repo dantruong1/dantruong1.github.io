@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useApartmentHover } from './ApartmentContext';
 
 export function ProductObject({
   product,
@@ -14,8 +15,28 @@ export function ProductObject({
   labelOffsetY = 0,
   shortLabel,
 }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const { hoveredProductId, setHoveredProductId } = useApartmentHover();
+  const [localHovered, setLocalHovered] = useState(false);
   const [easterEggActive, setEasterEggActive] = useState(false);
+
+  const isHovered =
+    hoveredProductId !== undefined && hoveredProductId !== null
+      ? hoveredProductId === product?.id
+      : localHovered;
+
+  const handleMouseEnter = () => {
+    setLocalHovered(true);
+    if (setHoveredProductId && product?.id) {
+      setHoveredProductId(product.id);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setLocalHovered(false);
+    if (setHoveredProductId && product?.id) {
+      setHoveredProductId((prev) => (prev === product.id ? null : prev));
+    }
+  };
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -38,8 +59,8 @@ export function ProductObject({
     <g
       transform={`translate(${x}, ${y})`}
       className="cursor-pointer group select-none"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
       {/* Object Drop Shadow Disc */}

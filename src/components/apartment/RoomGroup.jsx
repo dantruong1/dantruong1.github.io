@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useApartmentHover } from './ApartmentContext';
 
 export function RoomGroup({
   room,
@@ -11,6 +12,23 @@ export function RoomGroup({
   onSelectRoom,
   children,
 }) {
+  const { hoveredProductId } = useApartmentHover();
+
+  const sortedChildren = useMemo(() => {
+    const childArray = React.Children.toArray(children);
+    if (!hoveredProductId) return childArray;
+
+    const hoveredIndex = childArray.findIndex(
+      (child) => React.isValidElement(child) && child.props?.product?.id === hoveredProductId
+    );
+
+    if (hoveredIndex === -1) return childArray;
+
+    const hoveredChild = childArray[hoveredIndex];
+    const otherChildren = childArray.filter((_, idx) => idx !== hoveredIndex);
+    return [...otherChildren, hoveredChild];
+  }, [children, hoveredProductId]);
+
   return (
     <g
       transform={`translate(${x}, ${y})`}
@@ -55,7 +73,8 @@ export function RoomGroup({
       </foreignObject>
 
       {/* Room Furniture & Objects */}
-      <g transform="translate(0, 0)">{children}</g>
+      <g transform="translate(0, 0)">{sortedChildren}</g>
     </g>
   );
 }
+
