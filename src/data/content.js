@@ -709,6 +709,12 @@ export const SITE_CONTENT = {
           url: "https://paulgraham.com/kids.html"
         },
         {
+          title: "Cities and Ambition",
+          author: "Paul Graham",
+          note: "An insightful essay on how different cities subtly shape our ambitions, the distinct messages they broadcast, and the value of finding an environment that matches what you care about.",
+          url: "https://paulgraham.com/cities.html"
+        },
+        {
           title: "The Inner Game of Tennis",
           author: "W. Timothy Gallwey",
           note: "The classic guide to overcoming self-doubt, non-judgmental awareness, and achieving peak performance state (Self 1 vs Self 2).",
