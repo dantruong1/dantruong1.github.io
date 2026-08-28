@@ -58,14 +58,14 @@ export function AboutSection({ content }) {
       </motion.div>
 
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-7">
         {/* Main text */}
         <motion.div variants={fadeUp} className="md:col-span-8">
-          <Card className="p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy h-full flex flex-col justify-between">
+          <Card className="p-5 sm:p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy h-full flex flex-col justify-between">
             <div className="washi-tape washi-tape-top-left" />
 
             <div>
-              <div className="space-y-4 text-espresso-light dark:text-night-muted text-[15px] leading-[1.85] font-sans">
+              <div className="space-y-3.5 sm:space-y-4 text-espresso-light dark:text-night-muted text-[14px] sm:text-[15px] leading-[1.75] sm:leading-[1.85] font-sans">
                 {content.about.paragraphs?.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}

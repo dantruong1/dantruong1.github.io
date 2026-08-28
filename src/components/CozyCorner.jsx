@@ -67,8 +67,8 @@ export function CozyCorner({ onNavigate }) {
         <div className="organic-divider flex-1" />
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* Grid: 2-column on mobile for compact vertical footprint, 2-col on tablet, 3-col on desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
         {COZY_CARDS.map((card, idx) => {
           const Icon = card.icon;
           return (
@@ -82,28 +82,28 @@ export function CozyCorner({ onNavigate }) {
               onClick={() => onNavigate(card.id)}
               className="cursor-pointer"
             >
-              <Card className={`p-6 h-full flex flex-col justify-between group ${card.border} relative transition-all duration-300 shadow-cozy`}>
-                {/* Hand note */}
-                <span className="font-hand text-[13px] text-espresso-muted/60 absolute top-4 right-5 group-hover:text-terracotta transition-colors duration-300">
+              <Card className={`p-3.5 sm:p-6 h-full flex flex-col justify-between group ${card.border} relative transition-all duration-300 shadow-cozy`}>
+                {/* Hand note — shown on sm+ screens */}
+                <span className="hidden sm:block font-hand text-[13px] text-espresso-muted/60 absolute top-4 right-5 group-hover:text-terracotta transition-colors duration-300">
                   {card.handNote}
                 </span>
 
-                <div className="mb-5">
+                <div className="mb-3 sm:mb-5">
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-cozy flex items-center justify-center ${card.accent} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-5.5 h-5.5" />
+                  <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-cozy flex items-center justify-center ${card.accent} mb-2.5 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-4 h-4 sm:w-5.5 sm:h-5.5" />
                   </div>
 
-                  <CardTitle className="mb-2 text-lg group-hover:text-espresso transition-colors font-serif">
+                  <CardTitle className="mb-1.5 sm:mb-2 text-base sm:text-lg group-hover:text-espresso transition-colors font-serif leading-tight">
                     {card.title}
                   </CardTitle>
-                  <CardDescription className="text-[13px] text-espresso-muted leading-relaxed">
+                  <CardDescription className="text-xs sm:text-[13px] text-espresso-muted leading-relaxed line-clamp-2 sm:line-clamp-none">
                     {card.desc}
                   </CardDescription>
                 </div>
 
                 {/* Footer link */}
-                <div className="flex items-center gap-1.5 text-[12px] font-mono text-matcha font-medium group-hover:text-matcha-dark transition-colors">
+                <div className="flex items-center gap-1.5 text-[11px] sm:text-[12px] font-mono text-matcha font-medium group-hover:text-matcha-dark transition-colors">
                   <span>Open section</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>

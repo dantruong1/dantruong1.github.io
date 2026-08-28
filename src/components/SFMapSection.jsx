@@ -145,11 +145,11 @@ export function SFMapSection() {
       {/* Main Map + Sidebar Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Map Canvas Container */}
-        <div className="lg:col-span-7 bg-card dark:bg-night-card rounded-cozy-lg overflow-hidden border border-espresso/10 dark:border-night-border shadow-cozy dark:shadow-dark-cozy h-[440px] lg:h-[540px] relative z-10">
+        <div className="lg:col-span-7 bg-card dark:bg-night-card rounded-cozy-lg overflow-hidden border border-espresso/10 dark:border-night-border shadow-cozy dark:shadow-dark-cozy h-[320px] sm:h-[440px] lg:h-[540px] relative z-10">
           <MapContainer
             center={[37.7749, -122.4194]}
             zoom={12}
-            scrollWheelZoom={true}
+            scrollWheelZoom={false}
             className="w-full h-full"
             style={{ background: isDark ? '#1c1714' : '#f7f3ec' }}
           >

@@ -46,13 +46,19 @@ export function Bookshelf({ content }) {
         </p>
       </div>
 
-      {/* Single Unified Wooden Bookshelf */}
-      <div className="relative pt-10 pb-4 px-6 sm:px-8 bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy">
+      {/* Single Unified Wooden Bookshelf with Mobile Scroll Affordance */}
+      <div className="relative pt-8 sm:pt-10 pb-4 px-3 sm:px-8 bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy-lg shadow-cozy dark:shadow-dark-cozy overflow-hidden">
+        {/* Mobile Swipe Hint */}
+        <div className="sm:hidden flex items-center justify-between pb-2 px-1 text-[11px] font-hand text-espresso-muted dark:text-night-muted">
+          <span>✦ dan's library</span>
+          <span>swipe to browse shelf →</span>
+        </div>
+
         {/* Single Row of Book Spines */}
-        <div className="flex items-end justify-start sm:justify-around gap-5 sm:gap-8 overflow-x-auto no-scrollbar min-h-[270px] pb-1 px-2">
+        <div className="flex items-end justify-start sm:justify-around gap-3.5 sm:gap-8 overflow-x-auto no-scrollbar min-h-[230px] sm:min-h-[270px] pb-1 px-1 sm:px-2">
           {allBooks.map((item, itemIdx) => {
             const palette = BOOK_PALETTES[itemIdx % BOOK_PALETTES.length];
-            const heightClass = itemIdx % 2 === 0 ? 'h-[250px]' : 'h-[235px]';
+            const heightClass = itemIdx % 2 === 0 ? 'h-[210px] sm:h-[250px]' : 'h-[195px] sm:h-[235px]';
             const isSelected = selectedBook?.title === item.title;
 
             return (
@@ -61,7 +67,7 @@ export function Bookshelf({ content }) {
                 whileHover={{ y: -18, rotateZ: -2, scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setSelectedBook({ ...item, palette })}
-                className={`relative ${heightClass} w-[72px] sm:w-[84px] md:w-[92px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-4 px-2.5 select-none`}
+                className={`relative ${heightClass} w-[62px] sm:w-[84px] md:w-[92px] cursor-pointer shrink-0 rounded-t-md ${palette.bg} ${palette.border} border-t-2 border-r-2 border-l-2 shadow-md transition-all duration-300 group flex flex-col justify-between py-3 sm:py-4 px-1.5 sm:px-2.5 select-none`}
                 style={{
                   boxShadow: isSelected
                     ? '0 16px 36px rgba(46,39,34,0.35)'
@@ -69,22 +75,22 @@ export function Bookshelf({ content }) {
                 }}
               >
                 {/* Top Page Edges */}
-                <div className="absolute top-0 left-0 right-0 h-2.5 bg-amber-light/80 rounded-t-sm border-b border-espresso/20" />
+                <div className="absolute top-0 left-0 right-0 h-2 sm:h-2.5 bg-amber-light/80 rounded-t-sm border-b border-espresso/20" />
 
                 {/* Spine Decorative Gold Line */}
-                <div className={`w-full h-1 border-t ${palette.accent} mt-3 opacity-60`} />
+                <div className={`w-full h-1 border-t ${palette.accent} mt-2 sm:mt-3 opacity-60`} />
 
                 {/* Vertical Spine Title */}
-                <div className="flex-1 flex items-center justify-center my-1.5 overflow-hidden px-0.5 max-h-[175px]">
+                <div className="flex-1 flex items-center justify-center my-1 sm:my-1.5 overflow-hidden px-0.5 max-h-[140px] sm:max-h-[175px]">
                   {(() => {
                     const spineText = item.spineTitle || item.title;
                     const len = spineText.length;
                     const fontClass =
                       len > 30
-                        ? 'text-[8.5px] sm:text-[9.5px] tracking-normal'
+                        ? 'text-[7.5px] sm:text-[9.5px] tracking-normal'
                         : len > 22
-                        ? 'text-[9.5px] sm:text-[10.5px] tracking-tight'
-                        : 'text-[11px] sm:text-[12.5px] tracking-wider';
+                        ? 'text-[8.5px] sm:text-[10.5px] tracking-tight'
+                        : 'text-[9.5px] sm:text-[12.5px] tracking-wider';
 
                     return (
                       <span
@@ -92,7 +98,7 @@ export function Bookshelf({ content }) {
                         style={{
                           writingMode: 'vertical-rl',
                           transform: 'rotate(180deg)',
-                          maxHeight: '170px',
+                          maxHeight: '140px',
                         }}
                       >
                         {spineText}
@@ -102,8 +108,8 @@ export function Bookshelf({ content }) {
                 </div>
 
                 {/* Spine Author / Bottom Gold Line */}
-                <div className={`w-full border-b ${palette.accent} mb-1.5 opacity-60`} />
-                <span className={`text-[10px] sm:text-[11px] font-mono ${palette.text} text-center opacity-85 px-0.5 truncate font-medium`}>
+                <div className={`w-full border-b ${palette.accent} mb-1 sm:mb-1.5 opacity-60`} />
+                <span className={`text-[9px] sm:text-[11px] font-mono ${palette.text} text-center opacity-85 px-0.5 truncate font-medium`}>
                   {item.author ? item.author.split(' ').pop() : 'Essay'}
                 </span>
               </motion.div>
@@ -112,7 +118,7 @@ export function Bookshelf({ content }) {
         </div>
 
         {/* Physical Wooden Shelf Ledge Base */}
-        <div className="h-5 bg-gradient-to-r from-[#6b5e52] via-[#8c8077] to-[#6b5e52] rounded-b-md shadow-md border-t-2 border-[#52473d] relative overflow-hidden">
+        <div className="h-4 sm:h-5 bg-gradient-to-r from-[#6b5e52] via-[#8c8077] to-[#6b5e52] rounded-b-md shadow-md border-t-2 border-[#52473d] relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
         </div>
       </div>
@@ -120,13 +126,13 @@ export function Bookshelf({ content }) {
       {/* Book Detail Modal / Drawer */}
       <AnimatePresence>
         {selectedBook && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/40 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-espresso/40 backdrop-blur-sm">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-lg bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border p-6 sm:p-8 shadow-cozy-lg overflow-hidden rounded-cozy-lg"
+              className="relative w-full max-w-lg bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border p-5 sm:p-8 shadow-cozy-lg overflow-hidden rounded-cozy-lg max-h-[90vh] overflow-y-auto"
             >
               <div className="washi-tape washi-tape-top-right" />
 

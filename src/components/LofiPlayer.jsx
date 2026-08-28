@@ -61,15 +61,15 @@ export function LofiPlayer({
               variant={isPlaying ? 'terracotta' : 'default'}
               size="sm"
               onClick={toggleLofi}
-              className="h-7 text-[11px] px-3 gap-1.5 cursor-pointer"
+              className="h-8 sm:h-7 text-xs sm:text-[11px] px-3.5 sm:px-3 gap-1.5 cursor-pointer"
             >
-              {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+              {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-3 sm:h-3" /> : <Play className="w-3.5 h-3.5 sm:w-3 sm:h-3" />}
               <span>{isPlaying ? 'Pause' : 'Play Lofi'}</span>
             </Button>
 
             <button
               onClick={handleNextPreset}
-              className="h-7 px-2 text-[11px] text-espresso-muted dark:text-night-muted hover:text-matcha-dark dark:hover:text-matcha-glow flex items-center gap-1 font-mono transition-colors cursor-pointer rounded-md hover:bg-parchment-dark/50 dark:hover:bg-night-card-alt"
+              className="h-8 sm:h-7 px-2.5 sm:px-2 text-xs sm:text-[11px] text-espresso-muted dark:text-night-muted hover:text-matcha-dark dark:hover:text-matcha-glow flex items-center gap-1 font-mono transition-colors cursor-pointer rounded-md hover:bg-parchment-dark/50 dark:hover:bg-night-card-alt"
               title="Next Track"
             >
               <SkipForward className="w-3.5 h-3.5" />
@@ -78,7 +78,7 @@ export function LofiPlayer({
 
             <button
               onClick={toggleMute}
-              className="text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text transition-colors p-1 cursor-pointer rounded-md hover:bg-parchment-dark/50 dark:hover:bg-night-card-alt"
+              className="h-8 w-8 sm:h-7 sm:w-7 flex items-center justify-center text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text transition-colors p-1 cursor-pointer rounded-md hover:bg-parchment-dark/50 dark:hover:bg-night-card-alt"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
               {isMuted ? <VolumeX className="w-3.5 h-3.5 text-terracotta" /> : <Volume2 className="w-3.5 h-3.5" />}

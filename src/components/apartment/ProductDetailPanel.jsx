@@ -18,25 +18,27 @@ export function ProductDetailPanel({ product, onClose }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-espresso/40 dark:bg-black/60 backdrop-blur-xs cursor-pointer"
+          className="fixed inset-0 bg-espresso/50 dark:bg-black/70 backdrop-blur-xs cursor-pointer"
         />
 
-        {/* Small Cozy Floating Popover Card */}
+        {/* Mobile Bottom Sheet / Desktop Centered Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92, y: 12 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.92, y: 12 }}
-          transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-          className="relative z-10 w-full max-w-md bg-card dark:bg-night-card border border-espresso/15 dark:border-night-border rounded-cozy-lg p-6 shadow-2xl overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 40 }}
+          transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+          className="relative z-10 w-full sm:max-w-md bg-card dark:bg-night-card border border-espresso/15 dark:border-night-border rounded-t-cozy-xl sm:rounded-cozy-lg p-5 sm:p-6 shadow-2xl overflow-hidden max-h-[85vh] overflow-y-auto pb-8 sm:pb-6"
         >
-          <div className="washi-tape washi-tape-top-right" />
+          {/* Mobile Drag Indicator Bar */}
+          <div className="sm:hidden w-10 h-1 bg-espresso/20 dark:bg-night-muted/30 rounded-full mx-auto mb-3" />
+          <div className="hidden sm:block washi-tape washi-tape-top-right" />
 
           {/* Header Bar */}
           <div className="flex items-center justify-between gap-3 mb-4">

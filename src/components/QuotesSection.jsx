@@ -119,10 +119,11 @@ export function QuotesSection({ content }) {
 
           <button
             onClick={handleSpinWisdom}
-            className="inline-flex items-center gap-2 text-xs font-mono text-white bg-terracotta dark:bg-terracotta-glow dark:text-espresso hover:bg-terracotta/90 px-4 py-2 rounded-full transition-all duration-200 font-semibold shadow-xs hover:scale-105 shrink-0 cursor-pointer self-start sm:self-auto"
+            className="inline-flex items-center gap-2 text-xs font-mono text-white bg-terracotta dark:bg-terracotta-glow dark:text-espresso hover:bg-terracotta/90 px-3.5 sm:px-4 py-2 rounded-full transition-all duration-200 font-semibold shadow-xs hover:scale-105 shrink-0 cursor-pointer self-start sm:self-auto"
           >
             <Dices className={`w-4 h-4 ${isSpinning ? 'animate-spin' : ''}`} />
-            <span>Spin for Daily Wisdom 🎲</span>
+            <span className="hidden sm:inline">Spin for Daily Wisdom 🎲</span>
+            <span className="sm:hidden">Daily Wisdom 🎲</span>
           </button>
         </div>
 

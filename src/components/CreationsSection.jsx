@@ -127,7 +127,7 @@ export function CreationsSection({ content }) {
               <div className="space-y-5">
                 {projects.map((proj) => (
                   <motion.div key={proj.id} variants={fadeUp}>
-                    <Card className="p-7 md:p-8 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy group hover:border-matcha dark:hover:border-matcha-glow transition-all duration-300">
+                    <Card className="p-5 sm:p-7 md:p-8 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden shadow-cozy group hover:border-matcha dark:hover:border-matcha-glow transition-all duration-300">
                       <div className="washi-tape washi-tape-top-right" />
 
                       <div className="flex flex-col md:flex-row md:items-start gap-6">

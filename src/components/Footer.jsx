@@ -8,7 +8,7 @@ export function Footer({ onScrollTop, isDarkMode, toggleDarkMode }) {
       {/* Organic divider */}
       <div className="organic-divider mb-10" />
 
-      <div className="max-w-4xl mx-auto px-4 flex flex-col items-center gap-6 pb-14">
+      <div className="max-w-4xl mx-auto px-4 flex flex-col items-center gap-6 pb-14 sm:pb-16" style={{ paddingBottom: 'calc(3.5rem + env(safe-area-inset-bottom, 0px))' }}>
         {/* Actions: Back to top & Theme switcher */}
         <div className="flex items-center gap-3">
           <motion.button
@@ -47,7 +47,7 @@ export function Footer({ onScrollTop, isDarkMode, toggleDarkMode }) {
         </div>
 
         {/* Social links */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3 sm:gap-5 flex-wrap justify-center">
           {[
             { href: 'https://www.linkedin.com/in/dantruong1/', icon: Linkedin, label: 'LinkedIn' },
             { href: 'https://github.com/dantruong1', icon: Github, label: 'GitHub' },
@@ -58,7 +58,7 @@ export function Footer({ onScrollTop, isDarkMode, toggleDarkMode }) {
               href={href}
               target={href.startsWith('http') ? '_blank' : undefined}
               rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-1.5 text-[12px] font-mono text-espresso-muted dark:text-night-muted hover:text-matcha-dark dark:hover:text-matcha-glow transition-colors duration-200"
+              className="flex items-center gap-1.5 text-xs font-mono text-espresso-muted dark:text-night-muted hover:text-matcha-dark dark:hover:text-matcha-glow transition-colors duration-200 px-2 py-1.5 rounded-md hover:bg-parchment-dark/40 dark:hover:bg-night-card-alt"
             >
               <Icon className="w-4 h-4" />
               <span>{label}</span>

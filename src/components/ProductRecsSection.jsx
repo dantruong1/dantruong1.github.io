@@ -108,6 +108,23 @@ export function ProductRecsSection() {
         </div>
       </motion.div>
 
+      {/* MOBILE APARTMENT TEASER BANNER */}
+      <motion.div variants={fadeUp} className="md:hidden mb-8">
+        <div className="bg-card-warm dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy p-4 shadow-cozy flex items-center gap-3.5 relative overflow-hidden">
+          <div className="w-10 h-10 rounded-cozy bg-terracotta-soft dark:bg-terracotta/30 flex items-center justify-center text-lg shrink-0">
+            🏠
+          </div>
+          <div className="min-w-0 flex-1">
+            <h4 className="font-serif text-sm font-bold text-espresso dark:text-night-text leading-tight mb-0.5">
+              Interactive Apartment Tour
+            </h4>
+            <p className="text-[11px] text-espresso-muted dark:text-night-muted font-sans leading-snug">
+              On desktop, explore the full interactive architectural floorplan! Tap any product below to inspect details.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
       {/* DESKTOP INTERACTIVE APARTMENT FLOORPLAN */}
       <motion.div variants={fadeUp} className="hidden md:block relative mb-12">
         <ApartmentSVG
