@@ -156,14 +156,14 @@ export function HeroBento({
             {/* Core Narrative Paragraphs with balanced spacing & hierarchy */}
             <div className="space-y-3 sm:space-y-4 text-[14px] sm:text-[15px] text-espresso-light dark:text-night-muted leading-[1.75] sm:leading-[1.8] font-sans">
               <p>
-                I'm{' '}
+                I'm fascinated by the intersection of{' '}
                 <strong className="text-espresso dark:text-night-text font-semibold underline decoration-terracotta/40 decoration-2 underline-offset-2">
-                  endlessly fascinated by people
+                  business and technology
                 </strong>
-                : why we make the decisions we do, how incentives shape behavior, and how thoughtful technology can make everyday life a little better.
+                —where good ideas become useful products, and where the right team makes all the difference.
               </p>
               <p>
-                At Microsoft, I work as a Technical Product Manager on the Xbox team, where I get to build AI-powered tools alongside incredibly smart people and solve problems that help others do their best work.
+                At Microsoft, I'm a Technical Product Manager on the Xbox team, building AI-powered tools with a talented group of engineers and PMs tackling some of the most exciting problems in gaming.
               </p>
             </div>
           </div>
