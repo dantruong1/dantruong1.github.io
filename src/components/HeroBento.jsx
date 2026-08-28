@@ -160,7 +160,7 @@ export function HeroBento({
                 <strong className="text-espresso dark:text-night-text font-semibold underline decoration-terracotta/40 decoration-2 underline-offset-2">
                   business and technology
                 </strong>
-                —where good ideas become useful products, and where the right team makes all the difference.
+                , where good ideas become useful products, and where the right team makes all the difference.
               </p>
               <p>
                 At Microsoft, I'm a Technical Product Manager on the Xbox team, building AI-powered tools with a talented group of engineers and PMs tackling some of the most exciting problems in gaming.
