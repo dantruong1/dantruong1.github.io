@@ -160,7 +160,7 @@ export function WishlistSection() {
           </div>
 
           {/* Description */}
-          <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed max-w-3xl">
+          <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-none">
             A directory of items, gear, clothing, and everyday upgrades on my wishlist. Click any card to inspect or jump directly to the item.
           </p>
         </div>

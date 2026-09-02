@@ -15,7 +15,7 @@ export const WISHLIST_ITEMS = [
     categoryLabel: 'Tech & Wearables',
     note: 'GPS, Aluminum Case with Sport Band',
     description: 'Everyday fitness tracking, activity metrics, and seamless Apple ecosystem notifications.',
-    imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-se-digitalmat-gallery-1-202409_GEO_US?wid=728&hei=666&fmt=png-alpha',
+    imageUrl: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80',
     purchaseUrl: 'https://www.apple.com/apple-watch-se/',
     badge: { label: 'Fitness & Daily', emoji: '⌚', variant: 'matcha' },
     isTopPriority: true,
