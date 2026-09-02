@@ -107,7 +107,7 @@ export const WISHLIST_ITEMS = [
     categoryLabel: 'Tennis & Footwear',
     note: "Size 9 Men's · Tuna Blue / Pure Silver",
     description: 'TWISTRUSS support system and extended outsole contact area for rapid split-steps and court stability.',
-    imageUrl: 'https://www.midwestracquetsports.com/images/xl/1041A575-400.jpg?v=1',
+    imageUrl: 'https://doittennis.com/cdn/shop/files/1041A575-400_Asics_Mens_Court_FF_3_Tennis_Shoes_Tuna_Blue_Pure_Silver_1.png?v=1779920091&width=1096',
     purchaseUrl: 'https://www.midwestracquetsports.com/asics-court-ff-3-mens-tennis-shoe-tuna-blue-pure-silver/p/1041A575-400/?device=c&ttm_source=google&ttm_medium=cpc&ttm_campaign=google_shopping_tennis_shoes&gad_source=1&gad_campaignid=212746269&gbraid=0AAAAAD_rX5WBabUTSNWYdr-6a-XmUtbdG&gclid=Cj0KCQjw79nUBhCgARIsADSHka1Q_5SFGIhSR9poNyxRT-IUWA6ufOKVM2wHe1eERzMAIc93qJa0JWkaAkC6EALw_wcB',
     badge: { label: 'Size 9 Mens', emoji: '👟', variant: 'matcha' },
     isTopPriority: true,

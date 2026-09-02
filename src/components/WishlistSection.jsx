@@ -54,7 +54,6 @@ function WishlistCard({ item }) {
                 alt={item.name}
                 loading="lazy"
                 referrerPolicy="no-referrer"
-                crossOrigin="anonymous"
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageError(true)}
                 className={`max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500 ease-out ${
