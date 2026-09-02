@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Music, BookOpen, Quote, Lightbulb, User, Coffee, Moon, Sun, Package, Layers, Menu, X } from 'lucide-react';
+import { Sparkles, Music, BookOpen, Quote, Lightbulb, User, Coffee, Moon, Sun, Package, Layers, Menu, X, Heart } from 'lucide-react';
 import { Button } from './ui/button';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home', icon: Sparkles },
   { id: 'about', label: 'About', icon: User },
   { id: 'products', label: 'Favorite Products', icon: Package },
+  { id: 'wishlist', label: 'Wishlist', icon: Heart },
   { id: 'recommendations', label: 'Recommendations', icon: Lightbulb },
   { id: 'creations', label: "Things I've Created", icon: Layers },
   { id: 'quotes', label: 'Quotes', icon: Quote },

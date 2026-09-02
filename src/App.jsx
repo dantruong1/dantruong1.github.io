@@ -9,12 +9,13 @@ import { CreationsSection } from './components/CreationsSection';
 import { QuotesSection } from './components/QuotesSection';
 import { RecommendationsSection } from './components/RecommendationsSection';
 import { ProductRecsSection } from './components/ProductRecsSection';
+import { WishlistSection } from './components/WishlistSection';
 
 import { GlobalLofiEngine } from './components/GlobalLofiEngine';
 import { Footer } from './components/Footer';
 import { LOFI_PRESETS } from './data/lofiPresets';
 
-const VALID_TABS = ['about', 'products', 'recommendations', 'creations', 'projects', 'writings', 'quotes', 'home'];
+const VALID_TABS = ['about', 'products', 'wishlist', 'recommendations', 'creations', 'projects', 'writings', 'quotes', 'home'];
 
 const getTabFromHash = () => {
   const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
@@ -113,6 +114,8 @@ export default function App() {
         return <AboutSection content={SITE_CONTENT} />;
       case 'products':
         return <ProductRecsSection />;
+      case 'wishlist':
+        return <WishlistSection />;
       case 'creations':
       case 'projects':
       case 'writings':

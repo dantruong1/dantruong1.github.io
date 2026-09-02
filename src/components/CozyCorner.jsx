@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Lightbulb, Quote, User, Package, ArrowRight } from 'lucide-react';
+import { Layers, Lightbulb, Quote, User, Package, ArrowRight, Heart } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 
 const COZY_CARDS = [
@@ -21,6 +21,15 @@ const COZY_CARDS = [
     accent: 'bg-terracotta-soft text-terracotta',
     border: 'hover:border-terracotta-muted',
     handNote: 'apartment tour 🏠',
+  },
+  {
+    id: 'wishlist',
+    title: 'My Wishlist',
+    desc: 'A directory of items, gear, clothing, and everyday upgrades on my wishlist.',
+    icon: Heart,
+    accent: 'bg-amber-light text-amber-warm',
+    border: 'hover:border-amber-warm/40',
+    handNote: 'wishlist items ✦',
   },
   {
     id: 'recommendations',
