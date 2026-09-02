@@ -85,7 +85,7 @@ export const WISHLIST_ITEMS = [
     priceDisplay: '$58',
     note: 'Raw Linen / Espresso · Water-Repellent',
     description: 'Structured wide-mouth opening top compartment and organized bottom section for grooming essentials and travel.',
-    imageUrl: 'https://images.lululemon.com/is/image/lululemon/LM9AL1S_072762_1?wid=1080&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1',
+    imageUrl: 'https://images.lululemon.com/is/image/lululemon/LU9CDBS_072762_1?wid=1080&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1',
     purchaseUrl: 'https://shop.lululemon.com/p/bags/Dual-Compartment-Toiletry-Bag/_/prod11870444?color=72762&locale=en_US&sl=US&sz=ONESIZE',
     badge: { label: 'Travel Kit', emoji: '👝', variant: 'matcha' },
     isTopPriority: false,
