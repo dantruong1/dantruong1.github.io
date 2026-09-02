@@ -1,19 +1,27 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Sparkles, ExternalLink, Gift, Tag, Check, ShoppingBag, ArrowUpRight } from 'lucide-react';
+import { Heart, Sparkles, ExternalLink, Gift, Tag, ArrowUpRight, ShoppingBag, ArrowUpDown, DollarSign } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
-import { WISHLIST_ITEMS, WISHLIST_CATEGORIES } from '../data/wishlist';
+import { WISHLIST_ITEMS } from '../data/wishlist';
 
 const stagger = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
 };
 
 const fadeUp = {
   hidden: { y: 16, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+  show: { y: 0, opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
 };
+
+const SORT_OPTIONS = [
+  { id: 'featured', label: 'Featured' },
+  { id: 'price-asc', label: 'Price: Low → High' },
+  { id: 'price-desc', label: 'Price: High → Low' },
+  { id: 'alpha-asc', label: 'Name: A → Z' },
+  { id: 'alpha-desc', label: 'Name: Z → A' },
+];
 
 function WishlistCard({ item }) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -21,6 +29,7 @@ function WishlistCard({ item }) {
 
   return (
     <motion.div
+      layout
       variants={fadeUp}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
@@ -31,7 +40,7 @@ function WishlistCard({ item }) {
           {/* Product Image Frame */}
           <div className="relative w-full h-52 sm:h-56 bg-gradient-to-b from-parchment-light to-parchment-dark/40 dark:from-night-card-alt dark:to-night-card/80 border-b border-espresso/8 dark:border-night-border flex items-center justify-center p-6 overflow-hidden">
             {/* Top Badge & Priority */}
-            <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+            <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10 gap-2">
               <Badge
                 variant={item.badge?.variant === 'terracotta' ? 'terracotta' : 'default'}
                 className="text-[10px] font-mono py-0.5 px-2.5 shadow-xs backdrop-blur-xs bg-card/90 dark:bg-night-card/90"
@@ -76,18 +85,18 @@ function WishlistCard({ item }) {
 
           {/* Content Body */}
           <div className="p-5">
-            {/* Brand & Category */}
+            {/* Brand & Price Header */}
             <div className="flex items-center justify-between gap-2 mb-1.5">
               <span className="font-mono text-[11px] font-bold text-terracotta dark:text-terracotta-glow uppercase tracking-wider">
                 {item.brand}
               </span>
-              <span className="text-[11px] font-mono text-espresso-muted dark:text-night-muted">
-                {item.categoryLabel}
+              <span className="font-mono text-xs sm:text-sm font-bold text-espresso dark:text-night-text bg-parchment-dark/80 dark:bg-night-card-alt px-2.5 py-0.5 rounded-md border border-espresso/8 dark:border-night-border">
+                {item.priceDisplay}
               </span>
             </div>
 
             {/* Product Title */}
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-espresso dark:text-night-text group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors leading-snug mb-2">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-espresso dark:text-night-text group-hover:text-matcha-dark dark:group-hover:text-matcha-glow transition-colors leading-snug mb-2 line-clamp-1">
               {item.name}
             </h3>
 
@@ -95,7 +104,7 @@ function WishlistCard({ item }) {
             {item.note && (
               <div className="mb-3 px-2.5 py-1.5 rounded-lg bg-parchment-dark/60 dark:bg-night-card-alt border border-espresso/6 dark:border-night-border flex items-start gap-1.5">
                 <Tag className="w-3.5 h-3.5 text-terracotta dark:text-terracotta-glow shrink-0 mt-0.5" />
-                <span className="text-xs font-mono font-medium text-espresso dark:text-night-text leading-tight">
+                <span className="text-xs font-mono font-medium text-espresso dark:text-night-text leading-tight truncate">
                   {item.note}
                 </span>
               </div>
@@ -129,12 +138,24 @@ function WishlistCard({ item }) {
 }
 
 export function WishlistSection() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [sortBy, setSortBy] = useState('featured');
 
-  const filteredItems = useMemo(() => {
-    if (activeCategory === 'all') return WISHLIST_ITEMS;
-    return WISHLIST_ITEMS.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
+  const sortedItems = useMemo(() => {
+    const items = [...WISHLIST_ITEMS];
+    switch (sortBy) {
+      case 'price-asc':
+        return items.sort((a, b) => a.price - b.price);
+      case 'price-desc':
+        return items.sort((a, b) => b.price - a.price);
+      case 'alpha-asc':
+        return items.sort((a, b) => a.name.localeCompare(b.name));
+      case 'alpha-desc':
+        return items.sort((a, b) => b.name.localeCompare(a.name));
+      case 'featured':
+      default:
+        return items;
+    }
+  }, [sortBy]);
 
   return (
     <motion.section
@@ -160,36 +181,39 @@ export function WishlistSection() {
             <div className="organic-divider flex-1" />
           </div>
 
-          {/* Description */}
+          {/* Horizontally Extended Blurb */}
           <p className="text-sm md:text-base text-espresso-muted dark:text-night-muted font-sans leading-relaxed w-full max-w-none">
             A directory of items, gear, clothing, and everyday upgrades on my wishlist. Click any card to inspect or jump directly to the item.
           </p>
         </div>
       </motion.div>
 
-      {/* Category Filter Pills */}
-      <motion.div variants={fadeUp} className="mb-8">
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-          {WISHLIST_CATEGORIES.map((cat) => {
-            const isSelected = activeCategory === cat.id;
-            const count =
-              cat.id === 'all'
-                ? WISHLIST_ITEMS.length
-                : WISHLIST_ITEMS.filter((i) => i.category === cat.id).length;
+      {/* Toolbar: Item Counter & Sorting Controls */}
+      <motion.div variants={fadeUp} className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-espresso/8 dark:border-night-border pb-4">
+        <div className="flex items-center gap-2 text-xs font-mono text-espresso-muted dark:text-night-muted">
+          <span>{sortedItems.length} items in directory</span>
+        </div>
 
+        {/* Sorting Dropdown & Quick Buttons */}
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full pb-1 sm:pb-0">
+          <span className="text-[11px] font-mono text-espresso-muted dark:text-night-muted uppercase tracking-wider flex items-center gap-1 mr-1 shrink-0">
+            <ArrowUpDown className="w-3 h-3 text-terracotta dark:text-terracotta-glow" />
+            Sort by:
+          </span>
+
+          {SORT_OPTIONS.map((opt) => {
+            const isSelected = sortBy === opt.id;
             return (
               <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                key={opt.id}
+                onClick={() => setSortBy(opt.id)}
+                className={`px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 whitespace-nowrap shrink-0 ${
                   isSelected
                     ? 'bg-matcha text-white dark:bg-matcha-dark font-semibold shadow-xs'
-                    : 'bg-card/80 dark:bg-night-card/80 text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text border border-espresso/8 dark:border-night-border'
+                    : 'bg-card/80 dark:bg-night-card/80 text-espresso-muted dark:text-night-muted hover:text-espresso dark:hover:text-night-text hover:bg-parchment-dark/60 dark:hover:bg-night-card-alt border border-espresso/8 dark:border-night-border'
                 }`}
               >
-                <span>{cat.icon}</span>
-                <span>{cat.label}</span>
-                <span className="opacity-60 text-[10px]">({count})</span>
+                {opt.label}
               </button>
             );
           })}
@@ -198,31 +222,16 @@ export function WishlistSection() {
 
       {/* Directory Cards Grid */}
       <motion.div
+        layout
         variants={stagger}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         <AnimatePresence mode="popLayout">
-          {filteredItems.map((item) => (
+          {sortedItems.map((item) => (
             <WishlistCard key={item.id} item={item} />
           ))}
         </AnimatePresence>
       </motion.div>
-
-      {/* Empty State if needed */}
-      {filteredItems.length === 0 && (
-        <motion.div
-          variants={fadeUp}
-          className="text-center py-16 bg-card/50 dark:bg-night-card/50 rounded-cozy border border-espresso/8 dark:border-night-border"
-        >
-          <Gift className="w-10 h-10 text-espresso-muted dark:text-night-muted mx-auto mb-3 opacity-60" />
-          <h4 className="font-serif text-lg font-bold text-espresso dark:text-night-text mb-1">
-            No items found in this category
-          </h4>
-          <p className="text-xs font-mono text-espresso-muted dark:text-night-muted">
-            Try selecting "All Items" to view the full directory.
-          </p>
-        </motion.div>
-      )}
     </motion.section>
   );
 }
