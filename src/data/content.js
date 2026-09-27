@@ -738,6 +738,12 @@ export const SITE_CONTENT = {
           author: "Rod Serling",
           note: "A brilliant Twilight Zone teleplay showing how fast fear and suspicion can tear a normal neighborhood apart. It captures how human paranoia is often a bigger threat than any external monster.",
           url: "https://www.goodreads.com/book/show/12470719-the-monsters-are-due-on-maple-street"
+        },
+        {
+          title: "The Mom Test",
+          author: "Rob Fitzpatrick",
+          note: "How to talk to customers and learn if your business is a good idea when everyone is lying to you. The gold standard for customer discovery, asking the right questions, and avoiding false validation.",
+          url: "https://www.goodreads.com/book/show/29975286-the-mom-test"
         }
       ]
     }
