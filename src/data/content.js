@@ -744,6 +744,12 @@ export const SITE_CONTENT = {
           author: "Rob Fitzpatrick",
           note: "How to talk to customers and learn if your business is a good idea when everyone is lying to you. The gold standard for customer discovery, asking the right questions, and avoiding false validation.",
           url: "https://www.goodreads.com/book/show/29975286-the-mom-test"
+        },
+        {
+          title: "Good Strategy/Bad Strategy",
+          author: "Richard Rumelt",
+          note: "A clear-eyed guide to distinguishing real strategy from slogans, built around diagnosing the challenge and choosing a focused, coherent response.",
+          url: "https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/"
         }
       ]
     }
