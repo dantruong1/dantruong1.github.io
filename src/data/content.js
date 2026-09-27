@@ -743,7 +743,7 @@ export const SITE_CONTENT = {
           title: "The Mom Test",
           author: "Rob Fitzpatrick",
           note: "How to talk to customers and learn if your business is a good idea when everyone is lying to you. The gold standard for customer discovery, asking the right questions, and avoiding false validation.",
-          url: "https://www.goodreads.com/book/show/29975286-the-mom-test"
+          url: "https://www.momtestbook.com/"
         },
         {
           title: "Good Strategy/Bad Strategy",
