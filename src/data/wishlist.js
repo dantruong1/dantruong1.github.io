@@ -129,4 +129,17 @@ export const WISHLIST_ITEMS = [
     badge: { label: 'Extra Duty', emoji: '🎾', variant: 'matcha' },
     isTopPriority: false,
   },
+  {
+    id: 'birkenstock-boston-mocha',
+    name: 'Boston Soft Footbed Suede Leather',
+    brand: 'BIRKENSTOCK',
+    price: 169.95,
+    priceDisplay: '$169.95',
+    note: "Size 9 Men's · Mocha Suede Leather",
+    description: 'Classic year-round suede clog with a contoured cork-latex footbed, adjustable buckle strap, and cushioned soft footbed for extra all-day support.',
+    imageUrl: 'https://www.birkenstock.com/dw/image/v2/BLZD_PRD/on/demandware.static/-/Sites-master-catalog-amer/default/dw70dfdaaf/660461/660461.jpg?q=80&sh=1200&sm=fit&sw=1200',
+    purchaseUrl: 'https://www.birkenstock.com/us/boston-soft-footbed-suede-leather/boston-suede-suedeleather-softfootbed-eva-u_90.html',
+    badge: { label: 'Size 9 · Mocha', emoji: '👞', variant: 'terracotta' },
+    isTopPriority: false,
+  },
 ];
