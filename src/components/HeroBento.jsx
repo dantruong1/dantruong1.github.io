@@ -60,10 +60,10 @@ export function HeroBento({
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-10"
+      className="hero-bento grid grid-cols-1 lg:grid-cols-12 gap-7 mb-10"
     >
       {/* ── Left Column: 4-Photo Scrapbook Collage ── */}
-      <motion.div variants={item} className="lg:col-span-5 flex flex-col justify-between">
+      <motion.div variants={item} className="hero-scrapbook lg:col-span-5 flex flex-col justify-between">
         <div className="bg-card/40 dark:bg-night-card/40 border border-espresso/8 dark:border-night-border rounded-cozy p-4 relative shadow-cozy">
           <div className="flex items-center justify-between mb-3 px-1">
             <span className="font-hand text-xl text-espresso dark:text-night-text font-bold flex items-center gap-1.5">
@@ -82,7 +82,7 @@ export function HeroBento({
                 key={photo.id}
                 whileHover={{ scale: 1.04, zIndex: 20, rotate: 0 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className={`polaroid-frame p-2 sm:p-2.5 rounded-lg group cursor-pointer relative transition-shadow hover:shadow-lg ${photo.rotate}`}
+                className={`polaroid-frame p-2 sm:p-2.5 rounded-lg group relative transition-shadow hover:shadow-lg ${photo.rotate}`}
               >
                 <div className={`washi-tape ${photo.washiPos}`} />
 
@@ -136,9 +136,9 @@ export function HeroBento({
       </motion.div>
 
       {/* ── Right Column: Bio Card + Player + Quote ── */}
-      <motion.div variants={item} className="lg:col-span-7 flex flex-col gap-5 sm:gap-7">
+      <motion.div variants={item} className="hero-intro lg:col-span-7 flex flex-col gap-5 sm:gap-7">
         {/* Main Bio Card */}
-        <Card className="p-5 sm:p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden flex-1 flex flex-col justify-between shadow-cozy">
+        <Card className="hero-bio p-5 sm:p-7 md:p-9 bg-card dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden flex-1 flex flex-col justify-between shadow-cozy">
           <div className="washi-tape washi-tape-top-right" />
 
           <div>

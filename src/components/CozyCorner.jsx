@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Layers, Lightbulb, Quote, User, Package, ArrowRight, Heart } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
 
@@ -61,6 +61,7 @@ const COZY_CARDS = [
 ];
 
 export function CozyCorner({ onNavigate }) {
+  const reducedMotion = useReducedMotion();
 
   return (
     <section id="cozy-corner" className="mb-14 scroll-mt-24">
@@ -77,19 +78,20 @@ export function CozyCorner({ onNavigate }) {
       </div>
 
       {/* Grid: 2-column on mobile for compact vertical footprint, 2-col on tablet, 3-col on desktop */}
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+      <div className="cozy-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
         {COZY_CARDS.map((card, idx) => {
           const Icon = card.icon;
           return (
-            <motion.div
+            <motion.a
+              href={`#/${card.id}`}
               key={card.id}
-              initial={{ y: 24, opacity: 0 }}
+              initial={reducedMotion ? false : { y: 24, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6 }}
-              onClick={() => onNavigate(card.id)}
-              className="cursor-pointer"
+              onClick={(event) => { if (!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && event.button === 0) { event.preventDefault(); onNavigate(card.id); } }}
+              className={`cozy-link cozy-link--${card.id} cursor-pointer`}
             >
               <Card className={`p-3.5 sm:p-6 h-full flex flex-col justify-between group ${card.border} relative transition-all duration-300 shadow-cozy`}>
                 {/* Hand note — shown on sm+ screens */}
@@ -106,7 +108,7 @@ export function CozyCorner({ onNavigate }) {
                   <CardTitle className="mb-1.5 sm:mb-2 text-base sm:text-lg group-hover:text-espresso transition-colors font-serif leading-tight">
                     {card.title}
                   </CardTitle>
-                  <CardDescription className="text-xs sm:text-[13px] text-espresso-muted leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  <CardDescription className="text-xs sm:text-[13px] text-espresso-muted leading-relaxed ">
                     {card.desc}
                   </CardDescription>
                 </div>
@@ -117,7 +119,7 @@ export function CozyCorner({ onNavigate }) {
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>
               </Card>
-            </motion.div>
+            </motion.a>
           );
         })}
       </div>

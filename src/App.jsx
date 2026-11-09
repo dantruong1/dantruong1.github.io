@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig, useReducedMotion } from 'framer-motion';
 import { SITE_CONTENT } from './data/content';
 import { Navbar } from './components/Navbar';
 import { HeroBento } from './components/HeroBento';
@@ -23,6 +23,7 @@ const getTabFromHash = () => {
 };
 
 export default function App() {
+  const reducedMotion = useReducedMotion();
   const [activeTab, setActiveTabState] = useState(getTabFromHash);
 
   const handleTabChange = useCallback((tabId) => {
@@ -105,7 +106,7 @@ export default function App() {
 
   // Scroll to top on tab change
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'instant' : 'smooth' });
   }, [activeTab]);
 
   const renderContent = () => {
@@ -146,7 +147,9 @@ export default function App() {
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative min-h-screen bg-parchment dark:bg-night-bg text-espresso dark:text-night-text font-sans transition-colors duration-500">
+      <a className="skip-link" href="#main-content" onClick={(event) => { event.preventDefault(); document.getElementById("main-content")?.focus(); }}>Skip to content</a>
       {/* Persistent Global Lofi Web Audio Engine across ALL tabs */}
       <GlobalLofiEngine isPlaying={isPlaying} presetIdx={presetIdx} isMuted={isMuted} />
 
@@ -171,7 +174,7 @@ export default function App() {
           toggleDarkMode={toggleDarkMode}
         />
 
-        <main className="mt-4">
+        <main id="main-content" tabIndex={-1} className="mt-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -186,11 +189,12 @@ export default function App() {
         </main>
 
         <Footer
-          onScrollTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onScrollTop={() => window.scrollTo({ top: 0, behavior: reducedMotion ? 'instant' : 'smooth' })}
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
         />
       </div>
     </div>
+    </MotionConfig>
   );
 }
