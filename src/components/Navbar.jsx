@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Music, BookOpen, Quote, Lightbulb, User, Coffee, Moon, Sun, Package, Layers, Menu, X, Heart } from 'lucide-react';
 import { Button } from './ui/button';
@@ -15,6 +15,17 @@ const NAV_ITEMS = [
 
 export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkMode, toggleDarkMode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const menuButton = useRef(null);
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const dismiss = (event) => {
+      if (event.key === 'Escape') { setIsMobileMenuOpen(false); menuButton.current?.focus(); }
+    };
+    document.addEventListener('keydown', dismiss);
+    return () => document.removeEventListener('keydown', dismiss);
+  }, [isMobileMenuOpen]);
+  useEffect(() => { setIsMobileMenuOpen(false); }, [activeTab]);
 
   const handleSelectNav = (tabId) => {
     setActiveTab(tabId);
@@ -49,14 +60,15 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
         </button>
 
         {/* Desktop Navigation pills (hidden on mobile/tablet, visible on lg+) */}
-        <nav className="hidden lg:flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5 justify-center flex-1 max-w-full">
+        <nav aria-label="Main navigation" className="hidden xl:flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5 justify-center flex-1 max-w-full">
           {NAV_ITEMS.map((item, idx) => {
             const Icon = item.icon;
-            const isActive = activeTab === item.id;
+            const isActive = (activeTab === item.id || (item.id === 'creations' && ['projects', 'writings'].includes(activeTab)));
             return (
               <React.Fragment key={item.id}>
                 {idx > 0 && <span className="nav-dot mx-0.5 hidden xl:block" />}
                 <button
+                  aria-current={isActive ? 'page' : undefined}
                   onClick={() => handleSelectNav(item.id)}
                   className={`relative px-2.5 md:px-3 py-1.5 rounded-full text-[12px] md:text-[12.5px] font-medium transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                     isActive
@@ -109,7 +121,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
             variant={isPlaying ? 'terracotta' : 'outline'}
             size="sm"
             onClick={toggleLofi}
-            className="hidden lg:inline-flex items-center gap-1.5 text-[11px] font-mono shrink-0 h-8 px-3"
+            className="hidden xl:inline-flex items-center gap-1.5 text-[11px] font-mono shrink-0 h-8 px-3"
           >
             {isPlaying ? (
               <span className="flex items-center gap-1.5">
@@ -130,8 +142,10 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
 
           {/* Mobile Hamburger Menu Toggle Button */}
           <button
+            ref={menuButton}
+            aria-controls="mobile-navigation"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            className="lg:hidden h-8 w-8 rounded-full bg-parchment-dark/80 dark:bg-night-card-alt text-espresso dark:text-night-text flex items-center justify-center hover:border-matcha-dark dark:hover:border-matcha-glow transition-all duration-200 border border-espresso/10 dark:border-night-border cursor-pointer shadow-xs"
+            className="xl:hidden h-8 w-8 rounded-full bg-parchment-dark/80 dark:bg-night-card-alt text-espresso dark:text-night-text flex items-center justify-center hover:border-matcha-dark dark:hover:border-matcha-glow transition-all duration-200 border border-espresso/10 dark:border-night-border cursor-pointer shadow-xs"
             aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMobileMenuOpen}
           >
@@ -147,21 +161,24 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
       {/* Mobile Top-Down Slide-in Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
+          <motion.nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, height: 0, y: -10 }}
             animate={{ opacity: 1, height: 'auto', y: 0 }}
             exit={{ opacity: 0, height: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden overflow-hidden mt-2 bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy shadow-cozy-lg p-3 sm:p-4 space-y-1.5"
+            className="xl:hidden overflow-hidden mt-2 bg-card dark:bg-night-card border border-espresso/10 dark:border-night-border rounded-cozy shadow-cozy-lg p-3 sm:p-4 space-y-1.5"
           >
             <div className="grid grid-cols-1 gap-1">
               {NAV_ITEMS.map((item) => {
                 const Icon = item.icon;
-                const isActive = activeTab === item.id;
+                const isActive = (activeTab === item.id || (item.id === 'creations' && ['projects', 'writings'].includes(activeTab)));
                 return (
                   <button
                     key={item.id}
-                    onClick={() => handleSelectNav(item.id)}
+                    aria-current={isActive ? 'page' : undefined}
+                  onClick={() => handleSelectNav(item.id)}
                     className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl text-left text-sm font-medium transition-all duration-200 flex items-center justify-between gap-3 ${
                       isActive
                         ? 'bg-matcha dark:bg-matcha-dark text-white font-semibold shadow-xs'
@@ -213,7 +230,7 @@ export function Navbar({ activeTab, setActiveTab, isPlaying, toggleLofi, isDarkM
                 )}
               </button>
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </motion.header>
