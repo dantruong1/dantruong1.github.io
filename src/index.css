@@ -522,3 +522,35 @@ header nav button[aria-current="page"] > div.absolute { display: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+.pixel-garden {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  isolation: isolate;
+}
+.pixel-garden canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+.garden-pause {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #6b7d5e;
+  background: #fffcf7;
+  border: 1px solid #6b7d5e30;
+}
+.dark .garden-pause { background: #26201b; color: #d2e3c4; border-color: #d2e3c430; }
+.garden-pause:hover { box-shadow: 0 3px 12px #6b7d5e20; }
+@media (max-width: 639px) {
+  .pixel-garden { margin-bottom: 1.5rem; }
+  .garden-pause { bottom: -18px; width: 36px; height: 36px; }
+}

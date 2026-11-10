@@ -21,3 +21,9 @@ Result: all seven pages matched the original copy and external link destinations
 Reviewed desktop and phone screenshots for reading order, card spacing, wrapping, and photo captions. The new layout puts the introduction first, keeps all scrapbook captions readable, and stacks directory cards on narrow screens. Focus rings and reduced-motion handling supplement existing interactions.
 
 Tests use Chromium; Safari and Firefox were not run. Remote map tiles, embedded videos, and outbound destinations depend on third-party services. Audio tests confirm control state, not subjective sound quality. Vite reports the existing large JavaScript bundle warning.
+
+## Pixel garden addition
+
+Original seeded Canvas artwork adds cherry blossoms, sage foliage, and an autumn tree above the Cozy Corner. Pointer position affects the breeze. Animation pauses offscreen and in hidden tabs, includes a pause/resume control, and reacts immediately to system reduced-motion changes. No external assets or dependencies were added.
+
+Validation: production build and all nine existing regression tests passed. A separate browser test verifies changing animation frames, stable pixels while paused, and a still scene when reduced motion is enabled.

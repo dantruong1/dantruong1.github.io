@@ -82,3 +82,26 @@ test('skip link keeps the current route and focuses main content', async ({ page
   await expect(page).toHaveURL(/#\/about/);
   await expect(page.locator('main')).toBeFocused();
 });
+
+test('garden animates, pauses, and respects reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  const garden = page.locator('.pixel-garden canvas');
+  await garden.scrollIntoViewIfNeeded();
+  const pixels = () => garden.evaluate(canvas => canvas.toDataURL());
+  const first = await pixels();
+  await page.waitForTimeout(250);
+  expect(await pixels()).not.toBe(first);
+  await page.getByRole('button', { name: 'Pause garden animation' }).click();
+  await page.waitForTimeout(100);
+  const paused = await pixels();
+  await page.waitForTimeout(250);
+  expect(await pixels()).toBe(paused);
+  await page.getByRole('button', { name: 'Resume garden animation' }).click();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(page.locator('.garden-pause')).toHaveCount(0);
+  await page.waitForTimeout(100);
+  const still = await pixels();
+  await page.waitForTimeout(250);
+  expect(await pixels()).toBe(still);
+});

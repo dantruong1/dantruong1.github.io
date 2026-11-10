@@ -1,4 +1,5 @@
 import React from 'react';
+import { PixelGarden } from './PixelGarden';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Layers, Lightbulb, Quote, User, Package, ArrowRight, Heart } from 'lucide-react';
 import { Card, CardTitle, CardDescription } from './ui/card';
@@ -65,6 +66,7 @@ export function CozyCorner({ onNavigate }) {
 
   return (
     <section id="cozy-corner" className="mb-14 scroll-mt-24">
+      <PixelGarden />
       {/* Section header */}
       <div className="flex items-center gap-4 mb-8">
         <span className="font-sans text-xs font-semibold uppercase tracking-wider text-terracotta bg-terracotta-soft/60 px-3 py-1 rounded-full border border-terracotta/10 flex items-center gap-1.5">
