@@ -105,3 +105,28 @@ test('garden animates, pauses, and respects reduced motion', async ({ page }) =>
   await page.waitForTimeout(250);
   expect(await pixels()).toBe(still);
 });
+
+test('pixel scenes follow playback, theme, keyboard focus, and reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  const record = page.locator('.cafe-record');
+  await expect(record).toHaveCSS('animation-play-state', 'paused');
+  await page.getByTitle('Play Lofi', { exact: true }).click();
+  await expect(record).toHaveCSS('animation-play-state', 'running');
+  await page.getByTitle('Pause Lofi', { exact: true }).click();
+  await expect(record).toHaveCSS('animation-play-state', 'paused');
+  await expect(page.locator('.card-pixel-scene')).toHaveCount(6);
+  const products = page.locator('.cozy-link--products');
+  await page.keyboard.press('Tab');
+  await products.focus();
+  await expect(products.locator('.sprite-lamp-glow')).toHaveCSS('opacity', '0.45');
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/#\/products/);
+  const lamp = page.locator('.footer-lamp-light');
+  await expect(lamp).toHaveCSS('fill', 'rgb(201, 190, 161)');
+  await page.getByRole('button', { name: 'Toggle theme', exact: true }).click();
+  await expect(lamp).toHaveCSS('fill', 'rgb(247, 215, 140)');
+  await page.goto('/');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(record).toHaveCSS('animation-name', 'none');
+});

@@ -554,3 +554,37 @@ header nav button[aria-current="page"] > div.absolute { display: none; }
   .pixel-garden { margin-bottom: 1.5rem; }
   .garden-pause { bottom: -18px; width: 36px; height: 36px; }
 }
+
+/* A shared pixel-art vocabulary, with movement tied to interaction or playback. */
+.card-pixel-scene { width: 156px; height: 98px; display: block; margin: -.25rem 0 .75rem; overflow: visible; }
+.card-pixel-scene g { transform-box: fill-box; transform-origin: center; }
+.sprite-lamp-glow { opacity: .08; transition: opacity .25s; }
+.cozy-link:hover .sprite-lamp-glow, .cozy-link:focus-visible .sprite-lamp-glow { opacity: .45; }
+.cozy-link:hover .sprite-book, .cozy-link:focus-visible .sprite-book { transform: translateY(-3px) rotate(-3deg); }
+.sprite-book, .sprite-gift, .sprite-sprig, .sprite-flag, .sprite-bookmark { transition: transform .3s ease; }
+.cozy-link:hover .sprite-gift, .cozy-link:focus-visible .sprite-gift,
+.cozy-link:hover .sprite-bookmark, .cozy-link:focus-visible .sprite-bookmark { transform: translateY(-4px); }
+.cozy-link:hover .sprite-sprig, .cozy-link:focus-visible .sprite-sprig,
+.cozy-link:hover .sprite-flag, .cozy-link:focus-visible .sprite-flag { transform: rotate(5deg); }
+.sprite-cursor { opacity: .5; }
+.cozy-link:hover .sprite-cursor, .cozy-link:focus-visible .sprite-cursor { opacity: 1; }
+.cafe-pixel-scene { display: block; width: 100%; height: auto; max-height: 150px; margin-bottom: 1rem; border-radius: .65rem; }
+.cafe-record { transform-origin: 52px 86px; animation: cafe-spin 5s linear infinite; animation-play-state: paused; }
+.cafe-steam { animation: cafe-steam 3s ease-in-out infinite; animation-play-state: paused; opacity: .5; }
+.is-playing .cafe-record, .is-playing .cafe-steam { animation-play-state: running; }
+.dark .cafe-wall { fill: #3b332b; }
+.dark .cafe-sky { fill: #414c5b; }
+.dark .cafe-moon { fill: #f4dfad; }
+.lofi-cafe-card > div p { white-space: normal; overflow: visible; }
+.footer-pixel-scene { display: block; width: min(100%, 440px); height: auto; margin: 0 auto 1rem; }
+.footer-lamp-glow { opacity: 0; transition: opacity .3s; }
+.dark .footer-lamp-glow { opacity: .16; }
+.dark .footer-lamp-light { fill: #f7d78c; }
+.footer-leaf { transition: transform 1.4s ease-in-out; }
+footer:hover .footer-leaf, footer:focus-within .footer-leaf { transform: translate(20px, 38px) rotate(12deg); }
+@keyframes cafe-spin { to { transform: rotate(360deg); } }
+@keyframes cafe-steam { 0%, 100% { transform: translateY(0); opacity: .2; } 50% { transform: translateY(-4px); opacity: .8; } }
+@media (prefers-reduced-motion: reduce) {
+  .cafe-record, .cafe-steam { animation: none !important; }
+  .sprite-book, .sprite-gift, .sprite-sprig, .sprite-flag, .sprite-bookmark, .footer-leaf { transform: none !important; }
+}

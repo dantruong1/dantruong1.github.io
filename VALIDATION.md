@@ -27,3 +27,9 @@ Tests use Chromium; Safari and Firefox were not run. Remote map tiles, embedded 
 Original seeded Canvas artwork adds cherry blossoms, sage foliage, and an autumn tree above the Cozy Corner. Pointer position affects the breeze. Animation pauses offscreen and in hidden tabs, includes a pause/resume control, and reacts immediately to system reduced-motion changes. No external assets or dependencies were added.
 
 Validation: production build and all nine existing regression tests passed. A separate browser test verifies changing animation frames, stable pixels while paused, and a still scene when reduced motion is enabled.
+
+## Pixel café, directory sprites, and footer
+
+Added original, decorative SVG pixel scenes with no external assets or dependencies. The café record and steam animate only during music playback. Six directory illustrations respond to hover and keyboard focus. The footer bench and streetlamp follow the theme, with a leaf that moves on interaction. All scenes respect reduced motion and stay outside the accessibility tree; existing controls and links retain their accessible names.
+
+Validation: production build, responsive route checks at four widths, existing navigation/audio/theme/garden checks, and a new scene test for playback animation state, keyboard activation, lamp theme colors, and reduced motion. Screenshots cover phone and desktop in both themes. The existing bundle-size warning remains; browser tests use Chromium.

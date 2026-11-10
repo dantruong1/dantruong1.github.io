@@ -1,4 +1,5 @@
 import React from 'react';
+import { CardScene } from './PixelScenes';
 import { PixelGarden } from './PixelGarden';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Layers, Lightbulb, Quote, User, Package, ArrowRight, Heart } from 'lucide-react';
@@ -102,10 +103,7 @@ export function CozyCorner({ onNavigate }) {
                 </span>
 
                 <div className="mb-3 sm:mb-5">
-                  {/* Icon */}
-                  <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-cozy flex items-center justify-center ${card.accent} mb-2.5 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-4 h-4 sm:w-5.5 sm:h-5.5" />
-                  </div>
+                  <CardScene kind={card.id} />
 
                   <CardTitle className="mb-1.5 sm:mb-2 text-base sm:text-lg group-hover:text-espresso transition-colors font-serif leading-tight">
                     {card.title}

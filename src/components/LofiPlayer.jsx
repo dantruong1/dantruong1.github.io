@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { CafeScene } from './PixelScenes';
 import { Play, Pause, Sparkles, Volume2, VolumeX, SkipForward } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -16,30 +16,9 @@ export function LofiPlayer({
   const preset = LOFI_PRESETS[presetIdx] || LOFI_PRESETS[0];
 
   return (
-    <Card className="p-5 bg-card-warm dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden group shadow-cozy">
+    <Card className="lofi-cafe-card p-5 bg-card-warm dark:bg-night-card border-espresso/8 dark:border-night-border relative overflow-hidden group shadow-cozy">
+      <CafeScene isPlaying={isPlaying} />
       <div className="flex items-center gap-4">
-        {/* Spinning Vinyl */}
-        <motion.div
-          animate={{ rotate: isPlaying ? 360 : 0 }}
-          transition={{
-            repeat: isPlaying ? Infinity : 0,
-            duration: 6,
-            ease: 'linear',
-          }}
-          className="relative w-[60px] h-[60px] rounded-full bg-espresso flex items-center justify-center shadow-lg shrink-0 cursor-pointer"
-          onClick={toggleLofi}
-          title={isPlaying ? 'Pause Lofi' : 'Play Lofi'}
-          style={{
-            background: 'conic-gradient(from 0deg, #2e2722, #3d342d, #2e2722, #3d342d, #2e2722)',
-          }}
-        >
-          <div className="w-5 h-5 rounded-full bg-amber-warm border-[3px] border-espresso flex items-center justify-center">
-            <div className="w-1 h-1 rounded-full bg-espresso" />
-          </div>
-          <div className="absolute inset-[6px] rounded-full border border-white/10" />
-          <div className="absolute inset-[11px] rounded-full border border-white/5" />
-        </motion.div>
-
         {/* Info & Controls */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-1 mb-0.5">
@@ -61,6 +40,7 @@ export function LofiPlayer({
               variant={isPlaying ? 'terracotta' : 'default'}
               size="sm"
               onClick={toggleLofi}
+              title={isPlaying ? 'Pause Lofi' : 'Play Lofi'}
               className="h-8 sm:h-7 text-xs sm:text-[11px] px-3.5 sm:px-3 gap-1.5 cursor-pointer"
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-3 sm:h-3" /> : <Play className="w-3.5 h-3.5 sm:w-3 sm:h-3" />}

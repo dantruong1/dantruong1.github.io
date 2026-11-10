@@ -1,10 +1,12 @@
 import React from 'react';
+import { FooterScene } from './PixelScenes';
 import { motion } from 'framer-motion';
 import { Coffee, Github, Linkedin, BookOpen, ArrowUp, Sparkles, Sun, Moon } from 'lucide-react';
 
 export function Footer({ onScrollTop, isDarkMode, toggleDarkMode }) {
   return (
     <footer className="mt-20 relative">
+      <FooterScene />
       {/* Organic divider */}
       <div className="organic-divider mb-10" />
 
